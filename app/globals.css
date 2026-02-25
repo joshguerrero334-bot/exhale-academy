@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --brand-navy: #26272b;
+  --brand-navy-strong: #1f2023;
+  --brand-gold: #71c9c2;
+  --cool-gray: #d6dcdf;
+  --background: #f2f4f4;
+  --text: #26272b;
+  --surface: #ffffff;
+  --surface-soft: #edf1f1;
+  --border: #d8dddf;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--text);
+  --color-primary: #71c9c2;
+  --color-charcoal: #26272b;
+  --color-graysoft: #a0a4ab;
+  --font-sans: Inter, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f2f4f4;
+  color: var(--text);
+  font-family: Inter, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  color-scheme: light;
+  overflow-x: hidden;
+}
+
+input,
+textarea,
+select {
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  min-height: calc(100vh - 68px);
+  padding: 1.5rem 1rem 6.5rem;
+  padding-bottom: max(6.5rem, env(safe-area-inset-bottom));
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding: 2rem 1.5rem 6.5rem;
+    padding-bottom: max(6.5rem, env(safe-area-inset-bottom));
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 0.5rem;
+  background: #71c9c2;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: rgba(113, 201, 194, 0.9);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(113, 201, 194, 0.4);
+  background: #f2f4f4;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #71c9c2;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(113, 201, 194, 0.08);
+}

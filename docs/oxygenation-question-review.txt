@@ -1,0 +1,144 @@
+OXYGENATION QUESTION REVIEW PACK
+Draft for Approval
+
+Structural summary (from provided TMC PDF)
+- Stem style: concise vignette + clear action word (FIRST/NEXT/best).
+- Data style: focused values (ABG, FiO2/device, SpO2, vital signs, vent settings).
+- Distractors: plausible but incomplete, delayed, or unsafe choices.
+- Wording patterns: priority language and context qualifiers.
+- Traps: confusing oxygenation vs ventilation, wrong priority, misreading device limits.
+
+------------------------------------------------------------------
+Q1 (Easy)
+A 49-year-old with community-acquired pneumonia is on nasal cannula 4 L/min. He is alert but dyspneic.
+Data: RR 30/min, HR 112/min, SpO2 84%, ABG: pH 7.47, PaCO2 32 mm Hg, PaO2 50 mm Hg, HCO3- 23 mEq/L.
+What is the best immediate oxygenation step?
+A. Give 2.5 mg albuterol by nebulizer
+B. Switch to a nonrebreather mask at 15 L/min
+C. Decrease oxygen to avoid oxygen toxicity
+D. Sedate the patient for tachypnea
+Correct: B
+Rationale: Severe hypoxemia with preserved ventilation requires immediate FiO2 escalation.
+Why others are wrong: A not primary problem; C worsens hypoxemia; D can depress drive.
+Keyword decoding: "best immediate" = stabilize oxygenation first.
+
+Q2 (Easy)
+A 34-year-old is rescued from an enclosed garage fire. He is awake with headache and nausea.
+SpO2 is 99% on pulse oximetry while breathing oxygen by mask. ABG PaO2 is 180 mm Hg.
+Which test best evaluates true hemoglobin oxygenation status?
+A. Standard pulse oximetry trend
+B. End-tidal CO2
+C. CO-oximetry
+D. Chest radiograph
+Correct: C
+Rationale: CO-oximetry measures oxyhemoglobin and dyshemoglobins directly.
+Why others are wrong: A can be falsely normal in CO exposure; B ventilation only; D not hemoglobin status.
+Keyword decoding: "true hemoglobin oxygenation" = direct species measurement.
+
+Q3 (Easy)
+A postoperative patient is receiving 40% air-entrainment mask oxygen. He remains tachypneic with SpO2 85%.
+ABG: pH 7.44, PaCO2 35 mm Hg, PaO2 52 mm Hg.
+Which change is most appropriate now?
+A. Change to nonrebreather mask at 15 L/min
+B. Start incentive spirometry only
+C. Reduce FiO2 to prevent absorption atelectasis
+D. Administer IV bicarbonate
+Correct: A
+Rationale: Persistent significant hypoxemia needs immediate higher FiO2 delivery.
+Why others are wrong: B insufficient now; C worsens oxygenation; D no metabolic indication.
+Keyword decoding: "most appropriate now" = immediate oxygenation action.
+
+Q4 (Medium)
+A 67-year-old with severe COPD is seen in clinic. On room air:
+pH 7.38, PaCO2 56 mm Hg, PaO2 48 mm Hg, HCO3- 32 mEq/L, SpO2 81%.
+He is stable and speaking in full sentences. Most appropriate next step?
+A. Initiate supplemental oxygen therapy
+B. Withhold oxygen to avoid suppressing hypoxic drive
+C. Order bronchoscopy before treatment
+D. Begin immediate intubation
+Correct: A
+Rationale: Chronic hypercapnia with marked hypoxemia requires titrated oxygen.
+Why others are wrong: B unsafe myth; C delays treatment; D not indicated by current status.
+Keyword decoding: "next step" = treat current physiologic deficit first.
+
+Q5 (Medium)
+An intubated patient with bilateral infiltrates is on VC:
+FiO2 0.80, VT 6 mL/kg PBW, rate 20/min, PEEP 8 cm H2O.
+ABG: pH 7.40, PaCO2 41 mm Hg, PaO2 55 mm Hg.
+Which ventilator change best targets the problem?
+A. Increase respiratory rate to 28/min
+B. Increase PEEP
+C. Decrease inspiratory time
+D. Decrease FiO2 to 0.60
+Correct: B
+Rationale: CO2 is adequate; oxygenation is failing. PEEP improves recruitment.
+Why others are wrong: A mostly ventilation; C not primary fix; D worsens hypoxemia.
+Keyword decoding: "best targets" = match change to oxygenation failure.
+
+Q6 (Medium)
+A patient receiving dapsone becomes cyanotic. On 100% oxygen, pulse oximetry remains 85%.
+ABG: pH 7.41, PaCO2 38 mm Hg, PaO2 310 mm Hg.
+Which test should be obtained?
+A. Repeat pulse oximetry on a different finger
+B. CO-oximetry
+C. End-tidal CO2 monitoring
+D. Bedside spirometry
+Correct: B
+Rationale: High PaO2 with low SpO2 suggests dyshemoglobinemia.
+Why others are wrong: A does not diagnose; C ventilation only; D not relevant.
+Keyword decoding: "clarify abnormality" = resolve PaO2/SpO2 mismatch.
+
+Q7 (Medium)
+Immediately after right subclavian line placement, a ventilated patient develops sudden hypoxemia and hypotension.
+Peak inspiratory pressure rises from 24 to 45 cm H2O. Breath sounds are markedly reduced on the right.
+What should be done first?
+A. Increase FiO2 from 0.50 to 1.0 and wait
+B. Needle decompression of the right chest
+C. Give a bronchodilator treatment
+D. Order routine morning chest x-ray
+Correct: B
+Rationale: Pattern strongly suggests tension pneumothorax; immediate decompression is lifesaving.
+Why others are wrong: A temporary only; C wrong process; D delays urgent treatment.
+Keyword decoding: "first" = immediate lifesaving intervention.
+
+Q8 (Hard)
+A patient with severe ARDS is on lung-protective ventilation:
+FiO2 0.90, PEEP 14 cm H2O, VT 6 mL/kg PBW.
+ABG: pH 7.36, PaCO2 44 mm Hg, PaO2 58 mm Hg.
+Which intervention has strongest evidence to improve oxygenation in this severity range?
+A. Increase VT to 10 mL/kg PBW
+B. Prone positioning
+C. Decrease PEEP to reduce barotrauma risk
+D. Discontinue sedation immediately
+Correct: B
+Rationale: Very low P/F ratio indicates severe ARDS; proning improves oxygenation and outcomes.
+Why others are wrong: A increases VILI risk; C may worsen recruitment; D not direct oxygenation therapy.
+Keyword decoding: "strongest evidence" = best-supported severe ARDS intervention.
+
+Q9 (Hard)
+A patient with dense lobar consolidation has PaO2 54 mm Hg on FiO2 0.60, then PaO2 58 mm Hg on FiO2 1.00.
+PaCO2 remains 39 mm Hg.
+Which mechanism best explains persistent hypoxemia?
+A. Intrapulmonary shunt
+B. Pure hypoventilation
+C. Increased dead space only
+D. Mild diffusion limitation only
+Correct: A
+Rationale: Minimal PaO2 rise despite large FiO2 increase is classic shunt physiology.
+Why others are wrong: B usually raises CO2 and improves with FiO2; C is mainly CO2 issue; D usually responds to FiO2.
+Keyword decoding: "best explains" = infer physiology from oxygen response pattern.
+
+Q10 (Hard)
+A trauma patient is on FiO2 0.60 with ABG: pH 7.32, PaCO2 34 mm Hg, PaO2 190 mm Hg, SaO2 99%.
+Hemoglobin is 5.8 g/dL, lactate 5.2 mmol/L, skin cool/mottled.
+Which intervention most directly improves tissue oxygen delivery now?
+A. Increase FiO2 to 1.00
+B. Increase PEEP by 5 cm H2O
+C. Transfuse packed red blood cells
+D. Decrease ventilator rate
+Correct: C
+Rationale: Oxygen content is critically limited by severe anemia despite high PaO2/SaO2.
+Why others are wrong: A small dissolved O2 effect; B not oxygenation problem; D does not fix O2 carrying capacity.
+Keyword decoding: "tissue oxygen delivery" = prioritize hemoglobin and perfusion, not saturation alone.
+
+QA status: All 10 items reviewed for single-best-answer clarity and physiology consistency.

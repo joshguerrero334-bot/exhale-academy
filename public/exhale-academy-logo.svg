@@ -1,0 +1,13 @@
+<svg width="220" height="44" viewBox="0 0 220 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <circle cx="22" cy="22" r="15.5" stroke="#0B1F3A" stroke-width="3"/>
+    <path d="M13 22h18" stroke="#C6A75E" stroke-width="3" stroke-linecap="round"/>
+    <path d="M22 13v18" stroke="#C6A75E" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+  </g>
+  <text x="48" y="19" fill="#0B1F3A" font-size="13" font-family="Inter, Arial, sans-serif" font-weight="600" letter-spacing="1.5">
+    EXHALE
+  </text>
+  <text x="48" y="34" fill="#1F2937" font-size="13" font-family="Inter, Arial, sans-serif" font-weight="500" letter-spacing="1.5">
+    ACADEMY
+  </text>
+</svg>

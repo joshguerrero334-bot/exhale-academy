@@ -1,0 +1,11 @@
+slug,name,sort_order,is_active
+oxygenation,Oxygenation,1,true
+ventilation,Ventilation,2,true
+airway-management,Airway Management,3,true
+abg-acid-base,ABG & Acid-Base,4,true
+mechanical-ventilation,Mechanical Ventilation,5,true
+pharmacology,Pharmacology,6,true
+patient-assessment,Patient Assessment,7,true
+pulmonary-function-testing,Pulmonary Function Testing,8,true
+neonatal-peds,Neonatal & Pediatrics,9,true
+infection-control-safety,Infection Control & Safety,10,true

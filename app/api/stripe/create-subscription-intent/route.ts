@@ -178,13 +178,32 @@ export async function POST(request: Request) {
     appendIfPresent(subscriptionBody, "metadata[prior_attempt_count]", priorAttemptCount);
     appendIfPresent(subscriptionBody, "metadata[marketing_opt_in]", marketingOptIn);
     appendIfPresent(subscriptionBody, "expand[]", "latest_invoice.payment_intent");
+    appendIfPresent(subscriptionBody, "expand[]", "pending_setup_intent");
 
     const subscription = await stripeFormRequest("/v1/subscriptions", subscriptionBody);
     const latestInvoice = (subscription.latest_invoice ?? {}) as Record<string, unknown>;
     const paymentIntent = (latestInvoice.payment_intent ?? {}) as Record<string, unknown>;
-    const clientSecret = String(paymentIntent.client_secret ?? "");
+    const setupIntent = (subscription.pending_setup_intent ?? {}) as Record<string, unknown>;
+
+    let clientSecret = String(paymentIntent.client_secret ?? "");
     if (!clientSecret) {
-      throw new Error("Could not initialize payment intent for subscription.");
+      clientSecret = String(setupIntent.client_secret ?? "");
+    }
+
+    if (!clientSecret) {
+      const latestInvoiceMaybeConfirmationSecret =
+        latestInvoice && typeof latestInvoice.confirmation_secret === "string"
+          ? String(latestInvoice.confirmation_secret)
+          : "";
+      if (latestInvoiceMaybeConfirmationSecret) {
+        clientSecret = latestInvoiceMaybeConfirmationSecret;
+      }
+    }
+
+    if (!clientSecret) {
+      throw new Error(
+        "Could not initialize payment intent for subscription. Confirm Stripe price/key mode alignment and subscription payment settings."
+      );
     }
 
     return NextResponse.json({

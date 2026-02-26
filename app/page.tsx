@@ -6,7 +6,7 @@ export default async function Home() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  const startHref = user ? "/dashboard" : "/login?next=%2Fdashboard";
+  const startHref = user ? "/billing" : "/login?next=%2Fbilling";
 
   return (
     <main className="min-h-screen bg-background text-charcoal">
@@ -23,13 +23,16 @@ export default async function Home() {
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-graysoft sm:text-lg">
             We built this platform to solve a problem every RT student and working therapist has faced:
             information overload, outdated study materials, inconsistent teaching, and a lack of truly realistic exam
-            preparation.
+            preparation. Exhale Academy is fully mobile friendly so you can study anywhere.
           </p>
           <p className="mt-4 text-base font-semibold text-charcoal">We are here to change that.</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href={startHref} className="btn-primary px-6 py-3">
               Start Practicing
+            </a>
+            <a href="/billing" className="btn-primary px-6 py-3">
+              Subscribe Now
             </a>
             <a href="/login" className="btn-secondary px-6 py-3">
               Log In
@@ -150,8 +153,8 @@ export default async function Home() {
           <p className="mx-auto mt-4 max-w-2xl text-sm text-graysoft sm:text-base">
             Your only job here is to learn, grow, and breathe easy. We&apos;ll take care of the rest.
           </p>
-          <a href="/signup" className="btn-primary mt-6 px-6 py-3">
-            Create Free Account
+          <a href="/billing" className="btn-primary mt-6 px-6 py-3">
+            Subscribe and Start
           </a>
         </div>
       </section>

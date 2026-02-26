@@ -12,7 +12,7 @@ export default function ComingSoonPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-graysoft sm:text-base">
             We are building the next wave of Exhale Academy resources so you can study smarter and show up confident
-            on test day.
+            on test day. Every new tool will stay mobile friendly for study on phones, tablets, and desktop.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/dashboard" className="btn-primary">

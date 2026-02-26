@@ -55,6 +55,9 @@ export default async function TmcPage({ searchParams }: TmcPageProps) {
             <Link href="/master" className="btn-primary">
               Start 160-Question TMC Practice Exam
             </Link>
+            <Link href="/billing" className="btn-primary">
+              Unlock Full Access
+            </Link>
             <Link href="/tmc/exam" className="btn-secondary">
               Review Tutor vs Exam Modes
             </Link>

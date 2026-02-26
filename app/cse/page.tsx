@@ -23,6 +23,9 @@ export default function CsePage() {
             <Link href="/dashboard" className="btn-secondary">
               Start Practicing
             </Link>
+            <Link href="/billing" className="btn-primary">
+              Unlock Full Access
+            </Link>
             <Link href="/cse/master" className="btn-primary">
               Start Master CSE
             </Link>

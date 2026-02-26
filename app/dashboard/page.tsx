@@ -34,6 +34,11 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           <p className="mt-2 text-xs text-graysoft">
             Signed in as <span className="font-medium text-charcoal">{user.email}</span>
           </p>
+          <div className="mt-4">
+            <Link href="/billing" className="btn-primary">
+              Subscribe Now
+            </Link>
+          </div>
           {query.error ? (
             <div className="mt-4 rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">
               {query.error}
@@ -95,6 +100,19 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           </p>
           <Link href="/coming-soon" className="btn-secondary mt-4">
             View Coming Soon
+          </Link>
+        </section>
+
+        <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Subscription</p>
+          <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
+            Activate paid access
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-graysoft">
+            Secure Stripe Elements payment for your Exhale Academy monthly subscription.
+          </p>
+          <Link href="/billing" className="btn-primary mt-4">
+            Open Billing
           </Link>
         </section>
       </div>

@@ -33,6 +33,9 @@
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY` (required for server-side webhook sync writes)
+- `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
+- `STRIPE_SECRET_KEY`
+- `STRIPE_PRICE_MONTHLY_ID`
 - `UPSTASH_REDIS_REST_URL` (recommended for distributed rate limiting)
 - `UPSTASH_REDIS_REST_TOKEN` (recommended for distributed rate limiting)
 - `STRIPE_WEBHOOK_SECRET` (required when Stripe webhooks are enabled)

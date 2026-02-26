@@ -25,6 +25,7 @@ function isAllowedWithoutSubscription(pathname: string) {
   if (pathname.startsWith("/billing")) return true;
   if (pathname.startsWith("/logout")) return true;
   if (pathname.startsWith("/api/stripe/create-subscription-intent")) return true;
+  if (pathname.startsWith("/api/stripe/debug-config")) return true;
   if (pathname.startsWith("/account")) return true;
   if (pathname.startsWith("/admin")) return true;
   return false;

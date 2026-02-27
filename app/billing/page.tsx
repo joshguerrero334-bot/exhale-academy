@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import RefreshAccessButton from "../../components/billing/RefreshAccessButton";
 import SubscribeButton from "../../components/billing/SubscribeButton";
 import { headingFont } from "../../lib/fonts";
 import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
@@ -79,6 +80,9 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
 
           <div className="mt-4">
             <SubscribeButton label="Subscribe" />
+          </div>
+          <div className="mt-3">
+            <RefreshAccessButton />
           </div>
           <div className="mt-5">
             <Link href="/dashboard" className="btn-secondary">

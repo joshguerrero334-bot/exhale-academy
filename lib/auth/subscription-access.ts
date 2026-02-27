@@ -1,4 +1,4 @@
-type SupabaseCompat = {
+type MinimalSupabaseClient = {
   from: (table: string) => {
     select: (columns: string) => {
       eq: (column: string, value: string) => {
@@ -8,8 +8,9 @@ type SupabaseCompat = {
   };
 };
 
-export async function resolveIsSubscribed(supabase: SupabaseCompat, userId: string) {
-  const profilesResult = await supabase
+export async function resolveIsSubscribed(supabase: unknown, userId: string) {
+  const client = supabase as MinimalSupabaseClient;
+  const profilesResult = await client
     .from("profiles")
     .select("is_subscribed")
     .eq("user_id", userId)
@@ -19,7 +20,7 @@ export async function resolveIsSubscribed(supabase: SupabaseCompat, userId: stri
     return profilesResult.data.is_subscribed === true;
   }
 
-  const legacyResult = await supabase
+  const legacyResult = await client
     .from("user_profiles")
     .select("subscription_status")
     .eq("id", userId)

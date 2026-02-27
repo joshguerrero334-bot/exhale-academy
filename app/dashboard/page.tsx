@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import SubscribeButton from "../../components/billing/SubscribeButton";
 import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
 
@@ -35,9 +36,7 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
             Signed in as <span className="font-medium text-charcoal">{user.email}</span>
           </p>
           <div className="mt-4">
-            <Link href="/billing" className="btn-primary">
-              Subscribe Now
-            </Link>
+            <SubscribeButton label="Subscribe" />
           </div>
           {query.error ? (
             <div className="mt-4 rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">
@@ -109,11 +108,11 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
             Activate paid access
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-graysoft">
-            Secure Stripe Elements payment for your Exhale Academy monthly subscription.
+            Upgrade instantly with Stripe Checkout.
           </p>
-          <Link href="/billing" className="btn-primary mt-4">
-            Open Billing
-          </Link>
+          <div className="mt-4">
+            <SubscribeButton label="Subscribe" />
+          </div>
         </section>
       </div>
     </main>

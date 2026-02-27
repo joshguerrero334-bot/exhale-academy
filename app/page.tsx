@@ -1,4 +1,5 @@
 import { createClient } from "../lib/supabase/server";
+import SubscribeButton from "../components/billing/SubscribeButton";
 import { headingFont } from "../lib/fonts";
 
 export default async function Home() {
@@ -37,9 +38,7 @@ export default async function Home() {
             <a href={startHref} className="btn-primary px-6 py-3">
               Start Practicing
             </a>
-            <a href="/billing" className="btn-primary px-6 py-3">
-              Subscribe Now
-            </a>
+            {user ? <SubscribeButton className="btn-primary px-6 py-3" label="Subscribe" /> : null}
             <a href="/login" className="btn-secondary px-6 py-3">
               Log In
             </a>
@@ -159,9 +158,15 @@ export default async function Home() {
           <p className="mx-auto mt-4 max-w-2xl text-sm text-graysoft sm:text-base">
             Your only job here is to learn, grow, and breathe easy. We&apos;ll take care of the rest.
           </p>
-          <a href="/billing" className="btn-primary mt-6 px-6 py-3">
-            Subscribe and Start
-          </a>
+          {user ? (
+            <div className="mt-6 inline-block">
+              <SubscribeButton className="btn-primary px-6 py-3" label="Subscribe and Start" />
+            </div>
+          ) : (
+            <a href="/login?next=%2Fbilling" className="btn-primary mt-6 px-6 py-3">
+              Subscribe and Start
+            </a>
+          )}
         </div>
       </section>
 

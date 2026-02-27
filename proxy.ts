@@ -1,6 +1,5 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
-import { hasActiveSubscription } from "./lib/auth/subscription";
 
 const PUBLIC_PATHS = new Set([
   "/",
@@ -22,12 +21,22 @@ function isPublicPath(pathname: string) {
 
 function isAllowedWithoutSubscription(pathname: string) {
   if (isPublicPath(pathname)) return true;
+  if (pathname.startsWith("/dashboard")) return true;
   if (pathname.startsWith("/billing")) return true;
+  if (pathname.startsWith("/feedback")) return true;
   if (pathname.startsWith("/logout")) return true;
-  if (pathname.startsWith("/api/stripe/create-subscription-intent")) return true;
-  if (pathname.startsWith("/api/stripe/debug-config")) return true;
+  if (pathname.startsWith("/api/stripe/create-checkout-session")) return true;
   if (pathname.startsWith("/account")) return true;
   if (pathname.startsWith("/admin")) return true;
+  return false;
+}
+
+function requiresSubscription(pathname: string) {
+  if (pathname.startsWith("/tmc")) return true;
+  if (pathname.startsWith("/quiz")) return true;
+  if (pathname.startsWith("/master")) return true;
+  if (pathname.startsWith("/master-test")) return true;
+  if (pathname.startsWith("/cse")) return true;
   return false;
 }
 
@@ -81,13 +90,13 @@ export async function proxy(request: NextRequest) {
   }
 
   const { data: profile } = await supabase
-    .from("user_profiles")
-    .select("subscription_status")
-    .eq("id", user.id)
+    .from("profiles")
+    .select("is_subscribed")
+    .eq("user_id", user.id)
     .maybeSingle();
 
-  const isActive = hasActiveSubscription(profile?.subscription_status as string | null | undefined);
-  if (!isActive && !isAllowedWithoutSubscription(pathname)) {
+  const isSubscribed = profile?.is_subscribed === true;
+  if (requiresSubscription(pathname) && !isSubscribed && !isAllowedWithoutSubscription(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/billing";
     url.search = `?error=${encodeURIComponent("Subscription required to access this section.")}`;

@@ -3,7 +3,7 @@ import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
 
 type AccountPageProps = {
-  searchParams: Promise<{ billing?: string }>;
+  searchParams: Promise<{ success?: string }>;
 };
 
 export default async function AccountPage({ searchParams }: AccountPageProps) {
@@ -18,25 +18,14 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   }
 
   const { data: profile } = await supabase
-    .from("user_profiles")
-    .select(
-      "subscription_status, subscription_current_period_end, subscription_cancel_at_period_end, stripe_subscription_id"
-    )
-    .eq("id", user.id)
+    .from("profiles")
+    .select("is_subscribed")
+    .eq("user_id", user.id)
     .maybeSingle();
 
   const query = await searchParams;
-  const billingSuccess = String(query.billing ?? "").toLowerCase() === "success";
-  const status = String(profile?.subscription_status ?? "inactive").toLowerCase();
-  const isActive = status === "active" || status === "trialing";
-  const periodEndRaw = profile?.subscription_current_period_end;
-  const periodEnd = periodEndRaw
-    ? new Date(String(periodEndRaw)).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      })
-    : null;
+  const billingSuccess = String(query.success ?? "") === "1";
+  const isActive = profile?.is_subscribed === true;
   const badgeClass = isActive
     ? "rounded-full border border-green-300 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700"
     : "rounded-full border border-graysoft/40 bg-background px-3 py-1 text-xs font-semibold text-graysoft";
@@ -65,26 +54,9 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
               <span className={badgeClass}>{isActive ? "Active" : "Inactive"}</span>
             </div>
             <p className="mt-2 text-sm text-charcoal">
-              Plan: <span className="font-semibold">Exhale Monthly</span>
+              Plan: <span className="font-semibold">Exhale Academy – All Access (TMC + CSE)</span>
             </p>
-            <p className="mt-1 text-sm text-graysoft">
-              Subscription state: <span className="font-medium text-charcoal">{status}</span>
-            </p>
-            {profile?.stripe_subscription_id ? (
-              <p className="mt-1 text-xs text-graysoft">
-                Subscription ID: <span className="font-mono">{profile.stripe_subscription_id}</span>
-              </p>
-            ) : null}
-            {periodEnd ? (
-              <p className="mt-1 text-sm text-graysoft">
-                Current period ends: <span className="font-medium text-charcoal">{periodEnd}</span>
-              </p>
-            ) : null}
-            {profile?.subscription_cancel_at_period_end ? (
-              <p className="mt-1 text-sm text-amber-700">
-                This subscription is set to cancel at period end.
-              </p>
-            ) : null}
+            <p className="mt-1 text-sm text-graysoft">Status is synced from Stripe webhook events.</p>
           </div>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

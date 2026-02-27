@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import StripeElementsCheckout from "../../components/billing/StripeElementsCheckout";
+import SubscribeButton from "../../components/billing/SubscribeButton";
 import { headingFont } from "../../lib/fonts";
 import { createClient } from "../../lib/supabase/server";
 
 type BillingPageProps = {
-  searchParams: Promise<{ error?: string; success?: string }>;
+  searchParams: Promise<{ error?: string; success?: string; canceled?: string }>;
 };
 
 export default async function BillingPage({ searchParams }: BillingPageProps) {
@@ -41,31 +41,38 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
         {query.error ? (
           <section className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-700">{query.error}</section>
         ) : null}
-        {query.success ? (
-          <section className="rounded-xl border border-green-300 bg-green-50 p-4 text-sm text-green-700">{query.success}</section>
+        {String(query.success ?? "") === "1" ? (
+          <section className="rounded-xl border border-green-300 bg-green-50 p-4 text-sm text-green-700">
+            Payment submitted. Your access will unlock after Stripe webhook confirmation.
+          </section>
+        ) : null}
+        {String(query.canceled ?? "") === "1" ? (
+          <section className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-700">
+            Checkout canceled. You can subscribe anytime below.
+          </section>
         ) : null}
 
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
           <h2 className={`${headingFont} text-xl font-semibold text-charcoal sm:text-2xl`}>
-            What you get with your subscription
+            Upgrade to unlock full access
           </h2>
           <ul className="mt-3 space-y-1 text-sm text-graysoft">
+            <li>• Exhale Academy – All Access (TMC + CSE)</li>
             <li>• Full TMC category drills + 160-question mixed exams</li>
             <li>• Full CSE branching scenarios with Tutor and Exam modes</li>
             <li>• Master CSE exams that mimic test day flow</li>
             <li>• Ongoing updates, study guides, and cheat sheets</li>
-            <li>• Mobile-friendly access on phones, tablets, and desktop</li>
           </ul>
 
           <div className="mt-6 rounded-xl border border-graysoft/30 bg-background p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Secure Checkout</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Monthly Subscription</p>
             <p className="mt-1 text-sm text-graysoft">
-              Enter your account details and payment information below.
+              Start secure Stripe Checkout to activate your subscription.
             </p>
           </div>
 
           <div className="mt-4">
-            <StripeElementsCheckout defaultEmail={user.email ?? ""} />
+            <SubscribeButton label="Subscribe" />
           </div>
           <div className="mt-5">
             <Link href="/dashboard" className="btn-secondary">

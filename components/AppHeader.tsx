@@ -8,10 +8,17 @@ const secondaryBtnClass =
   "inline-flex items-center justify-center rounded-lg border border-primary/40 bg-background px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/5";
 
 export default async function AppHeader() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user: { email?: string | null } | null = null;
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
+    user = authUser;
+  } catch {
+    // Fail open for header rendering if auth client/env is misconfigured in a deployment.
+    user = null;
+  }
 
   const homeHref = user ? "/dashboard" : "/";
   const tmcHref = user ? "/dashboard" : "/login?next=%2Fdashboard";

@@ -2,10 +2,16 @@ import { createClient } from "../lib/supabase/server";
 import { headingFont } from "../lib/fonts";
 
 export default async function Home() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user: { email?: string | null } | null = null;
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user: authUser },
+    } = await supabase.auth.getUser();
+    user = authUser;
+  } catch {
+    user = null;
+  }
   const startHref = user ? "/billing" : "/login?next=%2Fbilling";
 
   return (

@@ -38,7 +38,7 @@ function sanitizeNextPath(pathname: string, search: string) {
   return raw;
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   if (isPublicPath(pathname)) {

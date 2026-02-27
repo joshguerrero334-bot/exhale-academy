@@ -32,7 +32,7 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${baseUrl}/billing?success=1`,
+      success_url: `${baseUrl}/dashboard?billing=success`,
       cancel_url: `${baseUrl}/billing?canceled=1`,
       customer_email: user.email ?? undefined,
       client_reference_id: user.id,

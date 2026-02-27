@@ -5,7 +5,7 @@ import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
 
 type HubPageProps = {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; billing?: string }>;
 };
 
 export default async function DashboardHubPage({ searchParams }: HubPageProps) {
@@ -41,6 +41,11 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           {query.error ? (
             <div className="mt-4 rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">
               {query.error}
+            </div>
+          ) : null}
+          {String(query.billing ?? "") === "success" ? (
+            <div className="mt-4 rounded-xl border border-green-300 bg-green-50 p-3 text-sm text-green-700">
+              Payment submitted. Full access unlocks as soon as Stripe webhook confirms your subscription.
             </div>
           ) : null}
         </section>

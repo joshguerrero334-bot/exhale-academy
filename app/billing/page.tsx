@@ -19,6 +19,16 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
     redirect("/login?next=%2Fbilling");
   }
 
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("is_subscribed")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  if (profile?.is_subscribed === true) {
+    redirect("/dashboard");
+  }
+
   const query = await searchParams;
 
   return (

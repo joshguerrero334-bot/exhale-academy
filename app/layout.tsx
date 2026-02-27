@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${inter.variable} ${playfair.variable} bg-background font-sans text-charcoal antialiased`}>
+      <body className={`${inter.className} ${inter.variable} ${playfair.variable} overflow-x-hidden bg-background font-sans text-charcoal antialiased`}>
         <AppHeader />
         {children}
       </body>

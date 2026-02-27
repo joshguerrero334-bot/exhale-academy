@@ -18,9 +18,29 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
       <div className="mx-auto w-full max-w-md rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 shadow-sm sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">Exhale Academy</p>
         <h1 className="mt-2 text-2xl font-bold text-[color:var(--brand-navy)] sm:text-3xl">Create Account</h1>
-        <p className="mt-2 text-sm text-slate-600">Begin structured RT exam preparation.</p>
+        <p className="mt-2 text-sm text-slate-600">Create your account, then continue to subscription checkout.</p>
 
         <form action={signup} className="mt-8 space-y-4" suppressHydrationWarning>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <input
+              suppressHydrationWarning
+              className="w-full rounded-lg border border-[color:var(--cool-gray)] bg-white px-4 py-3 text-sm outline-none ring-2 ring-transparent transition focus:border-[color:var(--brand-gold)] focus:ring-[color:var(--brand-gold)]/30"
+              placeholder="First Name"
+              autoComplete="given-name"
+              type="text"
+              name="first_name"
+              required
+            />
+            <input
+              suppressHydrationWarning
+              className="w-full rounded-lg border border-[color:var(--cool-gray)] bg-white px-4 py-3 text-sm outline-none ring-2 ring-transparent transition focus:border-[color:var(--brand-gold)] focus:ring-[color:var(--brand-gold)]/30"
+              placeholder="Last Name"
+              autoComplete="family-name"
+              type="text"
+              name="last_name"
+              required
+            />
+          </div>
           <input
             suppressHydrationWarning
             className="w-full rounded-lg border border-[color:var(--cool-gray)] bg-white px-4 py-3 text-sm outline-none ring-2 ring-transparent transition focus:border-[color:var(--brand-gold)] focus:ring-[color:var(--brand-gold)]/30"

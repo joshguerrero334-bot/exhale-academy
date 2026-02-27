@@ -1,14 +1,14 @@
-type SupabaseLike = {
+type SupabaseCompat = {
   from: (table: string) => {
     select: (columns: string) => {
       eq: (column: string, value: string) => {
-        maybeSingle: () => Promise<{ data: Record<string, unknown> | null; error: { message: string } | null }>;
+        maybeSingle: () => PromiseLike<{ data: Record<string, unknown> | null; error: unknown }>;
       };
     };
   };
 };
 
-export async function resolveIsSubscribed(supabase: SupabaseLike, userId: string) {
+export async function resolveIsSubscribed(supabase: SupabaseCompat, userId: string) {
   const profilesResult = await supabase
     .from("profiles")
     .select("is_subscribed")
@@ -32,4 +32,3 @@ export async function resolveIsSubscribed(supabase: SupabaseLike, userId: string
 
   return false;
 }
-

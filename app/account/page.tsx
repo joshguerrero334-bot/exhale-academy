@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
 
@@ -17,15 +18,9 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
     redirect("/login");
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("is_subscribed")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
   const query = await searchParams;
   const billingSuccess = String(query.success ?? "") === "1";
-  const isActive = profile?.is_subscribed === true;
+  const isActive = await resolveIsSubscribed(supabase, user.id);
   const badgeClass = isActive
     ? "rounded-full border border-green-300 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700"
     : "rounded-full border border-graysoft/40 bg-background px-3 py-1 text-xs font-semibold text-graysoft";

@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { resolveIsSubscribed } from "./lib/auth/subscription-access";
 
 const PUBLIC_PATHS = new Set([
   "/",
@@ -96,13 +97,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("is_subscribed")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
-  const isSubscribed = profile?.is_subscribed === true;
+  const isSubscribed = await resolveIsSubscribed(supabase, user.id);
   if (requiresSubscription(pathname) && !isSubscribed && !isAllowedWithoutSubscription(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/billing";

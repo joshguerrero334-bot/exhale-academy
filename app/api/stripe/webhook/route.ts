@@ -9,7 +9,7 @@ function asActive(status: string | null | undefined) {
 
 async function setSubscribed(userId: string, isSubscribed: boolean) {
   const admin = createAdminClient();
-  const { error } = await admin
+  const { error: profilesError } = await admin
     .from("profiles")
     .upsert(
       {
@@ -20,8 +20,31 @@ async function setSubscribed(userId: string, isSubscribed: boolean) {
       { onConflict: "user_id" }
     );
 
-  if (error) {
-    throw new Error(`Supabase profile update failed: ${error.message}`);
+  if (profilesError) {
+    console.error("[stripe][webhook] profiles sync failed:", profilesError.message);
+  }
+
+  const legacyStatus = isSubscribed ? "active" : "canceled";
+  const { error: legacyError } = await admin
+    .from("user_profiles")
+    .upsert(
+      {
+        id: userId,
+        subscription_status: legacyStatus,
+        subscription_updated_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: "id" }
+    );
+
+  if (legacyError) {
+    console.error("[stripe][webhook] user_profiles sync failed:", legacyError.message);
+  }
+
+  if (profilesError && legacyError) {
+    throw new Error(
+      `Both subscription writes failed. profiles=${profilesError.message}; user_profiles=${legacyError.message}`
+    );
   }
 }
 
@@ -80,4 +103,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }
-

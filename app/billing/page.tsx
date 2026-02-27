@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import SubscribeButton from "../../components/billing/SubscribeButton";
 import { headingFont } from "../../lib/fonts";
+import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 
 type BillingPageProps = {
@@ -19,13 +20,8 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
     redirect("/login?next=%2Fbilling");
   }
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("is_subscribed")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
-  if (profile?.is_subscribed === true) {
+  const isSubscribed = await resolveIsSubscribed(supabase, user.id);
+  if (isSubscribed) {
     redirect("/dashboard");
   }
 

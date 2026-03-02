@@ -48,7 +48,7 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           ) : null}
           {String(query.billing ?? "") === "success" ? (
             <div className="mt-4 rounded-xl border border-green-300 bg-green-50 p-3 text-sm text-green-700">
-              Payment submitted. Full access unlocks as soon as Stripe webhook confirms your subscription.
+              Payment successful and subscribed. Full access granted.
             </div>
           ) : null}
         </section>

@@ -4,7 +4,7 @@ import { STRONG_PASSWORD_HINT } from "../../lib/auth/password-policy";
 import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
-import { updatePassword, updateProfile } from "./actions";
+import { updatePassword, updateProfile, updateProfilePhoto } from "./actions";
 
 type AccountPageProps = {
   searchParams: Promise<{ success?: string; message?: string; error?: string }>;
@@ -29,7 +29,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   const [{ data: profile }, { data: legacyProfile }] = await Promise.all([
     supabase
       .from("profiles")
-      .select("first_name, last_name, stripe_customer_id, stripe_subscription_id")
+      .select("first_name, last_name, avatar_url, stripe_customer_id, stripe_subscription_id")
       .eq("user_id", user.id)
       .maybeSingle(),
     supabase
@@ -41,6 +41,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
   const firstName = String(profile?.first_name ?? "");
   const lastName = String(profile?.last_name ?? "");
+  const avatarUrl = String(profile?.avatar_url ?? user.user_metadata?.avatar_url ?? "").trim();
   const stripeCustomerId = String(
     profile?.stripe_customer_id ?? legacyProfile?.stripe_customer_id ?? ""
   ).trim();
@@ -75,6 +76,26 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
           <div className="mt-6 rounded-xl border border-graysoft/30 bg-background p-4">
             <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Account Information</p>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="h-14 w-14 overflow-hidden rounded-full border border-graysoft/30 bg-white">
+                {avatarUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={avatarUrl} alt="Profile" className="h-full w-full object-cover" />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-xs font-semibold text-graysoft">No Photo</div>
+                )}
+              </div>
+              <form action={updateProfilePhoto} className="flex flex-wrap items-center gap-2" encType="multipart/form-data">
+                <input
+                  className="max-w-[220px] rounded-lg border border-graysoft/40 bg-white px-3 py-2 text-xs text-charcoal"
+                  type="file"
+                  name="avatar"
+                  accept="image/png,image/jpeg,image/webp"
+                  required
+                />
+                <button className="btn-secondary">Upload Photo</button>
+              </form>
+            </div>
             <p className="mt-2 text-sm text-charcoal">
               Email: <span className="font-semibold">{user.email}</span>
             </p>

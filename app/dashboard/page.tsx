@@ -35,7 +35,10 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           <p className="mt-2 text-xs text-graysoft">
             Signed in as <span className="font-medium text-charcoal">{user.email}</span>
           </p>
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href="/account" className="btn-secondary">
+              Edit Profile & Billing
+            </Link>
             <SubscribeButton label="Subscribe" />
           </div>
           {query.error ? (

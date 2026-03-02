@@ -205,7 +205,8 @@ export async function POST(request: Request) {
           throw new Error("checkout.session.completed missing subscription id");
         }
 
-        const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+        const subscriptionResponse = await stripe.subscriptions.retrieve(subscriptionId);
+        const subscription = subscriptionResponse as unknown as Stripe.Subscription;
         const resolvedCustomerId =
           typeof subscription.customer === "string" ? subscription.customer : customerId;
         const resolvedUserId = userId || (resolvedCustomerId ? await findUserIdByCustomerId(resolvedCustomerId) : null);

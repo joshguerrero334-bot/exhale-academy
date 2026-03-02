@@ -65,6 +65,11 @@ function periodEndToIso(periodEnd: number | null | undefined) {
   return new Date(periodEnd * 1000).toISOString();
 }
 
+function getSubscriptionCurrentPeriodEnd(subscription: Stripe.Subscription) {
+  const raw = (subscription as unknown as { current_period_end?: unknown }).current_period_end;
+  return typeof raw === "number" ? raw : null;
+}
+
 function extractPriceId(subscription: Stripe.Subscription) {
   const firstItem = subscription.items?.data?.[0];
   return firstItem?.price?.id ?? null;
@@ -216,13 +221,13 @@ export async function POST(request: Request) {
           stripeCustomerId: resolvedCustomerId ?? null,
           stripeSubscriptionId: subscription.id,
           status: "active",
-          currentPeriodEnd: periodEndToIso(subscription.current_period_end),
+          currentPeriodEnd: periodEndToIso(getSubscriptionCurrentPeriodEnd(subscription)),
           cancelAtPeriodEnd: Boolean(subscription.cancel_at_period_end),
           sourceEventType: event.type,
           latestPayload: {
             id: subscription.id,
             status: subscription.status,
-            current_period_end: subscription.current_period_end ?? null,
+            current_period_end: getSubscriptionCurrentPeriodEnd(subscription),
             cancel_at_period_end: subscription.cancel_at_period_end ?? false,
             customer: resolvedCustomerId,
             price_id: extractPriceId(subscription),
@@ -266,13 +271,13 @@ export async function POST(request: Request) {
           stripeCustomerId: customerId,
           stripeSubscriptionId: subscription.id,
           status: "canceled",
-          currentPeriodEnd: periodEndToIso(subscription.current_period_end),
+          currentPeriodEnd: periodEndToIso(getSubscriptionCurrentPeriodEnd(subscription)),
           cancelAtPeriodEnd: Boolean(subscription.cancel_at_period_end),
           sourceEventType: event.type,
           latestPayload: {
             id: subscription.id,
             status: subscription.status,
-            current_period_end: subscription.current_period_end ?? null,
+            current_period_end: getSubscriptionCurrentPeriodEnd(subscription),
             cancel_at_period_end: subscription.cancel_at_period_end ?? false,
             customer: customerId,
             price_id: extractPriceId(subscription),
@@ -322,13 +327,13 @@ export async function POST(request: Request) {
           stripeCustomerId: customerId,
           stripeSubscriptionId: subscription.id,
           status: String(subscription.status ?? "unknown"),
-          currentPeriodEnd: periodEndToIso(subscription.current_period_end),
+          currentPeriodEnd: periodEndToIso(getSubscriptionCurrentPeriodEnd(subscription)),
           cancelAtPeriodEnd: Boolean(subscription.cancel_at_period_end),
           sourceEventType: event.type,
           latestPayload: {
             id: subscription.id,
             status: subscription.status,
-            current_period_end: subscription.current_period_end ?? null,
+            current_period_end: getSubscriptionCurrentPeriodEnd(subscription),
             cancel_at_period_end: subscription.cancel_at_period_end ?? false,
             customer: customerId,
             price_id: extractPriceId(subscription),

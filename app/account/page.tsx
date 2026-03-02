@@ -1,10 +1,13 @@
 import { redirect } from "next/navigation";
+import ManageBillingButton from "../../components/billing/ManageBillingButton";
+import { STRONG_PASSWORD_HINT } from "../../lib/auth/password-policy";
 import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
+import { updatePassword, updateProfile } from "./actions";
 
 type AccountPageProps = {
-  searchParams: Promise<{ success?: string }>;
+  searchParams: Promise<{ success?: string; message?: string; error?: string }>;
 };
 
 export default async function AccountPage({ searchParams }: AccountPageProps) {
@@ -20,6 +23,32 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
 
   const query = await searchParams;
   const billingSuccess = String(query.success ?? "") === "1";
+  const infoMessage = String(query.message ?? "").trim();
+  const errorMessage = String(query.error ?? "").trim();
+
+  const [{ data: profile }, { data: legacyProfile }] = await Promise.all([
+    supabase
+      .from("profiles")
+      .select("first_name, last_name, stripe_customer_id, stripe_subscription_id")
+      .eq("user_id", user.id)
+      .maybeSingle(),
+    supabase
+      .from("user_profiles")
+      .select("subscription_status, stripe_customer_id, stripe_subscription_id")
+      .eq("id", user.id)
+      .maybeSingle(),
+  ]);
+
+  const firstName = String(profile?.first_name ?? "");
+  const lastName = String(profile?.last_name ?? "");
+  const stripeCustomerId = String(
+    profile?.stripe_customer_id ?? legacyProfile?.stripe_customer_id ?? ""
+  ).trim();
+  const stripeSubscriptionId = String(
+    profile?.stripe_subscription_id ?? legacyProfile?.stripe_subscription_id ?? ""
+  ).trim();
+  const legacyStatus = String(legacyProfile?.subscription_status ?? "").trim();
+  const createdLabel = user.created_at ? new Date(user.created_at).toLocaleString() : "Unavailable";
   const isActive = await resolveIsSubscribed(supabase, user.id);
   const badgeClass = isActive
     ? "rounded-full border border-green-300 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700"
@@ -37,36 +66,105 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
               Payment submitted. Subscription status updates within seconds after webhook confirmation.
             </div>
           ) : null}
+          {infoMessage ? (
+            <div className="mt-4 rounded-xl border border-green-300 bg-green-50 p-3 text-sm text-green-700">{infoMessage}</div>
+          ) : null}
+          {errorMessage ? (
+            <div className="mt-4 rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">{errorMessage}</div>
+          ) : null}
 
           <div className="mt-6 rounded-xl border border-graysoft/30 bg-background p-4">
-            <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Email</p>
-            <p className="mt-2 text-sm font-semibold text-charcoal">{user.email}</p>
+            <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Account Information</p>
+            <p className="mt-2 text-sm text-charcoal">
+              Email: <span className="font-semibold">{user.email}</span>
+            </p>
+            <p className="mt-1 text-sm text-charcoal">
+              User ID: <span className="font-mono text-xs">{user.id}</span>
+            </p>
+            <p className="mt-1 text-sm text-charcoal">
+              Created: <span className="font-semibold">{createdLabel}</span>
+            </p>
           </div>
 
           <div className="mt-4 rounded-xl border border-graysoft/30 bg-background p-4">
             <div className="flex flex-wrap items-center gap-2">
-              <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Billing status</p>
+              <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Subscription</p>
               <span className={badgeClass}>{isActive ? "Active" : "Inactive"}</span>
             </div>
             <p className="mt-2 text-sm text-charcoal">
               Plan: <span className="font-semibold">Exhale Academy – All Access (TMC + CSE)</span>
             </p>
-            <p className="mt-1 text-sm text-graysoft">Status is synced from Stripe webhook events.</p>
+            <p className="mt-1 text-sm text-graysoft">
+              Stripe status syncs from webhook events{legacyStatus ? ` (${legacyStatus})` : ""}.
+            </p>
+            <p className="mt-2 text-xs text-graysoft">Stripe customer: {stripeCustomerId || "Not linked yet"}</p>
+            <p className="mt-1 text-xs text-graysoft">Stripe subscription: {stripeSubscriptionId || "Not linked yet"}</p>
+            <div className="mt-3">
+              <ManageBillingButton />
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-xl border border-graysoft/30 bg-background p-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Edit Profile</p>
+            <form action={updateProfile} className="mt-3 grid gap-3 sm:grid-cols-2">
+              <input
+                className="w-full rounded-lg border border-graysoft/40 bg-white px-3 py-2 text-sm text-charcoal"
+                type="text"
+                name="first_name"
+                defaultValue={firstName}
+                placeholder="First name"
+                required
+              />
+              <input
+                className="w-full rounded-lg border border-graysoft/40 bg-white px-3 py-2 text-sm text-charcoal"
+                type="text"
+                name="last_name"
+                defaultValue={lastName}
+                placeholder="Last name"
+                required
+              />
+              <div className="sm:col-span-2">
+                <button className="btn-primary w-full sm:w-auto">Save Profile</button>
+              </div>
+            </form>
+          </div>
+
+          <div className="mt-4 rounded-xl border border-graysoft/30 bg-background p-4">
+            <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Security</p>
+            <form action={updatePassword} className="mt-3 grid gap-3 sm:grid-cols-2">
+              <input
+                className="w-full rounded-lg border border-graysoft/40 bg-white px-3 py-2 text-sm text-charcoal"
+                type="password"
+                name="new_password"
+                minLength={8}
+                pattern="^(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}$"
+                placeholder="New password"
+                required
+              />
+              <input
+                className="w-full rounded-lg border border-graysoft/40 bg-white px-3 py-2 text-sm text-charcoal"
+                type="password"
+                name="confirm_password"
+                minLength={8}
+                placeholder="Confirm password"
+                required
+              />
+              <p className="text-xs text-graysoft sm:col-span-2">{STRONG_PASSWORD_HINT}</p>
+              <div className="sm:col-span-2">
+                <button className="btn-secondary w-full sm:w-auto">Update Password</button>
+              </div>
+            </form>
           </div>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a href="/dashboard" className="btn-primary w-full sm:w-auto">
               Return to Dashboard
             </a>
-            {isActive ? (
-              <a href="/billing" className="btn-secondary w-full sm:w-auto">
-                Manage Billing
-              </a>
-            ) : (
+            {!isActive ? (
               <a href="/billing" className="btn-primary w-full sm:w-auto">
                 Subscribe Now
               </a>
-            )}
+            ) : null}
             <form action="/logout" method="post" className="w-full sm:w-auto">
               <button className="btn-secondary w-full sm:w-auto">Logout</button>
             </form>

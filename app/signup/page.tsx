@@ -56,10 +56,13 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
             placeholder="Password"
             type="password"
             autoComplete="new-password"
-            minLength={6}
+            minLength={8}
+            pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$"
+            title="Use at least 8 characters with 1 uppercase letter, 1 number, and 1 special character."
             name="password"
             required
           />
+          <p className="-mt-2 text-xs text-slate-500">Password must be at least 8 characters and include 1 uppercase letter, 1 number, and 1 special character.</p>
 
           <button className="w-full min-h-[44px] rounded-lg bg-[color:var(--brand-navy)] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--brand-navy-strong)]">
             Create Account

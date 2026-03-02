@@ -32,9 +32,17 @@ export function getStripeClient(context: string) {
   return new Stripe(env.STRIPE_SECRET_KEY);
 }
 
-export function getBaseUrl(request: Request) {
+export function getBaseUrl(request?: Request) {
   const explicit = String(process.env.NEXT_PUBLIC_SITE_URL ?? "").trim();
   if (explicit) return explicit.replace(/\/+$/, "");
+
+  const vercelUrl = String(process.env.VERCEL_URL ?? "").trim();
+  if (vercelUrl) {
+    const withProtocol = /^https?:\/\//.test(vercelUrl) ? vercelUrl : `https://${vercelUrl}`;
+    return withProtocol.replace(/\/+$/, "");
+  }
+
+  if (!request) return "http://localhost:3000";
 
   const requestUrl = new URL(request.url);
   return requestUrl.origin.replace(/\/+$/, "");

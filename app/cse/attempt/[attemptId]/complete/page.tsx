@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import PracticeSwitchBar from "../../../../../components/PracticeSwitchBar";
 import { createClient } from "../../../../../lib/supabase/server";
-import { fetchStepOptions, parseVitalsState } from "../../../../../lib/supabase/cse";
+import { fetchStepOptions } from "../../../../../lib/supabase/cse";
 
 type PageProps = {
   params: Promise<{ attemptId: string }>;
@@ -98,7 +98,6 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
     optionsByStep.set(stepId, result.rows);
   }
 
-  const finalVitals = parseVitalsState(attempt.vitals);
   let masterAttemptId: string | null = null;
   let masterIsCompleted = false;
   let masterCaseIndex: number | null = null;
@@ -185,15 +184,8 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
               <p className="mt-1 text-lg font-semibold text-[color:var(--brand-navy)]">{events.length}</p>
             </div>
           </div>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            {Object.entries(finalVitals).map(([key, value]) => (
-              <span key={key} className="rounded-full bg-slate-100 px-3 py-1 text-slate-700">
-                {key}: {value}
-              </span>
-            ))}
-          </div>
           <div className="mt-5 flex gap-3">
-            <Link href="/cse/cases" className="rounded-lg bg-[color:var(--brand-navy)] px-4 py-2.5 text-sm font-semibold text-white">
+            <Link href="/cse/cases" className="btn-secondary">
               Back to Cases
             </Link>
             {masterAttemptId ? (

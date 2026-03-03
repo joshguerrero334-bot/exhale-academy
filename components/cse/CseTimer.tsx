@@ -56,7 +56,7 @@ export default function CseTimer({ attemptId, initialSeconds = 4 * 60 * 60, canR
   }, [key]);
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2">
+    <div className="fixed bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 sm:bottom-4">
       <button
         type="button"
         onClick={() => setHidden((prev) => !prev)}

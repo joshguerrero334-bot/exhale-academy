@@ -26,6 +26,21 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
   const query = await searchParams;
   const token = String(query.token ?? "").trim();
   const configuredToken = String(process.env.PEER_ACCESS_TOKEN ?? "").trim();
+  const linkExpiresAtRaw = String(process.env.PEER_ACCESS_LINK_EXPIRES_AT ?? "").trim();
+  const now = new Date();
+  if (linkExpiresAtRaw) {
+    const parsed = new Date(linkExpiresAtRaw);
+    if (!Number.isNaN(parsed.getTime()) && now.getTime() > parsed.getTime()) {
+      return (
+        <main className="page-shell">
+          <div className="mx-auto w-full max-w-xl rounded-2xl border border-red-300 bg-red-50 p-6 text-red-700">
+            <h1 className="text-xl font-semibold">Invalid access link</h1>
+            <p className="mt-2 text-sm">This invite link has expired. Contact support if you expected access.</p>
+          </div>
+        </main>
+      );
+    }
+  }
 
   if (!token || !configuredToken || token !== configuredToken) {
     return (
@@ -61,7 +76,11 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
     );
   }
 
-  const nowIso = new Date().toISOString();
+  const nowIso = now.toISOString();
+  const trialDaysRaw = Number(process.env.FREE_ACCESS_TRIAL_DAYS ?? "7");
+  const trialDays = Number.isFinite(trialDaysRaw) && trialDaysRaw > 0 ? Math.floor(trialDaysRaw) : 7;
+  const trialExpiresAt = new Date(now.getTime() + trialDays * 24 * 60 * 60 * 1000);
+  const trialExpiresAtIso = trialExpiresAt.toISOString();
 
   try {
     const admin = createAdminClient();
@@ -84,6 +103,8 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
         {
           id: user.id,
           subscription_status: "active",
+          subscription_current_period_end: trialExpiresAtIso,
+          subscription_cancel_at_period_end: true,
           subscription_updated_at: nowIso,
           updated_at: nowIso,
         },
@@ -105,8 +126,10 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
         .from("user_subscriptions")
         .update({
           status: "active",
+          current_period_end: trialExpiresAtIso,
+          cancel_at_period_end: true,
           source_event_type: "manual.peer_access",
-          latest_payload: { grant: "peer_access_qr", granted_at: nowIso },
+          latest_payload: { grant: "peer_access_qr", granted_at: nowIso, trial_expires_at: trialExpiresAtIso },
           updated_at: nowIso,
         })
         .eq("id", existingSub.id);
@@ -115,8 +138,10 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
       const { error: insertSubError } = await admin.from("user_subscriptions").insert({
         user_id: user.id,
         status: "active",
+        current_period_end: trialExpiresAtIso,
+        cancel_at_period_end: true,
         source_event_type: "manual.peer_access",
-        latest_payload: { grant: "peer_access_qr", granted_at: nowIso },
+        latest_payload: { grant: "peer_access_qr", granted_at: nowIso, trial_expires_at: trialExpiresAtIso },
         created_at: nowIso,
         updated_at: nowIso,
       });
@@ -138,7 +163,9 @@ export default async function FreeAccessPage({ searchParams }: FreeAccessPagePro
     <main className="page-shell">
       <div className="mx-auto w-full max-w-xl rounded-2xl border border-green-300 bg-green-50 p-6 text-green-800">
         <h1 className="text-xl font-semibold">Free access activated</h1>
-        <p className="mt-2 text-sm">Your account now has active access. You can start practicing immediately.</p>
+        <p className="mt-2 text-sm">
+          Your account now has active access for {trialDays} days. Trial ends on {trialExpiresAt.toLocaleString()}.
+        </p>
         <div className="mt-4">
           <Link href="/dashboard" className="btn-primary">
             Go to Dashboard

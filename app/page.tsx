@@ -47,22 +47,6 @@ export default async function Home() {
               <br />
               Study smarter, anywhere.
             </p>
-            <p className="mt-5 text-[11px] leading-relaxed text-graysoft">Need help? Email myexhaleacademy@gmail.com</p>
-
-            <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 text-[12px] text-graysoft">
-              <Link href="/about" className="hover:text-primary">
-                About Us
-              </Link>
-              <Link href="/privacy" className="hover:text-primary">
-                Privacy
-              </Link>
-              <Link href="/terms" className="hover:text-primary">
-                Terms
-              </Link>
-              <a href="mailto:myexhaleacademy@gmail.com" className="hover:text-primary">
-                Support
-              </a>
-            </div>
           </div>
         </div>
 

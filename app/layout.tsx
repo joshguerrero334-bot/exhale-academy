@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AppHeader from "../components/AppHeader";
+import SiteFooter from "../components/SiteFooter";
 import { inter, playfair } from "../lib/fonts";
 
 export const metadata: Metadata = {
@@ -19,9 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${inter.variable} ${playfair.variable} overflow-x-hidden bg-background font-sans text-charcoal antialiased`}>
-        <AppHeader />
-        {children}
+      <body
+        className={`${inter.className} ${inter.variable} ${playfair.variable} overflow-x-hidden bg-background font-sans text-charcoal antialiased`}
+      >
+        <div className="flex min-h-screen flex-col">
+          <AppHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

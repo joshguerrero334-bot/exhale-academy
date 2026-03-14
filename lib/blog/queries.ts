@@ -42,7 +42,7 @@ async function getProfileMap(userIds: string[]) {
   const admin = createAdminClient();
   const { data, error } = await admin
     .from("profiles")
-    .select("id, first_name, last_name, avatar_url")
+    .select("id, first_name, last_name")
     .in("id", ids);
 
   if (error) throw new Error(error.message);
@@ -56,7 +56,7 @@ async function getProfileMap(userIds: string[]) {
     map.set(userId, {
       id: userId,
       displayName,
-      avatarUrl: row.avatar_url ? String(row.avatar_url) : null,
+      avatarUrl: null,
     });
   }
   return map;

@@ -61,9 +61,12 @@ export default async function Home() {
               Exhale Academy gives you realistic exam-style practice without outdated content, lecture fatigue, or
               overpriced prep programs. One subscription, built for today&apos;s RT students.
             </p>
-            <div className="mt-6 flex justify-center lg:justify-start">
+            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
               <Link href={primaryCtaHref} className="btn-primary w-full px-6 py-3 text-center sm:w-auto">
                 Start studying now
+              </Link>
+              <Link href="/blog" className="btn-secondary w-full px-6 py-3 text-center sm:w-auto">
+                Read the Free Blog
               </Link>
             </div>
 
@@ -125,6 +128,23 @@ export default async function Home() {
                 Build confidence first, then pressure-test your knowledge.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1460px] px-4 pb-10 sm:px-10 lg:px-20">
+        <div className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">Free Education</p>
+              <h3 className={`${headingFont} mt-2 text-2xl font-semibold text-charcoal sm:text-3xl`}>Start with the Exhale blog</h3>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-graysoft sm:text-base">
+                Read free RT articles on TMC prep, ABGs, ventilator management, and bedside reasoning before you ever subscribe.
+              </p>
+            </div>
+            <Link href="/blog" className="btn-secondary w-full px-6 py-3 text-center md:w-auto">
+              Explore the Blog
+            </Link>
           </div>
         </div>
       </section>

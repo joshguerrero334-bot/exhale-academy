@@ -39,6 +39,9 @@ export default async function AppHeader() {
         </div>
 
         <div className="hidden items-center gap-2 sm:flex">
+          <Link href="/blog" className={secondaryBtnClass}>
+            Blog
+          </Link>
           <Link href={cseHref} className={secondaryBtnClass}>
             CSE Practice
           </Link>
@@ -76,6 +79,9 @@ export default async function AppHeader() {
             Menu
           </summary>
           <div className="absolute right-0 mt-2 w-56 rounded-xl border border-graysoft/30 bg-white p-2 shadow-lg">
+            <Link href="/blog" className="block rounded-md px-3 py-2 text-sm text-charcoal hover:bg-primary/5">
+              Blog
+            </Link>
             <Link href={cseHref} className="block rounded-md px-3 py-2 text-sm text-charcoal hover:bg-primary/5">
               CSE Practice
             </Link>

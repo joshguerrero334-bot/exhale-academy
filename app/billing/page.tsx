@@ -7,7 +7,7 @@ import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 
 type BillingPageProps = {
-  searchParams: Promise<{ error?: string; success?: string; canceled?: string }>;
+  searchParams: Promise<{ error?: string; success?: string; canceled?: string; message?: string }>;
 };
 
 export default async function BillingPage({ searchParams }: BillingPageProps) {
@@ -47,6 +47,11 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
 
         {query.error ? (
           <section className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-700">{query.error}</section>
+        ) : null}
+        {query.message ? (
+          <section className="rounded-xl border border-green-300 bg-green-50 p-4 text-sm text-green-700">
+            {query.message}
+          </section>
         ) : null}
         {String(query.success ?? "") === "1" ? (
           <section className="rounded-xl border border-green-300 bg-green-50 p-4 text-sm text-green-700">

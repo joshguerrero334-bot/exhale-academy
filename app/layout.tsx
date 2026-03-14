@@ -3,10 +3,12 @@ import "./globals.css";
 import AppHeader from "../components/AppHeader";
 import SiteFooter from "../components/SiteFooter";
 import { inter, playfair } from "../lib/fonts";
+import { getSiteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Exhale Academy",
   description: "Exhale Academy TMC preparation platform",
+  metadataBase: new URL(getSiteUrl()),
 };
 
 // Brand layout changes:

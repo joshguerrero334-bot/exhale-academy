@@ -7,20 +7,33 @@ type SignUpPageProps = {
   searchParams: Promise<{
     error?: string;
     message?: string;
+    free_token?: string;
   }>;
 };
 
 export default async function SignUpPage({ searchParams }: SignUpPageProps) {
   const params = await searchParams;
+  const freeToken = String(params.free_token ?? "").trim();
 
   return (
     <main className="page-shell">
       <div className="mx-auto w-full max-w-md rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-5 shadow-sm sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">Exhale Academy</p>
         <h1 className="mt-2 text-2xl font-bold text-[color:var(--brand-navy)] sm:text-3xl">Create Account</h1>
-        <p className="mt-2 text-sm text-slate-600">Create your account, then continue to subscription checkout.</p>
+        <p className="mt-2 text-sm text-slate-600">
+          {freeToken
+            ? "Create your account to activate your 7-day trial."
+            : "Create your account, then continue to subscription checkout."}
+        </p>
+
+        {freeToken ? (
+          <p className="mt-3 rounded-lg border border-green-300 bg-green-50 p-3 text-sm text-green-700">
+            Trial invite detected. Finish signup to activate free access.
+          </p>
+        ) : null}
 
         <form action={signup} className="mt-8 space-y-4" suppressHydrationWarning>
+          {freeToken ? <input type="hidden" name="free_token" value={freeToken} /> : null}
           <div className="grid gap-4 sm:grid-cols-2">
             <input
               suppressHydrationWarning

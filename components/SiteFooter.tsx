@@ -8,6 +8,9 @@ export default function SiteFooter() {
           <Link href="/about" className="transition hover:text-[#C9A86A]">
             About Us
           </Link>
+          <Link href="/blog" className="transition hover:text-[#C9A86A]">
+            Blog
+          </Link>
           <Link href="/privacy" className="transition hover:text-[#C9A86A]">
             Privacy Policy
           </Link>

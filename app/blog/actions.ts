@@ -48,7 +48,7 @@ export async function createBlogComment(formData: FormData) {
     redirect(`/blog/${slug}?error=${encodeURIComponent("Comments are disabled for this post.")}#comments`);
   }
 
-  const { data: profile } = await admin.from("profiles").select("first_name,last_name,avatar_url").eq("user_id", user.id).maybeSingle();
+  const { data: profile } = await admin.from("profiles").select("first_name,last_name,avatar_url").eq("id", user.id).maybeSingle();
 
   const { error } = await admin.from("blog_comments").insert({
     post_id: postId,

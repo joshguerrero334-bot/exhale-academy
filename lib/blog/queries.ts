@@ -42,14 +42,14 @@ async function getProfileMap(userIds: string[]) {
   const admin = createAdminClient();
   const { data, error } = await admin
     .from("profiles")
-    .select("user_id, first_name, last_name, avatar_url")
-    .in("user_id", ids);
+    .select("id, first_name, last_name, avatar_url")
+    .in("id", ids);
 
   if (error) throw new Error(error.message);
 
   const map = new Map<string, BlogAuthor>();
   for (const row of asRecordArray(data)) {
-    const userId = String(row.user_id ?? "");
+    const userId = String(row.id ?? "");
     const first = String(row.first_name ?? "").trim();
     const last = String(row.last_name ?? "").trim();
     const displayName = [first, last].filter(Boolean).join(" ") || "Exhale Academy";

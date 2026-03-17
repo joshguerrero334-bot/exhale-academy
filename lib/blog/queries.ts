@@ -1,7 +1,7 @@
 import { createAdminClient } from "../supabase/admin";
 import { generateExcerpt } from "./excerpt";
 import { estimateReadTime } from "./read-time";
-import type { BlogAuthor, BlogCategory, BlogComment, BlogFeedFilters, BlogPost, BlogTag, PaginatedBlogPosts } from "./types";
+import type { BlogAuthor, BlogCategory, BlogComment, BlogFeedFilters, BlogPost, BlogRelatedLink, BlogTag, PaginatedBlogPosts } from "./types";
 
 type RawRecord = Record<string, unknown>;
 
@@ -224,6 +224,24 @@ export async function getPublishedBlogPostBySlug(slug: string) {
   return posts[0] ?? null;
 }
 
+export async function getPublishedBlogPostsBySlugs(slugs: string[]) {
+  const requested = Array.from(new Set(slugs.filter(Boolean)));
+  if (requested.length === 0) return [];
+
+  const admin = createAdminClient();
+  const { data, error } = await admin
+    .from("blog_posts")
+    .select("id, title, slug, excerpt, content, featured_image_url, author_id, status, published_at, seo_title, seo_description, canonical_url, is_featured, allow_comments, read_time_minutes, created_at, updated_at")
+    .in("slug", requested)
+    .eq("status", "published");
+
+  if (error) throw new Error(error.message);
+
+  const mapped = await mapPosts(asRecordArray(data));
+  const bySlug = new Map(mapped.map((post) => [post.slug, post]));
+  return requested.map((slug) => bySlug.get(slug)).filter(Boolean) as BlogPost[];
+}
+
 export async function getAdminBlogPostById(id: string) {
   const admin = createAdminClient();
   const { data, error } = await admin
@@ -297,6 +315,43 @@ export async function getRelatedBlogPosts(post: BlogPost, limit = 3) {
 
   const merged = [...sameCategory, ...fallback.filter((entry) => !sameCategory.some((existing) => existing.id === entry.id))];
   return merged.slice(0, limit);
+}
+
+export async function getContextualRelatedLinks(post: BlogPost): Promise<BlogRelatedLink[]> {
+  if (post.slug !== "tmc-buzzwords-every-respiratory-therapy-student-must-know") {
+    return [];
+  }
+
+  const desired = [
+    {
+      slug: "abg-interpretation-made-simple-for-rt-students",
+      title: "ABG Interpretation Made Simple for RT Students",
+      excerpt: "Build a fast ABG framework you can trust on the TMC and at the bedside.",
+    },
+    {
+      slug: "ventilator-adjustments-based-on-abgs",
+      title: "Ventilator Adjustments Based on ABGs",
+      excerpt: "Learn how to connect blood gas patterns to practical ventilator changes without overcorrecting.",
+    },
+    {
+      slug: "how-to-pass-the-tmc-exam-on-your-first-attempt",
+      title: "How to Pass the TMC Exam on Your First Attempt",
+      excerpt: "A simple study plan for RT students who want to build confidence and stop wasting study time.",
+    },
+  ] as const;
+
+  const availablePosts = await getPublishedBlogPostsBySlugs(desired.map((entry) => entry.slug));
+  const availableBySlug = new Map(availablePosts.map((entry) => [entry.slug, entry]));
+
+  return desired.map((entry) => {
+    const match = availableBySlug.get(entry.slug);
+    return {
+      title: entry.title,
+      href: match ? `/blog/${match.slug}` : null,
+      excerpt: match?.excerpt || entry.excerpt,
+      available: Boolean(match),
+    };
+  });
 }
 
 export async function getPublishedBlogPostSlugs() {

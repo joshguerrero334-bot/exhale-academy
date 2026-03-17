@@ -80,3 +80,10 @@ export type ViewerBlogState = {
   canComment: boolean;
   userId: string | null;
 };
+
+export type BlogRelatedLink = {
+  title: string;
+  href: string | null;
+  excerpt: string;
+  available: boolean;
+};

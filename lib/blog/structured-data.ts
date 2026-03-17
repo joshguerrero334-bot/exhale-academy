@@ -2,12 +2,13 @@ import type { BlogPost } from "./types";
 import { getSiteUrl, toAbsoluteUrl } from "../site";
 
 export function buildBlogPostingStructuredData(post: BlogPost) {
+  const socialImage = post.featuredImageUrl || toAbsoluteUrl("/exhale-blog-social-preview.svg");
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.seoDescription || post.excerpt,
-    image: post.featuredImageUrl ? [post.featuredImageUrl] : undefined,
+    image: [socialImage],
     datePublished: post.publishedAt || undefined,
     dateModified: post.updatedAt,
     author: {

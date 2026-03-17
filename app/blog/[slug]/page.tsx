@@ -3,10 +3,11 @@ import { notFound } from "next/navigation";
 import BlogArticle from "../../../components/blog/BlogArticle";
 import BlogCTA from "../../../components/blog/BlogCTA";
 import BlogTableOfContents from "../../../components/blog/BlogTableOfContents";
+import ContextualRelatedPosts from "../../../components/blog/ContextualRelatedPosts";
 import RelatedPosts from "../../../components/blog/RelatedPosts";
 import CommentSection from "../../../components/blog/CommentSection";
 import { buildBlogPostMetadata } from "../../../lib/blog/metadata";
-import { getApprovedCommentsForPost, getPublishedBlogPostBySlug, getRelatedBlogPosts, getViewerPendingComments } from "../../../lib/blog/queries";
+import { getApprovedCommentsForPost, getContextualRelatedLinks, getPublishedBlogPostBySlug, getRelatedBlogPosts, getViewerPendingComments } from "../../../lib/blog/queries";
 import { buildBlogPostingStructuredData } from "../../../lib/blog/structured-data";
 import { extractTableOfContents, renderMarkdown } from "../../../lib/blog/markdown";
 import { createClient } from "../../../lib/supabase/server";
@@ -35,9 +36,10 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
   const post = await getPublishedBlogPostBySlug(slug);
   if (!post) notFound();
 
-  const [comments, relatedPosts, supabase] = await Promise.all([
+  const [comments, relatedPosts, contextualRelatedLinks, supabase] = await Promise.all([
     getApprovedCommentsForPost(post.id),
     getRelatedBlogPosts(post, 3),
+    getContextualRelatedLinks(post),
     createClient(),
   ]);
 
@@ -59,6 +61,7 @@ export default async function BlogPostPage({ params, searchParams }: Props) {
             {query.error ? <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{query.error}</div> : null}
 
             <BlogCTA />
+            <ContextualRelatedPosts items={contextualRelatedLinks} />
             <RelatedPosts posts={relatedPosts} />
             <CommentSection
               slug={post.slug}

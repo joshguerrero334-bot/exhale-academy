@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F2F4F4"/>
+  <rect x="32" y="32" width="1136" height="566" rx="36" fill="white" stroke="#D8DDDF" stroke-width="2"/>
+  <rect x="80" y="96" width="400" height="438" rx="28" fill="#EDF1F1"/>
+  <text x="560" y="170" fill="#26272B" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="6">EXHALE ACADEMY BLOG</text>
+  <text x="560" y="252" fill="#26272B" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">Modern RT education</text>
+  <text x="560" y="330" fill="#26272B" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">for TMC + CSE prep</text>
+  <text x="560" y="402" fill="#52607A" font-family="Arial, Helvetica, sans-serif" font-size="30">
+    Free respiratory therapy articles that lead into smarter exam practice.
+  </text>
+  <rect x="560" y="458" width="220" height="62" rx="31" fill="#71C9C2"/>
+  <text x="670" y="497" text-anchor="middle" fill="#26272B" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Exhale Academy</text>
+  <path d="M183.5 211C155 211 133 231.9 133 263.6V352.3C133 384 155 404.9 183.5 404.9C210 404.9 230.8 386.8 233.5 361.9H261.2C258.3 401.4 224.3 432 183.5 432C136.6 432 99 396.4 99 352.3V263.6C99 219.5 136.6 184 183.5 184C224.3 184 258.3 214.5 261.2 254.1H233.5C230.8 229.1 210 211 183.5 211Z" fill="#71C9C2"/>
+  <path d="M274 184H308V432H274V184Z" fill="#71C9C2"/>
+  <path d="M336 184H372.4L424.5 320.2H426.1L478.1 184H514.5V432H486.8V245.5H485.3L437.9 367.2H412.8L365.4 245.5H363.9V432H336V184Z" fill="#71C9C2"/>
+</svg>

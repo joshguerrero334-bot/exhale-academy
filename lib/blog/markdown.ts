@@ -73,6 +73,28 @@ export function renderMarkdown(markdown: string) {
       continue;
     }
 
+    const specialSectionMatch = line.match(/^##\s+(Key Takeaways|Test Yourself)$/i);
+    if (specialSectionMatch) {
+      const sectionTitle = specialSectionMatch[1];
+      index += 1;
+      const sectionLines: string[] = [];
+      while (index < lines.length && !lines[index].match(/^##\s+/)) {
+        sectionLines.push(lines[index]);
+        index += 1;
+      }
+      const sectionHtml = renderMarkdown(sectionLines.join("\n").trim());
+      if (/^key takeaways$/i.test(sectionTitle)) {
+        blocks.push(
+          `<aside class="rounded-[1.75rem] border border-[color:var(--brand-gold)]/35 bg-[linear-gradient(135deg,rgba(113,201,194,0.14),rgba(255,255,255,0.96))] p-6 shadow-sm"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-navy)]">Key Takeaways</p><div class="mt-4 space-y-3">${sectionHtml}</div></aside>`
+        );
+      } else {
+        blocks.push(
+          `<section class="rounded-[1.75rem] border border-[color:var(--border)] bg-[color:var(--surface-soft)] p-6 shadow-sm"><p class="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-navy)]">Test Yourself</p><div class="mt-4 space-y-3">${sectionHtml}</div></section>`
+        );
+      }
+      continue;
+    }
+
     if (line.startsWith("```")) {
       const language = line.slice(3).trim();
       index += 1;

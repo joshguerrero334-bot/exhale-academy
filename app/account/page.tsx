@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import ManageBillingButton from "../../components/billing/ManageBillingButton";
+import { isAdminUser } from "../../lib/auth/admin";
 import { STRONG_PASSWORD_HINT } from "../../lib/auth/password-policy";
 import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
@@ -51,6 +53,7 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
   const legacyStatus = String(legacyProfile?.subscription_status ?? "").trim();
   const createdLabel = user.created_at ? new Date(user.created_at).toLocaleString() : "Unavailable";
   const isActive = await resolveIsSubscribed(supabase, user.id);
+  const isAdmin = isAdminUser({ id: user.id, email: user.email ?? null });
   const badgeClass = isActive
     ? "rounded-full border border-green-300 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700"
     : "rounded-full border border-graysoft/40 bg-background px-3 py-1 text-xs font-semibold text-graysoft";
@@ -176,6 +179,35 @@ export default async function AccountPage({ searchParams }: AccountPageProps) {
               </div>
             </form>
           </div>
+
+          {isAdmin ? (
+            <div className="mt-4 rounded-xl border border-primary/30 bg-primary/10 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-xs uppercase tracking-[0.16em] text-graysoft">Blog Management</p>
+                <span className="rounded-full border border-primary/40 bg-white px-3 py-1 text-xs font-semibold text-primary">Admin</span>
+              </div>
+              <p className="mt-2 text-sm text-charcoal">
+                You have admin access. Manage posts, create new articles, moderate comments, and organize categories and tags here.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href="/admin/blog" className="btn-primary w-full sm:w-auto">
+                  Manage Blog
+                </Link>
+                <Link href="/admin/blog/new" className="btn-secondary w-full sm:w-auto">
+                  New Post
+                </Link>
+                <Link href="/admin/blog/comments" className="btn-secondary w-full sm:w-auto">
+                  Comments
+                </Link>
+                <Link href="/admin/blog/categories" className="btn-secondary w-full sm:w-auto">
+                  Categories
+                </Link>
+                <Link href="/admin/blog/tags" className="btn-secondary w-full sm:w-auto">
+                  Tags
+                </Link>
+              </div>
+            </div>
+          ) : null}
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a href="/dashboard" className="btn-primary w-full sm:w-auto">

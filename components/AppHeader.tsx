@@ -29,6 +29,7 @@ export default async function AppHeader() {
   const homeHref = user ? "/dashboard" : "/";
   const tmcHref = user ? "/dashboard" : "/login?next=%2Fdashboard";
   const cseHref = user ? "/cse/introduction" : "/login?next=%2Fcse%2Fintroduction";
+  const flashcardsHref = user ? "/flashcards" : "/login?next=%2Fflashcards";
   const feedbackHref = user ? "/feedback" : "/login?next=%2Ffeedback";
 
   return (
@@ -41,6 +42,9 @@ export default async function AppHeader() {
         <div className="hidden items-center gap-2 sm:flex">
           <Link href="/blog" className={secondaryBtnClass}>
             Blog
+          </Link>
+          <Link href={flashcardsHref} className={secondaryBtnClass}>
+            Flashcards
           </Link>
           <Link href={cseHref} className={secondaryBtnClass}>
             CSE Practice
@@ -81,6 +85,9 @@ export default async function AppHeader() {
           <div className="absolute right-0 mt-2 w-56 rounded-xl border border-graysoft/30 bg-white p-2 shadow-lg">
             <Link href="/blog" className="block rounded-md px-3 py-2 text-sm text-charcoal hover:bg-primary/5">
               Blog
+            </Link>
+            <Link href={flashcardsHref} className="block rounded-md px-3 py-2 text-sm text-charcoal hover:bg-primary/5">
+              Flashcards
             </Link>
             <Link href={cseHref} className="block rounded-md px-3 py-2 text-sm text-charcoal hover:bg-primary/5">
               CSE Practice

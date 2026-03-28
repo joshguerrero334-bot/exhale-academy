@@ -44,7 +44,7 @@ export async function createCseAttempt(formData: FormData) {
   const previewMode = String(formData.get("preview") ?? "").trim() === "1";
 
   if (!caseId) {
-    redirect("/cse/cases?error=Missing%20case%20id");
+    redirect("/cse/master?error=Missing%20case%20id");
   }
 
   const limit = await assertRateLimit({
@@ -64,7 +64,7 @@ export async function createCseAttempt(formData: FormData) {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fcse%2Fcases");
+    redirect("/login?next=%2Fcse%2Fmaster");
   }
 
   const { data: caseRow, error: caseError } = await supabase
@@ -75,7 +75,7 @@ export async function createCseAttempt(formData: FormData) {
     .maybeSingle();
 
   if (caseError || !caseRow || (!caseRow.is_published && !previewMode)) {
-    redirect("/cse/cases?error=Case%20not%20found%20or%20inactive");
+    redirect("/cse/master?error=Case%20not%20found%20or%20inactive");
   }
 
   const stepResult = await fetchCaseSteps(supabase, caseId);

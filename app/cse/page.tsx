@@ -20,17 +20,14 @@ export default function CsePage() {
             reactions.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/dashboard" className="btn-secondary">
-              Start Practicing
-            </Link>
             <Link href="/billing" className="btn-primary">
               Unlock Full Access
             </Link>
             <Link href="/cse/master" className="btn-primary">
               Start Master CSE
             </Link>
-            <Link href="/cse/cases" className="btn-secondary">
-              Browse Cases
+            <Link href="/cse/introduction" className="btn-secondary">
+              How It Works
             </Link>
             <Link href="/feedback" className="btn-secondary">
               How can we get better?

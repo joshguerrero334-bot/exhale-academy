@@ -80,8 +80,8 @@ export default async function CseIntroductionPage() {
             <Link href="/cse/how-it-works" className="btn-secondary">
               How it Works
             </Link>
-            <Link href="/cse/cases" className="btn-primary">
-              Browse Cases
+            <Link href="/cse/master" className="btn-primary">
+              Start Master CSE
             </Link>
           </div>
         </section>

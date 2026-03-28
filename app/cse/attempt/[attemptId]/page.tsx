@@ -73,7 +73,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fcse%2Fcases");
+    redirect("/login?next=%2Fcse%2Fmaster");
   }
 
   const [{ attemptId }, query] = await Promise.all([params, searchParams]);
@@ -85,12 +85,12 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
     .single();
 
   if (attemptError || !attemptData) {
-    redirect("/cse/cases?error=Attempt%20not%20found");
+    redirect("/cse/master?error=Attempt%20not%20found");
   }
 
   const attempt = attemptData as AttemptRow;
   if (attempt.user_id !== user.id) {
-    redirect("/cse/cases");
+    redirect("/cse/master");
   }
 
   const { data: caseData, error: caseError } = await supabase
@@ -100,7 +100,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
     .single();
 
   if (caseError || !caseData) {
-    redirect("/cse/cases?error=Case%20missing");
+    redirect("/cse/master?error=Case%20missing");
   }
 
   const { data: masterLinkRaw } = await supabase
@@ -301,7 +301,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
 
           <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[color:var(--border)] bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur">
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <Link href="/cse/cases" className="rounded-lg border border-[color:var(--cool-gray)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]">
+              <Link href="/cse/master" className="rounded-lg border border-[color:var(--cool-gray)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]">
                 Exit
               </Link>
               {attempt.status === "completed" ? (
@@ -333,7 +333,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
     .single();
 
   if (stepError || !stepData) {
-    redirect(`/cse/cases?error=${encodeURIComponent(stepError?.message ?? "Current step missing")}`);
+    redirect(`/cse/master?error=${encodeURIComponent(stepError?.message ?? "Current step missing")}`);
   }
 
   const step = stepData as StepRow;
@@ -453,7 +453,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
 
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[color:var(--border)] bg-white/95 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/cse/cases" className="rounded-lg border border-[color:var(--cool-gray)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]">
+          <Link href="/cse/master" className="rounded-lg border border-[color:var(--cool-gray)] px-4 py-2 text-sm font-semibold text-[color:var(--brand-navy)]">
             Exit
           </Link>
           <ConfirmSubmitButton

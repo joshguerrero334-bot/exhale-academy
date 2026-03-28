@@ -44,7 +44,7 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fcse%2Fcases");
+    redirect("/login?next=%2Fcse%2Fmaster");
   }
 
   const { attemptId } = await params;
@@ -56,12 +56,12 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
     .single();
 
   if (attemptError || !attemptData) {
-    redirect("/cse/cases?error=Attempt%20not%20found");
+    redirect("/cse/master?error=Attempt%20not%20found");
   }
 
   const attempt = attemptData as AttemptRow;
   if (attempt.user_id !== user.id) {
-    redirect("/cse/cases");
+    redirect("/cse/master");
   }
 
   if (attempt.status !== "completed") {
@@ -78,10 +78,8 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
   ]);
 
   if (!caseData) {
-    redirect("/cse/cases?error=Case%20missing");
+    redirect("/cse/master?error=Case%20missing");
   }
-  const caseRef = caseData.slug && String(caseData.slug).trim().length > 0 ? caseData.slug : attempt.case_id;
-
   const events = (eventsData ?? []) as EventRow[];
   const stepIds = [...new Set(events.map((event) => event.step_id))];
 
@@ -185,8 +183,8 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
             </div>
           </div>
           <div className="mt-5 flex gap-3">
-            <Link href="/cse/cases" className="btn-secondary">
-              Back to Cases
+            <Link href="/cse/master" className="btn-secondary">
+              Back to Master CSE
             </Link>
             {masterAttemptId ? (
               <Link
@@ -199,13 +197,11 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
               >
                 {masterIsCompleted ? "View Master Results" : "Next Master Case"}
               </Link>
-            ) : null}
-            <Link
-              href={`/cse/case/${encodeURIComponent(caseRef)}`}
-              className="rounded-lg border border-[color:var(--brand-gold)] px-4 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)]"
-            >
-              Start New Attempt
-            </Link>
+            ) : (
+              <Link href="/cse/master" className="rounded-lg border border-[color:var(--brand-gold)] px-4 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)]">
+                Start New Master Attempt
+              </Link>
+            )}
           </div>
         </section>
 

@@ -70,15 +70,6 @@ export default async function CseMasterAttemptResultsPage({ params }: PageProps)
     redirect(`/cse/master/${encodeURIComponent(attempt.id)}`);
   }
 
-  const byCategory = new Map<string, { count: number; score: number }>();
-  for (const item of items) {
-    const key = item.blueprint_category_code || "?";
-    const current = byCategory.get(key) ?? { count: 0, score: 0 };
-    current.count += 1;
-    current.score += Number(item.case_score ?? 0);
-    byCategory.set(key, current);
-  }
-
   return (
     <main className="min-h-screen bg-background text-charcoal">
       <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
@@ -109,24 +100,6 @@ export default async function CseMasterAttemptResultsPage({ params }: PageProps)
             <Link href="/cse/master" className="btn-primary">
               Start New Master Attempt
             </Link>
-            <Link href="/cse/cases" className="btn-secondary">
-              Browse Case Library
-            </Link>
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
-          <h2 className={`${headingFont} text-lg font-semibold text-charcoal`}>Blueprint Category Breakdown</h2>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {Array.from(byCategory.entries())
-              .sort(([a], [b]) => a.localeCompare(b))
-              .map(([code, stats]) => (
-                <div key={code} className="rounded-xl border border-graysoft/30 bg-background p-3">
-                  <p className="text-xs uppercase tracking-[0.16em] text-slate-500">Category {code}</p>
-                  <p className="mt-1 text-sm font-semibold text-charcoal">{stats.count} cases</p>
-                  <p className="text-xs text-slate-600">Score: {stats.score}</p>
-                </div>
-              ))}
           </div>
         </section>
 
@@ -139,9 +112,7 @@ export default async function CseMasterAttemptResultsPage({ params }: PageProps)
                   Case {item.order_index + 1}
                 </p>
                 <p className="mt-1 text-xs text-slate-600">
-                  Category {item.blueprint_category_code}
-                  {item.blueprint_subcategory ? ` · ${item.blueprint_subcategory}` : ""}
-                  {" · "}Score {Number(item.case_score ?? 0)}
+                  Score {Number(item.case_score ?? 0)}
                 </p>
               </div>
             ))}

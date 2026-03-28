@@ -171,7 +171,7 @@ export async function submitCseBranchStep(formData: FormData) {
   const selectedKeys = toSelectedKeys(formData.getAll("selected_keys"));
 
   if (!attemptId) {
-    redirect("/cse/cases?error=Invalid%20attempt");
+    redirect("/cse/master?error=Invalid%20attempt");
   }
 
   const supabase = await createClient();
@@ -181,7 +181,7 @@ export async function submitCseBranchStep(formData: FormData) {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fcse%2Fcases");
+    redirect("/login?next=%2Fcse%2Fmaster");
   }
 
   const { data: attempt, error: attemptError } = await supabase
@@ -191,7 +191,7 @@ export async function submitCseBranchStep(formData: FormData) {
     .single();
 
   if (attemptError || !attempt || attempt.user_id !== user.id) {
-    redirect("/cse/cases?error=Attempt%20not%20found");
+    redirect("/cse/master?error=Attempt%20not%20found");
   }
 
   if (attempt.status === "completed" || !attempt.current_step_id) {
@@ -206,7 +206,7 @@ export async function submitCseBranchStep(formData: FormData) {
     .single();
 
   if (stepError || !step) {
-    redirect(`/cse/cases?error=${encodeURIComponent(stepError?.message ?? "Step unavailable")}`);
+    redirect(`/cse/master?error=${encodeURIComponent(stepError?.message ?? "Step unavailable")}`);
   }
 
   const { data: caseRow } = await supabase

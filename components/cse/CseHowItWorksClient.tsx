@@ -125,10 +125,10 @@ export default function CseHowItWorksClient() {
         <button
           type="button"
           disabled={!canStart}
-          onClick={() => router.push("/cse/cases")}
+          onClick={() => router.push("/cse/master")}
           className="mt-4 inline-flex rounded-lg bg-[color:var(--brand-gold)] px-5 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)] disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-500"
         >
-          Start CSE Practice
+          Start Master CSE
         </button>
       </section>
     </div>

@@ -74,8 +74,8 @@ export default async function CseMasterStartPage({ searchParams }: PageProps) {
             20-Case Test-Day Simulation
           </h1>
           <p className="mt-3 text-sm text-graysoft">
-            Built to mirror NBRC test form composition across A-G categories. Each new attempt randomizes case
-            selection from the eligible pool while preserving blueprint counts.
+            Built to feel like one complete CSE sitting. Each new attempt pulls from the active case pool and assembles
+            a balanced 20-case simulation designed for realistic test-day pressure.
           </p>
 
           {query.error ? (

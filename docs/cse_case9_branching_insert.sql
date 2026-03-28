@@ -22,8 +22,8 @@ updated as (
     slug = 'case-9-mechanically-ventilated-sudden-desaturation',
     title = 'Case 9 -- Mechanically Ventilated Sudden Desaturation',
     intro_text = 'Intubated ICU patient develops abrupt hypoxemia, rising airway pressures, and hemodynamic instability requiring immediate ventilator troubleshooting.',
-    description = 'Branching ventilator emergency case emphasizing bedside causes-first response and escalation safety.',
-    stem = 'Acute deterioration in a ventilated adult requiring rapid structured troubleshooting.',
+    description = 'Branching ventilator emergency case focused on sudden desaturation, unilateral breath sounds, and bedside treatment of acute obstructive thoracic deterioration.',
+    stem = 'Abrupt deterioration in a mechanically ventilated adult requiring immediate bedside assessment and intervention.',
     difficulty = 'medium',
     is_active = true,
     is_published = true
@@ -40,8 +40,8 @@ created as (
     'case-9-mechanically-ventilated-sudden-desaturation',
     'Case 9 -- Mechanically Ventilated Sudden Desaturation',
     'Intubated ICU patient develops abrupt hypoxemia, rising airway pressures, and hemodynamic instability requiring immediate ventilator troubleshooting.',
-    'Branching ventilator emergency case emphasizing bedside causes-first response and escalation safety.',
-    'Acute deterioration in a ventilated adult requiring rapid structured troubleshooting.',
+    'Branching ventilator emergency case focused on sudden desaturation, unilateral breath sounds, and bedside treatment of acute obstructive thoracic deterioration.',
+    'Abrupt deterioration in a mechanically ventilated adult requiring immediate bedside assessment and intervention.',
     'medium',
     true,
     true
@@ -56,6 +56,27 @@ select id from created;
 update public.cse_cases
 set baseline_vitals = '{"hr":122,"rr":30,"spo2":86,"bp_sys":108,"bp_dia":66}'::jsonb
 where id in (select id from _case9_target);
+
+delete from public.cse_attempt_events
+where attempt_id in (
+  select a.id
+  from public.cse_attempts a
+  where a.case_id in (select id from _case9_target)
+)
+or step_id in (
+  select s.id
+  from public.cse_steps s
+  where s.case_id in (select id from _case9_target)
+)
+or outcome_id in (
+  select o.id
+  from public.cse_outcomes o
+  join public.cse_steps s on s.id = o.step_id
+  where s.case_id in (select id from _case9_target)
+);
+
+delete from public.cse_attempts
+where case_id in (select id from _case9_target);
 
 delete from public.cse_rules
 where step_id in (
@@ -85,130 +106,130 @@ with inserted_steps as (
   insert into public.cse_steps (
     case_id, step_number, step_order, step_type, prompt, max_select, stop_label
   )
-  select id, 1, 1, 'IG', 'You are called to bedside for a 54-year-old female in the ICU on mechanical ventilation who suddenly desaturates and triggers high-pressure alarms. Current settings: AC/VC, VT 460 mL, RR 16/min, FiO2 0.60, PEEP 5 cmH2O. ABG now: pH 7.25, PaCO2 58 torr, PaO2 54 torr, HCO3 25 mEq/L. Breath sounds now seem reduced on one side and blood pressure is falling. What are your next steps? SELECT AS MANY AS INDICATED (MAX 4).', 4, 'STOP' from _case9_target
+  select id, 1, 1, 'IG', 'A 54-year-old woman in the ICU is receiving AC/VC ventilation with VT 460 mL, rate 16/min, FIO2 0.60, and PEEP 5 cm H2O. The high-pressure alarm sounds and SpO2 falls to 86%. Blood pressure is decreasing, and breath sounds are reduced on the right. Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).', 3, 'STOP' from _case9_target
   union all
-  select id, 2, 2, 'DM', 'CHOOSE ONLY ONE. What is your FIRST maneuver now?', null, 'STOP' from _case9_target
+  select id, 2, 2, 'DM', 'CHOOSE ONLY ONE. Which of the following should be done FIRST?', null, 'STOP' from _case9_target
   union all
-  select id, 3, 3, 'IG', 'SELECT AS MANY AS INDICATED (MAX 3). After initial maneuver, what focused reassessment is most important?', 3, 'STOP' from _case9_target
+  select id, 3, 3, 'IG', 'Manual ventilation is difficult. Right breath sounds remain markedly decreased, and blood pressure continues to fall. Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).', 3, 'STOP' from _case9_target
   union all
-  select id, 4, 4, 'DM', 'CHOOSE ONLY ONE. Findings suggest acute unilateral obstructive thoracic process with hypotension. What is your NEXT action?', null, 'STOP' from _case9_target
+  select id, 4, 4, 'DM', 'CHOOSE ONLY ONE. Which of the following should be recommended now?', null, 'STOP' from _case9_target
   union all
-  select id, 5, 5, 'IG', 'After immediate rescue, ventilator settings are AC/VC, VT 430 mL, RR 18/min, FiO2 0.50, PEEP 5 cmH2O. ABG repeat: pH 7.30, PaCO2 50 torr, PaO2 74 torr, HCO3 24 mEq/L. SELECT AS MANY AS INDICATED (MAX 3). What ongoing management and ventilator adjustments are indicated?', 3, 'STOP' from _case9_target
+  select id, 5, 5, 'IG', 'After decompression, ventilator settings are AC/VC, VT 430 mL, rate 18/min, FIO2 0.50, and PEEP 5 cm H2O. ABG analysis reveals pH 7.30, PaCO2 50 torr, PaO2 74 torr, and HCO3 24 mEq/L. Which of the following should be recommended now? SELECT AS MANY AS INDICATED (MAX 3).', 3, 'STOP' from _case9_target
   union all
-  select id, 6, 6, 'DM', 'CHOOSE ONLY ONE. What is the safest disposition now?', null, 'STOP' from _case9_target
+  select id, 6, 6, 'DM', 'CHOOSE ONLY ONE. Which of the following is the most appropriate disposition?', null, 'STOP' from _case9_target
   returning id, step_order
 )
 insert into _case9_steps (step_order, id)
 select step_order, id from inserted_steps;
 
 insert into public.cse_options (step_id, option_key, option_text, score, rationale)
-select s.id, 'A', 'Increase FiO2 and call for immediate bedside support', 2, 'Buys oxygen reserve while troubleshooting.' from _case9_steps s where s.step_order = 1
-union all select s.id, 'B', 'Disconnect from ventilator and assess with manual bag ventilation', 2, 'Rapidly distinguishes ventilator/circuit vs patient issue.' from _case9_steps s where s.step_order = 1
-union all select s.id, 'C', 'Check tube depth, patency, and circuit integrity', 2, 'Targets common reversible causes quickly.' from _case9_steps s where s.step_order = 1
-union all select s.id, 'D', 'Send for CT before bedside stabilization', -2, 'Unsafe delay during active instability.' from _case9_steps s where s.step_order = 1
-union all select s.id, 'E', 'Silence alarms and observe for 10 minutes', -2, 'Misses life-threatening progression.' from _case9_steps s where s.step_order = 1
+select s.id, 'A', 'Assess endotracheal tube position, patency, and circuit connections', 2, 'This evaluates common reversible causes of high-pressure alarms.' from _case9_steps s where s.step_order = 1
+union all select s.id, 'B', 'Assess bilateral breath sounds and chest movement', 2, 'This helps identify unilateral thoracic abnormalities.' from _case9_steps s where s.step_order = 1
+union all select s.id, 'C', 'Assess blood pressure, heart rate, and oxygen saturation continuously', 2, 'This measures the severity of the deterioration.' from _case9_steps s where s.step_order = 1
+union all select s.id, 'D', 'Obtain a CT scan before bedside intervention', -2, 'This delays treatment during hemodynamic instability.' from _case9_steps s where s.step_order = 1
+union all select s.id, 'E', 'Wait for the next ventilator alarm cycle before reassessing', -2, 'This delays recognition of a life-threatening problem.' from _case9_steps s where s.step_order = 1
 
-union all select s.id, 'A', 'Begin manual ventilation while troubleshooting resistance/compliance', 2, 'Best immediate control and diagnostic maneuver.' from _case9_steps s where s.step_order = 2
-union all select s.id, 'B', 'Continue unchanged ventilator settings and wait', -1, 'Delays critical intervention.' from _case9_steps s where s.step_order = 2
-union all select s.id, 'C', 'Extubate immediately without plan', -2, 'Dangerous and unstructured.' from _case9_steps s where s.step_order = 2
-union all select s.id, 'D', 'Stop oxygen briefly to reassess baseline', -2, 'Unsafe in severe desaturation.' from _case9_steps s where s.step_order = 2
+union all select s.id, 'A', 'Disconnect from the ventilator and ventilate manually with 100% oxygen', 2, 'This is the best immediate maneuver during sudden ventilator deterioration.' from _case9_steps s where s.step_order = 2
+union all select s.id, 'B', 'Increase PEEP and observe the response', -1, 'This does not address the likely cause of the instability.' from _case9_steps s where s.step_order = 2
+union all select s.id, 'C', 'Continue the current ventilator settings and wait for repeat ABG results', -2, 'This delays urgent bedside intervention.' from _case9_steps s where s.step_order = 2
+union all select s.id, 'D', 'Extubate the patient immediately', -2, 'This is not indicated in an unstable intubated patient.' from _case9_steps s where s.step_order = 2
 
-union all select s.id, 'A', 'Reassess bilateral breath sounds and chest movement urgently', 2, 'Identifies asymmetry and major cause clues.' from _case9_steps s where s.step_order = 3
-union all select s.id, 'B', 'Trend BP, HR, and oxygenation continuously', 1, 'Tracks hemodynamic collapse risk.' from _case9_steps s where s.step_order = 3
-union all select s.id, 'C', 'Evaluate tube patency and suction for obstruction', 2, 'Addresses common reversible ventilatory failure causes.' from _case9_steps s where s.step_order = 3
-union all select s.id, 'D', 'Pause reassessment after brief saturation rise', -2, 'Can miss rebound instability.' from _case9_steps s where s.step_order = 3
-union all select s.id, 'E', 'Delay action until full imaging report returns', -2, 'Dangerous in unstable ventilation and perfusion.' from _case9_steps s where s.step_order = 3
+union all select s.id, 'A', 'Reassess right and left breath sounds', 2, 'This confirms persistent unilateral findings.' from _case9_steps s where s.step_order = 3
+union all select s.id, 'B', 'Reassess tube patency and pass a suction catheter', 2, 'This helps exclude endotracheal tube obstruction.' from _case9_steps s where s.step_order = 3
+union all select s.id, 'C', 'Reassess blood pressure, heart rate, and oxygen saturation', 2, 'This identifies worsening hemodynamic compromise.' from _case9_steps s where s.step_order = 3
+union all select s.id, 'D', 'Wait for a portable chest radiograph before further action', -2, 'This delays treatment of a likely tension pneumothorax.' from _case9_steps s where s.step_order = 3
+union all select s.id, 'E', 'Stop manual ventilation after the saturation rises briefly', -2, 'This can worsen deterioration before the cause is treated.' from _case9_steps s where s.step_order = 3
 
-union all select s.id, 'A', 'Perform immediate decompression while preparing definitive drainage', 2, 'Treats life-threatening obstructive physiology promptly.' from _case9_steps s where s.step_order = 4
-union all select s.id, 'B', 'Give fluid bolus only and observe', -1, 'Does not resolve primary cause.' from _case9_steps s where s.step_order = 4
-union all select s.id, 'C', 'Obtain imaging before intervention', -2, 'Imaging-first delay can be fatal.' from _case9_steps s where s.step_order = 4
-union all select s.id, 'D', 'Increase sedation without addressing cause', -2, 'Worsens instability risk.' from _case9_steps s where s.step_order = 4
+union all select s.id, 'A', 'Perform immediate pleural decompression', 2, 'This is indicated for suspected tension pneumothorax with hypotension.' from _case9_steps s where s.step_order = 4
+union all select s.id, 'B', 'Obtain a chest radiograph before intervention', -2, 'This delays definitive treatment.' from _case9_steps s where s.step_order = 4
+union all select s.id, 'C', 'Administer a fluid bolus and continue observation', -1, 'This does not treat the primary cause of the instability.' from _case9_steps s where s.step_order = 4
+union all select s.id, 'D', 'Increase sedation and continue mechanical ventilation', -2, 'This does not relieve the obstructive process.' from _case9_steps s where s.step_order = 4
 
-union all select s.id, 'A', 'Place definitive thoracic drainage and verify ventilatory improvement', 2, 'Prevents recurrence after temporary rescue.' from _case9_steps s where s.step_order = 5
-union all select s.id, 'B', 'Retitrate RR/VT for PaCO2-pH and FiO2/PEEP for PaO2 to measured response', 2, 'Matches ventilator support to objective physiology.' from _case9_steps s where s.step_order = 5
-union all select s.id, 'C', 'Continue close hemodynamic and gas-exchange monitoring', 1, 'Detects relapse early.' from _case9_steps s where s.step_order = 5
-union all select s.id, 'D', 'Stop monitoring after first improvement', -1, 'Premature de-escalation.' from _case9_steps s where s.step_order = 5
-union all select s.id, 'E', 'Transfer to low-acuity area immediately', -2, 'Unsafe downgrade.' from _case9_steps s where s.step_order = 5
+union all select s.id, 'A', 'Insert a thoracostomy tube', 2, 'This provides definitive treatment after emergency decompression.' from _case9_steps s where s.step_order = 5
+union all select s.id, 'B', 'Decrease FIO2 as tolerated to maintain adequate oxygenation', 2, 'This is appropriate after oxygenation improves.' from _case9_steps s where s.step_order = 5
+union all select s.id, 'C', 'Continue close hemodynamic and oxygenation monitoring', 1, 'This is indicated after a critical ventilator emergency.' from _case9_steps s where s.step_order = 5
+union all select s.id, 'D', 'Transfer to a low-acuity area once the blood pressure improves', -2, 'This is premature after recent decompensation.' from _case9_steps s where s.step_order = 5
+union all select s.id, 'E', 'Stop reassessment after the first improved ABG', -1, 'This can miss recurrent deterioration.' from _case9_steps s where s.step_order = 5
 
-union all select s.id, 'A', 'Maintain ICU-level monitoring with structured reassessment plan', 2, 'Appropriate after critical ventilator emergency.' from _case9_steps s where s.step_order = 6
-union all select s.id, 'B', 'Discharge from ICU after brief stabilization', -2, 'Unsafe disposition.' from _case9_steps s where s.step_order = 6
-union all select s.id, 'C', 'Transfer to unmonitored floor', -2, 'Inadequate care level for current risk.' from _case9_steps s where s.step_order = 6
-union all select s.id, 'D', 'Hold without escalation protocol', -1, 'Insufficient follow-through.' from _case9_steps s where s.step_order = 6;
+union all select s.id, 'A', 'Continue ICU monitoring', 2, 'This is the most appropriate disposition after a ventilator emergency.' from _case9_steps s where s.step_order = 6
+union all select s.id, 'B', 'Transfer to an unmonitored floor bed', -2, 'This level of care is insufficient.' from _case9_steps s where s.step_order = 6
+union all select s.id, 'C', 'Discharge from the ICU after brief stabilization', -2, 'This is unsafe after recent critical deterioration.' from _case9_steps s where s.step_order = 6
+union all select s.id, 'D', 'Observe without a defined monitoring plan', -1, 'This does not provide adequate follow-through.' from _case9_steps s where s.step_order = 6;
 
 insert into public.cse_rules (step_id, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_delta)
 select s1.id, 1, 'INCLUDES_ALL', '["A","B"]'::jsonb, s2.id,
-  'Immediate priorities improve oxygen reserve while troubleshooting begins.',
+  'Right breath sounds remain decreased, and blood pressure continues to fall.',
   '{"spo2": 5, "hr": -4, "rr": -2, "bp_sys": 1, "bp_dia": 1}'::jsonb
 from _case9_steps s1 cross join _case9_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 union all
 select s1.id, 99, 'DEFAULT', null, s2.id,
-  'Delay causes worsening hypoxemia and hemodynamic decline.',
+  'SpO2 falls further, and hypotension worsens.',
   '{"spo2": -6, "hr": 7, "rr": 4, "bp_sys": -6, "bp_dia": -4}'::jsonb
 from _case9_steps s1 cross join _case9_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 
 union all
 select s2.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s3.id,
-  'Manual ventilation clarifies mechanics and improves immediate oxygenation.',
+  'Manual ventilation is difficult, but oxygenation improves briefly.',
   '{"spo2": 6, "hr": -5, "rr": -3, "bp_sys": 2, "bp_dia": 1}'::jsonb
 from _case9_steps s2 cross join _case9_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 union all
 select s2.id, 99, 'DEFAULT', null, s3.id,
-  'Inadequate action worsens ventilatory failure and perfusion.',
+  'Manual ventilation remains difficult, and hypotension worsens.',
   '{"spo2": -5, "hr": 7, "rr": 4, "bp_sys": -5, "bp_dia": -3}'::jsonb
 from _case9_steps s2 cross join _case9_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 
 union all
 select s3.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s4.id,
-  'Focused reassessment identifies high-risk unilateral process promptly.',
+  'Manual ventilation remains difficult. Right breath sounds are absent, and blood pressure continues to fall.',
   '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": 1, "bp_dia": 1}'::jsonb
 from _case9_steps s3 cross join _case9_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 union all
 select s3.id, 99, 'DEFAULT', null, s4.id,
-  'Missed signals allow progression to critical obstructive instability.',
+  'Right breath sounds remain absent. SpO2 remains low, and hypotension worsens.',
   '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": -5, "bp_dia": -3}'::jsonb
 from _case9_steps s3 cross join _case9_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 
 union all
 select s4.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s5.id,
-  'Immediate decompression improves oxygenation and blood pressure.',
+  'Right breath sounds improve, and blood pressure increases.',
   '{"spo2": 7, "hr": -7, "rr": -5, "bp_sys": 10, "bp_dia": 6}'::jsonb
 from _case9_steps s4 cross join _case9_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 union all
 select s4.id, 99, 'DEFAULT', null, s5.id,
-  'Delayed cause treatment results in worsening shock and refractory hypoxemia.',
+  'SpO2 falls further, and blood pressure continues to drop.',
   '{"spo2": -8, "hr": 9, "rr": 5, "bp_sys": -10, "bp_dia": -6}'::jsonb
 from _case9_steps s4 cross join _case9_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 
 union all
 select s5.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s6.id,
-  'Definitive follow-through stabilizes ventilatory and hemodynamic trajectory.',
+  'Chest tube placement is followed by improved oxygenation and hemodynamic stability.',
   '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": 3, "bp_dia": 2}'::jsonb
 from _case9_steps s5 cross join _case9_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 union all
 select s5.id, 99, 'DEFAULT', null, s6.id,
-  'Incomplete follow-through leaves high relapse risk.',
+  'Oxygenation worsens again, and hypotension recurs.',
   '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": -4, "bp_dia": -2}'::jsonb
 from _case9_steps s5 cross join _case9_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 
 union all
 select s6.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, null,
-  'Final outcome: patient remains stable in ICU with no immediate recurrent collapse.',
+  'The patient remains stable in the ICU without recurrent hemodynamic collapse.',
   '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": 2, "bp_dia": 1}'::jsonb
 from _case9_steps s6
 where s6.step_order = 6
 union all
 select s6.id, 99, 'DEFAULT', null, null,
-  'Final outcome: low-acuity plan led to recurrent critical deterioration.',
+  'The patient develops recurrent hypoxemia and hypotension.',
   '{"spo2": -6, "hr": 8, "rr": 4, "bp_sys": -8, "bp_dia": -5}'::jsonb
 from _case9_steps s6
 where s6.step_order = 6;

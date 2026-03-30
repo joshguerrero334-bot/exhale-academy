@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import FlashcardDeck from "../../components/flashcards/FlashcardDeck";
 import { headingFont } from "../../lib/fonts";
 import { createClient } from "../../lib/supabase/server";
-import { buzzwordSections, tmcCseBuzzwordCards } from "../../lib/flashcards/tmc-cse-buzzwords";
 
 export const metadata: Metadata = {
   title: "Flashcards | Exhale Academy",
@@ -30,11 +28,11 @@ export default async function FlashcardsPage() {
           <div className="mt-3 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <h1 className={`${headingFont} text-3xl font-semibold text-charcoal sm:text-4xl`}>
-                TMC + CSE buzzwords, built like fast board-prep reps
+                Flashcards built for fast repetition and better recall
               </h1>
               <p className="mt-3 text-sm leading-relaxed text-graysoft sm:text-base">
-                Start with the clue, make the diagnosis or concept in your head, then flip to confirm. This first deck
-                is built from your TMC and CSE buzzwords PDF and tuned for desktop, tablet, and phone.
+                Choose a flashcard category, then drill the subcategories inside that deck. Start with the front clue,
+                answer it in your head, and flip the card to confirm.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -48,25 +46,21 @@ export default async function FlashcardsPage() {
           </div>
         </section>
 
-        <section className="grid gap-4 md:grid-cols-3">
-          <article className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Format</p>
-            <h2 className="mt-2 text-lg font-semibold text-charcoal">Flip-to-reveal cards</h2>
-            <p className="mt-2 text-sm text-graysoft">Read the clue, commit to an answer, then tap or click to flip the card.</p>
-          </article>
-          <article className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Source</p>
-            <h2 className="mt-2 text-lg font-semibold text-charcoal">Your buzzwords PDF</h2>
-            <p className="mt-2 text-sm text-graysoft">Disease recognition, diagnostics, ventilator clues, and quick TMC/CSE exam tips.</p>
-          </article>
-          <article className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Access</p>
-            <h2 className="mt-2 text-lg font-semibold text-charcoal">Desktop to phone</h2>
-            <p className="mt-2 text-sm text-graysoft">Designed for mouse click, tablet tap, and phone tap without losing readability.</p>
+        <section className="grid gap-4 lg:grid-cols-2">
+          <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
+            <h2 className="mt-2 text-2xl font-semibold text-charcoal">TMC + CSE Buzzwords</h2>
+            <p className="mt-3 text-sm leading-relaxed text-graysoft">
+              Study disease recognition, diagnostic buzzwords, and ventilator management in one focused deck with
+              section filters once you enter.
+            </p>
+            <div className="mt-5">
+              <Link href="/flashcards/tmc-cse-buzzwords" className="btn-primary">
+                Open Buzzwords Deck
+              </Link>
+            </div>
           </article>
         </section>
-
-        <FlashcardDeck cards={tmcCseBuzzwordCards} sections={buzzwordSections} />
       </div>
     </main>
   );

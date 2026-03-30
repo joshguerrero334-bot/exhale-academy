@@ -157,7 +157,7 @@ export default function FlashcardDeck({ cards, sections }: Props) {
               <li>Say the answer out loud before flipping the card.</li>
               <li>Use the section filters to drill one buzzword family at a time.</li>
               <li>Shuffle once you start recognizing the obvious cards too quickly.</li>
-              <li>Review the Quick Tips section before a TMC or CSE study block.</li>
+              <li>Use the ventilator section when you want a tighter troubleshooting-only review block.</li>
             </ul>
           </section>
 

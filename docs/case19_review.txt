@@ -1,0 +1,92 @@
+Exhale Academy CSE Review
+Case 19 -- Trauma Critical (Ventilator-Associated Pneumothorax Deterioration)
+
+Intro
+Ventilated trauma patient develops abrupt respiratory deterioration requiring bedside ventilator and pleural assessment.
+
+Stem
+Intubated trauma patient develops sudden hypoxemia, hypotension, and ventilator alarm changes after trauma.
+
+Step 1
+A 52-year-old woman is receiving mechanical ventilation after blunt chest trauma.
+
+Current ventilator settings are:
+AC/VC
+VT 450 mL
+RR 16/min
+FiO2 0.60
+PEEP 5 cmH2O
+
+The ventilator alarms suddenly activate.
+
+The following are noted:
+HR 124/min
+BP 86/52 mm Hg
+SpO2 79%
+EtCO2 60 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Check peak airway pressure and delivered tidal volume (+2)
+B. Auscultate breath sounds (+2)
+C. Percuss the chest (+2)
+D. Pass a suction catheter through the endotracheal tube (+2)
+E. Wait for repeat ABGs before assessing the chest (-3)
+F. Increase sedation and ignore the alarm pattern (-3)
+
+Revealed findings after indicated selections:
+- Peak airway pressure has risen sharply, and delivered tidal volume has fallen.
+- Breath sounds are absent on the right.
+- Percussion is hyperresonant on the right.
+- The suction catheter passes easily through the endotracheal tube.
+
+High-score progression: Peak airway pressure has risen sharply, delivered tidal volume has fallen, breath sounds are absent on the right, and percussion is hyperresonant on the right.
+Default progression: Missed ventilator warning signs increase collapse risk.
+
+Step 2
+The patient remains severely hypoxemic and hypotensive. Which of the following should be recommended FIRST?
+
+A. Administer 100% oxygen and perform immediate pleural decompression (+3)
+B. Obtain chest radiograph before intervention (-3)
+C. Increase tidal volume to force oxygenation improvement (-3)
+D. Give bronchodilator therapy and reassess later (-2)
+
+High-score progression: Immediate decompression improves oxygenation and hemodynamics.
+Default progression: Inadequate intervention worsens respiratory/hemodynamic failure.
+
+Step 3
+After immediate pleural decompression, the following are noted:
+
+HR 112/min
+BP 98/60 mm Hg
+SpO2 88%
+EtCO2 48 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess breath sounds (+2)
+B. Repeat ABG (+2)
+C. Trend airway pressure and delivered tidal volume (+2)
+D. Obtain CBC with hemoglobin and hematocrit (+1)
+E. Stop close monitoring after the first improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds are now faintly present on the right.
+- ABG: pH 7.28, PaCO2 54 torr, PaO2 64 torr, HCO3 25 mEq/L.
+- Peak airway pressure is lower, but the pleural injury still requires definitive management.
+- Hemoglobin is 10.2 g/dL and hematocrit is 31%.
+
+High-score progression: Breath sounds are returning on the right, airway pressure is lower, and definitive pleural management is still required.
+Default progression: Monitoring gaps leave high risk for recurrent deterioration.
+
+Step 4
+The patient remains at risk for recurrent deterioration. Which of the following should be recommended now?
+
+A. Insert a chest tube and continue ICU-level ventilator management (+3)
+B. Transfer to a low-acuity floor bed once oxygenation improves briefly (-3)
+C. Stop ventilator optimization because decompression was performed (-2)
+D. Observe without definitive pleural management (-3)
+
+High-score progression: Final outcome: ventilator-associated pneumothorax deterioration is managed with timely decompression, chest tube placement, and ICU continuity.
+Default progression: Final outcome: delayed treatment and poor monitoring cause recurrent instability.

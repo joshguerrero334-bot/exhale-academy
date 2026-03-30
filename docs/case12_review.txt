@@ -1,0 +1,102 @@
+Exhale Academy CSE Review
+Case 12 -- COPD Non-Critical (Chronic Bronchitis-Predominant Flare)
+
+Intro
+Noncritical COPD exacerbation with productive cough, secretion burden, and possible infective trigger requiring acute treatment and safe discharge planning.
+
+Stem
+Chronic-bronchitis-predominant COPD flare with productive cough and moderate hypoxemia.
+
+Step 1
+A 61-year-old man with severe COPD comes to the emergency department because of worsening dyspnea and increased yellow-green sputum.
+
+While breathing room air, the following are noted:
+HR 106/min
+RR 28/min
+BP 152/94 mm Hg
+Temperature 38.1 C
+SpO2 86%
+
+He has a frequent productive cough.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Sputum amount and character (+2)
+B. Breath sounds and work of breathing (+2)
+C. Pulse oximetry, temperature, and vital signs (+2)
+D. Exercise oximetry (-3)
+E. Routine CT scan before treatment (-3)
+
+High-score progression: Productive cough persists, and moderate hypoxemia remains present.
+Default progression: Assessment is incomplete. Dyspnea and secretion burden persist.
+
+Step 2
+Breath sounds reveal diffuse rhonchi and scattered wheezes. Which of the following should be recommended FIRST?
+
+A. Administer controlled oxygen and short-acting bronchodilator therapy (+3)
+B. Start antibiotics as the only initial treatment (-2)
+C. Observe without treatment because the patient is still alert (-3)
+D. Proceed directly to intubation (-3)
+
+High-score progression: Breathing improves slightly, but productive cough remains.
+Default progression: Symptoms remain unstable, and oxygenation improves little.
+
+Step 3
+Thirty minutes after controlled oxygen and bronchodilator therapy are started, the patient remains productive but less dyspneic.
+
+While receiving O2 by nasal cannula at 2 L/min, the following are noted:
+HR 102/min
+RR 26/min
+Temperature 37.9 C
+SpO2 89%
+
+ABG analysis reveals:
+pH 7.35
+PaCO2 54 torr
+PaO2 60 torr
+HCO3- 29 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Sputum burden and effectiveness of cough (+2)
+B. Breath sounds and work of breathing (+2)
+C. ABG and oxygen saturation trend (+2)
+D. Pulmonary rehabilitation schedule (-3)
+E. Discharge paperwork (-3)
+
+High-score progression: Productive cough persists, but the patient remains stable.
+Default progression: Reassessment is delayed, and symptoms persist.
+
+Step 4
+Productive cough and dyspnea persist, but the patient remains alert. Which of the following should be recommended now?
+
+A. Add systemic corticosteroid therapy and continue bronchodilator treatment (+3)
+B. Stop bronchodilator therapy because wheezing decreased (-3)
+C. Proceed directly to intubation (-3)
+D. Delay additional therapy until tomorrow (-3)
+
+High-score progression: Breathing becomes easier, and cough burden begins to improve.
+Default progression: Symptoms remain persistent, and discharge readiness is uncertain.
+
+Step 5
+After additional treatment, the patient is breathing more comfortably. Which of the following should be evaluated before disposition? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Stable oxygen requirement and sustained symptom improvement (+2)
+B. Inhaler technique and medication adherence (+2)
+C. Return precautions and follow-up plan (+2)
+D. Routine antibiotics without infection assessment (-3)
+E. Discharge without addressing home oxygen needs (-3)
+
+High-score progression: Symptoms remain improved, and discharge planning is complete.
+Default progression: Discharge readiness remains incomplete.
+
+Step 6
+Symptoms are improving and oxygenation is stable. Which of the following should be recommended postdischarge?
+
+A. Discharge with follow-up and COPD action planning after sustained stability (+3)
+B. Admit for monitored care if dyspnea or oxygen needs worsen again (+1)
+C. Discharge without follow-up (-3)
+D. Place in hallway observation without a treatment plan (-3)
+
+High-score progression: Final outcome: the patient is discharged with follow-up and COPD action planning.
+Default progression: Final outcome: the discharge plan is inadequate, and symptoms recur early.

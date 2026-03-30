@@ -1,0 +1,105 @@
+Exhale Academy CSE Review
+Case 8 -- Post-Extubation Stridor Respiratory Risk
+
+Intro
+Recently extubated adult develops escalating noisy breathing and distress requiring immediate upper-airway rescue decisions.
+
+Stem
+Acute upper-airway compromise shortly after extubation.
+
+Step 1
+Twenty minutes after extubation, a 58-year-old man develops inspiratory stridor and increasing respiratory distress.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.40, the following are noted:
+HR 118/min
+RR 32/min
+BP 154/90 mm Hg
+SpO2 85%
+
+He is anxious and using accessory muscles.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Upper-airway sounds and ability to speak (+2)
+B. Work of breathing, pulse oximetry, and vital signs (+2)
+C. Immediate availability of airway equipment and backup personnel (+2)
+D. Transport for CT imaging before treatment (-3)
+E. Sedation without an airway plan (-3)
+
+High-score progression: Stridor persists, and upper-airway distress remains present.
+Default progression: Assessment is incomplete. Respiratory distress worsens, and oxygenation falls.
+
+Step 2
+Inspiratory stridor persists, and work of breathing is increasing. Which of the following should be recommended FIRST?
+
+A. Administer upper-airway rescue therapy while preparing for reintubation if needed (+3)
+B. Observe on low-flow oxygen only (-3)
+C. Remove oxygen to assess baseline severity (-3)
+D. Delay intervention until a full diagnostic panel is completed (-3)
+
+High-score progression: Stridor improves briefly, but airway risk remains high.
+Default progression: Upper-airway obstruction worsens, and respiratory fatigue increases.
+
+Step 3
+After initial therapy, stridor improves briefly but returns.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.50, the following are noted:
+HR 122/min
+RR 34/min
+BP 150/88 mm Hg
+SpO2 87%
+
+The patient is able to speak only single words.
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Speech tolerance and stridor intensity (+2)
+B. Oxygen saturation and work of breathing trend (+2)
+C. Immediate readiness for reintubation (+2)
+D. Routine discharge paperwork (-3)
+E. Stop monitoring after brief improvement (-3)
+
+High-score progression: Speech tolerance worsens, and stridor remains severe.
+Default progression: Reassessment is delayed, and airway compromise worsens rapidly.
+
+Step 4
+Respiratory distress worsens, and oxygenation continues to fall. Which of the following should be recommended now?
+
+A. Proceed with controlled reintubation with full airway backup (+3)
+B. Continue the same therapy and reassess later (-3)
+C. Transport the patient before securing the airway (-3)
+D. Deeply sedate the patient without securing the airway (-3)
+
+High-score progression: The airway is secured, and oxygenation improves.
+Default progression: Upper-airway obstruction causes severe hypoxemia and worsening instability.
+
+Step 5
+After reintubation, the airway is secured and oxygenation improves.
+
+While receiving mechanical ventilation with an FIO2 of 0.60 and PEEP of 5 cm H2O, ABG analysis reveals:
+pH 7.29
+PaCO2 52 torr
+PaO2 72 torr
+HCO3- 25 mEq/L
+
+Which of the following should be evaluated or adjusted now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Verify tube position and secure the airway (+2)
+B. Adjust ventilator settings to improve gas exchange (+2)
+C. Continue close cardiorespiratory reassessment (+2)
+D. Stop monitoring after the first improved saturation reading (-3)
+E. Transfer immediately to a low-acuity unit (-3)
+
+High-score progression: Post-intubation stabilization is maintained with close monitoring.
+Default progression: Monitoring and ventilator-management gaps leave recurrent instability risk.
+
+Step 6
+The patient remains at risk for recurrent airway compromise. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued airway and ventilatory monitoring (+3)
+B. Discharge after temporary stabilization (-3)
+C. Admit to an unmonitored bed (-3)
+D. Observe without a defined escalation plan (-3)
+
+High-score progression: Final outcome: the patient is admitted to the ICU for continued airway and ventilatory management.
+Default progression: Final outcome: the level of care is inadequate, and recurrent airway distress occurs.

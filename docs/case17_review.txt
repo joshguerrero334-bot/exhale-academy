@@ -1,0 +1,82 @@
+Exhale Academy CSE Review
+Case 17 -- Trauma Critical (Hemothorax)
+
+Intro
+Chest trauma with progressive dyspnea and suspected pleural blood accumulation requiring drainage-first management.
+
+Stem
+Trauma patient has dyspnea and worsening oxygenation after blunt chest injury.
+
+Step 1
+A 47-year-old woman is brought to the emergency department after blunt chest trauma.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 126/min
+RR 34/min
+BP 102/64 mm Hg
+SpO2 84%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Inspect chest expansion (+2)
+B. Auscultate breath sounds (+2)
+C. Percuss the chest (+2)
+D. Obtain bedside spirometry (-3)
+E. Delay treatment until a complete imaging workup is finished (-3)
+
+Revealed findings after indicated selections:
+- Chest expansion is decreased on the left.
+- Breath sounds are decreased on the left.
+- Percussion is dull on the left.
+
+High-score progression: Left chest expansion is reduced. Breath sounds are decreased on the left, and percussion is dull on the left.
+Default progression: Assessment is incomplete. Hypoxemia and blood-loss risk worsen.
+
+Step 2
+Dyspnea and hypoxemia persist, and pleural blood is suspected. Which of the following should be recommended FIRST?
+
+A. Administer high-concentration oxygen and begin pleural drainage (+3)
+B. Provide analgesia only and reassess later (-3)
+C. Delay drainage until symptoms worsen further (-3)
+D. Start bronchodilator therapy (-3)
+
+High-score progression: Breath sounds improve slightly, and oxygenation begins to increase.
+Default progression: Pleural blood continues to impair ventilation and oxygenation.
+
+Step 3
+After pleural drainage is started, oxygenation improves.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 114/min
+RR 28/min
+BP 110/70 mm Hg
+SpO2 90%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess breath sounds (+2)
+B. Check chest-tube output for ongoing bleeding (+2)
+C. Trend oxygen saturation and blood pressure (+2)
+D. Determine whether repeat imaging is needed after stabilization (+2)
+E. Routine discharge paperwork (-3)
+F. Stop close monitoring after the first improvement (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds are louder on the left than before.
+- Chest-tube output should be followed closely for ongoing blood loss.
+- Oxygenation and blood pressure are improving but still require close monitoring.
+- Repeat imaging may still be needed after stabilization.
+
+High-score progression: Drainage response is present, but continued monitoring is required.
+Default progression: Reassessment is delayed, and recurrent instability develops.
+
+Step 4
+The patient remains at risk for recurrent bleeding and respiratory deterioration. Which of the following should be recommended now?
+
+A. Continue monitored trauma care with chest-tube management and ICU-level reassessment (+3)
+B. Transfer to an unmonitored floor bed (-3)
+C. Discharge after oxygenation improves briefly (-3)
+D. Stop oxygen because drainage has started (-3)
+
+High-score progression: Final outcome: hemothorax is treated with pleural drainage and continued high-acuity monitoring.
+Default progression: Final outcome: inadequate monitoring leads to recurrent deterioration.

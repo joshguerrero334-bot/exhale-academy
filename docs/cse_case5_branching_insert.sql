@@ -23,10 +23,10 @@ updated as (
     case_number = 5,
     slug = 'case-5-copd-hypercapnic-respiratory-fatigue',
     title = 'Case 5 -- COPD Hypercapnic Respiratory Fatigue',
-    intro_text = 'Adult with chronic lung disease history presents with worsening dyspnea, somnolence, and rising ventilatory fatigue.',
-    description = 'Branching case on oxygen titration, ventilatory support, and escalation safety in hypercapnic risk.',
-    stem = 'Progressive ventilatory failure requiring targeted oxygen and support strategy.',
-    difficulty = 'medium',
+    intro_text = 'Adult with severe COPD exacerbation presents with hypoxemia, somnolence, and rising ventilatory fatigue.',
+    description = 'Branching case focused on controlled oxygen, recognition of hypercapnic ventilatory failure, and timely initiation of noninvasive ventilation.',
+    stem = 'Acute COPD exacerbation with hypercapnia, fatigue, and need for ventilatory support.',
+    difficulty = 'hard',
     is_active = true,
     is_published = true
   where c.id in (select id from existing)
@@ -43,10 +43,10 @@ created as (
     5,
     'case-5-copd-hypercapnic-respiratory-fatigue',
     'Case 5 -- COPD Hypercapnic Respiratory Fatigue',
-    'Adult with chronic lung disease history presents with worsening dyspnea, somnolence, and rising ventilatory fatigue.',
-    'Branching case on oxygen titration, ventilatory support, and escalation safety in hypercapnic risk.',
-    'Progressive ventilatory failure requiring targeted oxygen and support strategy.',
-    'medium',
+    'Adult with severe COPD exacerbation presents with hypoxemia, somnolence, and rising ventilatory fatigue.',
+    'Branching case focused on controlled oxygen, recognition of hypercapnic ventilatory failure, and timely initiation of noninvasive ventilation.',
+    'Acute COPD exacerbation with hypercapnia, fatigue, and need for ventilatory support.',
+    'hard',
     true,
     true
   where not exists (select 1 from existing)
@@ -61,158 +61,215 @@ update public.cse_cases
 set baseline_vitals = '{"hr":112,"rr":32,"spo2":84,"bp_sys":156,"bp_dia":92}'::jsonb
 where id in (select id from _case5_target);
 
-delete from public.cse_rules
-where step_id in (
-  select s.id
-  from public.cse_steps s
+delete from public.cse_attempt_events
+where attempt_id in (
+  select a.id from public.cse_attempts a where a.case_id in (select id from _case5_target)
+)
+or step_id in (
+  select s.id from public.cse_steps s where s.case_id in (select id from _case5_target)
+)
+or outcome_id in (
+  select o.id from public.cse_outcomes o
+  join public.cse_steps s on s.id = o.step_id
   where s.case_id in (select id from _case5_target)
 );
 
-delete from public.cse_outcomes
-where step_id in (
-  select s.id
-  from public.cse_steps s
-  where s.case_id in (select id from _case5_target)
-);
-
-delete from public.cse_options
-where step_id in (
-  select s.id
-  from public.cse_steps s
-  where s.case_id in (select id from _case5_target)
-);
-
-delete from public.cse_steps
-where case_id in (select id from _case5_target);
+delete from public.cse_attempts where case_id in (select id from _case5_target);
+delete from public.cse_rules where step_id in (select id from public.cse_steps where case_id in (select id from _case5_target));
+delete from public.cse_outcomes where step_id in (select id from public.cse_steps where case_id in (select id from _case5_target));
+delete from public.cse_options where step_id in (select id from public.cse_steps where case_id in (select id from _case5_target));
+delete from public.cse_steps where case_id in (select id from _case5_target);
 
 with inserted_steps as (
   insert into public.cse_steps (
     case_id, step_number, step_order, step_type, prompt, max_select, stop_label
   )
-  select id, 1, 1, 'IG', 'A 63-year-old female with longstanding obstructive lung disease has two days of worsening dyspnea and productive cough. She is drowsy, tachypneic, and speaking short phrases. SpO2 is 84% on room air. SELECT AS MANY AS INDICATED (MAX 4). What immediate priorities are indicated?', 4, 'STOP' from _case5_target
+  select id, 1, 1, 'IG',
+    'A 63-year-old woman with severe COPD comes to the emergency department because of worsening dyspnea and productive cough for 2 days.
+
+While breathing room air, the following are noted:
+HR 112/min
+RR 32/min
+BP 156/92 mm Hg
+SpO2 84%
+
+She is drowsy and speaks in short phrases.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).',
+    3,
+    'STOP'
+  from _case5_target
   union all
-  select id, 2, 2, 'DM', 'CHOOSE ONLY ONE. What is the best initial oxygen strategy?', null, 'STOP' from _case5_target
+  select id, 2, 2, 'DM',
+    'Breath sounds reveal diffuse rhonchi and diminished breath sounds bilaterally. Which of the following should be recommended FIRST?',
+    null,
+    'STOP'
+  from _case5_target
   union all
-  select id, 3, 3, 'IG', 'SELECT AS MANY AS INDICATED (MAX 3). Which reassessment actions should guide next intervention?', 3, 'STOP' from _case5_target
+  select id, 3, 3, 'IG',
+    'Thirty minutes after controlled oxygen and bronchodilator therapy are started, the patient remains drowsy.
+
+While receiving O2 by Venturi mask at an FIO2 of 0.28, the following are noted:
+HR 108/min
+RR 30/min
+BP 150/88 mm Hg
+SpO2 88%
+
+ABG analysis reveals:
+pH 7.28
+PaCO2 68 torr
+PaO2 56 torr
+HCO3- 31 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).',
+    3,
+    'STOP'
+  from _case5_target
   union all
-  select id, 4, 4, 'DM', 'CHOOSE ONLY ONE. CO2 rises and fatigue worsens. What is the best escalation now?', null, 'STOP' from _case5_target
+  select id, 4, 4, 'DM',
+    'The patient becomes more somnolent and continues to use accessory muscles. Which of the following should be recommended now?',
+    null,
+    'STOP'
+  from _case5_target
   union all
-  select id, 5, 5, 'IG', 'SELECT AS MANY AS INDICATED (MAX 3). After escalation, what ongoing management is indicated?', 3, 'STOP' from _case5_target
+  select id, 5, 5, 'IG',
+    'One hour after bilevel positive airway pressure is started, the patient is receiving IPAP 14 cm H2O, EPAP 6 cm H2O, and FIO2 0.30.
+
+The following are noted:
+HR 102/min
+RR 26/min
+BP 146/84 mm Hg
+SpO2 91%
+
+ABG analysis reveals:
+pH 7.31
+PaCO2 60 torr
+PaO2 62 torr
+HCO3- 30 mEq/L
+
+Which of the following should be evaluated or adjusted now? SELECT AS MANY AS INDICATED (MAX 3).',
+    3,
+    'STOP'
+  from _case5_target
   union all
-  select id, 6, 6, 'DM', 'CHOOSE ONLY ONE. What is the safest disposition?', null, 'STOP' from _case5_target
+  select id, 6, 6, 'DM',
+    'The patient is more alert and synchronizing with bilevel positive airway pressure. Which of the following should be recommended postadmission?',
+    null,
+    'STOP'
+  from _case5_target
   returning id, step_order
 )
 insert into _case5_steps (step_order, id)
 select step_order, id from inserted_steps;
 
 insert into public.cse_options (step_id, option_key, option_text, score, rationale)
-select s.id, 'A', 'Apply controlled oxygen and target a measured saturation range', 2, 'Balances hypoxemia correction with hypercapnia risk.' from _case5_steps s where s.step_order = 1
-union all select s.id, 'B', 'Start continuous cardiorespiratory and oximetry monitoring', 1, 'Captures rapid deterioration early.' from _case5_steps s where s.step_order = 1
-union all select s.id, 'C', 'Obtain focused respiratory exam and baseline blood gas promptly', 2, 'Defines severity and supports escalation decisions.' from _case5_steps s where s.step_order = 1
-union all select s.id, 'D', 'Give 100% oxygen without reassessment plan', -2, 'Untargeted high oxygen can worsen CO2 retention risk.' from _case5_steps s where s.step_order = 1
-union all select s.id, 'E', 'Delay treatment until chest imaging is complete', -2, 'Critical delay in unstable ventilation.' from _case5_steps s where s.step_order = 1
+select s.id, 'A', 'Mental status and ability to protect the airway', 2, 'This is indicated to assess ventilatory failure severity.' from _case5_steps s where s.step_order = 1
+union all select s.id, 'B', 'Breath sounds and work of breathing', 2, 'This helps assess severity of obstruction and fatigue.' from _case5_steps s where s.step_order = 1
+union all select s.id, 'C', 'Pulse oximetry and vital signs', 2, 'This is indicated to assess current severity and trend.' from _case5_steps s where s.step_order = 1
+union all select s.id, 'D', 'Complete pulmonary function testing', -3, 'This is not indicated in the current condition.' from _case5_steps s where s.step_order = 1
+union all select s.id, 'E', 'Exercise oximetry', -3, 'This delays urgent care.' from _case5_steps s where s.step_order = 1
 
-union all select s.id, 'A', 'Use controlled oxygen delivery with frequent titration', 2, 'Appropriate first-line strategy in this pattern.' from _case5_steps s where s.step_order = 2
-union all select s.id, 'B', 'Use no oxygen to avoid CO2 rise', -2, 'Withholding oxygen in hypoxemia is unsafe.' from _case5_steps s where s.step_order = 2
-union all select s.id, 'C', 'Use maximal oxygen continuously without targets', -2, 'Over-treatment may worsen ventilation mismatch.' from _case5_steps s where s.step_order = 2
-union all select s.id, 'D', 'Observe without oxygen while awaiting labs', -2, 'Unsafe delay with critical hypoxemia.' from _case5_steps s where s.step_order = 2
+union all select s.id, 'A', 'Administer controlled oxygen by Venturi mask', 3, 'This is the best first step in severe hypoxemia with COPD.' from _case5_steps s where s.step_order = 2
+union all select s.id, 'B', 'Administer 100% oxygen by nonrebreathing mask', -2, 'This may worsen hypercapnia and is not the best first choice.' from _case5_steps s where s.step_order = 2
+union all select s.id, 'C', 'Withhold oxygen because of chronic CO2 retention', -3, 'This is not appropriate in severe hypoxemia.' from _case5_steps s where s.step_order = 2
+union all select s.id, 'D', 'Proceed directly to endotracheal intubation', -1, 'This may become necessary later, but controlled oxygen should be started immediately.' from _case5_steps s where s.step_order = 2
 
-union all select s.id, 'A', 'Trend mental status, respiratory rate, and accessory muscle use', 2, 'Identifies impending ventilatory failure.' from _case5_steps s where s.step_order = 3
-union all select s.id, 'B', 'Repeat blood gas after initial stabilization interval', 1, 'Measures response and CO2 trajectory.' from _case5_steps s where s.step_order = 3
-union all select s.id, 'C', 'Assess secretion burden and airway clearance ability', 1, 'Important for support strategy and tolerance.' from _case5_steps s where s.step_order = 3
-union all select s.id, 'D', 'Stop monitoring once saturation briefly reaches target', -2, 'Misses rebound hypercapnia and fatigue.' from _case5_steps s where s.step_order = 3
-union all select s.id, 'E', 'Give sedative for anxiety before ventilation is supported', -2, 'Can suppress respiratory drive during decompensation.' from _case5_steps s where s.step_order = 3
+union all select s.id, 'A', 'Mental status', 2, 'This is indicated to detect worsening ventilatory fatigue.' from _case5_steps s where s.step_order = 3
+union all select s.id, 'B', 'ABG trend', 2, 'This is indicated to assess worsening hypercapnia and acidosis.' from _case5_steps s where s.step_order = 3
+union all select s.id, 'C', 'Secretion burden and cough effectiveness', 2, 'This affects tolerance of noninvasive ventilation.' from _case5_steps s where s.step_order = 3
+union all select s.id, 'D', 'Cardiopulmonary exercise testing', -3, 'This is not indicated in the current condition.' from _case5_steps s where s.step_order = 3
+union all select s.id, 'E', 'Discharge planning', -3, 'This is clearly premature.' from _case5_steps s where s.step_order = 3
 
-union all select s.id, 'A', 'Initiate noninvasive ventilation with close tolerance checks', 2, 'Appropriate escalation for hypercapnic fatigue with preserved airway reflexes.' from _case5_steps s where s.step_order = 4
-union all select s.id, 'B', 'Continue oxygen only despite rising CO2 and fatigue', -1, 'Fails to address inadequate ventilation.' from _case5_steps s where s.step_order = 4
-union all select s.id, 'C', 'Delay support and repeat labs later', -2, 'Dangerous delay in worsening ventilatory failure.' from _case5_steps s where s.step_order = 4
-union all select s.id, 'D', 'Immediate intubation without NIV trial when stable enough for NIV', -1, 'May be needed later, but can be premature first escalation.' from _case5_steps s where s.step_order = 4
+union all select s.id, 'A', 'Begin bilevel positive airway pressure', 3, 'This is indicated for hypercapnic ventilatory failure with worsening fatigue.' from _case5_steps s where s.step_order = 4
+union all select s.id, 'B', 'Continue the same treatment and repeat the ABG later', -3, 'This delays indicated ventilatory support.' from _case5_steps s where s.step_order = 4
+union all select s.id, 'C', 'Discontinue oxygen and observe', -3, 'This is not appropriate.' from _case5_steps s where s.step_order = 4
+union all select s.id, 'D', 'Proceed directly to intubation', -1, 'This may be required if noninvasive ventilation fails, but it is not the best next step yet.' from _case5_steps s where s.step_order = 4
 
-union all select s.id, 'A', 'Adjust interface/settings to optimize synchrony and tidal response', 2, 'Improves NIV success and comfort.' from _case5_steps s where s.step_order = 5
-union all select s.id, 'B', 'Continue bronchodilator and secretion management plan', 1, 'Addresses reversible obstruction contributors.' from _case5_steps s where s.step_order = 5
-union all select s.id, 'C', 'Reassess blood gas and work of breathing after adjustments', 2, 'Confirms objective response.' from _case5_steps s where s.step_order = 5
-union all select s.id, 'D', 'Set fixed oxygen and stop reassessing once improved', -1, 'Untargeted continuation risks relapse.' from _case5_steps s where s.step_order = 5
-union all select s.id, 'E', 'Transfer out of monitored care immediately', -2, 'Premature downgrade.' from _case5_steps s where s.step_order = 5
+union all select s.id, 'A', 'Repeat ABG analysis', 2, 'This is indicated to assess ventilatory response.' from _case5_steps s where s.step_order = 5
+union all select s.id, 'B', 'Adjust IPAP or backup rate if PaCO2 remains elevated', 2, 'This helps improve ventilation.' from _case5_steps s where s.step_order = 5
+union all select s.id, 'C', 'Check mask fit and patient synchrony', 2, 'This is important for noninvasive ventilation success.' from _case5_steps s where s.step_order = 5
+union all select s.id, 'D', 'Discontinue bilevel positive airway pressure because SpO2 improved', -3, 'This is premature.' from _case5_steps s where s.step_order = 5
+union all select s.id, 'E', 'Reduce oxygen to room air immediately', -2, 'This is not indicated.' from _case5_steps s where s.step_order = 5
 
-union all select s.id, 'A', 'Admit to monitored high-acuity unit with respiratory reassessment plan', 2, 'Safest for ongoing ventilatory risk.' from _case5_steps s where s.step_order = 6
-union all select s.id, 'B', 'Discharge after transient gas-exchange improvement', -2, 'Unsafe after recent instability.' from _case5_steps s where s.step_order = 6
-union all select s.id, 'C', 'Transfer to unmonitored floor', -2, 'Monitoring level too low.' from _case5_steps s where s.step_order = 6
-union all select s.id, 'D', 'Observe in ED hallway without structured escalation path', -1, 'Insufficient follow-through for risk level.' from _case5_steps s where s.step_order = 6;
+union all select s.id, 'A', 'Admit to the ICU for continued noninvasive ventilatory management and reassessment', 3, 'This is the appropriate level of care after severe hypercapnic respiratory failure.' from _case5_steps s where s.step_order = 6
+union all select s.id, 'B', 'Transfer to an unmonitored medical floor', -3, 'This is not the appropriate level of care.' from _case5_steps s where s.step_order = 6
+union all select s.id, 'C', 'Discharge home after the next ABG', -3, 'This is unsafe.' from _case5_steps s where s.step_order = 6
+union all select s.id, 'D', 'Observe in the emergency department without admission', -3, 'This is not the appropriate disposition.' from _case5_steps s where s.step_order = 6;
 
 insert into public.cse_rules (step_id, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_delta)
-select s1.id, 1, 'INCLUDES_ALL', '["A","C"]'::jsonb, s2.id,
-  'Early targeted actions modestly improve oxygenation and reduce immediate panic.',
-  '{"spo2": 4, "hr": -4, "rr": -2, "bp_sys": -4, "bp_dia": -2}'::jsonb
+select s1.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s2.id,
+  'Breath sounds remain diminished, and the patient remains drowsy with persistent hypoxemia.',
+  '{"spo2": 0, "hr": 0, "rr": 0, "bp_sys": 0, "bp_dia": 0}'::jsonb
 from _case5_steps s1 cross join _case5_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 union all
 select s1.id, 99, 'DEFAULT', null, s2.id,
-  'Over-oxygenation or delay worsens gas-exchange mismatch and fatigue.',
-  '{"spo2": -4, "hr": 6, "rr": 3, "bp_sys": 4, "bp_dia": 2}'::jsonb
+  'Assessment is incomplete. The patient becomes more fatigued, and hypoxemia persists.',
+  '{"spo2": -2, "hr": 4, "rr": 2, "bp_sys": 2, "bp_dia": 1}'::jsonb
 from _case5_steps s1 cross join _case5_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 
 union all
 select s2.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s3.id,
-  'Controlled oxygen strategy improves saturation with less ventilatory strain.',
-  '{"spo2": 5, "hr": -5, "rr": -3, "bp_sys": -3, "bp_dia": -2}'::jsonb
+  'Oxygenation improves slightly, but dyspnea and somnolence persist.',
+  '{"spo2": 4, "hr": -3, "rr": -2, "bp_sys": -2, "bp_dia": -1}'::jsonb
 from _case5_steps s2 cross join _case5_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 union all
 select s2.id, 99, 'DEFAULT', null, s3.id,
-  'Inadequate oxygen strategy leaves persistent hypoxemia and fatigue.',
-  '{"spo2": -5, "hr": 7, "rr": 4, "bp_sys": 4, "bp_dia": 2}'::jsonb
+  'Gas exchange remains unstable, and the patient becomes more somnolent.',
+  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": 3, "bp_dia": 2}'::jsonb
 from _case5_steps s2 cross join _case5_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 
 union all
-select s3.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s4.id,
-  'Focused reassessment identifies worsening ventilation before collapse.',
-  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1}'::jsonb
+select s3.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s4.id,
+  'PaCO2 remains elevated, and work of breathing continues to increase.',
+  '{"spo2": -1, "hr": 2, "rr": 1, "bp_sys": 1, "bp_dia": 1}'::jsonb
 from _case5_steps s3 cross join _case5_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 union all
 select s3.id, 99, 'DEFAULT', null, s4.id,
-  'Missed reassessment delays escalation and accelerates respiratory fatigue.',
+  'Reassessment is delayed. Somnolence and hypercapnia worsen.',
   '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": 3, "bp_dia": 2}'::jsonb
 from _case5_steps s3 cross join _case5_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 
 union all
 select s4.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s5.id,
-  'NIV support improves ventilation and eases work of breathing.',
-  '{"spo2": 6, "hr": -6, "rr": -5, "bp_sys": -4, "bp_dia": -2}'::jsonb
+  'The patient becomes more synchronous with ventilatory support, and oxygenation improves.',
+  '{"spo2": 5, "hr": -5, "rr": -4, "bp_sys": -3, "bp_dia": -2}'::jsonb
 from _case5_steps s4 cross join _case5_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 union all
 select s4.id, 99, 'DEFAULT', null, s5.id,
-  'Ventilatory failure progresses with worsening hypercapnic burden.',
-  '{"spo2": -7, "hr": 8, "rr": 5, "bp_sys": 5, "bp_dia": 3}'::jsonb
+  'Ventilatory failure worsens, and the patient becomes more difficult to arouse.',
+  '{"spo2": -6, "hr": 6, "rr": 4, "bp_sys": 4, "bp_dia": 3}'::jsonb
 from _case5_steps s4 cross join _case5_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 
 union all
-select s5.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s6.id,
-  'Targeted follow-through sustains improvement and reduces relapse risk.',
+select s5.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s6.id,
+  'pH and PaCO2 begin to improve, and the patient is more alert.',
   '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": -2, "bp_dia": -1}'::jsonb
 from _case5_steps s5 cross join _case5_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 union all
 select s5.id, 99, 'DEFAULT', null, s6.id,
-  'Management gaps leave unstable reserve and recurrent deterioration risk.',
-  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": 3, "bp_dia": 2}'::jsonb
+  'Gas exchange remains unstable, and close monitoring is still required.',
+  '{"spo2": -3, "hr": 4, "rr": 2, "bp_sys": 2, "bp_dia": 1}'::jsonb
 from _case5_steps s5 cross join _case5_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 
 union all
 select s6.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, null,
-  'Final outcome: patient remains stable in monitored care with continued respiratory reassessment.',
+  'Final outcome: the patient is admitted for ongoing noninvasive ventilatory support and reassessment.',
   '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1}'::jsonb
 from _case5_steps s6
 where s6.step_order = 6
 union all
 select s6.id, 99, 'DEFAULT', null, null,
-  'Final outcome: low-acuity disposition leads to rapid recurrence of respiratory failure signs.',
+  'Final outcome: inadequate level of care leads to recurrent hypercapnic respiratory failure.',
   '{"spo2": -5, "hr": 6, "rr": 4, "bp_sys": -5, "bp_dia": -3}'::jsonb
 from _case5_steps s6
 where s6.step_order = 6;

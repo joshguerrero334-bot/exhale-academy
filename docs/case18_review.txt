@@ -1,0 +1,84 @@
+Exhale Academy CSE Review
+Case 18 -- Trauma Critical (Flail Chest + Pulmonary Contusion)
+
+Intro
+Blunt chest trauma with severe pain, shallow respirations, and worsening oxygenation requiring high-priority stabilization.
+
+Stem
+Trauma patient has severe chest pain, shallow respirations, and progressive hypoxemia after blunt injury.
+
+Step 1
+A 29-year-old man is brought to the emergency department after blunt chest trauma.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 132/min
+RR 36/min
+BP 162/96 mm Hg
+SpO2 81%
+
+He is in severe respiratory distress after the injury.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Inspect chest-wall movement (+2)
+B. Auscultate breath sounds (+2)
+C. Assess how pain is affecting inspiratory effort (+2)
+D. Obtain bedside spirometry (-3)
+E. Delay treatment until all imaging is completed (-3)
+
+Revealed findings after indicated selections:
+- Paradoxical movement of the left lateral chest is present.
+- Breath sounds are decreased on the left.
+- Pain is limiting inspiratory effort.
+
+High-score progression: Paradoxical chest movement is present, inspiratory effort is limited by pain, and hypoxemia persists.
+Default progression: Assessment is incomplete. Hypoxemia and fatigue worsen.
+
+Step 2
+The patient remains severely hypoxemic and is taking shallow breaths because of pain. Which of the following should be recommended FIRST?
+
+A. Administer high-concentration oxygen, provide analgesia, and begin close monitoring (+3)
+B. Provide analgesia only and reassess later (-3)
+C. Delay oxygen because imaging suggests contusion (-3)
+D. Discharge when pain improves (-3)
+
+High-score progression: Pain control improves chest movement slightly, but oxygenation remains impaired.
+Default progression: Respiratory distress worsens, and oxygenation declines further.
+
+Step 3
+After oxygen therapy and pain control are started, the patient remains tachypneic.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 124/min
+RR 32/min
+BP 154/90 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Obtain chest radiograph results (+2)
+B. Obtain an ABG (+2)
+C. Reassess mental status and work of breathing (+2)
+D. Determine whether ventilatory support is now needed (+2)
+E. Routine discharge planning (-3)
+F. Stop close monitoring after brief improvement (-3)
+
+Revealed findings after indicated selections:
+- Chest radiograph reveals multiple left rib fractures with patchy left-sided opacities.
+- ABG: pH 7.31, PaCO2 48 torr, PaO2 58 torr, HCO3 24 mEq/L.
+- Mental status remains intact, but work of breathing is increasing.
+- The patient may require ventilatory support if fatigue worsens.
+
+High-score progression: Chest radiograph and ABG support flail chest with pulmonary contusion, and fatigue persists despite initial therapy.
+Default progression: Reassessment is delayed, and respiratory failure worsens.
+
+Step 4
+Work of breathing increases, and oxygenation remains poor. Which of the following should be recommended now?
+
+A. Escalate to mechanical ventilation and ICU care (+3)
+B. Continue unchanged therapy and reassess tomorrow (-3)
+C. Transfer to an unmonitored floor bed (-3)
+D. Discharge when oxygenation improves briefly (-3)
+
+High-score progression: Final outcome: flail chest and pulmonary contusion are managed with ventilatory support and ICU care.
+Default progression: Final outcome: delayed escalation leads to worsening respiratory failure.

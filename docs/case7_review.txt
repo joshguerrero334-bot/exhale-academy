@@ -1,0 +1,101 @@
+Exhale Academy CSE Review
+Case 7 -- Sudden Hypoxemia With Hemodynamic Strain Pattern
+
+Intro
+Adult with abrupt pleuritic dyspnea, tachycardia, and worsening oxygenation requiring rapid stabilization and escalation decisions.
+
+Stem
+Acute cardiopulmonary decompensation with severe gas-exchange mismatch and worsening perfusion.
+
+Step 1
+A 46-year-old woman comes to the emergency department because of sudden right-sided pleuritic chest pain and severe dyspnea.
+
+While breathing room air, the following are noted:
+HR 126/min
+RR 34/min
+BP 98/62 mm Hg
+SpO2 80%
+
+She is anxious and diaphoretic.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Breath sounds and symmetry of chest expansion (+2)
+B. Pulse oximetry, heart rate, and blood pressure (+2)
+C. Signs of right-heart strain and mental status (+2)
+D. Routine pulmonary function testing (-3)
+E. Exercise oximetry (-3)
+
+High-score progression: Pleuritic chest pain and dyspnea persist, and hypoxemia remains severe.
+Default progression: Assessment is incomplete. Hypoxemia worsens, and perfusion remains poor.
+
+Step 2
+Breath sounds are clear bilaterally. Neck veins are distended, and the patient remains tachycardic. Which of the following should be recommended FIRST?
+
+A. Administer high-concentration oxygen and maintain close monitoring (+3)
+B. Delay treatment until imaging is completed (-3)
+C. Intubate immediately before any reassessment (-2)
+D. Use low-flow oxygen by nasal cannula only (-2)
+
+High-score progression: Oxygenation improves slightly, but tachycardia and dyspnea persist.
+Default progression: Symptoms worsen, and blood pressure continues to fall.
+
+Step 3
+After oxygen therapy is started, the patient remains dyspneic.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 122/min
+RR 32/min
+BP 92/58 mm Hg
+SpO2 88%
+
+ABG analysis reveals:
+pH 7.47
+PaCO2 31 torr
+PaO2 56 torr
+HCO3- 22 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Oxygen saturation and blood pressure trend (+2)
+B. Mental status and signs of worsening perfusion (+2)
+C. ABG trend (+2)
+D. Smoking-cessation counseling (-3)
+E. Routine discharge planning (-3)
+
+High-score progression: Hypoxemia and hypotension persist, and the patient remains high risk.
+Default progression: Reassessment is delayed, and shock worsens.
+
+Step 4
+Blood pressure continues to fall, and hypoxemia persists. Which of the following should be recommended now?
+
+A. Escalate to high-acuity management with immediate specialist coordination (+3)
+B. Continue the same treatment and reassess later (-3)
+C. Send the patient for routine testing before stabilization (-3)
+D. Reduce oxygen because the patient is tachypneic (-3)
+
+High-score progression: Perfusion improves slightly, and oxygenation stabilizes.
+Default progression: Hypoxemia worsens, and hemodynamic instability increases.
+
+Step 5
+After escalation, oxygenation improves slightly and perfusion stabilizes. Which of the following should be evaluated or monitored now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Continuous hemodynamic and oxygenation monitoring (+2)
+B. Response to oxygen therapy and symptom trend (+2)
+C. Coordination of definitive therapy pathway (+2)
+D. Stop close monitoring after brief improvement (-3)
+E. Transfer early to a low-acuity unit (-3)
+
+High-score progression: Stabilization is maintained with ongoing high-acuity monitoring.
+Default progression: Monitoring gaps leave a high risk of recurrent collapse.
+
+Step 6
+The patient remains high risk for recurrent instability. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued respiratory and hemodynamic monitoring (+3)
+B. Admit to an unmonitored floor bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without a defined escalation plan (-3)
+
+High-score progression: Final outcome: the patient is admitted to the ICU for continued monitoring and definitive management.
+Default progression: Final outcome: the level of care is inadequate, and recurrent instability occurs.

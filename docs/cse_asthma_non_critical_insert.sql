@@ -1,4 +1,4 @@
--- Exhale Academy CSE Branching Seed (COPD Non-Critical - Asthma Triggered Exacerbation)
+-- Exhale Academy CSE Branching Seed (Asthma Non-Critical - Triggered Exacerbation)
 -- Requires docs/cse_branching_engine_migration.sql and docs/cse_case_taxonomy_migration.sql
 
 begin;
@@ -13,7 +13,8 @@ with existing as (
     'case-13-asthma-conservative-triggered-exacerbation',
     'asthma-conservative-triggered-exacerbation',
     'case-13-copd-non-critical-asthma-triggered-exacerbation',
-    'copd-non-critical-asthma-triggered-exacerbation'
+    'copd-non-critical-asthma-triggered-exacerbation',
+    'asthma-non-critical-triggered-exacerbation'
   )
   order by created_at asc
   limit 1
@@ -21,15 +22,15 @@ with existing as (
 updated as (
   update public.cse_cases c
   set
-    source = 'copd-non-critical',
-    disease_slug = 'copd',
+    source = 'asthma-non-critical',
+    disease_slug = 'asthma',
     disease_track = 'non_critical',
     case_number = coalesce(c.case_number, 13),
-    slug = 'copd-non-critical-asthma-triggered-exacerbation',
-    title = 'COPD Non-Critical (Asthma Triggered Exacerbation)',
-    intro_text = 'Reversible obstructive flare after trigger exposure requiring rapid acute treatment then transition to long-term control planning.',
-    description = 'Non-critical COPD branching case using an asthma-triggered obstructive exacerbation pattern with acute bronchodilator strategy and safe disposition.',
-    stem = 'Patient with acute wheeze, dyspnea, and obstructive-pattern distress after irritant exposure.',
+    slug = 'asthma-non-critical-triggered-exacerbation',
+    title = 'Asthma Non-Critical (Triggered Exacerbation)',
+    intro_text = 'Noncritical asthma exacerbation after trigger exposure requiring acute bronchodilator treatment, reassessment, and safe discharge planning.',
+    description = 'Branching case focused on asthma trigger recognition, acute treatment, reassessment, and discharge with an asthma action plan.',
+    stem = 'Triggered asthma exacerbation with wheezing, moderate hypoxemia, and no immediate ventilatory-failure signs.',
     difficulty = 'medium',
     is_active = true,
     is_published = true
@@ -41,15 +42,15 @@ created as (
     source, disease_slug, disease_track, case_number, slug, title, intro_text, description, stem, difficulty, is_active, is_published
   )
   select
-    'copd-non-critical',
-    'copd',
+    'asthma-non-critical',
+    'asthma',
     'non_critical',
     13,
-    'copd-non-critical-asthma-triggered-exacerbation',
-    'COPD Non-Critical (Asthma Triggered Exacerbation)',
-    'Reversible obstructive flare after trigger exposure requiring rapid acute treatment then transition to long-term control planning.',
-    'Non-critical COPD branching case using an asthma-triggered obstructive exacerbation pattern with acute bronchodilator strategy and safe disposition.',
-    'Patient with acute wheeze, dyspnea, and obstructive-pattern distress after irritant exposure.',
+    'asthma-non-critical-triggered-exacerbation',
+    'Asthma Non-Critical (Triggered Exacerbation)',
+    'Noncritical asthma exacerbation after trigger exposure requiring acute bronchodilator treatment, reassessment, and safe discharge planning.',
+    'Branching case focused on asthma trigger recognition, acute treatment, reassessment, and discharge with an asthma action plan.',
+    'Triggered asthma exacerbation with wheezing, moderate hypoxemia, and no immediate ventilatory-failure signs.',
     'medium',
     true,
     true
@@ -87,198 +88,166 @@ delete from public.cse_steps where case_id in (select id from _asthma_non_critic
 with inserted_steps as (
   insert into public.cse_steps (case_id, step_number, step_order, step_type, prompt, max_select, stop_label, metadata)
   select id, 1, 1, 'IG',
-    'You are called to bedside for a 43-year-old male who was cleaning a dusty attic and now has acute dyspnea, chest tightness, and wheeze. Focused exam findings are still needed. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).',
-    8, 'STOP',
-    '{
-      "show_appearance_after_submit": true,
-      "appearance_text": "anxious, diaphoretic, tachypneic, using accessory muscles with difficulty speaking full sentences",
-      "appearance_keys_any": ["B", "C", "I"],
-      "show_vitals_after_submit": true,
-      "vitals_keys_any": ["A", "D", "E"],
-      "vitals_fields": ["spo2", "rr", "hr", "etco2"],
-      "extra_reveals": [
-        { "text": "Trigger context confirmed; future avoidance counseling will be required.", "keys_any": ["J"] },
-        { "text": "ABG tendency: early hyperventilation with hypoxemia; deterioration risk can shift toward rising PaCO2 and falling pH.", "keys_any": ["E"] }
-      ]
-    }'::jsonb from _asthma_non_critical_target
+    'A 43-year-old man comes to the emergency department because of dyspnea, chest tightness, and wheezing after cleaning a dusty attic.
+
+While breathing room air, the following are noted:
+HR 118/min
+RR 32/min
+BP 146/88 mm Hg
+SpO2 89%
+
+He has accessory-muscle use and difficulty speaking full sentences.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   union all
   select id, 2, 2, 'DM',
-    'CHOOSE ONLY ONE. What is your FIRST treatment decision now?',
+    'Breath sounds reveal diffuse expiratory wheezing. Which of the following should be recommended FIRST?',
     null, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   union all
   select id, 3, 3, 'IG',
-    '30 minutes after initial therapy, distress is improved but still present. SELECT AS MANY AS INDICATED (MAX 8). What reassessment data are most useful now?',
-    8, 'STOP',
-    '{
-      "show_appearance_after_submit": true,
-      "appearance_text": "wheeze persists but speaking tolerance and accessory-muscle strain are improving",
-      "show_vitals_after_submit": true,
-      "vitals_fields": ["spo2", "rr", "bp"]
-    }'::jsonb from _asthma_non_critical_target
+    'Thirty minutes after oxygen, bronchodilator therapy, and systemic corticosteroids are started, the patient is breathing more comfortably but still wheezing.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.35, the following are noted:
+HR 108/min
+RR 28/min
+BP 140/84 mm Hg
+SpO2 93%
+
+ABG analysis reveals:
+pH 7.45
+PaCO2 34 torr
+PaO2 68 torr
+HCO3- 23 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   union all
   select id, 4, 4, 'DM',
-    'CHOOSE ONLY ONE. What is your NEXT management decision if symptoms persist without immediate crash signs?',
-    null, 'STOP',
-    '{
-      "show_appearance_after_submit": true,
-      "appearance_text": "airflow improves after escalation; fatigue risk still requires close monitoring",
-      "show_vitals_after_submit": true,
-      "vitals_fields": ["spo2", "hr", "etco2"]
-    }'::jsonb from _asthma_non_critical_target
+    'Wheezing persists, but the patient remains alert and is speaking in longer phrases. Which of the following should be recommended now?',
+    null, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   union all
   select id, 5, 5, 'IG',
-    'The patient is stabilizing. SELECT AS MANY AS INDICATED (MAX 8). What long-term control and safety planning elements are indicated before disposition?',
-    8, 'STOP',
-    '{
-      "show_appearance_after_submit": true,
-      "appearance_text": "patient appears less anxious and breathing effort continues to normalize",
-      "show_vitals_after_submit": true,
-      "vitals_fields": ["spo2", "rr", "hr"]
-    }'::jsonb from _asthma_non_critical_target
+    'After additional treatment, the patient is breathing more comfortably. Which of the following should be evaluated before disposition? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   union all
   select id, 6, 6, 'DM',
-    'CHOOSE ONLY ONE. What is the most appropriate disposition now?',
-    null, 'STOP',
-    '{
-      "show_appearance_after_submit": true,
-      "appearance_text": "clinical stability supports transition only with complete trigger-action plan and follow-up",
-      "show_vitals_after_submit": true,
-      "vitals_fields": ["spo2", "hr", "bp"]
-    }'::jsonb from _asthma_non_critical_target
+    'Symptoms remain improved and oxygenation is stable. Which of the following should be recommended postdischarge?',
+    null, 'STOP', '{}'::jsonb from _asthma_non_critical_target
   returning id, step_order
 )
 insert into _asthma_non_critical_steps (step_order, id)
 select step_order, id from inserted_steps;
 
 insert into public.cse_options (step_id, option_key, option_text, score, rationale)
-select s.id, 'A', 'Provide oxygen for hypoxemia and begin continuous monitoring', 3, 'Best immediate oxygenation priority during acute asthma flare.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'B', 'Assess appearance for anxiety/diaphoresis, speaking difficulty, and accessory-muscle use', 2, 'Critical distress severity indicators.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'C', 'Auscultate for wheeze versus markedly diminished airflow', 2, 'Determines obstruction severity and potential near-silent chest risk.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'D', 'Trend heart rate, respiratory rate, and blood pressure', 1, 'Useful objective severity trend.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'E', 'Obtain ABG if ventilatory concern persists', 1, 'Appropriate for rising PaCO2/falling pH detection.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'F', 'Delay treatment until complete broad lab panel returns', -3, 'Unsafe delay in a possible emergency episode.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'G', 'Ignore trigger history because treatment is already started', -2, 'Misses prevention and recurrence context.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'H', 'Send for non-indicated immediate CT before stabilization', -3, 'Unsafe transfer and delay.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'I', 'Assess chest tightness and ability to speak in full sentences', 1, 'Helps grade airflow limitation severity.' from _asthma_non_critical_steps s where s.step_order = 1
-union all select s.id, 'J', 'Identify likely trigger and document avoidance target', 1, 'Supports long-term control planning.' from _asthma_non_critical_steps s where s.step_order = 1
+select s.id, 'A', 'Breath sounds and air movement', 2, 'This is indicated to assess severity of obstruction.' from _asthma_non_critical_steps s where s.step_order = 1
+union all select s.id, 'B', 'Work of breathing and ability to speak', 2, 'This helps assess severity and fatigue risk.' from _asthma_non_critical_steps s where s.step_order = 1
+union all select s.id, 'C', 'Pulse oximetry and vital signs', 2, 'This is indicated to assess severity and trend.' from _asthma_non_critical_steps s where s.step_order = 1
+union all select s.id, 'D', 'Complete pulmonary function testing', -3, 'This is not indicated in the current condition.' from _asthma_non_critical_steps s where s.step_order = 1
+union all select s.id, 'E', 'Allergy skin testing before treatment', -3, 'This delays urgent care.' from _asthma_non_critical_steps s where s.step_order = 1
 
-union all select s.id, 'A', 'Start SABA + anticholinergic aerosol, give systemic corticosteroid, continue oxygen for hypoxemia', 3, 'Best acute asthma regimen in this scenario.' from _asthma_non_critical_steps s where s.step_order = 2
-union all select s.id, 'B', 'Observe only because patient is still moving air', -2, 'Insufficient treatment for active exacerbation.' from _asthma_non_critical_steps s where s.step_order = 2
-union all select s.id, 'C', 'Delay bronchodilator and give sedative first', -3, 'Unsafe sequence in respiratory distress.' from _asthma_non_critical_steps s where s.step_order = 2
-union all select s.id, 'D', 'Start long-acting maintenance therapy only and reassess tomorrow', -3, 'Inappropriate for acute episode management.' from _asthma_non_critical_steps s where s.step_order = 2
-union all select s.id, 'E', 'Use antibiotics as routine primary therapy without infection evidence', -3, 'Incorrect routine treatment choice.' from _asthma_non_critical_steps s where s.step_order = 2
-union all select s.id, 'F', 'Give back-to-back bronchodilator treatments now, continue oxygen, and reassess in 15-30 minutes before deciding on further escalation', 1, 'Reasonable bridge step, but less complete than adding early systemic steroid.' from _asthma_non_critical_steps s where s.step_order = 2
+union all select s.id, 'A', 'Administer oxygen, short-acting bronchodilator therapy, and systemic corticosteroid treatment', 3, 'This is the best first treatment in this situation.' from _asthma_non_critical_steps s where s.step_order = 2
+union all select s.id, 'B', 'Observe without treatment because the patient is still speaking', -3, 'This delays indicated treatment.' from _asthma_non_critical_steps s where s.step_order = 2
+union all select s.id, 'C', 'Start only long-acting controller medication', -3, 'This does not address the acute problem.' from _asthma_non_critical_steps s where s.step_order = 2
+union all select s.id, 'D', 'Proceed directly to intubation', -2, 'This is too aggressive without immediate ventilatory-failure signs.' from _asthma_non_critical_steps s where s.step_order = 2
 
-union all select s.id, 'A', 'Reassess breath sounds for persistent wheeze vs diminished airflow', 2, 'Tracks response and residual obstruction.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'B', 'Trend SpO2/work of breathing and speaking tolerance', 2, 'Core post-treatment reassessment markers.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'C', 'Repeat focused vital trends (HR/RR/BP)', 1, 'Objective response tracking.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'D', 'Obtain ABG if concern for rising PaCO2 or fatigue remains', 2, 'Supports ventilatory failure detection.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'E', 'Review trigger timeline and ongoing exposure risk', 1, 'Important for recurrence prevention.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'F', 'Remove monitoring after short-term improvement', -2, 'Unsafe de-monitoring.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'G', 'Ignore persistent dyspnea because wheeze is softer', -2, 'Can miss worsening airflow limitation.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'H', 'Postpone all reassessment until next shift', -3, 'Detrimental delay.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'I', 'Check for pulsus paradoxus in severe pattern', 1, 'Useful severe-episode marker.' from _asthma_non_critical_steps s where s.step_order = 3
-union all select s.id, 'J', 'Order non-indicated broad imaging first', -2, 'Low-yield priority before focused reassessment completion.' from _asthma_non_critical_steps s where s.step_order = 3
+union all select s.id, 'A', 'Breath sounds and work of breathing', 2, 'This helps assess response to therapy.' from _asthma_non_critical_steps s where s.step_order = 3
+union all select s.id, 'B', 'Oxygen saturation and vital-sign trend', 2, 'This is indicated to assess ongoing oxygen needs.' from _asthma_non_critical_steps s where s.step_order = 3
+union all select s.id, 'C', 'Ability to speak and symptom improvement', 2, 'This helps assess clinical improvement.' from _asthma_non_critical_steps s where s.step_order = 3
+union all select s.id, 'D', 'Peak expiratory flow only after all acute decisions are complete', -1, 'Useful later, but not the most important immediate reassessment item.' from _asthma_non_critical_steps s where s.step_order = 3
+union all select s.id, 'E', 'Discharge paperwork', -3, 'This is premature.' from _asthma_non_critical_steps s where s.step_order = 3
 
-union all select s.id, 'A', 'Escalate to continuous aerosol therapy with close vitals/ABG trend monitoring', 3, 'Best next escalation when symptoms persist without immediate crash criteria.' from _asthma_non_critical_steps s where s.step_order = 4
-union all select s.id, 'B', 'Stop bronchodilator therapy once symptoms partially improve', -2, 'Premature de-escalation.' from _asthma_non_critical_steps s where s.step_order = 4
-union all select s.id, 'C', 'Delay additional treatment and reassess much later', -3, 'Unsafe delay.' from _asthma_non_critical_steps s where s.step_order = 4
-union all select s.id, 'D', 'Proceed directly to intubation despite no ventilatory failure markers', -2, 'Over-escalation without criteria.' from _asthma_non_critical_steps s where s.step_order = 4
-union all select s.id, 'E', 'Use maintenance-only long-term meds as sole next step', -2, 'Acute phase not adequately treated.' from _asthma_non_critical_steps s where s.step_order = 4
-union all select s.id, 'F', 'Repeat short-interval bronchodilator cycle with serial bedside reassessment before major escalation', 1, 'Reasonable interim approach, though continuous therapy is usually stronger when symptoms persist.' from _asthma_non_critical_steps s where s.step_order = 4
+union all select s.id, 'A', 'Continue bronchodilator therapy and maintain close reassessment', 3, 'This is the best next step for persistent symptoms without failure signs.' from _asthma_non_critical_steps s where s.step_order = 4
+union all select s.id, 'B', 'Stop bronchodilator therapy because the patient is less anxious', -3, 'This is premature.' from _asthma_non_critical_steps s where s.step_order = 4
+union all select s.id, 'C', 'Proceed directly to intubation', -3, 'This is not indicated in the current condition.' from _asthma_non_critical_steps s where s.step_order = 4
+union all select s.id, 'D', 'Delay treatment and reassess tomorrow', -3, 'This delays indicated care.' from _asthma_non_critical_steps s where s.step_order = 4
 
-union all select s.id, 'A', 'Finalize trigger-avoidance action plan', 2, 'Core long-term asthma control element.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'B', 'Confirm inhaled corticosteroid-based control plan', 2, 'Key long-term anti-inflammatory strategy.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'C', 'Review rescue bronchodilator and anticholinergic use instructions', 2, 'Improves home response to early exacerbation.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'D', 'Provide peak-flow monitoring education and thresholds', 2, 'Objective home trend tracking for obstruction.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'E', 'Provide return precautions for worsening dyspnea or speaking difficulty', 1, 'Safety-net planning.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'F', 'Skip education because acute symptoms improved', -2, 'Unsafe transition gap.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'G', 'Discharge without trigger discussion or follow-up', -3, 'High relapse risk plan.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'H', 'Use routine antibiotics as maintenance prevention', -3, 'Incorrect routine plan without infection indication.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'I', 'Use sedative-first strategy for future episodes', -3, 'Unsafe educational guidance.' from _asthma_non_critical_steps s where s.step_order = 5
-union all select s.id, 'J', 'Arrange close outpatient follow-up', 1, 'Improves continuity and relapse prevention.' from _asthma_non_critical_steps s where s.step_order = 5
+union all select s.id, 'A', 'Sustained symptom improvement and stable oxygen saturation', 2, 'This is indicated before discharge.' from _asthma_non_critical_steps s where s.step_order = 5
+union all select s.id, 'B', 'Inhaler technique and controller adherence plan', 2, 'This is important to reduce recurrence.' from _asthma_non_critical_steps s where s.step_order = 5
+union all select s.id, 'C', 'Return precautions and follow-up plan', 2, 'This is indicated for safe discharge planning.' from _asthma_non_critical_steps s where s.step_order = 5
+union all select s.id, 'D', 'Routine antibiotics without infection evidence', -3, 'This is not indicated.' from _asthma_non_critical_steps s where s.step_order = 5
+union all select s.id, 'E', 'Discharge without trigger-avoidance counseling', -3, 'This is unsafe.' from _asthma_non_critical_steps s where s.step_order = 5
 
-union all select s.id, 'A', 'Discharge with structured asthma action plan and close follow-up after sustained stability', 3, 'Best disposition when response is sustained and education completed.' from _asthma_non_critical_steps s where s.step_order = 6
-union all select s.id, 'B', 'Admit for monitored care if instability, fatigue risk, or poor response persists', 1, 'Reasonable alternative when discharge criteria are not met.' from _asthma_non_critical_steps s where s.step_order = 6
-union all select s.id, 'C', 'Discharge immediately without follow-up or action plan', -3, 'Unsafe high-risk transition.' from _asthma_non_critical_steps s where s.step_order = 6
-union all select s.id, 'D', 'Observe in unstructured hallway status only', -2, 'Inadequate plan.' from _asthma_non_critical_steps s where s.step_order = 6
-union all select s.id, 'E', 'Discharge with no trigger counseling because symptoms improved', -3, 'Major prevention failure.' from _asthma_non_critical_steps s where s.step_order = 6;
+union all select s.id, 'A', 'Discharge with an asthma action plan and close follow-up after sustained stability', 3, 'This is appropriate when discharge criteria are met.' from _asthma_non_critical_steps s where s.step_order = 6
+union all select s.id, 'B', 'Admit for monitored care if symptoms worsen again or oxygen needs increase', 1, 'This is a reasonable alternative if stability is not sustained.' from _asthma_non_critical_steps s where s.step_order = 6
+union all select s.id, 'C', 'Discharge without follow-up', -3, 'This is unsafe.' from _asthma_non_critical_steps s where s.step_order = 6
+union all select s.id, 'D', 'Place in hallway observation without a treatment plan', -3, 'This is not an appropriate disposition.' from _asthma_non_critical_steps s where s.step_order = 6;
 
 insert into public.cse_rules (step_id, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_delta)
-select s1.id, 1, 'SCORE_AT_LEAST', '7'::jsonb, s2.id,
-  'Initial prioritization is strong and oxygenation begins improving with active treatment.',
-  '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": -1, "bp_dia": -1}'::jsonb
+select s1.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s2.id,
+  'Diffuse wheezing persists, and work of breathing remains increased.',
+  '{"spo2": 0, "hr": 0, "rr": 0, "bp_sys": 0, "bp_dia": 0, "etco2": 0}'::jsonb
 from _asthma_non_critical_steps s1 cross join _asthma_non_critical_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 union all
 select s1.id, 99, 'DEFAULT', null, s2.id,
-  'Missed priorities increase fatigue risk and prolong severe symptoms.',
-  '{"spo2": -5, "hr": 7, "rr": 4, "bp_sys": 5, "bp_dia": 3}'::jsonb
+  'Assessment is incomplete. Wheezing and dyspnea persist.',
+  '{"spo2": -2, "hr": 3, "rr": 2, "bp_sys": 2, "bp_dia": 1, "etco2": 1}'::jsonb
 from _asthma_non_critical_steps s1 cross join _asthma_non_critical_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 
 union all
 select s2.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s3.id,
-  'Appropriate acute regimen improves airflow, but close reassessment remains necessary.',
-  '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": -1, "bp_dia": -1}'::jsonb
+  'Oxygenation improves, but wheezing persists.',
+  '{"spo2": 4, "hr": -4, "rr": -3, "bp_sys": -2, "bp_dia": -1, "etco2": -1}'::jsonb
 from _asthma_non_critical_steps s2 cross join _asthma_non_critical_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 union all
 select s2.id, 99, 'DEFAULT', null, s3.id,
-  'Suboptimal treatment leaves persistent obstruction and rising decompensation risk.',
-  '{"spo2": -6, "hr": 8, "rr": 5, "bp_sys": 6, "bp_dia": 4}'::jsonb
+  'Symptoms improve little, and reassessment remains necessary.',
+  '{"spo2": -3, "hr": 4, "rr": 3, "bp_sys": 3, "bp_dia": 2, "etco2": 2}'::jsonb
 from _asthma_non_critical_steps s2 cross join _asthma_non_critical_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 
 union all
-select s3.id, 1, 'SCORE_AT_LEAST', '8'::jsonb, s4.id,
-  'Focused reassessment supports safe and timely escalation decisions.',
-  '{"spo2": 2, "hr": -2, "rr": -2, "bp_sys": -1, "bp_dia": -1}'::jsonb
+select s3.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s4.id,
+  'Wheezing persists, but the patient remains alert and is improving.',
+  '{"spo2": 1, "hr": -1, "rr": -1, "bp_sys": 0, "bp_dia": 0, "etco2": -1}'::jsonb
 from _asthma_non_critical_steps s3 cross join _asthma_non_critical_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 union all
 select s3.id, 99, 'DEFAULT', null, s4.id,
-  'Reassessment gaps increase risk of unrecognized ventilatory decline.',
-  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": 4, "bp_dia": 3}'::jsonb
+  'Reassessment is delayed, and symptoms persist.',
+  '{"spo2": -3, "hr": 3, "rr": 2, "bp_sys": 2, "bp_dia": 1, "etco2": 1}'::jsonb
 from _asthma_non_critical_steps s3 cross join _asthma_non_critical_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 
 union all
 select s4.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s5.id,
-  'Escalation improves airflow and supports transition toward long-term planning.',
-  '{"spo2": 4, "hr": -4, "rr": -3, "bp_sys": -2, "bp_dia": -2}'::jsonb
+  'Breathing becomes easier, and symptom improvement continues.',
+  '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": -1, "bp_dia": -1, "etco2": -1}'::jsonb
 from _asthma_non_critical_steps s4 cross join _asthma_non_critical_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 union all
 select s4.id, 99, 'DEFAULT', null, s5.id,
-  'Treatment mismatch prolongs instability and increases relapse risk.',
-  '{"spo2": -5, "hr": 6, "rr": 4, "bp_sys": 5, "bp_dia": 3}'::jsonb
+  'Symptoms remain active, and discharge readiness is uncertain.',
+  '{"spo2": -3, "hr": 4, "rr": 3, "bp_sys": 3, "bp_dia": 2, "etco2": 1}'::jsonb
 from _asthma_non_critical_steps s4 cross join _asthma_non_critical_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 
 union all
-select s5.id, 1, 'SCORE_AT_LEAST', '8'::jsonb, s6.id,
-  'Long-term planning is complete and supports safer disposition.',
-  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1}'::jsonb
+select s5.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s6.id,
+  'Symptoms remain improved, and discharge planning is complete.',
+  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1, "etco2": 0}'::jsonb
 from _asthma_non_critical_steps s5 cross join _asthma_non_critical_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 union all
 select s5.id, 99, 'DEFAULT', null, s6.id,
-  'Transition planning gaps raise near-term exacerbation recurrence risk.',
-  '{"spo2": -3, "hr": 4, "rr": 3, "bp_sys": 3, "bp_dia": 2}'::jsonb
+  'Discharge readiness remains incomplete.',
+  '{"spo2": -2, "hr": 3, "rr": 2, "bp_sys": 2, "bp_dia": 1, "etco2": 1}'::jsonb
 from _asthma_non_critical_steps s5 cross join _asthma_non_critical_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 
 union all
 select s6.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, null,
-  'Final outcome: patient transitions safely with asthma action plan, trigger strategy, and follow-up.',
-  '{"spo2": 1, "hr": -1, "rr": -1, "bp_sys": -1, "bp_dia": -1}'::jsonb
+  'Final outcome: the patient is discharged with an asthma action plan and follow-up.',
+  '{"spo2": 1, "hr": -1, "rr": -1, "bp_sys": -1, "bp_dia": -1, "etco2": 0}'::jsonb
 from _asthma_non_critical_steps s6
 where s6.step_order = 6
 union all
 select s6.id, 99, 'DEFAULT', null, null,
-  'Final outcome: disposition was insufficient and early symptom recurrence occurs.',
-  '{"spo2": -6, "hr": 7, "rr": 5, "bp_sys": -6, "bp_dia": -4}'::jsonb
+  'Final outcome: the discharge plan is inadequate, and symptoms recur early.',
+  '{"spo2": -5, "hr": 5, "rr": 4, "bp_sys": -4, "bp_dia": -2, "etco2": 2}'::jsonb
 from _asthma_non_critical_steps s6
 where s6.step_order = 6;
 
@@ -287,7 +256,7 @@ insert into public.cse_outcomes (
 )
 select
   r.step_id,
-  'COPD_NON_CRIT_ASTHMA_S' || s.step_order::text || '_P' || r.rule_priority::text || '_' || r.rule_type as label,
+  'CASE13_S' || s.step_order::text || '_P' || r.rule_priority::text || '_' || r.rule_type as label,
   r.rule_priority,
   r.rule_type,
   r.rule_value,

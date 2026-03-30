@@ -1,0 +1,101 @@
+Exhale Academy CSE Review
+Case 13 -- Asthma Non-Critical (Triggered Exacerbation)
+
+Intro
+Noncritical asthma exacerbation after trigger exposure requiring acute bronchodilator treatment, reassessment, and safe discharge planning.
+
+Stem
+Triggered asthma exacerbation with wheezing, moderate hypoxemia, and no immediate ventilatory-failure signs.
+
+Step 1
+A 43-year-old man comes to the emergency department because of dyspnea, chest tightness, and wheezing after cleaning a dusty attic.
+
+While breathing room air, the following are noted:
+HR 118/min
+RR 32/min
+BP 146/88 mm Hg
+SpO2 89%
+
+He has accessory-muscle use and difficulty speaking full sentences.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Breath sounds and air movement (+2)
+B. Work of breathing and ability to speak (+2)
+C. Pulse oximetry and vital signs (+2)
+D. Complete pulmonary function testing (-3)
+E. Allergy skin testing before treatment (-3)
+
+High-score progression: Diffuse wheezing persists, and work of breathing remains increased.
+Default progression: Assessment is incomplete. Wheezing and dyspnea persist.
+
+Step 2
+Breath sounds reveal diffuse expiratory wheezing. Which of the following should be recommended FIRST?
+
+A. Administer oxygen, short-acting bronchodilator therapy, and systemic corticosteroid treatment (+3)
+B. Observe without treatment because the patient is still speaking (-3)
+C. Start only long-acting controller medication (-3)
+D. Proceed directly to intubation (-2)
+
+High-score progression: Oxygenation improves, but wheezing persists.
+Default progression: Symptoms improve little, and reassessment remains necessary.
+
+Step 3
+Thirty minutes after oxygen, bronchodilator therapy, and systemic corticosteroids are started, the patient is breathing more comfortably but still wheezing.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.35, the following are noted:
+HR 108/min
+RR 28/min
+BP 140/84 mm Hg
+SpO2 93%
+
+ABG analysis reveals:
+pH 7.45
+PaCO2 34 torr
+PaO2 68 torr
+HCO3- 23 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Breath sounds and work of breathing (+2)
+B. Oxygen saturation and vital-sign trend (+2)
+C. Ability to speak and symptom improvement (+2)
+D. Peak expiratory flow only after all acute decisions are complete (-1)
+E. Discharge paperwork (-3)
+
+High-score progression: Wheezing persists, but the patient remains alert and is improving.
+Default progression: Reassessment is delayed, and symptoms persist.
+
+Step 4
+Wheezing persists, but the patient remains alert and is speaking in longer phrases. Which of the following should be recommended now?
+
+A. Continue bronchodilator therapy and maintain close reassessment (+3)
+B. Stop bronchodilator therapy because the patient is less anxious (-3)
+C. Proceed directly to intubation (-3)
+D. Delay treatment and reassess tomorrow (-3)
+
+High-score progression: Breathing becomes easier, and symptom improvement continues.
+Default progression: Symptoms remain active, and discharge readiness is uncertain.
+
+Step 5
+After additional treatment, the patient is breathing more comfortably. Which of the following should be evaluated before disposition? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Sustained symptom improvement and stable oxygen saturation (+2)
+B. Inhaler technique and controller adherence plan (+2)
+C. Return precautions and follow-up plan (+2)
+D. Routine antibiotics without infection evidence (-3)
+E. Discharge without trigger-avoidance counseling (-3)
+
+High-score progression: Symptoms remain improved, and discharge planning is complete.
+Default progression: Discharge readiness remains incomplete.
+
+Step 6
+Symptoms remain improved and oxygenation is stable. Which of the following should be recommended postdischarge?
+
+A. Discharge with an asthma action plan and close follow-up after sustained stability (+3)
+B. Admit for monitored care if symptoms worsen again or oxygen needs increase (+1)
+C. Discharge without follow-up (-3)
+D. Place in hallway observation without a treatment plan (-3)
+
+High-score progression: Final outcome: the patient is discharged with an asthma action plan and follow-up.
+Default progression: Final outcome: the discharge plan is inadequate, and symptoms recur early.

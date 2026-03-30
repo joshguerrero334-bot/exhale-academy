@@ -1,0 +1,115 @@
+Exhale Academy CSE Review
+Case 5 -- COPD Hypercapnic Respiratory Fatigue
+
+Intro
+Adult with severe COPD exacerbation presents with hypoxemia, somnolence, and rising ventilatory fatigue.
+
+Stem
+Acute COPD exacerbation with hypercapnia, fatigue, and need for ventilatory support.
+
+Step 1
+A 63-year-old woman with severe COPD comes to the emergency department because of worsening dyspnea and productive cough for 2 days.
+
+While breathing room air, the following are noted:
+HR 112/min
+RR 32/min
+BP 156/92 mm Hg
+SpO2 84%
+
+She is drowsy and speaks in short phrases.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status and ability to protect the airway (+2)
+B. Breath sounds and work of breathing (+2)
+C. Pulse oximetry and vital signs (+2)
+D. Complete pulmonary function testing (-3)
+E. Exercise oximetry (-3)
+
+High-score progression: Breath sounds remain diminished, and the patient remains drowsy with persistent hypoxemia.
+Default progression: Assessment is incomplete. The patient becomes more fatigued, and hypoxemia persists.
+
+Step 2
+Breath sounds reveal diffuse rhonchi and diminished breath sounds bilaterally. Which of the following should be recommended FIRST?
+
+A. Administer controlled oxygen by Venturi mask (+3)
+B. Administer 100% oxygen by nonrebreathing mask (-2)
+C. Withhold oxygen because of chronic CO2 retention (-3)
+D. Proceed directly to endotracheal intubation (-1)
+
+High-score progression: Oxygenation improves slightly, but dyspnea and somnolence persist.
+Default progression: Gas exchange remains unstable, and the patient becomes more somnolent.
+
+Step 3
+Thirty minutes after controlled oxygen and bronchodilator therapy are started, the patient remains drowsy.
+
+While receiving O2 by Venturi mask at an FIO2 of 0.28, the following are noted:
+HR 108/min
+RR 30/min
+BP 150/88 mm Hg
+SpO2 88%
+
+ABG analysis reveals:
+pH 7.28
+PaCO2 68 torr
+PaO2 56 torr
+HCO3- 31 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status (+2)
+B. ABG trend (+2)
+C. Secretion burden and cough effectiveness (+2)
+D. Cardiopulmonary exercise testing (-3)
+E. Discharge planning (-3)
+
+High-score progression: PaCO2 remains elevated, and work of breathing continues to increase.
+Default progression: Reassessment is delayed. Somnolence and hypercapnia worsen.
+
+Step 4
+The patient becomes more somnolent and continues to use accessory muscles. Which of the following should be recommended now?
+
+A. Begin bilevel positive airway pressure (+3)
+B. Continue the same treatment and repeat the ABG later (-3)
+C. Discontinue oxygen and observe (-3)
+D. Proceed directly to intubation (-1)
+
+High-score progression: The patient becomes more synchronous with ventilatory support, and oxygenation improves.
+Default progression: Ventilatory failure worsens, and the patient becomes more difficult to arouse.
+
+Step 5
+One hour after bilevel positive airway pressure is started, the patient is receiving IPAP 14 cm H2O, EPAP 6 cm H2O, and FIO2 0.30.
+
+The following are noted:
+HR 102/min
+RR 26/min
+BP 146/84 mm Hg
+SpO2 91%
+
+ABG analysis reveals:
+pH 7.31
+PaCO2 60 torr
+PaO2 62 torr
+HCO3- 30 mEq/L
+
+Which of the following should be evaluated or adjusted now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Repeat ABG analysis (+2)
+B. Adjust IPAP or backup rate if PaCO2 remains elevated (+2)
+C. Check mask fit and patient synchrony (+2)
+D. Discontinue bilevel positive airway pressure because SpO2 improved (-3)
+E. Reduce oxygen to room air immediately (-2)
+
+High-score progression: pH and PaCO2 begin to improve, and the patient is more alert.
+Default progression: Gas exchange remains unstable, and close monitoring is still required.
+
+Step 6
+The patient is more alert and synchronizing with bilevel positive airway pressure. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued noninvasive ventilatory management and reassessment (+3)
+B. Transfer to an unmonitored medical floor (-3)
+C. Discharge home after the next ABG (-3)
+D. Observe in the emergency department without admission (-3)
+
+High-score progression: Final outcome: the patient is admitted for ongoing noninvasive ventilatory support and reassessment.
+Default progression: Final outcome: inadequate level of care leads to recurrent hypercapnic respiratory failure.

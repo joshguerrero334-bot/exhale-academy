@@ -1,0 +1,77 @@
+Exhale Academy CSE Review
+Case 22 -- ARDS Critical (Aspiration -> Acute Whiteout Pattern)
+
+Intro
+Aspiration event followed by escalating oxygen requirement and bedside findings concerning for early ARDS.
+
+Stem
+Post-aspiration deterioration causes refractory hypoxemia and increasing respiratory distress.
+
+Step 1
+A 63-year-old man develops worsening respiratory distress after a witnessed aspiration event.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 124/min
+RR 35/min
+BP 152/88 mm Hg
+SpO2 81%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).
+
+A. Assess work of breathing and mental status (+2)
+B. Review chest radiograph (+2)
+C. Obtain ABG and calculate the P/F ratio (+3)
+D. Review likely trigger/source data, including appropriate labs (+2)
+E. Evaluate whether the pattern is more consistent with noncardiogenic than cardiogenic pulmonary edema (+2)
+F. Delay oxygen escalation until all tests return (-3)
+G. Assume this is not ARDS because wheezes are not prominent (-2)
+
+Revealed findings after indicated selections:
+- Chest radiograph reveals new bilateral patchy infiltrates.
+- ABG: pH 7.32, PaCO2 45 torr, PaO2 50 torr, HCO3 23 mEq/L. P/F ratio is severely reduced.
+- Aspiration was witnessed shortly before the respiratory decline. CBC shows WBC 15,600/mm3.
+- Cardiogenic pulmonary edema is not supported by the current findings.
+
+Step 2
+Which of the following should be recommended FIRST?
+
+A. Treat the underlying cause and initiate lung-protective ventilation with appropriate PEEP (+3)
+B. Use larger tidal volumes to force CO2 clearance (-3)
+C. Keep plateau pressure unconstrained if oxygenation is poor (-3)
+D. Treat hypoxemia only and ignore the trigger (-2)
+
+Step 3
+After initial management, the patient is intubated and receiving lung-protective ventilation.
+
+Current settings are:
+AC/VC
+VT 6 mL/kg IBW
+RR 24/min
+FiO2 0.70
+PEEP 10 cmH2O
+Plateau pressure 28 cmH2O
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 5).
+
+A. Repeat ABG and reassess the P/F ratio (+2)
+B. Trend plateau pressure and compliance (+2)
+C. Adjust FiO2 and PEEP based on oxygenation while keeping plateau pressure below 30 cmH2O (+2)
+D. Determine whether prone positioning is indicated if severe hypoxemia persists (+2)
+E. Follow the trigger-specific source data and hemodynamic response (+1)
+F. Stop close monitoring after one slight SpO2 improvement (-3)
+G. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- ABG: pH 7.30, PaCO2 48 torr, PaO2 66 torr, HCO3 23 mEq/L. P/F ratio remains below 150.
+- Plateau pressure remains acceptable, but compliance is poor.
+- FiO2/PEEP still require titration based on oxygenation response.
+- Prone positioning should be considered if severe hypoxemia persists.
+- Aspiration-related airway clearance and infection follow-up still require attention.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue ICU-level ARDS management with lung-protective ventilation and rescue-escalation criteria (+3)
+B. Transfer to a low-acuity floor once oxygenation improves briefly (-3)
+C. Discharge after temporary oxygenation improvement (-3)
+D. Observe without a structured ARDS escalation plan (-2)

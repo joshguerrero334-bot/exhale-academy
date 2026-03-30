@@ -1,4 +1,4 @@
--- Exhale Academy CSE Case #7 Branching Seed (Pulmonary Embolism Decompensation Pattern)
+-- Exhale Academy CSE Branching Seed (Pulmonary Embolism Decompensation Pattern)
 -- Requires docs/cse_branching_engine_migration.sql
 
 begin;
@@ -22,8 +22,8 @@ updated as (
     slug = 'case-7-sudden-hypoxemia-hemodynamic-strain-pattern',
     title = 'Case 7 -- Sudden Hypoxemia With Hemodynamic Strain Pattern',
     intro_text = 'Adult with abrupt pleuritic dyspnea, tachycardia, and worsening oxygenation requiring rapid stabilization and escalation decisions.',
-    description = 'Branching scenario emphasizing oxygenation, perfusion support, and high-risk delay traps.',
-    stem = 'Acute cardiopulmonary decompensation with severe gas-exchange mismatch.',
+    description = 'Branching scenario focused on acute oxygen support, reassessment, and escalation in a high-risk pulmonary embolism pattern.',
+    stem = 'Acute cardiopulmonary decompensation with severe gas-exchange mismatch and worsening perfusion.',
     difficulty = 'medium',
     is_active = true,
     is_published = true
@@ -40,8 +40,8 @@ created as (
     'case-7-sudden-hypoxemia-hemodynamic-strain-pattern',
     'Case 7 -- Sudden Hypoxemia With Hemodynamic Strain Pattern',
     'Adult with abrupt pleuritic dyspnea, tachycardia, and worsening oxygenation requiring rapid stabilization and escalation decisions.',
-    'Branching scenario emphasizing oxygenation, perfusion support, and high-risk delay traps.',
-    'Acute cardiopulmonary decompensation with severe gas-exchange mismatch.',
+    'Branching scenario focused on acute oxygen support, reassessment, and escalation in a high-risk pulmonary embolism pattern.',
+    'Acute cardiopulmonary decompensation with severe gas-exchange mismatch and worsening perfusion.',
     'medium',
     true,
     true
@@ -57,159 +57,188 @@ update public.cse_cases
 set baseline_vitals = '{"hr":126,"rr":34,"spo2":80,"bp_sys":98,"bp_dia":62}'::jsonb
 where id in (select id from _case7_target);
 
-delete from public.cse_rules
-where step_id in (
-  select s.id
-  from public.cse_steps s
+delete from public.cse_attempt_events
+where attempt_id in (
+  select a.id from public.cse_attempts a where a.case_id in (select id from _case7_target)
+)
+or step_id in (
+  select s.id from public.cse_steps s where s.case_id in (select id from _case7_target)
+)
+or outcome_id in (
+  select o.id from public.cse_outcomes o
+  join public.cse_steps s on s.id = o.step_id
   where s.case_id in (select id from _case7_target)
 );
 
-delete from public.cse_outcomes
-where step_id in (
-  select s.id
-  from public.cse_steps s
-  where s.case_id in (select id from _case7_target)
-);
-
-delete from public.cse_options
-where step_id in (
-  select s.id
-  from public.cse_steps s
-  where s.case_id in (select id from _case7_target)
-);
-
-delete from public.cse_steps
-where case_id in (select id from _case7_target);
+delete from public.cse_attempts where case_id in (select id from _case7_target);
+delete from public.cse_rules where step_id in (select id from public.cse_steps where case_id in (select id from _case7_target));
+delete from public.cse_outcomes where step_id in (select id from public.cse_steps where case_id in (select id from _case7_target));
+delete from public.cse_options where step_id in (select id from public.cse_steps where case_id in (select id from _case7_target));
+delete from public.cse_steps where case_id in (select id from _case7_target);
 
 with inserted_steps as (
-  insert into public.cse_steps (
-    case_id, step_number, step_order, step_type, prompt, max_select, stop_label
-  )
-  select id, 1, 1, 'IG', 'A 46-year-old female develops sudden pleuritic chest pain and severe dyspnea. She is anxious, pale, and tachypneic with SpO2 80% on room air and borderline blood pressure. SELECT AS MANY AS INDICATED (MAX 4). What immediate priorities are indicated?', 4, 'STOP' from _case7_target
+  insert into public.cse_steps (case_id, step_number, step_order, step_type, prompt, max_select, stop_label, metadata)
+  select id, 1, 1, 'IG',
+    'A 46-year-old woman comes to the emergency department because of sudden right-sided pleuritic chest pain and severe dyspnea.
+
+While breathing room air, the following are noted:
+HR 126/min
+RR 34/min
+BP 98/62 mm Hg
+SpO2 80%
+
+She is anxious and diaphoretic.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _case7_target
   union all
-  select id, 2, 2, 'DM', 'CHOOSE ONLY ONE. What is your FIRST respiratory support strategy now?', null, 'STOP' from _case7_target
+  select id, 2, 2, 'DM',
+    'Breath sounds are clear bilaterally. Neck veins are distended, and the patient remains tachycardic. Which of the following should be recommended FIRST?',
+    null, 'STOP', '{}'::jsonb from _case7_target
   union all
-  select id, 3, 3, 'IG', 'SELECT AS MANY AS INDICATED (MAX 3). After initial support, what reassessment actions should guide escalation?', 3, 'STOP' from _case7_target
+  select id, 3, 3, 'IG',
+    'After oxygen therapy is started, the patient remains dyspneic.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 122/min
+RR 32/min
+BP 92/58 mm Hg
+SpO2 88%
+
+ABG analysis reveals:
+pH 7.47
+PaCO2 31 torr
+PaO2 56 torr
+HCO3- 22 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _case7_target
   union all
-  select id, 4, 4, 'DM', 'CHOOSE ONLY ONE. Perfusion worsens and hypoxemia persists. What is your NEXT escalation?', null, 'STOP' from _case7_target
+  select id, 4, 4, 'DM',
+    'Blood pressure continues to fall, and hypoxemia persists. Which of the following should be recommended now?',
+    null, 'STOP', '{}'::jsonb from _case7_target
   union all
-  select id, 5, 5, 'IG', 'SELECT AS MANY AS INDICATED (MAX 3). Following stabilization efforts, what ongoing management is indicated?', 3, 'STOP' from _case7_target
+  select id, 5, 5, 'IG',
+    'After escalation, oxygenation improves slightly and perfusion stabilizes. Which of the following should be evaluated or monitored now? SELECT AS MANY AS INDICATED (MAX 3).',
+    3, 'STOP', '{}'::jsonb from _case7_target
   union all
-  select id, 6, 6, 'DM', 'CHOOSE ONLY ONE. What is the safest disposition now?', null, 'STOP' from _case7_target
+  select id, 6, 6, 'DM',
+    'The patient remains high risk for recurrent instability. Which of the following should be recommended postadmission?',
+    null, 'STOP', '{}'::jsonb from _case7_target
   returning id, step_order
 )
 insert into _case7_steps (step_order, id)
 select step_order, id from inserted_steps;
 
 insert into public.cse_options (step_id, option_key, option_text, score, rationale)
-select s.id, 'A', 'Apply high-concentration oxygen and continuous cardiorespiratory monitoring', 2, 'Immediate oxygenation and surveillance are critical.' from _case7_steps s where s.step_order = 1
-union all select s.id, 'B', 'Establish two IV lines and notify rapid-response team', 2, 'Supports urgent stabilization and escalation readiness.' from _case7_steps s where s.step_order = 1
-union all select s.id, 'C', 'Perform focused hemodynamic and respiratory reassessment at bedside', 1, 'Clarifies progression and urgency.' from _case7_steps s where s.step_order = 1
-union all select s.id, 'D', 'Send patient to CT before stabilization', -2, 'Unsafe transfer-first delay.' from _case7_steps s where s.step_order = 1
-union all select s.id, 'E', 'Delay oxygen until arterial blood gas returns', -2, 'Dangerous delay in severe hypoxemia.' from _case7_steps s where s.step_order = 1
+select s.id, 'A', 'Breath sounds and symmetry of chest expansion', 2, 'This is indicated in the initial assessment.' from _case7_steps s where s.step_order = 1
+union all select s.id, 'B', 'Pulse oximetry, heart rate, and blood pressure', 2, 'This is indicated to assess severity and perfusion.' from _case7_steps s where s.step_order = 1
+union all select s.id, 'C', 'Signs of right-heart strain and mental status', 2, 'This helps assess severity and instability.' from _case7_steps s where s.step_order = 1
+union all select s.id, 'D', 'Routine pulmonary function testing', -3, 'This is not indicated in the current condition.' from _case7_steps s where s.step_order = 1
+union all select s.id, 'E', 'Exercise oximetry', -3, 'This delays urgent care.' from _case7_steps s where s.step_order = 1
 
-union all select s.id, 'A', 'Use high-FiO2 support with close titration and frequent reassessment', 2, 'Best immediate support while evaluating perfusion trajectory.' from _case7_steps s where s.step_order = 2
-union all select s.id, 'B', 'Use low-flow oxygen and wait for imaging', -1, 'Often inadequate in this severity.' from _case7_steps s where s.step_order = 2
-union all select s.id, 'C', 'Remove oxygen to evaluate baseline trend', -2, 'Unsafe de-escalation.' from _case7_steps s where s.step_order = 2
-union all select s.id, 'D', 'Intubate immediately without assessing hemodynamic impact', -1, 'May be required later but can worsen instability if premature.' from _case7_steps s where s.step_order = 2
+union all select s.id, 'A', 'Administer high-concentration oxygen and maintain close monitoring', 3, 'This is the best first respiratory intervention in this situation.' from _case7_steps s where s.step_order = 2
+union all select s.id, 'B', 'Delay treatment until imaging is completed', -3, 'This delays indicated treatment.' from _case7_steps s where s.step_order = 2
+union all select s.id, 'C', 'Intubate immediately before any reassessment', -2, 'This may be required later, but it is not the best first step now.' from _case7_steps s where s.step_order = 2
+union all select s.id, 'D', 'Use low-flow oxygen by nasal cannula only', -2, 'This is not the best initial oxygen strategy for this severity.' from _case7_steps s where s.step_order = 2
 
-union all select s.id, 'A', 'Trend SpO2, BP, heart rate, and mental status every few minutes', 2, 'Captures early shock progression.' from _case7_steps s where s.step_order = 3
-union all select s.id, 'B', 'Reassess signs of right-heart strain and perfusion adequacy', 2, 'Guides urgency of definitive therapy.' from _case7_steps s where s.step_order = 3
-union all select s.id, 'C', 'Obtain focused blood gas/lactate trend without delaying care', 1, 'Supports objective risk tracking.' from _case7_steps s where s.step_order = 3
-union all select s.id, 'D', 'Stop monitoring once saturation briefly improves', -2, 'Misses rapid decompensation.' from _case7_steps s where s.step_order = 3
-union all select s.id, 'E', 'Pause all interventions pending complete diagnostics', -2, 'High-risk delay during active instability.' from _case7_steps s where s.step_order = 3
+union all select s.id, 'A', 'Oxygen saturation and blood pressure trend', 2, 'This is indicated to assess response and instability.' from _case7_steps s where s.step_order = 3
+union all select s.id, 'B', 'Mental status and signs of worsening perfusion', 2, 'This helps identify early shock progression.' from _case7_steps s where s.step_order = 3
+union all select s.id, 'C', 'ABG trend', 2, 'This is indicated to assess ongoing gas-exchange failure.' from _case7_steps s where s.step_order = 3
+union all select s.id, 'D', 'Smoking-cessation counseling', -3, 'Important later, but not the next acute priority.' from _case7_steps s where s.step_order = 3
+union all select s.id, 'E', 'Routine discharge planning', -3, 'This is premature.' from _case7_steps s where s.step_order = 3
 
-union all select s.id, 'A', 'Escalate to high-acuity shock protocol with immediate specialist coordination', 2, 'Appropriate for worsening perfusion and hypoxemia.' from _case7_steps s where s.step_order = 4
-union all select s.id, 'B', 'Continue unchanged therapy despite falling blood pressure', -1, 'Fails to address deterioration.' from _case7_steps s where s.step_order = 4
-union all select s.id, 'C', 'Transport for routine imaging before perfusion stabilization', -2, 'Unsafe delay during shock pattern.' from _case7_steps s where s.step_order = 4
-union all select s.id, 'D', 'Give sedative for anxiety without hemodynamic plan', -2, 'Can worsen instability.' from _case7_steps s where s.step_order = 4
+union all select s.id, 'A', 'Escalate to high-acuity management with immediate specialist coordination', 3, 'This is indicated with worsening perfusion and persistent hypoxemia.' from _case7_steps s where s.step_order = 4
+union all select s.id, 'B', 'Continue the same treatment and reassess later', -3, 'This delays indicated escalation.' from _case7_steps s where s.step_order = 4
+union all select s.id, 'C', 'Send the patient for routine testing before stabilization', -3, 'This is unsafe in the current condition.' from _case7_steps s where s.step_order = 4
+union all select s.id, 'D', 'Reduce oxygen because the patient is tachypneic', -3, 'This worsens hypoxemia.' from _case7_steps s where s.step_order = 4
 
-union all select s.id, 'A', 'Titrate oxygen/ventilatory support to objective response', 2, 'Prevents avoidable over/under-support.' from _case7_steps s where s.step_order = 5
-union all select s.id, 'B', 'Continue continuous hemodynamic monitoring and serial reassessment', 1, 'Detects relapse early.' from _case7_steps s where s.step_order = 5
-union all select s.id, 'C', 'Coordinate definitive therapy pathway with critical care team', 2, 'Ensures timely follow-through.' from _case7_steps s where s.step_order = 5
-union all select s.id, 'D', 'Stop frequent reassessment after transient stabilization', -1, 'Premature de-escalation.' from _case7_steps s where s.step_order = 5
-union all select s.id, 'E', 'Transfer to low-acuity unit early', -2, 'Unsafe for current risk.' from _case7_steps s where s.step_order = 5
+union all select s.id, 'A', 'Continuous hemodynamic and oxygenation monitoring', 2, 'This is indicated after initial stabilization.' from _case7_steps s where s.step_order = 5
+union all select s.id, 'B', 'Response to oxygen therapy and symptom trend', 2, 'This helps assess ongoing support needs.' from _case7_steps s where s.step_order = 5
+union all select s.id, 'C', 'Coordination of definitive therapy pathway', 2, 'This is indicated in a high-risk PE pattern.' from _case7_steps s where s.step_order = 5
+union all select s.id, 'D', 'Stop close monitoring after brief improvement', -3, 'This is unsafe.' from _case7_steps s where s.step_order = 5
+union all select s.id, 'E', 'Transfer early to a low-acuity unit', -3, 'This is not appropriate for the current condition.' from _case7_steps s where s.step_order = 5
 
-union all select s.id, 'A', 'Admit to ICU for ongoing respiratory and hemodynamic monitoring', 2, 'Matches acuity and relapse risk.' from _case7_steps s where s.step_order = 6
-union all select s.id, 'B', 'Discharge after temporary symptom relief', -2, 'Unsafe disposition.' from _case7_steps s where s.step_order = 6
-union all select s.id, 'C', 'Admit to unmonitored floor', -2, 'Inadequate monitoring level.' from _case7_steps s where s.step_order = 6
-union all select s.id, 'D', 'Observe in hallway without escalation plan', -1, 'Insufficient follow-through.' from _case7_steps s where s.step_order = 6;
+union all select s.id, 'A', 'Admit to the ICU for continued respiratory and hemodynamic monitoring', 3, 'This is the safest disposition in this situation.' from _case7_steps s where s.step_order = 6
+union all select s.id, 'B', 'Admit to an unmonitored floor bed', -3, 'This is not an appropriate level of care.' from _case7_steps s where s.step_order = 6
+union all select s.id, 'C', 'Discharge after temporary improvement', -3, 'This is unsafe.' from _case7_steps s where s.step_order = 6
+union all select s.id, 'D', 'Observe without a defined escalation plan', -3, 'This is not an appropriate disposition.' from _case7_steps s where s.step_order = 6;
 
 insert into public.cse_rules (step_id, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_delta)
-select s1.id, 1, 'INCLUDES_ALL', '["A","B"]'::jsonb, s2.id,
-  'Early priorities modestly improve oxygenation, but high-risk physiology persists.',
-  '{"spo2": 5, "hr": -4, "rr": -2, "bp_sys": 2, "bp_dia": 1}'::jsonb
+select s1.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s2.id,
+  'Pleuritic chest pain and dyspnea persist, and hypoxemia remains severe.',
+  '{"spo2": 0, "hr": 0, "rr": 0, "bp_sys": 0, "bp_dia": 0}'::jsonb
 from _case7_steps s1 cross join _case7_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 union all
 select s1.id, 99, 'DEFAULT', null, s2.id,
-  'Delay or harmful actions worsen hypoxemia and perfusion strain.',
-  '{"spo2": -6, "hr": 8, "rr": 4, "bp_sys": -6, "bp_dia": -4}'::jsonb
+  'Assessment is incomplete. Hypoxemia worsens, and perfusion remains poor.',
+  '{"spo2": -5, "hr": 6, "rr": 3, "bp_sys": -6, "bp_dia": -4}'::jsonb
 from _case7_steps s1 cross join _case7_steps s2
 where s1.step_order = 1 and s2.step_order = 2
 
 union all
 select s2.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s3.id,
-  'Support strategy improves gas exchange and buys reassessment time.',
-  '{"spo2": 6, "hr": -5, "rr": -3, "bp_sys": 2, "bp_dia": 1}'::jsonb
+  'Oxygenation improves slightly, but tachycardia and dyspnea persist.',
+  '{"spo2": 8, "hr": -4, "rr": -2, "bp_sys": -2, "bp_dia": -1}'::jsonb
 from _case7_steps s2 cross join _case7_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 union all
 select s2.id, 99, 'DEFAULT', null, s3.id,
-  'Insufficient support leads to worsening fatigue and unstable perfusion.',
-  '{"spo2": -5, "hr": 7, "rr": 4, "bp_sys": -5, "bp_dia": -3}'::jsonb
+  'Symptoms worsen, and blood pressure continues to fall.',
+  '{"spo2": -4, "hr": 7, "rr": 4, "bp_sys": -8, "bp_dia": -5}'::jsonb
 from _case7_steps s2 cross join _case7_steps s3
 where s2.step_order = 2 and s3.step_order = 3
 
 union all
-select s3.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s4.id,
-  'Focused reassessment identifies ongoing high-risk strain early.',
-  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": 1, "bp_dia": 1}'::jsonb
+select s3.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s4.id,
+  'Hypoxemia and hypotension persist, and the patient remains high risk.',
+  '{"spo2": -1, "hr": 1, "rr": 1, "bp_sys": -2, "bp_dia": -1}'::jsonb
 from _case7_steps s3 cross join _case7_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 union all
 select s3.id, 99, 'DEFAULT', null, s4.id,
-  'Missed signals allow rapid deterioration toward shock.',
-  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": -6, "bp_dia": -4}'::jsonb
+  'Reassessment is delayed, and shock worsens.',
+  '{"spo2": -4, "hr": 6, "rr": 3, "bp_sys": -10, "bp_dia": -6}'::jsonb
 from _case7_steps s3 cross join _case7_steps s4
 where s3.step_order = 3 and s4.step_order = 4
 
 union all
 select s4.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s5.id,
-  'Escalation improves perfusion trend and oxygenation stability.',
-  '{"spo2": 5, "hr": -6, "rr": -3, "bp_sys": 8, "bp_dia": 5}'::jsonb
+  'Perfusion improves slightly, and oxygenation stabilizes.',
+  '{"spo2": 5, "hr": -5, "rr": -2, "bp_sys": 10, "bp_dia": 6}'::jsonb
 from _case7_steps s4 cross join _case7_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 union all
 select s4.id, 99, 'DEFAULT', null, s5.id,
-  'Inadequate escalation worsens shock physiology and hypoxemia.',
-  '{"spo2": -7, "hr": 9, "rr": 5, "bp_sys": -10, "bp_dia": -6}'::jsonb
+  'Hypoxemia worsens, and hemodynamic instability increases.',
+  '{"spo2": -6, "hr": 8, "rr": 4, "bp_sys": -12, "bp_dia": -7}'::jsonb
 from _case7_steps s4 cross join _case7_steps s5
 where s4.step_order = 4 and s5.step_order = 5
 
 union all
-select s5.id, 1, 'SCORE_AT_LEAST', '4'::jsonb, s6.id,
-  'Ongoing management stabilizes trajectory for safe high-acuity care.',
-  '{"spo2": 3, "hr": -3, "rr": -2, "bp_sys": 3, "bp_dia": 2}'::jsonb
+select s5.id, 1, 'SCORE_AT_LEAST', '5'::jsonb, s6.id,
+  'Stabilization is maintained with ongoing high-acuity monitoring.',
+  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": 2, "bp_dia": 1}'::jsonb
 from _case7_steps s5 cross join _case7_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 union all
 select s5.id, 99, 'DEFAULT', null, s6.id,
-  'Monitoring gaps leave high relapse and collapse risk.',
-  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": -4, "bp_dia": -2}'::jsonb
+  'Monitoring gaps leave a high risk of recurrent collapse.',
+  '{"spo2": -4, "hr": 5, "rr": 3, "bp_sys": -5, "bp_dia": -3}'::jsonb
 from _case7_steps s5 cross join _case7_steps s6
 where s5.step_order = 5 and s6.step_order = 6
 
 union all
 select s6.id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, null,
-  'Final outcome: patient remains stable under ICU monitoring with definitive follow-through.',
-  '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": 2, "bp_dia": 1}'::jsonb
+  'Final outcome: the patient is admitted to the ICU for continued monitoring and definitive management.',
+  '{"spo2": 1, "hr": -1, "rr": -1, "bp_sys": 1, "bp_dia": 1}'::jsonb
 from _case7_steps s6
 where s6.step_order = 6
 union all
 select s6.id, 99, 'DEFAULT', null, null,
-  'Final outcome: disposition was unsafe and rapid re-decompensation occurred.',
-  '{"spo2": -6, "hr": 8, "rr": 4, "bp_sys": -8, "bp_dia": -5}'::jsonb
+  'Final outcome: the level of care is inadequate, and recurrent instability occurs.',
+  '{"spo2": -5, "hr": 6, "rr": 4, "bp_sys": -8, "bp_dia": -5}'::jsonb
 from _case7_steps s6
 where s6.step_order = 6;
 

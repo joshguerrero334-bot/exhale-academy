@@ -1,0 +1,125 @@
+Exhale Academy CSE Review
+Case 6 -- Acute Severe Bronchospasm Fatigue
+
+Intro
+Adult with severe lower-airway obstruction presents with hypoxemia, poor speech tolerance, and increasing fatigue.
+
+Stem
+Severe bronchospasm with worsening work of breathing and risk of ventilatory failure.
+
+Step 1
+A 29-year-old woman comes to the emergency department because of severe dyspnea and chest tightness that began 2 days ago and worsened despite repeated albuterol use.
+
+While breathing room air, the following are noted:
+HR 128/min
+RR 36/min
+BP 168/96 mm Hg
+SpO2 82%
+
+She is using accessory muscles and can speak only 2 to 3 words at a time.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Breath sounds and air movement (+2)
+B. Ability to speak and accessory-muscle use (+2)
+C. Pulse oximetry and vital signs (+2)
+D. Methacholine challenge testing (-3)
+E. Allergy skin testing before treatment (-3)
+F. Complete pulmonary function testing (-3)
+
+High-score progression: Breath sounds reveal diffuse wheezing. Accessory-muscle use remains pronounced, and SpO2 remains low on room air.
+Default progression: Assessment is incomplete. The patient becomes more restless, and hypoxemia persists.
+
+Step 2
+Breath sounds reveal diffuse expiratory wheezing with prolonged exhalation. Mental status is anxious but alert. Which of the following should be recommended FIRST?
+
+A. Begin continuous nebulized albuterol while administering supplemental oxygen (+3)
+B. Obtain a chest CT scan before starting therapy (-3)
+C. Proceed directly to endotracheal intubation (-1)
+D. Administer a sedative to reduce tachypnea (-3)
+E. Withhold oxygen because of concern for CO2 retention (-3)
+
+High-score progression: SpO2 improves slightly, but tachypnea and poor speech tolerance persist.
+Default progression: Air movement remains poor, and respiratory distress worsens.
+
+Step 3
+Twenty minutes after continuous bronchodilator therapy and systemic corticosteroids are started, the patient remains tachypneic.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.40, the following are noted:
+HR 122/min
+RR 34/min
+BP 160/92 mm Hg
+SpO2 90%
+
+She can now speak only 1 to 2 words at a time. Breath sounds are diminished bilaterally with faint wheezing.
+
+ABG analysis reveals:
+pH 7.31
+PaCO2 52 torr
+PaO2 58 torr
+HCO3- 25 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status (+2)
+B. Repeat breath sounds and air movement (+2)
+C. ABG trend (+2)
+D. Routine sputum culture before any further decision (-1)
+E. Exercise oximetry (-3)
+
+High-score progression: Air movement decreases further, and the patient becomes more fatigued.
+Default progression: Reassessment is delayed. The patient becomes difficult to arouse, and ventilation worsens.
+
+Step 4
+Ten minutes later, the patient becomes difficult to arouse. Manual assessment shows very poor air movement.
+
+Repeat ABG analysis reveals:
+pH 7.24
+PaCO2 61 torr
+PaO2 55 torr
+HCO3- 26 mEq/L
+
+Which of the following should be recommended now?
+
+A. Proceed with endotracheal intubation and mechanical ventilation (+3)
+B. Continue the same treatment and repeat the ABG in 1 hour (-3)
+C. Begin noninvasive ventilation (-1)
+D. Decrease the FIO2 to reduce oxygen toxicity (-3)
+
+High-score progression: The airway is secured. Oxygenation improves, but hypercapnia persists on the first post-intubation ABG.
+Default progression: The patient develops worsening hypoxemia and rising PaCO2.
+
+Step 5
+After endotracheal intubation, the patient is receiving volume-controlled ventilation with the following settings:
+VT 420 mL
+Rate 18/min
+FIO2 0.60
+PEEP 5 cm H2O
+
+ABG analysis reveals:
+pH 7.29
+PaCO2 55 torr
+PaO2 64 torr
+HCO3- 25 mEq/L
+
+Which of the following should be evaluated or adjusted now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Increase the ventilator rate (+2)
+B. Adjust FIO2 to improve PaO2 (+2)
+C. Monitor for barotrauma and dynamic hyperinflation (+2)
+D. Decrease the ventilator rate to 8/min immediately (-2)
+E. Discontinue bronchodilator therapy (-3)
+
+High-score progression: Ventilation becomes easier, and oxygenation begins to improve.
+Default progression: Gas exchange remains unstable, and close monitoring is still required.
+
+Step 6
+The patient becomes easier to ventilate, and oxygenation begins to improve. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued ventilatory management and reassessment (+3)
+B. Transfer to a medical floor once SpO2 reaches 92% (-3)
+C. Extubate and discharge when the next ABG improves (-3)
+D. Observe in the emergency department without ICU admission (-3)
+
+High-score progression: Final outcome: the patient is admitted to the ICU for ongoing ventilatory support and reassessment.
+Default progression: Final outcome: inadequate level of care leads to recurrent respiratory failure.

@@ -19,29 +19,29 @@ create temporary table _ards_case_seed (
 insert into _ards_case_seed (case_number, slug, title, intro_text, description, stem, baseline_vitals)
 values
 (20, 'ards-critical-pneumonia-refractory-hypoxemia', 'ARDS Critical (Pneumonia -> Refractory Hypoxemia)',
- 'Pneumonia progression with acute bilateral infiltrates and refractory hypoxemia.',
- 'ARDS critical case focused on cause-directed treatment and ARDSNet escalation.',
- 'Patient with worsening pneumonia now has severe hypoxemia despite oxygen escalation.',
+ 'Pneumonia progression with worsening hypoxemia requiring bedside ARDS recognition and early lung-protective management.',
+ 'ARDS critical case focused on pneumonia-triggered hypoxemia, bedside evaluation, and cause-directed escalation.',
+ 'Patient with worsening pneumonia has severe hypoxemia and increasing work of breathing despite oxygen escalation.',
  '{"hr":128,"rr":36,"spo2":80,"bp_sys":158,"bp_dia":92,"etco2":46}'::jsonb),
 (21, 'ards-critical-sepsis-lung-protective-ventilation', 'ARDS Critical (Sepsis-Associated Lung Injury)',
- 'Sepsis-associated ARDS requiring strict lung-protective ventilation strategy.',
- 'ARDS critical case focused on ARDSNet settings and hemodynamic-aware monitoring.',
- 'Septic patient develops bilateral opacities, low compliance, and severe oxygenation failure.',
+ 'Sepsis-associated lung injury with severe hypoxemia requiring lung-protective ventilation and hemodynamic-aware monitoring.',
+ 'ARDS critical case focused on sepsis-triggered lung injury, bedside recognition, and ARDSNet escalation.',
+ 'Septic patient develops severe oxygenation failure and diffuse lung injury.',
  '{"hr":132,"rr":34,"spo2":82,"bp_sys":146,"bp_dia":84,"etco2":44}'::jsonb),
 (22, 'ards-critical-aspiration-acute-whiteout-pattern', 'ARDS Critical (Aspiration -> Acute Whiteout Pattern)',
- 'Aspiration event followed by diffuse infiltrates and escalating oxygen requirement.',
- 'ARDS critical case focused on early recognition and cause-targeted management.',
- 'Post-aspiration deterioration with bilateral radiopacity and refractory hypoxemia.',
+ 'Aspiration event followed by escalating oxygen requirement and bedside findings concerning for early ARDS.',
+ 'ARDS critical case focused on aspiration-triggered deterioration, early recognition, and cause-targeted management.',
+ 'Post-aspiration deterioration causes refractory hypoxemia and increasing respiratory distress.',
  '{"hr":124,"rr":35,"spo2":81,"bp_sys":152,"bp_dia":88,"etco2":47}'::jsonb),
 (23, 'ards-critical-pancreatitis-prone-position-pathway', 'ARDS Critical (Pancreatitis Pathway + Prone Strategy)',
- 'Pancreatitis-triggered ARDS requiring oxygenation rescue planning including prone positioning.',
+ 'Pancreatitis-triggered lung injury requiring oxygenation rescue planning including prone-position consideration.',
  'ARDS critical case focused on severe oxygenation rescue sequence and monitoring.',
- 'Pancreatitis patient rapidly progresses to ARDS with poor oxygenation and rising ventilatory stress.',
+ 'Pancreatitis patient rapidly progresses to severe hypoxemia and rising ventilatory stress.',
  '{"hr":126,"rr":33,"spo2":83,"bp_sys":148,"bp_dia":86,"etco2":45}'::jsonb),
 (24, 'ards-critical-shock-inhalational-injury-mixed-trigger', 'ARDS Critical (Shock/Inhalational Mixed Trigger)',
- 'Mixed-trigger ARDS (shock/toxin inhalation context) with severe gas exchange failure.',
+ 'Mixed-trigger lung injury in shock/inhalational exposure context with severe gas exchange failure.',
  'ARDS critical case focused on identifying noncardiogenic edema and rejecting ineffective therapies.',
- 'Critically ill patient with shock history and inhalational exposure develops diffuse ARDS pattern.',
+ 'Critically ill patient with shock history and inhalational exposure develops severe hypoxemia and diffuse lung injury.',
  '{"hr":136,"rr":37,"spo2":79,"bp_sys":140,"bp_dia":82,"etco2":48}'::jsonb);
 
 create temporary table _ards_target (case_number int4 primary key, case_id uuid not null) on commit drop;
@@ -129,29 +129,186 @@ with inserted_steps as (
   insert into public.cse_steps (case_id, step_number, step_order, step_type, prompt, max_select, stop_label, metadata)
   select t.case_id, 1, 1, 'IG',
     case t.case_number
-      when 20 then 'You are called to bedside for a 57-year-old male in the ICU 2 days after severe pneumonia who now has rapidly worsening dyspnea and oxygenation despite supplemental oxygen. Focused exam and diagnostics require assessment. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).'
-      when 21 then 'You are called to bedside for a 42-year-old female after major trauma who has escalating tachypnea, increasing oxygen needs, and bilateral respiratory distress. Focused exam and diagnostics require assessment. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).'
-      when 22 then 'You are called to bedside for a 63-year-old male after aspiration event who now has severe hypoxemia and increased work of breathing that is not improving as expected. Focused exam and diagnostics require assessment. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).'
-      when 23 then 'You are called to bedside for a 35-year-old female with sepsis and worsening respiratory failure who is becoming increasingly tachypneic and hypoxemic. Focused exam and diagnostics require assessment. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).'
-      else 'You are called to bedside for a 49-year-old male with shock and rapidly worsening oxygenation despite escalating support. Focused exam and diagnostics require assessment. What are your next steps? SELECT AS MANY AS INDICATED (MAX 8).'
+      when 20 then 'A 57-year-old man is in the ICU 2 days after severe pneumonia.
+
+While receiving O2 by high-flow nasal cannula at an FiO2 of 0.80, the following are noted:
+HR 128/min
+RR 36/min
+BP 158/92 mm Hg
+SpO2 80%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).'
+      when 21 then 'A 42-year-old woman with sepsis is in the ICU with worsening respiratory distress.
+
+While receiving O2 by high-flow nasal cannula at an FiO2 of 0.75, the following are noted:
+HR 132/min
+RR 34/min
+BP 146/84 mm Hg
+SpO2 82%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).'
+      when 22 then 'A 63-year-old man develops worsening respiratory distress after a witnessed aspiration event.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 124/min
+RR 35/min
+BP 152/88 mm Hg
+SpO2 81%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).'
+      when 23 then 'A 35-year-old woman with pancreatitis develops worsening respiratory distress.
+
+While receiving O2 by high-flow nasal cannula at an FiO2 of 0.70, the following are noted:
+HR 126/min
+RR 33/min
+BP 148/86 mm Hg
+SpO2 83%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).'
+      else 'A 49-year-old man with shock history and inhalational exposure develops rapidly worsening hypoxemia.
+
+While receiving O2 by high-flow nasal cannula at an FiO2 of 0.80, the following are noted:
+HR 136/min
+RR 37/min
+BP 140/82 mm Hg
+SpO2 79%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).'
     end,
-    8, 'STOP',
-    '{"show_appearance_after_submit":true,"show_vitals_after_submit":true,"vitals_fields":["spo2","rr","hr","bp","etco2"],"extra_reveals":[{"text":"CXR: bilateral infiltrates with ground-glass opacities.","keys_any":["A","B","E"]}]}'::jsonb
+    5, 'STOP',
+    case t.case_number
+      when 20 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient is tachypneic, anxious, and using accessory muscles",
+        "extra_reveals": [
+          { "text": "Chest radiograph reveals bilateral diffuse infiltrates.", "keys_any": ["B"] },
+          { "text": "ABG: pH 7.33, PaCO2 48 torr, PaO2 52 torr, HCO3 25 mEq/L. P/F ratio is severely reduced.", "keys_any": ["C"] },
+          { "text": "CBC shows WBC 19,800/mm3. Sputum and blood cultures are pending.", "keys_any": ["D"] },
+          { "text": "There is no evidence of cardiogenic pulmonary edema on the current assessment.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 21 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient is febrile, tachypneic, and in severe respiratory distress",
+        "extra_reveals": [
+          { "text": "Chest radiograph reveals bilateral diffuse patchy opacities.", "keys_any": ["B"] },
+          { "text": "ABG: pH 7.31, PaCO2 46 torr, PaO2 54 torr, HCO3 23 mEq/L. P/F ratio is severely reduced.", "keys_any": ["C"] },
+          { "text": "CBC shows WBC 22,400/mm3 and lactate is 4.1 mmol/L.", "keys_any": ["D"] },
+          { "text": "The current hemodynamic pattern does not suggest cardiogenic pulmonary edema.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 22 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient has coarse secretions, tachypnea, and increasing distress",
+        "extra_reveals": [
+          { "text": "Chest radiograph reveals new bilateral patchy infiltrates.", "keys_any": ["B"] },
+          { "text": "ABG: pH 7.32, PaCO2 45 torr, PaO2 50 torr, HCO3 23 mEq/L. P/F ratio is severely reduced.", "keys_any": ["C"] },
+          { "text": "Aspiration was witnessed shortly before the respiratory decline. CBC shows WBC 15,600/mm3.", "keys_any": ["D"] },
+          { "text": "Cardiogenic pulmonary edema is not supported by the current findings.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 23 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient is tachypneic with worsening work of breathing",
+        "extra_reveals": [
+          { "text": "Chest radiograph reveals bilateral diffuse infiltrates.", "keys_any": ["B"] },
+          { "text": "ABG: pH 7.34, PaCO2 44 torr, PaO2 56 torr, HCO3 24 mEq/L. P/F ratio is severely reduced.", "keys_any": ["C"] },
+          { "text": "Lipase is markedly elevated, and CBC shows WBC 18,900/mm3.", "keys_any": ["D"] },
+          { "text": "The current findings support noncardiogenic pulmonary edema.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      else '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient is in marked respiratory distress with diffuse lung injury pattern",
+        "extra_reveals": [
+          { "text": "Chest radiograph reveals bilateral diffuse infiltrates.", "keys_any": ["B"] },
+          { "text": "ABG: pH 7.30, PaCO2 49 torr, PaO2 48 torr, HCO3 24 mEq/L. P/F ratio is severely reduced.", "keys_any": ["C"] },
+          { "text": "CBC shows WBC 17,500/mm3 and lactate is elevated. Exposure history supports inhalational injury.", "keys_any": ["D"] },
+          { "text": "The current findings support noncardiogenic pulmonary edema.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+    end
   from _ards_target t
   union all
   select t.case_id, 2, 2, 'DM',
-    'CHOOSE ONLY ONE. What is your FIRST treatment decision now?',
+    'Which of the following should be recommended FIRST?',
     null, 'STOP', '{}'::jsonb
   from _ards_target t
   union all
   select t.case_id, 3, 3, 'IG',
-    'After initial management, ventilator data: AC/VC, VT 6 mL/kg IBW, RR 24/min, FiO2 0.70, PEEP 10 cmH2O, plateau pressure 28 cmH2O. ABG: pH 7.27, PaCO2 55 torr, PaO2 64 torr, HCO3 24 mEq/L. SELECT AS MANY AS INDICATED (MAX 8). Which reassessment data and ventilator adjustments drive next decisions?',
-    8, 'STOP',
-    '{"show_appearance_after_submit":true,"show_vitals_after_submit":true,"vitals_fields":["spo2","rr","hr","bp","etco2"],"extra_reveals":[{"text":"ABG repeat: pH 7.29, PaCO2 52 torr, PaO2 70 torr, HCO3 24 mEq/L; PaO2/FiO2 remains below 150.","keys_any":["A","B","C"]}]}'::jsonb
+    'After initial management, the patient is intubated and receiving lung-protective ventilation.
+
+Current settings are:
+AC/VC
+VT 6 mL/kg IBW
+RR 24/min
+FiO2 0.70
+PEEP 10 cmH2O
+Plateau pressure 28 cmH2O
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 5).',
+    5, 'STOP',
+    case t.case_number
+      when 20 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "oxygenation improves slightly, but the patient remains critically ill",
+        "extra_reveals": [
+          { "text": "ABG: pH 7.29, PaCO2 52 torr, PaO2 70 torr, HCO3 24 mEq/L. P/F ratio remains below 150.", "keys_any": ["A"] },
+          { "text": "Plateau pressure remains acceptable, but compliance is poor.", "keys_any": ["B"] },
+          { "text": "FiO2/PEEP still require titration based on oxygenation response.", "keys_any": ["C"] },
+          { "text": "Prone positioning should be considered if severe hypoxemia persists.", "keys_any": ["D"] },
+          { "text": "The pneumonia source and culture results still require follow-up.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 21 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient remains critically ill with severe sepsis-associated lung injury",
+        "extra_reveals": [
+          { "text": "ABG: pH 7.28, PaCO2 50 torr, PaO2 68 torr, HCO3 23 mEq/L. P/F ratio remains below 150.", "keys_any": ["A"] },
+          { "text": "Plateau pressure remains acceptable, but compliance is poor.", "keys_any": ["B"] },
+          { "text": "FiO2/PEEP still require titration based on oxygenation response.", "keys_any": ["C"] },
+          { "text": "Prone positioning should be considered if severe hypoxemia persists.", "keys_any": ["D"] },
+          { "text": "Sepsis source control and hemodynamic support still require close follow-up.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 22 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "oxygenation remains poor after aspiration-triggered lung injury",
+        "extra_reveals": [
+          { "text": "ABG: pH 7.30, PaCO2 48 torr, PaO2 66 torr, HCO3 23 mEq/L. P/F ratio remains below 150.", "keys_any": ["A"] },
+          { "text": "Plateau pressure remains acceptable, but compliance is poor.", "keys_any": ["B"] },
+          { "text": "FiO2/PEEP still require titration based on oxygenation response.", "keys_any": ["C"] },
+          { "text": "Prone positioning should be considered if severe hypoxemia persists.", "keys_any": ["D"] },
+          { "text": "Aspiration-related airway clearance and infection follow-up still require attention.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      when 23 then '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient remains critically ill with pancreatitis-triggered lung injury",
+        "extra_reveals": [
+          { "text": "ABG: pH 7.31, PaCO2 47 torr, PaO2 68 torr, HCO3 24 mEq/L. P/F ratio remains below 150.", "keys_any": ["A"] },
+          { "text": "Plateau pressure remains acceptable, but compliance is poor.", "keys_any": ["B"] },
+          { "text": "FiO2/PEEP still require titration based on oxygenation response.", "keys_any": ["C"] },
+          { "text": "Prone positioning should be considered if severe hypoxemia persists.", "keys_any": ["D"] },
+          { "text": "Pancreatitis management and hemodynamic support still require close follow-up.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+      else '{
+        "show_appearance_after_submit": true,
+        "appearance_text": "the patient remains critically ill with mixed-trigger lung injury",
+        "extra_reveals": [
+          { "text": "ABG: pH 7.28, PaCO2 51 torr, PaO2 64 torr, HCO3 24 mEq/L. P/F ratio remains below 150.", "keys_any": ["A"] },
+          { "text": "Plateau pressure remains acceptable, but compliance is poor.", "keys_any": ["B"] },
+          { "text": "FiO2/PEEP still require titration based on oxygenation response.", "keys_any": ["C"] },
+          { "text": "Prone positioning should be considered if severe hypoxemia persists.", "keys_any": ["D"] },
+          { "text": "Shock management and inhalational-injury follow-up still require close attention.", "keys_any": ["E"] }
+        ]
+      }'::jsonb
+    end
   from _ards_target t
   union all
   select t.case_id, 4, 4, 'DM',
-    'CHOOSE ONLY ONE. What is the best escalation/disposition plan now?',
+    'Which of the following should be recommended now?',
     null, 'STOP', '{}'::jsonb
   from _ards_target t
   returning case_id, step_order, id
@@ -163,39 +320,35 @@ join _ards_target t on t.case_id = i.case_id;
 
 -- Options: same clinical structure across ARDS set for scoring consistency.
 insert into public.cse_options (step_id, option_key, option_text, score, rationale)
-select s.step_id, 'A', 'Confirm acute onset (<1 week), severe distress signs, and likely ARDS trajectory', 2, 'Core syndrome recognition.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'B', 'Review chest x-ray for bilateral infiltrates/ground-glass radiopacity pattern', 2, 'Essential imaging evidence.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'C', 'Get ABG with PaO2 and calculate P/F ratio on PEEP >= 5', 3, 'Critical oxygenation severity metric.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'D', 'Differentiate noncardiogenic edema profile from cardiogenic process', 2, 'Key ARDS diagnostic distinction.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'E', 'Use hemodynamic monitoring trend (elevated PAP with normal PCWP tendency)', 1, 'Supports noncardiogenic interpretation.' from _ards_steps s where s.step_order = 1
+select s.step_id, 'A', 'Assess work of breathing and mental status', 2, 'This is indicated in the initial assessment.' from _ards_steps s where s.step_order = 1
+union all select s.step_id, 'B', 'Review chest radiograph', 2, 'Essential imaging evidence.' from _ards_steps s where s.step_order = 1
+union all select s.step_id, 'C', 'Obtain ABG and calculate the P/F ratio', 3, 'Critical oxygenation severity metric.' from _ards_steps s where s.step_order = 1
+union all select s.step_id, 'D', 'Review likely trigger/source data, including appropriate labs', 2, 'This helps identify the ARDS trigger and guide treatment.' from _ards_steps s where s.step_order = 1
+union all select s.step_id, 'E', 'Evaluate whether the pattern is more consistent with noncardiogenic than cardiogenic pulmonary edema', 2, 'Key ARDS diagnostic distinction.' from _ards_steps s where s.step_order = 1
 union all select s.step_id, 'F', 'Delay oxygen escalation until all tests return', -3, 'Unsafe delay in severe hypoxemia.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'G', 'Ignore infection workup despite possible pneumonia source', -2, 'Misses treatable trigger.' from _ards_steps s where s.step_order = 1
-union all select s.step_id, 'H', 'Assume normal compliance if breath sounds are present', -2, 'Incorrect ARDS physiologic reasoning.' from _ards_steps s where s.step_order = 1
+union all select s.step_id, 'G', 'Assume this is not ARDS because wheezes are not prominent', -2, 'Incorrect physiologic reasoning.' from _ards_steps s where s.step_order = 1
 
-union all select s.step_id, 'A', 'Treat underlying cause + oxygen up to FiO2 60%, add PEEP, and apply ARDSNet lung-protective ventilation', 3, 'Best immediate evidence-based ARDS strategy.' from _ards_steps s where s.step_order = 2
+union all select s.step_id, 'A', 'Treat the underlying cause and initiate lung-protective ventilation with appropriate PEEP', 3, 'Best immediate evidence-based ARDS strategy.' from _ards_steps s where s.step_order = 2
 union all select s.step_id, 'B', 'Use larger tidal volumes to force CO2 clearance', -3, 'Increases ventilator-induced injury risk.' from _ards_steps s where s.step_order = 2
-union all select s.step_id, 'C', 'Keep plateau pressure unconstrained if oxygenation is poor', -3, 'Unsafe; plateau should remain <30 cmH2O.' from _ards_steps s where s.step_order = 2
-union all select s.step_id, 'D', 'Start ineffective ARDS therapy bundle (beta-agonist, NAC, surfactant routine use)', -3, 'Not recommended ARDS treatment path.' from _ards_steps s where s.step_order = 2
-union all select s.step_id, 'E', 'Treat hypoxemia only and ignore underlying trigger', -2, 'Incomplete management.' from _ards_steps s where s.step_order = 2
+union all select s.step_id, 'C', 'Keep plateau pressure unconstrained if oxygenation is poor', -3, 'Unsafe; plateau should remain below 30 cmH2O.' from _ards_steps s where s.step_order = 2
+union all select s.step_id, 'D', 'Treat hypoxemia only and ignore the trigger', -2, 'Incomplete management.' from _ards_steps s where s.step_order = 2
 
-union all select s.step_id, 'A', 'Trend ABG, P/F ratio, plateau pressure, and ventilator response', 3, 'Core ARDS reassessment metrics.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'B', 'Apply permissive hypercapnia threshold (allow rising PaCO2 if pH >= 7.20)', 2, 'Appropriate ARDSNet principle.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'C', 'If persistent severe hypoxemia, consider prone positioning up to 16 hours', 2, 'Evidence-based oxygenation rescue approach.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'D', 'Adjust RR/VT for pH/PaCO2 and FiO2/PEEP for PaO2 while keeping plateau pressure < 30', 2, 'Core ventilator titration from ABG and oxygenation.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'E', 'Stop close monitoring after one slight SpO2 improvement', -3, 'Unsafe de-escalation.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'F', 'Delay reassessment for several hours', -3, 'Dangerous in critical ARDS.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'G', 'Use PA catheter as routine ARDS therapy target', -2, 'Not recommended routine therapy approach.' from _ards_steps s where s.step_order = 3
-union all select s.step_id, 'H', 'Avoid prone/rescue options despite refractory hypoxemia', -2, 'May miss effective escalation.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'A', 'Repeat ABG and reassess the P/F ratio', 2, 'Core ARDS reassessment metric.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'B', 'Trend plateau pressure and compliance', 2, 'This is indicated during lung-protective ventilation.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'C', 'Adjust FiO2 and PEEP based on oxygenation while keeping plateau pressure below 30 cmH2O', 2, 'Core ventilator titration.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'D', 'Determine whether prone positioning is indicated if severe hypoxemia persists', 2, 'Evidence-based rescue planning.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'E', 'Follow the trigger-specific source data and hemodynamic response', 1, 'This remains important for continuity of care.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'F', 'Stop close monitoring after one slight SpO2 improvement', -3, 'Unsafe de-escalation.' from _ards_steps s where s.step_order = 3
+union all select s.step_id, 'G', 'Delay reassessment for several hours', -3, 'Dangerous in critical ARDS.' from _ards_steps s where s.step_order = 3
 
-union all select s.step_id, 'A', 'Continue ICU-level ARDS management with lung-protective ventilation and structured escalation plan', 3, 'Best disposition/continuity plan.' from _ards_steps s where s.step_order = 4
-union all select s.step_id, 'B', 'Transfer to low-acuity floor once FiO2 briefly decreases', -3, 'Unsafe premature transfer.' from _ards_steps s where s.step_order = 4
+union all select s.step_id, 'A', 'Continue ICU-level ARDS management with lung-protective ventilation and rescue-escalation criteria', 3, 'Best disposition/continuity plan.' from _ards_steps s where s.step_order = 4
+union all select s.step_id, 'B', 'Transfer to a low-acuity floor once oxygenation improves briefly', -3, 'Unsafe premature transfer.' from _ards_steps s where s.step_order = 4
 union all select s.step_id, 'C', 'Discharge after temporary oxygenation improvement', -3, 'Unsafe disposition.' from _ards_steps s where s.step_order = 4
-union all select s.step_id, 'D', 'Keep unstructured observation without ARDS escalation criteria', -2, 'Inadequate for critical trajectory.' from _ards_steps s where s.step_order = 4
-union all select s.step_id, 'E', 'Continue ineffective ARDS therapies as primary plan', -3, 'Contradicts recommended management.' from _ards_steps s where s.step_order = 4;
+union all select s.step_id, 'D', 'Observe without a structured ARDS escalation plan', -2, 'Inadequate for a critical trajectory.' from _ards_steps s where s.step_order = 4;
 
 insert into public.cse_rules (step_id, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_delta)
 select s1.step_id, 1, 'SCORE_AT_LEAST', '8'::jsonb, s2.step_id,
-  'ARDS diagnostic priorities were captured early, supporting timely management.',
+  'The bedside evaluation supports severe noncardiogenic lung injury requiring urgent ARDS management.',
   '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1, "etco2": -1}'::jsonb
 from _ards_steps s1
 join _ards_steps s2 on s2.case_number = s1.case_number and s2.step_order = 2
@@ -210,7 +363,7 @@ where s1.step_order = 1
 
 union all
 select s2.step_id, 1, 'INCLUDES_ALL', '["A"]'::jsonb, s3.step_id,
-  'Evidence-based ARDS treatment started with cause-directed and lung-protective strategy.',
+  'Cause-directed therapy and lung-protective ventilation are started.',
   '{"spo2": 4, "hr": -3, "rr": -3, "bp_sys": -1, "bp_dia": -1, "etco2": -2}'::jsonb
 from _ards_steps s2
 join _ards_steps s3 on s3.case_number = s2.case_number and s3.step_order = 3
@@ -225,7 +378,7 @@ where s2.step_order = 2
 
 union all
 select s3.step_id, 1, 'SCORE_AT_LEAST', '7'::jsonb, s4.step_id,
-  'Reassessment and rescue planning are strong for critical ARDS continuity.',
+  'Reassessment supports continued ICU-level ARDS management and rescue planning.',
   '{"spo2": 2, "hr": -2, "rr": -1, "bp_sys": -1, "bp_dia": -1, "etco2": -1}'::jsonb
 from _ards_steps s3
 join _ards_steps s4 on s4.case_number = s3.case_number and s4.step_order = 4

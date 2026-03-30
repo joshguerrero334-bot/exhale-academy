@@ -1,0 +1,111 @@
+Exhale Academy CSE Review
+Case 15 -- COPD Critical (High-Risk Airway Pathway)
+
+Intro
+Critical COPD exacerbation with secretion burden, mental-status decline, and airway protection risk requiring immediate invasive support.
+
+Stem
+Critical COPD exacerbation with airway protection concern and hemodynamic instability.
+
+Step 1
+A 59-year-old woman with severe COPD is brought to the emergency department because of worsening dyspnea.
+
+While breathing room air, the following are noted:
+HR 132/min
+RR 38/min
+BP 88/54 mm Hg
+SpO2 80%
+
+She is confused, has a weak cough, and has copious secretions.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status and ability to protect the airway (+2)
+B. Cough strength and secretion burden (+2)
+C. Blood pressure, pulse oximetry, and respiratory rate (+2)
+D. Complete pulmonary function testing (-3)
+E. Exercise oximetry (-3)
+
+High-score progression: Confusion, secretion burden, and hypotension remain concerning.
+Default progression: Assessment is incomplete. Airway protection and gas exchange continue to worsen.
+
+Step 2
+ABG analysis reveals:
+pH 7.23
+PaCO2 72 torr
+PaO2 50 torr
+HCO3- 29 mEq/L
+
+Which of the following should be recommended FIRST?
+
+A. Proceed with endotracheal intubation and mechanical ventilation (+3)
+B. Begin bilevel positive airway pressure (-3)
+C. Continue oxygen therapy alone and repeat the ABG later (-3)
+D. Administer a sedative before deciding on airway management (-3)
+
+High-score progression: The airway is secured, but severe hypercapnia persists on the initial ABG.
+Default progression: Inadequate airway management leads to worsening instability.
+
+Step 3
+After endotracheal intubation, the patient is receiving volume-controlled ventilation with the following settings:
+VT 430 mL
+Rate 20/min
+FIO2 0.70
+PEEP 8 cm H2O
+
+ABG analysis reveals:
+pH 7.21
+PaCO2 72 torr
+PaO2 58 torr
+HCO3- 28 mEq/L
+
+Which of the following should be evaluated or adjusted now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Repeat ABG analysis after ventilator adjustments (+2)
+B. Adjust ventilator rate or tidal volume to improve ventilation (+2)
+C. Monitor hemodynamics and secretion clearance (+2)
+D. Stop reassessment because the patient is intubated (-3)
+E. Plan discharge instructions (-3)
+
+High-score progression: Ventilation improves gradually, but close monitoring is still required.
+Default progression: Monitoring and adjustment are insufficient, and gas exchange remains unstable.
+
+Step 4
+Repeat ABG analysis after ventilator adjustment reveals:
+pH 7.26
+PaCO2 64 torr
+PaO2 66 torr
+HCO3- 28 mEq/L
+
+The patient remains intubated and sedated. Which of the following should be recommended now?
+
+A. Continue invasive ventilatory support with frequent reassessment (+3)
+B. Extubate because oxygenation improved (-3)
+C. Transition immediately to bilevel positive airway pressure (-3)
+D. Transfer to a medical floor (-3)
+
+High-score progression: Invasive ventilatory support continues appropriately, and gas exchange begins to stabilize.
+Default progression: Premature de-escalation causes recurrent instability.
+
+Step 5
+As oxygenation and ventilation begin to stabilize, which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status (+2)
+B. Secretion burden and cough effectiveness (+2)
+C. ABG trend (+2)
+D. Pulmonary rehabilitation schedule (-3)
+E. Smoking-cessation readiness (-1)
+
+High-score progression: Mental status, secretion burden, and ABG values continue to improve.
+Default progression: Reassessment is incomplete, and the patient remains high risk.
+
+Step 6
+The patient continues to require invasive ventilatory support. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued ventilatory management and reassessment (+3)
+B. Transfer to an unmonitored floor (-3)
+C. Discharge after the next ABG (-3)
+D. Observe in the emergency department without ICU admission (-3)
+
+High-score progression: Final outcome: the patient is admitted to the ICU for continued invasive ventilatory support and reassessment.
+Default progression: Final outcome: inadequate level of care leads to recurrent critical respiratory failure.

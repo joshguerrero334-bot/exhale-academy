@@ -1,0 +1,84 @@
+Exhale Academy CSE Review
+Case 16 -- Trauma Critical (Tension Pneumothorax)
+
+Intro
+Chest trauma with severe respiratory distress and hemodynamic compromise requiring decompression-first management.
+
+Stem
+Trauma patient has severe respiratory distress and hemodynamic instability after chest injury.
+
+Step 1
+A 34-year-old man is brought to the emergency department after a motorcycle crash.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 148/min
+RR 38/min
+BP 78/46 mm Hg
+SpO2 78%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Inspect chest expansion (+2)
+B. Auscultate breath sounds (+2)
+C. Percuss both hemithoraces (+2)
+D. Check tracheal position (+2)
+E. Obtain bedside spirometry (-3)
+F. Delay treatment until chest radiograph is obtained (-3)
+
+Revealed findings after indicated selections:
+- Chest expansion is markedly reduced on the right.
+- Breath sounds are absent on the right.
+- Percussion is hyperresonant on the right.
+- The trachea is shifted to the left.
+
+High-score progression: Right chest expansion is reduced. Right breath sounds are absent, percussion is hyperresonant, and the trachea is shifted to the left.
+Default progression: Assessment is incomplete. Hemodynamic instability worsens.
+
+Step 2
+The patient remains severely hypoxemic and hypotensive. Which of the following should be recommended FIRST?
+
+A. Perform immediate pleural decompression while administering high-concentration oxygen (+3)
+B. Obtain a chest radiograph before intervention (-3)
+C. Administer analgesia and reassess later (-3)
+D. Start bronchodilator therapy (-3)
+
+High-score progression: Right breath sounds improve, and blood pressure increases.
+Default progression: Hypoxemia worsens, and shock progresses.
+
+Step 3
+After immediate decompression, oxygenation improves and blood pressure increases.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 126/min
+RR 30/min
+BP 96/60 mm Hg
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess chest expansion (+2)
+B. Reassess breath sounds (+2)
+C. Trend oxygen saturation and blood pressure (+2)
+D. Determine whether chest tube placement is still required (+2)
+E. Routine discharge planning (-3)
+F. Stop close monitoring after the first improvement (-3)
+
+Revealed findings after indicated selections:
+- Right chest expansion has improved.
+- Faint breath sounds are now heard on the right.
+- Blood pressure and oxygenation are improving but still unstable.
+- Definitive chest tube placement is still required.
+
+High-score progression: Right chest expansion and breath sounds improve, but definitive pleural management is still required.
+Default progression: Reassessment is delayed, and recurrent deterioration occurs.
+
+Step 4
+The patient remains at high risk for recurrent deterioration. Which of the following should be recommended now?
+
+A. Insert a chest tube and admit to the ICU for continued monitoring (+3)
+B. Transfer to an unmonitored floor bed (-3)
+C. Discharge after oxygenation improves briefly (-3)
+D. Observe without definitive pleural management (-3)
+
+High-score progression: Final outcome: tension pneumothorax is treated with decompression, chest tube placement, and ICU care.
+Default progression: Final outcome: delayed definitive management leads to recurrent instability.

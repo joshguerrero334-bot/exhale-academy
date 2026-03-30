@@ -1,0 +1,101 @@
+Exhale Academy CSE Review
+Case 10 -- Neuromuscular Ventilatory Failure Pattern
+
+Intro
+Adult with progressive generalized weakness presents with shallow breathing, poor cough, and rising CO2 risk requiring timely ventilatory support decisions.
+
+Stem
+Progressive ventilatory pump failure with impending hypercapnic decompensation.
+
+Step 1
+A 41-year-old woman with progressive generalized weakness comes to the emergency department because of increasing dyspnea and weak cough.
+
+While breathing room air, the following are noted:
+HR 108/min
+RR 28/min
+BP 142/86 mm Hg
+SpO2 89%
+
+She is speaking softly and taking shallow breaths.
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Cough strength and ability to clear secretions (+2)
+B. Vital signs, pulse oximetry, and breathing pattern (+2)
+C. Vital capacity, inspiratory force, and ABG analysis (+2)
+D. Routine imaging before stabilization (-3)
+E. Sedation before a ventilation plan is established (-3)
+
+High-score progression: Shallow breathing and weak cough persist, and ventilatory weakness remains present.
+Default progression: Assessment is incomplete. Ventilatory weakness worsens.
+
+Step 2
+Cough is weak, and inspiratory effort remains poor. Which of the following should be recommended FIRST?
+
+A. Begin noninvasive ventilatory support with close reassessment (+3)
+B. Use oxygen alone and reassess much later (-3)
+C. Remove oxygen to assess baseline status (-3)
+D. Proceed directly to intubation without further reassessment (-2)
+
+High-score progression: Oxygenation improves slightly, but shallow breathing persists.
+Default progression: Hypercapnic ventilatory failure progresses.
+
+Step 3
+After initial support, the patient remains tachypneic.
+
+While receiving O2 by nasal cannula at 2 L/min, the following are noted:
+HR 104/min
+RR 30/min
+BP 138/84 mm Hg
+SpO2 91%
+
+ABG analysis reveals:
+pH 7.34
+PaCO2 52 torr
+PaO2 64 torr
+HCO3- 27 mEq/L
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Mental status and breathing pattern (+2)
+B. ABG trend and repeat ventilatory mechanics (+2)
+C. Secretion burden and cough effectiveness (+2)
+D. Routine discharge planning (-3)
+E. Stop monitoring after brief subjective improvement (-3)
+
+High-score progression: PaCO2 rises, and inspiratory effort remains weak.
+Default progression: Reassessment is delayed, and ventilatory failure worsens.
+
+Step 4
+PaCO2 rises further, and inspiratory effort weakens. Which of the following should be recommended now?
+
+A. Proceed with controlled endotracheal intubation and mechanical ventilation (+3)
+B. Continue the same noninvasive support despite worsening CO2 retention (-3)
+C. Stop support and observe spontaneous effort (-3)
+D. Transport for diagnostics before securing ventilation (-3)
+
+High-score progression: The airway is secured, and gas exchange improves.
+Default progression: Definitive ventilatory support is delayed, and instability increases.
+
+Step 5
+After escalation, the patient is receiving mechanical ventilation with improved oxygenation. Which of the following should be evaluated or managed now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Ventilator settings and ABG response (+2)
+B. Secretion-clearance effectiveness and airway patency (+2)
+C. Continuous oxygenation and hemodynamic monitoring (+2)
+D. Stop close monitoring after the first improved ABG (-3)
+E. Transfer immediately to a low-acuity unit (-3)
+
+High-score progression: Early ventilatory stabilization is maintained with close monitoring.
+Default progression: Management gaps leave recurrent ventilatory deterioration risk.
+
+Step 6
+The patient remains at risk for recurrent ventilatory failure. Which of the following should be recommended postadmission?
+
+A. Admit to the ICU for continued ventilatory support and reassessment (+3)
+B. Transfer to an unmonitored floor bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without a defined escalation plan (-3)
+
+High-score progression: Final outcome: the patient is admitted to the ICU for continued ventilatory support and reassessment.
+Default progression: Final outcome: the level of care is inadequate, and recurrent ventilatory failure occurs.

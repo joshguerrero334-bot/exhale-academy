@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 25 -- Neuromuscular Critical (Myasthenia Gravis Crisis)
+
+Step 1
+A 34-year-old woman with myasthenia gravis comes to the emergency department because of increasing weakness and difficulty swallowing.
+
+While breathing room air, the following are noted:
+HR 118/min
+RR 32/min
+BP 146/88 mm Hg
+SpO2 84%
+EtCO2 52 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Assess cough strength and bulbar function
+B. Measure VC and MIP
+C. Obtain an ABG
+D. Assess swallowing safety
+E. Review the CBC and chemistry panel
+F. Delay treatment until all nonurgent testing is complete
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Prepare for endotracheal intubation and ICU care while coordinating myasthenic-crisis treatment
+B. Use oxygen alone and defer the syndrome-specific plan
+C. Delay escalation until the next scheduled reassessment
+D. Sedate first and then decide how to manage ventilation
+
+Step 3
+After initial treatment is started, the patient remains weak and becomes more fatigued.
+
+While receiving O2 by nasal cannula at 3 L/min, the following are noted:
+HR 116/min
+RR 30/min
+BP 140/84 mm Hg
+SpO2 88%
+EtCO2 55 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat VC and MIP
+B. Repeat the ABG
+C. Reassess secretion handling and aspiration risk
+D. Determine whether definitive airway protection is now required
+E. Review the chemistry panel
+F. Stop close monitoring after the first response to treatment
+G. Plan transfer or discharge before reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Proceed with endotracheal intubation and ICU management for myasthenic crisis
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue support after brief improvement
+D. Transfer or discharge without a clear high-acuity plan

@@ -1,0 +1,60 @@
+Exhale Academy CSE Review
+Case 34 -- Cardiovascular Critical (Cor Pulmonale Right-Heart Strain)
+
+Step 1
+A 64-year-old man with chronic lung disease has worsening dyspnea and edema.
+
+While receiving O2 by nasal cannula at 2 L/min, the following are noted:
+HR 116/min
+RR 29/min
+BP 154/92 mm Hg
+SpO2 83%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Inspect the neck veins and peripheral edema
+B. Auscultate breath sounds
+C. Obtain an ABG
+D. Review the ECG and chest radiograph
+E. Review the hematocrit
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Titrate controlled oxygen, begin bronchodilator therapy, and monitor closely for worsening hypercapnia and fatigue
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess the patient later
+
+Step 3
+After initial treatment is started, dyspnea improves only slightly and fatigue increases.
+
+While receiving O2 by Venturi mask at an FiO2 of 0.35, the following are noted:
+HR 112/min
+RR 28/min
+BP 150/90 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Reassess work of breathing and mental status
+C. Determine whether current oxygen therapy is failing
+D. Determine whether noninvasive ventilation is indicated
+E. Reassess edema and neck-vein distention
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Begin noninvasive ventilation and continue high-acuity monitored care
+B. Keep the current therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

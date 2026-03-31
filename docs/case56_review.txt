@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 56 -- Adult Medical Critical (Obstructive Sleep Apnea Interface Optimization)
+
+Step 1
+A 56-year-old woman with severe obstructive sleep apnea reports persistent nocturnal events and poor mask tolerance.
+
+While breathing room air, the following are noted:
+HR 98/min
+RR 20/min
+BP 148/90 mm Hg
+SpO2 90%
+EtCO2 46 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Review the device adherence and leak report
+B. Review overnight oximetry
+C. Inspect the mask fit and the upper airway interface
+D. Review the residual AHI on the device download
+E. Obtain an ABG
+F. Delay treatment until the entire diagnostic panel is completed
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Refit the interface, add heated humidification, correct mask leak, and repeat CPAP titration if needed
+B. Use oxygen alone and defer the disease-specific plan
+C. Delay all therapy until the patient becomes more unstable
+D. Move the patient to an unmonitored setting after brief improvement
+
+Step 3
+After interface changes are made, the patient returns for reassessment.
+
+While breathing room air, the following are noted:
+HR 92/min
+RR 18/min
+BP 142/86 mm Hg
+SpO2 92%
+EtCO2 44 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Review the updated leak report
+B. Review the residual AHI
+C. Review overnight oximetry after the interface change
+D. Review nightly usage time and patient comfort
+E. Review the daytime ABG
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge or de-escalation before the reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue CPAP with the new interface and humidification and arrange close sleep follow-up
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue therapy after brief improvement
+D. Transfer or discharge without a clear follow-up plan

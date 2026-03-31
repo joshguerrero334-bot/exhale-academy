@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 35 -- Cardiovascular Critical (Pulmonary Embolism Post-Op Sudden Deadspace)
+
+Step 1
+A 55-year-old woman is on postoperative day 2 after orthopedic surgery and suddenly becomes short of breath.
+
+While receiving O2 by nasal cannula at 4 L/min, the following are noted:
+HR 132/min
+RR 34/min
+BP 94/58 mm Hg
+SpO2 79%
+EtCO2 28 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Assess for sudden pleuritic chest pain and hemoptysis
+C. Obtain an ABG
+D. Review the ECG
+E. Review the CBC
+F. Delay treatment until CT angiography is completed
+G. Transfer the patient to an unmonitored area
+
+Step 2
+Findings suggest acute pulmonary embolism with hemodynamic strain. Which of the following should be recommended FIRST?
+
+Options
+A. Provide high-concentration oxygen, support hemodynamics, and activate the urgent PE treatment pathway with anticoagulation readiness
+B. Use oxygen only and wait for imaging before beginning PE-specific treatment
+C. Give a large fluid bolus only and reassess later
+D. Transfer to a regular floor bed when saturation improves briefly
+
+Step 3
+After initial treatment is started, the patient remains unstable.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 128/min
+RR 32/min
+BP 88/54 mm Hg
+SpO2 84%
+EtCO2 26 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Obtain bedside echocardiography results
+B. Assess for deep venous thrombosis with lower-extremity ultrasound
+C. Review the lactate and perfusion trend
+D. Determine whether thrombolytic therapy is now indicated
+E. Repeat the ABG
+F. Stop close monitoring after the first response
+G. Delay escalation until the next routine reassessment cycle
+
+Step 4
+Hypotension persists with evidence of right-heart strain. Which of the following should be recommended now?
+
+Options
+A. Continue ICU-level management and begin definitive PE rescue therapy because shock persists
+B. Continue the same therapy unchanged for several hours
+C. Transfer to an unmonitored bed
+D. Discharge after transient oxygenation improvement

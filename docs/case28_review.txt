@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 28 -- Neuromuscular Critical (Muscular Dystrophy Hypoventilation)
+
+Step 1
+A 45-year-old man with muscular dystrophy comes to the emergency department because of worsening fatigue and weak cough.
+
+While breathing room air, the following are noted:
+HR 108/min
+RR 26/min
+BP 138/82 mm Hg
+SpO2 86%
+EtCO2 54 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Measure VC and MIP
+B. Obtain an ABG
+C. Assess cough effectiveness
+D. Review overnight hypoventilation symptoms
+E. Review the chest radiograph
+F. Delay treatment until all nonurgent testing is complete
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Begin noninvasive ventilation, start cough-assist therapy, and admit for monitored care
+B. Use oxygen alone and defer the syndrome-specific plan
+C. Delay escalation until the next scheduled reassessment
+D. Sedate first and then decide how to manage ventilation
+
+Step 3
+After initial treatment is started, breathing improves only slightly and cough remains weak.
+
+While receiving NPPV with an FiO2 of 0.35, the following are noted:
+HR 104/min
+RR 24/min
+BP 134/80 mm Hg
+SpO2 90%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Evaluate secretion-clearance response
+C. Repeat VC/MIP or work of breathing assessment
+D. Determine whether monitored NPPV remains adequate overnight
+E. Review the chest radiograph
+F. Stop close monitoring after the first response to treatment
+G. Plan transfer or discharge before reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue monitored noninvasive ventilation and airway-clearance support in high-acuity care
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue support after brief improvement
+D. Transfer or discharge without a clear high-acuity plan

@@ -1,0 +1,61 @@
+Exhale Academy CSE Review
+Case 52 -- Adult Medical Critical (Renal/Diabetes Kussmaul Acidosis)
+
+Step 1
+A 38-year-old woman is brought to the emergency department because of lethargy and deep rapid breathing.
+
+While breathing room air, the following are noted:
+HR 116/min
+RR 32/min
+BP 144/86 mm Hg
+SpO2 89%
+EtCO2 30 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Assess the breathing pattern
+B. Obtain an ABG
+C. Review the chemistry panel and glucose
+D. Review urine output and ketones
+E. Review the CBC
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Begin fluid resuscitation, insulin therapy, electrolyte monitoring, and close observation for ventilatory fatigue
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess later
+
+Step 3
+After initial treatment is started, the patient remains tachypneic but more responsive.
+
+While receiving O2 by nasal cannula at 2 L/min, the following are noted:
+HR 108/min
+RR 28/min
+BP 132/80 mm Hg
+SpO2 92%
+EtCO2 27 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Review glucose and potassium response
+C. Review urine output and perfusion response
+D. Reassess mental status and respiratory fatigue
+E. Stop close monitoring after the first response to treatment
+F. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue ICU or step-down monitoring with ongoing metabolic correction and reassessment for ventilatory failure
+B. Continue the same therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

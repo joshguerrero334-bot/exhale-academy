@@ -1,0 +1,60 @@
+Exhale Academy CSE Review
+Case 31 -- Cardiovascular Critical (CHF Cardiogenic Pulmonary Edema)
+
+Step 1
+A 69-year-old woman is brought to the emergency department because of sudden severe dyspnea.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 128/min
+RR 34/min
+BP 172/102 mm Hg
+SpO2 80%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Inspect the sputum
+C. Obtain an ABG
+D. Review the chest radiograph
+E. Review the BNP and ECG
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Position upright, provide oxygen, begin NPPV, and support nitrate and diuretic therapy while monitoring hemodynamics
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess the patient later
+
+Step 3
+After initial treatment is started, oxygenation remains poor and fatigue increases.
+
+While receiving NPPV with an FiO2 of 0.80, the following are noted:
+HR 126/min
+RR 32/min
+BP 160/94 mm Hg
+SpO2 84%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Reassess work of breathing and mental status
+C. Review urine output and blood pressure response
+D. Determine whether endotracheal intubation is now required
+E. Review serum potassium and creatinine
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Proceed with endotracheal intubation and ICU care
+B. Keep the current therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

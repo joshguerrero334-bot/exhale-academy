@@ -1,0 +1,61 @@
+Exhale Academy CSE Review
+Case 53 -- Adult Medical Critical (Thoracic Surgery Post-Op Complications)
+
+Step 1
+A 67-year-old man is in the ICU the day after thoracic surgery and develops increasing dyspnea.
+
+While receiving O2 by nasal cannula at 4 L/min, the following are noted:
+HR 126/min
+RR 30/min
+BP 134/78 mm Hg
+SpO2 85%
+EtCO2 49 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Inspect the chest-tube system
+C. Review the chest radiograph
+D. Obtain an ABG
+E. Review the CBC
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Provide oxygen, optimize pain control, begin aggressive pulmonary hygiene, and monitor closely for ventilatory fatigue
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess later
+
+Step 3
+After initial treatment is started, dyspnea improves only slightly.
+
+While receiving O2 by aerosol mask, the following are noted:
+HR 120/min
+RR 28/min
+BP 128/76 mm Hg
+SpO2 88%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Review the repeat chest radiograph
+B. Reassess the chest-tube function
+C. Repeat the ABG
+D. Determine whether bronchoscopy or reintubation is now required
+E. Stop close monitoring after the first response to treatment
+F. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue high-acuity care and escalate to bronchoscopy or ventilatory support if airway clearance fails
+B. Continue the same therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

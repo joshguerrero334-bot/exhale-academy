@@ -1,0 +1,60 @@
+Exhale Academy CSE Review
+Case 32 -- Cardiovascular Critical (Myocardial Infarction Ischemic Crisis)
+
+Step 1
+A 58-year-old man is brought to the emergency department because of chest pressure and worsening shortness of breath.
+
+While receiving O2 by nasal cannula at 4 L/min, the following are noted:
+HR 122/min
+RR 30/min
+BP 164/98 mm Hg
+SpO2 84%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Obtain a 12-lead ECG
+B. Auscultate breath sounds
+C. Obtain an ABG
+D. Review troponin and serum potassium
+E. Review telemetry and blood pressure trend
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Provide oxygen as indicated, begin continuous ECG monitoring, and support the emergency ischemia treatment pathway
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess the patient later
+
+Step 3
+After initial treatment is started, the patient remains dyspneic and chest pain persists.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 118/min
+RR 28/min
+BP 148/90 mm Hg
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ECG and review the rhythm strip
+B. Reassess breath sounds and work of breathing
+C. Repeat the ABG
+D. Review troponin trend
+E. Determine whether definitive reperfusion and ICU-level monitoring are still required
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Transfer for definitive reperfusion with continued ICU-level monitoring
+B. Keep the current therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

@@ -1,0 +1,59 @@
+Exhale Academy CSE Review
+Case 4 -- Nocturnal Dyspnea Fluid Overload Crisis
+
+Step 1
+A 67-year-old woman awakens suddenly because of shortness of breath and cannot lie flat.
+
+While breathing room air, the following are noted:
+HR 122/min
+RR 32/min
+BP 176/102 mm Hg
+SpO2 82%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Inspect the sputum
+C. Review the chest radiograph
+D. Obtain an ABG
+E. Review the BNP
+F. Obtain bedside spirometry
+G. Delay treatment until all studies are completed
+
+Step 2
+The findings are most consistent with acute cardiogenic pulmonary edema. Which of the following should be recommended FIRST?
+
+Options
+A. Position upright, provide oxygen, begin NPPV, and support diuretic and vasodilator therapy while monitoring blood pressure
+B. Use low-flow nasal cannula and observe for 30 minutes
+C. Give a rapid fluid bolus for tachycardia
+D. Proceed directly to intubation before attempting noninvasive support
+
+Step 3
+After oxygen therapy, noninvasive ventilation, and medical treatment are started, the patient improves but remains ill.
+
+While receiving NPPV with an FiO2 of 0.60, the following are noted:
+HR 108/min
+RR 26/min
+BP 158/92 mm Hg
+SpO2 90%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Monitor urine output and blood pressure response
+C. Reassess mental status and work of breathing
+D. Review serum potassium and renal function
+E. Plan discharge if oxygen saturation briefly improves
+F. Stop close monitoring after the first response
+
+Step 4
+Gas exchange improves with treatment and the patient no longer appears to be failing noninvasive support. Which of the following should be recommended now?
+
+Options
+A. Continue monitored admission with NPPV weaning, oxygen titration, and ongoing diuretic therapy
+B. Discharge home with outpatient follow-up later in the week
+C. Transfer to an unmonitored bed immediately
+D. Remove NPPV and oxygen because the ABG improved

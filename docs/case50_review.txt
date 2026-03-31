@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 50 -- Adult Medical Critical (Pneumonia Consolidation Hypoxemia)
+
+Step 1
+A 73-year-old woman is brought to the emergency department because of fever, productive cough, and increasing shortness of breath.
+
+While receiving O2 by nasal cannula at 4 L/min, the following are noted:
+HR 124/min
+RR 34/min
+BP 148/88 mm Hg
+SpO2 84%
+EtCO2 36 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Inspect the sputum
+C. Review the chest radiograph
+D. Obtain an ABG
+E. Review the CBC and lactate
+F. Delay treatment until the entire diagnostic panel is completed
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Provide high-concentration oxygen, obtain cultures, begin antibiotics, and start aggressive pulmonary hygiene
+B. Use oxygen alone and defer the disease-specific plan
+C. Delay all therapy until the patient becomes more unstable
+D. Move the patient to an unmonitored setting after brief improvement
+
+Step 3
+After initial treatment is started, oxygenation improves only slightly and dyspnea persists.
+
+While receiving high-flow nasal oxygen at an FiO2 of 0.60, the following are noted:
+HR 118/min
+RR 32/min
+BP 142/84 mm Hg
+SpO2 88%
+EtCO2 38 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Review the repeat chest radiograph
+C. Review culture and antibiotic data
+D. Determine whether ventilatory support will be needed if fatigue worsens
+E. Review the CBC and lactate trend
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge or de-escalation before the reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue ICU or step-down care with high-flow support and prepare for intubation if fatigue worsens
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue therapy after brief improvement
+D. Transfer or discharge without a clear follow-up plan

@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 27 -- Adult Med/Surg Critical (Drug Overdose Airway Protection)
+
+Step 1
+A 39-year-old woman is brought to the emergency department after a likely pill ingestion.
+
+While breathing room air, the following are noted:
+HR 104/min
+RR 10/min
+BP 96/58 mm Hg
+SpO2 82%
+EtCO2 60 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Assess the pupils and breathing pattern
+B. Obtain an ABG
+C. Check capillary glucose
+D. Review toxic ingestion clues and pill bottles
+E. Review the CBC
+F. Delay treatment until all nonurgent testing is complete
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Support ventilation, give naloxone, and intubate if airway protection remains inadequate
+B. Use oxygen alone and defer the syndrome-specific plan
+C. Delay escalation until the next scheduled reassessment
+D. Sedate first and then decide how to manage ventilation
+
+Step 3
+After initial treatment is started, the patient remains obtunded.
+
+While receiving bag-mask ventilation with an FiO2 of 1.0, the following are noted:
+HR 98/min
+RR 12 assisted/min
+BP 102/62 mm Hg
+SpO2 90%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Reassess the pupils and ventilatory pattern
+C. Assess ongoing airway protection
+D. Determine whether naloxone response is durable or temporary
+E. Review the chemistry panel and CBC
+F. Stop close monitoring after the first response to treatment
+G. Plan transfer or discharge before reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue ICU-level care with airway protection and repeat naloxone or infusion as indicated
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue support after brief improvement
+D. Transfer or discharge without a clear high-acuity plan

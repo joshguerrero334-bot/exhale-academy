@@ -1,0 +1,60 @@
+Exhale Academy CSE Review
+Case 33 -- Cardiovascular Critical (Shock Perfusion Failure)
+
+Step 1
+A 46-year-old woman is in the ICU with worsening hypotension and poor perfusion.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 136/min
+RR 32/min
+BP 82/48 mm Hg
+SpO2 82%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Assess skin temperature and capillary refill
+B. Measure urine output
+C. Obtain an ABG
+D. Review lactate and CBC
+E. Reassess mental status and mean arterial pressure
+F. Delay treatment until the full diagnostic panel is completed
+G. Transfer to a low-acuity bed before stabilization
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Provide oxygen, secure IV access, begin cause-directed perfusion support, and prepare vasoactive therapy
+B. Use oxygen only and wait for more data before beginning disease-specific therapy
+C. Move the patient to an unmonitored area after brief improvement
+D. Sedate first and reassess the patient later
+
+Step 3
+After initial treatment is started, hypotension persists.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 134/min
+RR 31/min
+BP 86/50 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Reassess mean arterial pressure and mental status
+B. Review urine output and lactate trend
+C. Determine whether vasoactive support should be escalated
+D. Repeat the ABG
+E. Review CBC and hemoglobin trend
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge if oxygenation improves briefly
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue ICU care with aggressive perfusion support and vasoactive therapy
+B. Keep the current therapy unchanged and reassess much later
+C. Transfer to an unmonitored bed
+D. Discharge after transient improvement

@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 26 -- Neuromuscular Critical (Guillain-Barre Ascending Paralysis)
+
+Step 1
+A 51-year-old man is brought to the emergency department because of progressive ascending weakness and increasing shortness of breath.
+
+While breathing room air, the following are noted:
+HR 114/min
+RR 30/min
+BP 142/86 mm Hg
+SpO2 85%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Measure VC and MIP
+B. Auscultate breath sounds and assess secretion burden
+C. Obtain an ABG
+D. Monitor for autonomic instability
+E. Determine secretion-handling ability
+F. Delay treatment until all nonurgent testing is complete
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Admit to the ICU, provide oxygen, and prepare for endotracheal intubation because respiratory mechanics are failing
+B. Use oxygen alone and defer the syndrome-specific plan
+C. Delay escalation until the next scheduled reassessment
+D. Sedate first and then decide how to manage ventilation
+
+Step 3
+After initial treatment is started, weakness continues to progress.
+
+While receiving O2 by nasal cannula at 3 L/min, the following are noted:
+HR 118/min
+RR 30/min
+BP 150/90 mm Hg
+SpO2 88%
+EtCO2 54 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat VC and MIP
+B. Repeat the ABG
+C. Monitor autonomic stability
+D. Determine whether airway protection and invasive ventilation are now required
+E. Review the chest radiograph
+F. Stop close monitoring after the first response to treatment
+G. Plan transfer or discharge before reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Proceed with endotracheal intubation and ICU management for progressive neuromuscular ventilatory failure
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue support after brief improvement
+D. Transfer or discharge without a clear high-acuity plan

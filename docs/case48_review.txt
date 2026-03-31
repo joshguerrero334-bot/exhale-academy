@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 48 -- Adult Medical Critical (Sleep Apnea Polysomnography Pathway)
+
+Step 1
+A 49-year-old man is referred because of loud snoring, daytime hypersomnolence, and witnessed nocturnal apneas.
+
+While breathing room air, the following are noted:
+HR 96/min
+RR 20/min
+BP 154/92 mm Hg
+SpO2 88%
+EtCO2 52 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Obtain a detailed sleep history
+B. Obtain an ABG
+C. Review overnight oximetry
+D. Review sedative and opioid use
+E. Review the CBC
+F. Delay treatment until the entire diagnostic panel is completed
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Arrange attended polysomnography with positive-pressure titration
+B. Use oxygen alone and defer the disease-specific plan
+C. Delay all therapy until the patient becomes more unstable
+D. Move the patient to an unmonitored setting after brief improvement
+
+Step 3
+After the initial recommendation is completed, the patient returns with diagnostic results.
+
+While breathing room air, the following are noted:
+HR 92/min
+RR 18/min
+BP 148/88 mm Hg
+SpO2 89%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Review the polysomnography report
+B. Determine whether the events are primarily obstructive or central
+C. Repeat the daytime ABG
+D. Assess mask fit and pressure tolerance
+E. Review the CBC again
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge or de-escalation before the reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Begin bilevel positive airway pressure and arrange close follow-up for adherence and weight management
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue therapy after brief improvement
+D. Transfer or discharge without a clear follow-up plan

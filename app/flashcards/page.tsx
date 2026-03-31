@@ -60,6 +60,20 @@ export default async function FlashcardsPage() {
               </Link>
             </div>
           </article>
+
+          <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
+            <h2 className="mt-2 text-2xl font-semibold text-charcoal">Respiratory Disease Patterns</h2>
+            <p className="mt-3 text-sm leading-relaxed text-graysoft">
+              Review asthma, COPD, ARDS, pneumonia, PE, fibrosis, and more with short disease-pattern cards built for
+              quick board-style recall.
+            </p>
+            <div className="mt-5">
+              <Link href="/flashcards/respiratory-disease-patterns" className="btn-primary">
+                Open Disease Deck
+              </Link>
+            </div>
+          </article>
         </section>
       </div>
     </main>

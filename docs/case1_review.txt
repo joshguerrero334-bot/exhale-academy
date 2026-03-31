@@ -1,0 +1,59 @@
+Exhale Academy CSE Review
+Case 1 -- Practice Layout Audit (Upper Airway)
+
+Step 1
+A 43-year-old man arrives with rapidly worsening noisy breathing after a day of severe throat pain.
+
+While breathing room air, the following are noted:
+HR 110/min
+RR 30/min
+BP 142/96 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate for stridor
+B. Assess the ability to speak
+C. Assess the voice and throat pain history
+D. Review the CBC
+E. Review a portable lateral neck radiograph only if it can be obtained without destabilizing the airway
+F. Force the patient supine for a complete oral examination
+G. Delay all treatment until imaging is complete
+
+Step 2
+The findings suggest an upper-airway emergency with high risk of abrupt obstruction. Which of the following should be recommended FIRST?
+
+Options
+A. Maintain the patient upright, provide humidified oxygen, and proceed with controlled airway planning with anesthesia and ENT backup
+B. Observe on oxygen alone without a definitive airway plan
+C. Use heavy sedation before the airway is secured
+D. Transport for CT before airway control
+
+Step 3
+While the airway team is assembling, oxygenation remains marginal.
+
+While receiving humidified O2, the following are noted:
+HR 114/min
+RR 32/min
+BP 146/98 mm Hg
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Reassess work of breathing and fatigue
+B. Obtain an ABG
+C. Trend continuous pulse oximetry
+D. Confirm that a backup surgical-airway plan is ready
+E. Stop reassessment after a brief improvement in oxygen saturation
+F. Delay airway planning until the next routine cycle
+
+Step 4
+Oxygenation and fatigue worsen while the upper-airway obstruction risk remains high. Which of the following should be recommended now?
+
+Options
+A. Proceed with definitive airway control in a controlled setting with full backup available
+B. Continue the same therapy unchanged and reassess much later
+C. Transfer to a low-acuity bed
+D. Discharge if anxiety decreases briefly

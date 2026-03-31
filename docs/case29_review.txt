@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 29 -- Neuromuscular Critical (Stroke Neuro-Respiratory Failure)
+
+Step 1
+A 72-year-old woman is brought to the emergency department because of sudden speech change, unilateral weakness, and decreasing responsiveness.
+
+While receiving O2 by nasal cannula at 4 L/min, the following are noted:
+HR 112/min
+RR 28/min
+BP 168/96 mm Hg
+SpO2 87%
+EtCO2 49 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Assess gag reflex and airway protection
+B. Review the head CT
+C. Obtain an ABG
+D. Assess neurologic severity and command following
+E. Review the CBC and chemistry panel
+F. Delay treatment until all nonurgent testing is complete
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Protect the airway, provide oxygen, and admit to the neuro ICU with intubation readiness
+B. Use oxygen alone and defer the syndrome-specific plan
+C. Delay escalation until the next scheduled reassessment
+D. Sedate first and then decide how to manage ventilation
+
+Step 3
+After initial treatment is started, mental status does not improve and airway protection remains poor.
+
+While receiving O2 by mask at an FiO2 of 0.50, the following are noted:
+HR 108/min
+RR 26/min
+BP 164/92 mm Hg
+SpO2 90%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Reassess gag and cough reflexes
+C. Review neurologic status and ICU-level needs
+D. Determine whether endotracheal intubation is now required
+E. Review the repeat head CT
+F. Stop close monitoring after the first response to treatment
+G. Plan transfer or discharge before reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Proceed with endotracheal intubation and neuro-ICU care
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue support after brief improvement
+D. Transfer or discharge without a clear high-acuity plan

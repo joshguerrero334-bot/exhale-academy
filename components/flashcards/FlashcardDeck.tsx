@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { Flashcard } from "../../lib/flashcards/tmc-cse-buzzwords";
+
+type Flashcard = {
+  id: string;
+  front: string;
+  back: string;
+  section: string;
+};
 
 type Props = {
   cards: Flashcard[];
-  sections: readonly Flashcard["section"][];
+  sections: readonly string[];
 };
 
 function shuffleCards(cards: Flashcard[]) {
@@ -18,7 +24,7 @@ function shuffleCards(cards: Flashcard[]) {
 }
 
 export default function FlashcardDeck({ cards, sections }: Props) {
-  const [activeSection, setActiveSection] = useState<Flashcard["section"] | "All">("All");
+  const [activeSection, setActiveSection] = useState<string | "All">("All");
   const [deck, setDeck] = useState(cards);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);

@@ -1,0 +1,61 @@
+Exhale Academy CSE Review
+Case 3 -- PACU Sudden Postoperative Respiratory Collapse
+
+Step 1
+A 61-year-old man in the PACU becomes abruptly restless and then drowsy with increasing respiratory distress.
+
+While receiving O2 by face mask, the following are noted:
+HR 118/min
+RR 30/min
+BP 146/84 mm Hg
+SpO2 83%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Inspect chest expansion
+C. Percuss the chest
+D. Apply continuous pulse oximetry and capnography
+E. Review the recent procedure history
+F. Delay treatment until chest CT is completed
+G. Give additional opioid for agitation
+
+Step 2
+Ventilation remains poor, and obstructive thoracic physiology is suspected. Which of the following should be recommended FIRST?
+
+Options
+A. Insert an airway adjunct if needed and begin assisted ventilation with 100% O2 while calling for immediate help
+B. Observe on oxygen only
+C. Transfer to a regular floor bed
+D. Sedate the patient before ventilation is controlled
+
+Step 3
+After assisted ventilation begins, the patient suddenly becomes hypotensive.
+
+While receiving bag-mask ventilation with 100% O2, the following are noted:
+HR 132/min
+RR 18/min assisted
+BP 82/48 mm Hg
+SpO2 78%
+EtCO2 58 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Reassess breath sounds
+B. Check tracheal position
+C. Repeat chest percussion
+D. Determine whether immediate pleural decompression is required
+E. Delay reassessment until a radiograph is available
+F. Stop close monitoring after bag-mask ventilation begins
+
+Step 4
+Hypotension and hypoxemia worsen with findings consistent with tension pneumothorax. Which of the following should be recommended now?
+
+Options
+A. Perform immediate right-sided pleural decompression and prepare definitive chest drainage
+B. Obtain imaging before intervention
+C. Continue bag-mask ventilation and reassess much later
+D. Transfer to a low-acuity bed after brief improvement

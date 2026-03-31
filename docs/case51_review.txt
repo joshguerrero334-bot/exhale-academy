@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 51 -- Adult Medical Critical (AIDS Opportunistic PCP Pathway)
+
+Step 1
+A 41-year-old man with advanced immunocompromise is brought to the emergency department because of progressive dyspnea and fever.
+
+While receiving O2 by nasal cannula at 6 L/min, the following are noted:
+HR 118/min
+RR 30/min
+BP 136/82 mm Hg
+SpO2 86%
+EtCO2 40 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Auscultate breath sounds
+B. Review the chest radiograph
+C. Obtain an ABG
+D. Review LDH and the CD4 count
+E. Review the CBC
+F. Delay treatment until the entire diagnostic panel is completed
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Provide oxygen, begin trimethoprim-sulfamethoxazole and corticosteroids, and admit to monitored care
+B. Use oxygen alone and defer the disease-specific plan
+C. Delay all therapy until the patient becomes more unstable
+D. Move the patient to an unmonitored setting after brief improvement
+
+Step 3
+After initial treatment is started, severe hypoxemia persists.
+
+While receiving high-flow nasal oxygen at an FiO2 of 0.80, the following are noted:
+HR 116/min
+RR 32/min
+BP 132/78 mm Hg
+SpO2 86%
+EtCO2 38 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the ABG
+B. Review the induced sputum result
+C. Review the repeat chest radiograph
+D. Determine whether ICU-level support is now required
+E. Review the CBC
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge or de-escalation before the reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue ICU-level care while PCP therapy is maintained and escalate ventilatory support as needed
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue therapy after brief improvement
+D. Transfer or discharge without a clear follow-up plan

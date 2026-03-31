@@ -1,0 +1,62 @@
+Exhale Academy CSE Review
+Case 49 -- Adult Medical Critical (Hypothermia Rewarming/Resuscitation)
+
+Step 1
+A 61-year-old man is brought to the emergency department after prolonged cold exposure.
+
+While receiving O2 by nonrebreathing mask, the following are noted:
+HR 42/min
+RR 8/min
+BP 84/46 mm Hg
+SpO2 79%
+EtCO2 56 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Measure the core temperature
+B. Assess the cardiac rhythm
+C. Obtain an ABG
+D. Review electrolytes and the CBC
+E. Assess responsiveness and airway protection
+F. Delay treatment until the entire diagnostic panel is completed
+G. Transfer to a low-acuity area before the evaluation is complete
+
+Step 2
+Which of the following should be recommended FIRST?
+
+Options
+A. Handle gently, provide warmed humidified oxygen, begin active core rewarming, and infuse warmed IV fluids
+B. Use oxygen alone and defer the disease-specific plan
+C. Delay all therapy until the patient becomes more unstable
+D. Move the patient to an unmonitored setting after brief improvement
+
+Step 3
+After active rewarming is started, the patient remains critically ill but is more responsive.
+
+While receiving warmed humidified O2 by face mask, the following are noted:
+HR 54/min
+RR 10/min
+BP 92/54 mm Hg
+SpO2 88%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+Options
+A. Repeat the core temperature
+B. Repeat the ABG
+C. Assess the cardiac rhythm again
+D. Review perfusion and electrolyte response
+E. Assess airway protection
+F. Stop close monitoring after the first response to treatment
+G. Plan discharge or de-escalation before the reassessment is complete
+
+Step 4
+Which of the following should be recommended now?
+
+Options
+A. Continue active core rewarming and ICU-level monitoring until temperature and ventilation stabilize
+B. Keep the current approach unchanged and reassess much later
+C. Discontinue therapy after brief improvement
+D. Transfer or discharge without a clear follow-up plan

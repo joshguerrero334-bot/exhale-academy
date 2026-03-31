@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import PracticeSwitchBar from "../../../components/PracticeSwitchBar";
 import CseHowItWorksClient from "../../../components/cse/CseHowItWorksClient";
 import { createClient } from "../../../lib/supabase/server";
 
@@ -16,7 +15,6 @@ export default async function CseHowItWorksPage() {
 
   return (
     <main className="page-shell">
-      <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
 
       <div className="mx-auto w-full max-w-4xl space-y-6 pt-4">
         <section className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm sm:p-8">

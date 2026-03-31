@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-import PracticeSwitchBar from "../../../components/PracticeSwitchBar";
 import { createClient } from "../../../lib/supabase/server";
 import { startMasterAttempt } from "../../master/actions";
 
@@ -16,7 +15,6 @@ export default async function TmcExamIntroPage() {
 
   return (
     <main className="page-shell">
-      <PracticeSwitchBar active="tmc" cseHref="/cse/introduction" tmcHref="/tmc" />
 
       <div className="mx-auto w-full max-w-4xl space-y-6 pt-4">
         <section className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm sm:p-8">

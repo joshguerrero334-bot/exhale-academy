@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import PracticeSwitchBar from "../../../components/PracticeSwitchBar";
 import { createClient } from "../../../lib/supabase/server";
 import { headingFont } from "../../../lib/fonts";
 import { startCseMasterAttempt } from "./actions";
@@ -64,7 +63,6 @@ export default async function CseMasterStartPage({ searchParams }: PageProps) {
 
   return (
     <main className="min-h-screen bg-background text-charcoal">
-      <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
       <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">

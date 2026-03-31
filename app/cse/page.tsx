@@ -1,11 +1,9 @@
 import Link from "next/link";
-import PracticeSwitchBar from "../../components/PracticeSwitchBar";
 import { headingFont } from "../../lib/fonts";
 
 export default function CsePage() {
   return (
     <main className="min-h-screen bg-background text-charcoal">
-      <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
       <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
           <h1 className={`${headingFont} text-3xl font-semibold text-charcoal`}>Clinical Simulation Exam (CSE)</h1>

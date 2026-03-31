@@ -31,7 +31,8 @@ export default async function AppHeader() {
   }
 
   const homeHref = user ? "/dashboard" : "/";
-  const tmcHref = user ? "/dashboard" : "/login?next=%2Fdashboard";
+  const hubHref = user ? "/dashboard" : "/login?next=%2Fdashboard";
+  const tmcHref = user ? "/tmc" : "/login?next=%2Ftmc";
   const cseHref = user ? "/cse/introduction" : "/login?next=%2Fcse%2Fintroduction";
   const flashcardsHref = user ? "/flashcards" : "/login?next=%2Fflashcards";
   const feedbackHref = user ? "/feedback" : "/login?next=%2Ffeedback";
@@ -51,6 +52,9 @@ export default async function AppHeader() {
                   Study Menu
                 </summary>
                 <div className={menuPanelClass}>
+                  <Link href={hubHref} className={menuLinkClass}>
+                    Exhale Hub
+                  </Link>
                   <Link href="/blog" className={menuLinkClass}>
                     Blog
                   </Link>
@@ -96,6 +100,9 @@ export default async function AppHeader() {
           <div className={`${menuPanelClass} w-56`}>
             {user ? (
               <>
+                <Link href={hubHref} className={menuLinkClass}>
+                  Exhale Hub
+                </Link>
                 <Link href="/blog" className={menuLinkClass}>
                   Blog
                 </Link>

@@ -27,10 +27,10 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Exhale Academy</p>
           <h1 className={`${headingFont} mt-2 text-2xl font-semibold text-charcoal sm:text-3xl`}>
-            TMC Practice Dashboard
+            Exhale Hub
           </h1>
           <p className="mt-2 max-w-xl text-sm text-graysoft">
-            Choose a category for targeted practice or start the full-length 160-question TMC exam.
+            Choose the study tool you want to use and jump straight into practice.
           </p>
           <p className="mt-2 text-xs text-graysoft">
             Signed in as <span className="font-medium text-charcoal">{user.email}</span>
@@ -78,7 +78,7 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
               href="/tmc"
               className="btn-secondary mt-5"
             >
-              Go to TMC Dashboard
+              Open TMC Dashboard
             </Link>
           </article>
         </section>
@@ -96,19 +96,6 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           </Link>
         </section>
 
-        <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Help us improve</p>
-          <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
-            Exhale is new and evolving fast
-          </h2>
-          <p className="mt-2 max-w-2xl text-sm text-graysoft">
-            Tell us what looks great and where we should improve. Your honesty directly shapes the platform for you
-            and other RTs.
-          </p>
-          <Link href="/feedback" className="btn-primary mt-4">
-            How can we get better?
-          </Link>
-        </section>
 
         <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coming Soon</p>
@@ -123,18 +110,7 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           </Link>
         </section>
 
-        <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Subscription</p>
-          <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
-            Activate paid access
-          </h2>
-          <p className="mt-2 max-w-2xl text-sm text-graysoft">
-            Upgrade instantly with Stripe Checkout.
-          </p>
-          <div className="mt-4">
-            <SubscribeButton label="Subscribe" />
-          </div>
-        </section>
+
       </div>
     </main>
   );

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import PracticeSwitchBar from "../../../../../components/PracticeSwitchBar";
 import { createClient } from "../../../../../lib/supabase/server";
 import { fetchStepOptions } from "../../../../../lib/supabase/cse";
 
@@ -154,7 +153,6 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
 
   return (
     <main className="page-shell">
-      <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
       <div className="mx-auto w-full max-w-4xl space-y-5 pt-4">
         <section className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">

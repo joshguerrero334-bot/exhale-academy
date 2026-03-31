@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import PracticeSwitchBar from "../../components/PracticeSwitchBar";
 import { createClient } from "../../lib/supabase/server";
 import { headingFont } from "../../lib/fonts";
 import { getActiveCategoriesWithCounts } from "../../lib/supabase/taxonomy";
@@ -36,7 +35,6 @@ export default async function TmcPage({ searchParams }: TmcPageProps) {
 
   return (
     <main className="min-h-screen bg-background text-charcoal">
-      <PracticeSwitchBar active="tmc" cseHref="/cse/introduction" tmcHref="/tmc" />
 
       <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
@@ -54,15 +52,6 @@ export default async function TmcPage({ searchParams }: TmcPageProps) {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/master" className="btn-primary">
               Start 160-Question TMC Practice Exam
-            </Link>
-            <Link href="/billing" className="btn-primary">
-              Unlock Full Access
-            </Link>
-            <Link href="/tmc/exam" className="btn-secondary">
-              Review Tutor vs Exam Modes
-            </Link>
-            <Link href="/feedback" className="btn-secondary">
-              How can we get better?
             </Link>
           </div>
         </section>

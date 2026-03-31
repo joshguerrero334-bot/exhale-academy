@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import ConfirmSubmitButton from "../../../../components/cse/ConfirmSubmitButton";
 import LiveSelectedChoices from "../../../../components/cse/LiveSelectedChoices";
 import CseTimer from "../../../../components/cse/CseTimer";
-import PracticeSwitchBar from "../../../../components/PracticeSwitchBar";
 import { createClient } from "../../../../lib/supabase/server";
 import { fetchStepOptions } from "../../../../lib/supabase/cse";
 import { submitCseBranchStep } from "./actions";
@@ -185,8 +184,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
 
       return (
         <main className="page-shell pb-24">
-          <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
-          <div className="mx-auto w-full max-w-6xl space-y-4 pt-4">
+              <div className="mx-auto w-full max-w-6xl space-y-4 pt-4">
             {query.error ? (
               <section className="rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">{query.error}</section>
             ) : null}
@@ -346,7 +344,6 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
 
   return (
     <main className="page-shell pb-24">
-      <PracticeSwitchBar active="cse" cseHref="/cse" tmcHref="/tmc" />
       <div className="mx-auto w-full max-w-6xl space-y-4 pt-4">
               {query.error ? (
           <section className="rounded-xl border border-red-300 bg-red-50 p-3 text-sm text-red-700">{query.error}</section>

@@ -86,10 +86,10 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
         <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcards</p>
           <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
-            TMC + CSE buzzwords deck
+            Flashcards
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-graysoft">
-            Quizlet-style flip cards built from your buzzwords PDF. Read the clue, click or tap the card, and reveal the answer.
+            Easy one-click flashcards to test your knowledge.
           </p>
           <Link href="/flashcards" className="btn-primary mt-4">
             Open Flashcards

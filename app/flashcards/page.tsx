@@ -46,7 +46,7 @@ export default async function FlashcardsPage() {
           </div>
         </section>
 
-        <section className="grid gap-4 lg:grid-cols-2">
+        <section className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
           <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
             <h2 className="mt-2 text-2xl font-semibold text-charcoal">TMC + CSE Buzzwords</h2>
@@ -71,6 +71,19 @@ export default async function FlashcardsPage() {
             <div className="mt-5">
               <Link href="/flashcards/respiratory-disease-patterns" className="btn-primary">
                 Open Disease Deck
+              </Link>
+            </div>
+          </article>
+
+          <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
+            <h2 className="mt-2 text-2xl font-semibold text-charcoal">BiPAP, CPAP, and Oxygen Devices</h2>
+            <p className="mt-3 text-sm leading-relaxed text-graysoft">
+              Study pressure support choices and oxygen delivery devices with concise cards built for board-style recall.
+            </p>
+            <div className="mt-5">
+              <Link href="/flashcards/airway-pressure-and-oxygen-devices" className="btn-primary">
+                Open Devices Deck
               </Link>
             </div>
           </article>

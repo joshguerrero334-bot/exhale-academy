@@ -156,23 +156,6 @@ export default function FlashcardDeck({ cards, sections }: Props) {
               </button>
             </div>
           </section>
-
-          <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Study Tips</p>
-            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-graysoft">
-              <li>Say the answer out loud before flipping the card.</li>
-              <li>Use the section filters to drill one buzzword family at a time.</li>
-              <li>Shuffle once you start recognizing the obvious cards too quickly.</li>
-              <li>Use the ventilator section when you want a tighter troubleshooting-only review block.</li>
-            </ul>
-          </section>
-
-          <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">This Deck</p>
-            <p className="mt-2 text-sm text-graysoft">
-              {filteredCards.length} flashcards from your TMC + CSE buzzwords PDF, optimized for tap, click, and quick repetition on any device.
-            </p>
-          </section>
         </aside>
       </section>
     </div>

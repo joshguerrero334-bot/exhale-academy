@@ -1,0 +1,73 @@
+export type Flashcard = {
+  id: string;
+  front: string;
+  back: string;
+  section: string;
+};
+
+export const airwayPressureAndOxygenSections = [
+  "BiPAP vs. CPAP",
+  "Oxygen Delivery Devices",
+] as const;
+
+export const airwayPressureAndOxygenCards: Flashcard[] = [
+  { id: "cpap-stands-for", section: "BiPAP vs. CPAP", front: "What does CPAP stand for?", back: "Continuous Positive Airway Pressure." },
+  { id: "bipap-stands-for", section: "BiPAP vs. CPAP", front: "What does BiPAP stand for?", back: "Bilevel Positive Airway Pressure." },
+  { id: "main-difference", section: "BiPAP vs. CPAP", front: "What is the main difference between CPAP and BiPAP?", back: "CPAP gives one constant pressure. BiPAP gives two pressures: IPAP and EPAP." },
+  { id: "cpap-single-pressure", section: "BiPAP vs. CPAP", front: "Which device uses one constant pressure?", back: "CPAP." },
+  { id: "bipap-two-pressures", section: "BiPAP vs. CPAP", front: "Which device uses two pressure levels?", back: "BiPAP." },
+  { id: "ipap-epap", section: "BiPAP vs. CPAP", front: "What do IPAP and EPAP mean?", back: "IPAP is inspiratory pressure. EPAP is expiratory pressure." },
+  { id: "ventilation-support", section: "BiPAP vs. CPAP", front: "Which one supports ventilation better?", back: "BiPAP, because inspiratory pressure helps support tidal volume." },
+  { id: "oxygenation-only", section: "BiPAP vs. CPAP", front: "Which one is best when the patient mainly needs oxygenation support?", back: "CPAP." },
+  { id: "osa-device", section: "BiPAP vs. CPAP", front: "Which device is commonly used for OSA?", back: "CPAP, especially when oxygenation and upper-airway splinting are the main goals." },
+  { id: "mild-chf-device", section: "BiPAP vs. CPAP", front: "What is a common board choice for mild CHF or OSA?", back: "CPAP." },
+  { id: "copd-hypercapnia-device", section: "BiPAP vs. CPAP", front: "Which device fits COPD with hypercapnia best?", back: "BiPAP." },
+  { id: "tidal-volume-support", section: "BiPAP vs. CPAP", front: "Which device provides tidal volume support?", back: "BiPAP, through inspiratory pressure support." },
+  { id: "cpap-peep", section: "BiPAP vs. CPAP", front: "How does CPAP act like PEEP?", back: "It maintains one continuous pressure that helps keep alveoli open." },
+  { id: "epap-like-peep", section: "BiPAP vs. CPAP", front: "What part of BiPAP acts like PEEP?", back: "EPAP." },
+  { id: "backup-rate", section: "BiPAP vs. CPAP", front: "Which device may include a backup rate?", back: "BiPAP. CPAP is spontaneous only." },
+  { id: "monitor-cpap", section: "BiPAP vs. CPAP", front: "What should you monitor on CPAP?", back: "SpO2, respiratory rate, and patient comfort." },
+  { id: "monitor-bipap", section: "BiPAP vs. CPAP", front: "What should you monitor on BiPAP?", back: "SpO2, respiratory rate, tidal volume, and synchrony." },
+  { id: "interface-similarity", section: "BiPAP vs. CPAP", front: "What interface similarity do CPAP and BiPAP share?", back: "Both often use a tight-fitting mask and depend on a good seal." },
+  { id: "elevated-co2-clue", section: "BiPAP vs. CPAP", front: "Board clue: the patient has elevated CO2. Which one should you think of first?", back: "BiPAP." },
+  { id: "exhaling-on-cpap", section: "BiPAP vs. CPAP", front: "What if the patient struggles to exhale on CPAP?", back: "BiPAP may improve comfort because it lowers pressure during exhalation." },
+  { id: "mask-seal", section: "BiPAP vs. CPAP", front: "Why does mask seal matter with CPAP or BiPAP?", back: "A poor seal reduces pressure delivery and makes the therapy less effective." },
+  { id: "intubation-safer", section: "BiPAP vs. CPAP", front: "When might intubation be safer than CPAP or BiPAP?", back: "If the patient has altered mental status or aspiration risk." },
+  { id: "common-trap-bipap-cpap", section: "BiPAP vs. CPAP", front: "What is a common exam trap with BiPAP vs. CPAP?", back: "Picking CPAP for a hypercapnic, ventilatory-failure patient who actually needs BiPAP." },
+  { id: "memory-trick-bipap-cpap", section: "BiPAP vs. CPAP", front: "What quick memory trick helps you remember CPAP vs. BiPAP?", back: "CPAP = Continuous one pressure. BiPAP = Bi-level, two pressures." },
+
+  { id: "nc-flow", section: "Oxygen Delivery Devices", front: "What flow range does a nasal cannula use?", back: "1 to 6 L/min." },
+  { id: "nc-fio2", section: "Oxygen Delivery Devices", front: "What FiO2 range does a nasal cannula usually give?", back: "About 24% to 44%." },
+  { id: "nc-purpose", section: "Oxygen Delivery Devices", front: "What type of patient is a nasal cannula best for?", back: "A stable patient with mild oxygen needs." },
+  { id: "nc-four-percent", section: "Oxygen Delivery Devices", front: "How much FiO2 does each liter add on a nasal cannula?", back: "About 4% per L/min." },
+  { id: "nc-humidification", section: "Oxygen Delivery Devices", front: "When should you consider humidification with a nasal cannula?", back: "When flow is above about 4 L/min." },
+  { id: "simple-mask-flow", section: "Oxygen Delivery Devices", front: "What flow range does a simple mask use?", back: "5 to 10 L/min." },
+  { id: "simple-mask-fio2", section: "Oxygen Delivery Devices", front: "What FiO2 range does a simple mask provide?", back: "About 35% to 60%." },
+  { id: "simple-mask-minimum", section: "Oxygen Delivery Devices", front: "Why should a simple mask never run below 5 L/min?", back: "Because CO2 rebreathing can occur." },
+  { id: "nrb-flow", section: "Oxygen Delivery Devices", front: "What flow range does a non-rebreather use?", back: "10 to 15 L/min." },
+  { id: "nrb-fio2", section: "Oxygen Delivery Devices", front: "What FiO2 range can a non-rebreather provide?", back: "About 60% to 100%." },
+  { id: "nrb-use", section: "Oxygen Delivery Devices", front: "When is a non-rebreather a strong board choice?", back: "In emergencies, trauma, severe hypoxemia, or carbon monoxide poisoning." },
+  { id: "nrb-bag", section: "Oxygen Delivery Devices", front: "What should happen to the reservoir bag on a non-rebreather?", back: "It should stay inflated." },
+  { id: "venturi-purpose", section: "Oxygen Delivery Devices", front: "What is the main purpose of a Venturi mask?", back: "To deliver a precise FiO2." },
+  { id: "venturi-fio2", section: "Oxygen Delivery Devices", front: "What FiO2 range does a Venturi mask usually provide?", back: "About 24% to 50%, depending on the adapter." },
+  { id: "venturi-copd", section: "Oxygen Delivery Devices", front: "Which oxygen device is often used in COPD when precision matters?", back: "A Venturi mask." },
+  { id: "hfnc-flow", section: "Oxygen Delivery Devices", front: "How much flow can high-flow nasal cannula deliver?", back: "Up to 60 L/min." },
+  { id: "hfnc-fio2", section: "Oxygen Delivery Devices", front: "How much FiO2 can high-flow nasal cannula deliver?", back: "Up to 100%." },
+  { id: "hfnc-purpose", section: "Oxygen Delivery Devices", front: "When is high-flow nasal cannula commonly used?", back: "In hypoxemic respiratory failure." },
+  { id: "hfnc-humidified", section: "Oxygen Delivery Devices", front: "What comfort feature is built into high-flow nasal cannula?", back: "Heated, humidified gas." },
+  { id: "hfnc-peep", section: "Oxygen Delivery Devices", front: "Which oxygen device may provide a slight PEEP effect?", back: "High-flow nasal cannula." },
+  { id: "precise-fio2", section: "Oxygen Delivery Devices", front: "Which device gives the most precise FiO2?", back: "Venturi mask." },
+  { id: "best-emergency-device", section: "Oxygen Delivery Devices", front: "Which oxygen device is often best in an emergency?", back: "A non-rebreather mask." },
+  { id: "stable-mild-hypoxemia", section: "Oxygen Delivery Devices", front: "Which device is commonly used for stable mild hypoxemia?", back: "Nasal cannula." },
+  { id: "device-choice-not-highest", section: "Oxygen Delivery Devices", front: "Why is oxygen device choice not just about the highest FiO2?", back: "Because some patients need precise delivery, comfort, or pressure effect rather than just more oxygen." },
+  { id: "pressure-support-devices", section: "Oxygen Delivery Devices", front: "Which devices can provide pressure support or PEEP?", back: "CPAP and BiPAP provide PEEP and pressure support; high-flow nasal cannula may provide slight PEEP only." },
+  { id: "oxygen-assessment", section: "Oxygen Delivery Devices", front: "What should you assess besides SpO2 when using oxygen devices?", back: "Clinical signs like work of breathing, comfort, and overall response." },
+  { id: "oxygen-toxicity", section: "Oxygen Delivery Devices", front: "What oxygen toxicity clue should you remember for exams?", back: "Watch prolonged FiO2 above 60%." },
+  { id: "device-fit", section: "Oxygen Delivery Devices", front: "Why do fit and seal matter with oxygen devices?", back: "Poor fit reduces effective oxygen delivery." },
+  { id: "scenario-stable", section: "Oxygen Delivery Devices", front: "Scenario: stable patient with low oxygen needs. Best device?", back: "Nasal cannula." },
+  { id: "scenario-copd", section: "Oxygen Delivery Devices", front: "Scenario: COPD patient who needs controlled oxygen. Best device?", back: "Venturi mask." },
+  { id: "scenario-trauma", section: "Oxygen Delivery Devices", front: "Scenario: trauma patient with severe hypoxemia. Best device?", back: "Non-rebreather mask." },
+  { id: "scenario-moderate", section: "Oxygen Delivery Devices", front: "Scenario: short-term moderate oxygen need. Best device?", back: "Simple mask." },
+  { id: "common-trap-oxygen", section: "Oxygen Delivery Devices", front: "What is a common exam trap with oxygen devices?", back: "Picking the highest FiO2 device when the patient really needs a more precise or appropriate device." },
+  { id: "memory-trick-oxygen", section: "Oxygen Delivery Devices", front: "What quick memory trick helps you remember the oxygen ladder?", back: "Cannula for low needs, simple mask for more, NRB for emergencies, Venturi for precision, HFNC for high-flow support." },
+];

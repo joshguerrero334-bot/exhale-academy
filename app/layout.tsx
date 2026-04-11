@@ -6,9 +6,38 @@ import { inter, playfair } from "../lib/fonts";
 import { getSiteUrl } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Exhale Academy",
-  description: "Exhale Academy TMC preparation platform",
+  title: {
+    default: "Exhale Academy | Respiratory Therapy Test Prep for TMC and CSE",
+    template: "%s | Exhale Academy",
+  },
+  description:
+    "Respiratory therapy test prep for TMC and CSE exam prep, including TMC practice exams, TMC practice questions, CSE clinical simulations, and respiratory therapy flashcards.",
+  keywords: [
+    "respiratory therapy test prep",
+    "respiratory therapy exam prep",
+    "TMC prep",
+    "TMC exam prep",
+    "TMC practice exam",
+    "TMC practice questions",
+    "TMC question bank",
+    "CSE prep",
+    "CSE exam prep",
+    "CSE clinical simulations",
+    "TMC flashcards",
+    "respiratory therapy flashcards",
+  ],
   metadataBase: new URL(getSiteUrl()),
+  openGraph: {
+    title: "Exhale Academy | Respiratory Therapy Test Prep for TMC and CSE",
+    description:
+      "Modern respiratory therapy exam prep with TMC practice exams, TMC practice questions, CSE clinical simulations, and flashcards built for RT students and new grads.",
+    url: getSiteUrl(),
+    siteName: "Exhale Academy",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 // Brand layout changes:

@@ -1,6 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { createClient } from "../lib/supabase/server";
 import { headingFont } from "../lib/fonts";
+
+export const metadata: Metadata = {
+  title: "Respiratory Therapy Test Prep for TMC and CSE",
+  description:
+    "Exhale Academy is a respiratory therapy test prep platform with TMC prep, TMC practice exams, TMC practice questions, CSE exam prep, CSE clinical simulations, TMC flashcards, and respiratory therapy flashcards.",
+  keywords: [
+    "respiratory therapy test prep",
+    "respiratory therapy exam prep",
+    "TMC prep",
+    "TMC exam prep",
+    "TMC practice exam",
+    "TMC practice questions",
+    "TMC question bank",
+    "CSE prep",
+    "CSE exam prep",
+    "CSE clinical simulations",
+    "TMC flashcards",
+    "respiratory therapy flashcards",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   let isLoggedIn = false;
@@ -24,13 +48,13 @@ export default async function Home() {
             <h1
               className={`${headingFont} mt-2.5 text-[1.85rem] font-semibold leading-[1.15] text-charcoal sm:text-[2.15rem] lg:text-[2.3rem]`}
             >
-              Start your Exhale journey
+              Respiratory therapy test prep built for TMC and CSE success
             </h1>
             <p className="mt-2.5 text-sm leading-relaxed text-graysoft">
-              New here? Create your account, subscribe, and start practicing in minutes.
+              New here? Create your account, subscribe, and start your respiratory therapy exam prep in minutes.
             </p>
             <p className="mt-1 text-sm leading-relaxed text-graysoft">
-              Already subscribed? Log in to jump back into your dashboard.
+              Already subscribed? Log in to jump back into your Exhale Hub, TMC prep, CSE prep, and flashcards.
             </p>
 
             <div className="mt-6 space-y-2.5">
@@ -55,11 +79,12 @@ export default async function Home() {
             <h2
               className={`${headingFont} text-[2rem] font-semibold leading-[1.12] text-charcoal sm:text-[2.6rem] lg:text-[3.15rem]`}
             >
-              Modern RT prep for TMC + CSE
+              Modern respiratory therapy exam prep for TMC + CSE
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-[1.03rem] leading-[1.7] text-charcoal/90 sm:text-[1.15rem] lg:mx-0">
-              Exhale Academy gives you realistic exam-style practice without outdated content, lecture fatigue, or
-              overpriced prep programs. One subscription, built for today&apos;s RT students.
+              Exhale Academy gives you respiratory therapy test prep that feels modern, realistic, and useful. Build
+              confidence with TMC prep, TMC practice questions, a focused TMC question bank, CSE prep, and realistic
+              CSE clinical simulations in one place.
             </p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
               <Link href={primaryCtaHref} className="btn-primary w-full px-6 py-3 text-center sm:w-auto">
@@ -86,7 +111,7 @@ export default async function Home() {
               <div className="rounded-xl border border-graysoft/30 bg-white/90 p-4 text-left shadow-sm">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">TMC + CSE</p>
                 <p className="mt-1 text-sm leading-relaxed text-charcoal">
-                  500+ TMC-style questions and 20+ clinical simulations, all under one account.
+                  TMC exam prep with 500+ TMC practice questions plus CSE exam prep with 20+ clinical simulations.
                 </p>
               </div>
               <div className="rounded-xl border border-graysoft/30 bg-white/90 p-4 text-left shadow-sm">
@@ -104,30 +129,63 @@ export default async function Home() {
         <div className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-8">
           <h3 className={`${headingFont} text-2xl font-semibold text-charcoal sm:text-3xl`}>What&apos;s inside your membership</h3>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-graysoft sm:text-base">
-            Everything is designed to feel like the real exam, without the noise.
+            Everything is designed to support respiratory therapy exam prep with realistic practice, quick review, and
+            clean study tools.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border border-graysoft/30 bg-background p-4">
               <p className="text-base font-semibold text-charcoal">TMC Question Bank</p>
               <p className="mt-2 text-sm leading-relaxed text-graysoft">
-                500+ NBRC-style questions with detailed rationales. Practice by category or take mixed exams to mimic
-                the real TMC.
+                500+ NBRC-style questions with detailed rationales. Use the TMC question bank for category drills, TMC
+                practice questions, and full TMC practice exam sessions.
               </p>
             </article>
             <article className="rounded-xl border border-graysoft/30 bg-background p-4">
               <p className="text-base font-semibold text-charcoal">CSE Clinical Simulations</p>
               <p className="mt-2 text-sm leading-relaxed text-graysoft">
-                20+ branching cases that walk you through information-gathering and decision-making just like the CSE.
-                See how each choice helps, hurts, or delays patient care.
+                CSE prep built around realistic branching cases. Practice CSE clinical simulations that train
+                information-gathering, decision-making, and bedside logic.
               </p>
             </article>
             <article className="rounded-xl border border-graysoft/30 bg-background p-4">
-              <p className="text-base font-semibold text-charcoal">Tutor &amp; Exam Modes</p>
+              <p className="text-base font-semibold text-charcoal">TMC Flashcards + RT Flashcards</p>
               <p className="mt-2 text-sm leading-relaxed text-graysoft">
-                Use Tutor Mode to see rationales as you go, or Exam Mode to simulate test day timing and pressure.
-                Build confidence first, then pressure-test your knowledge.
+                Review TMC flashcards and respiratory therapy flashcards for disease patterns, oxygen devices, PFTs,
+                and fast board-style recall on any device.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1460px] px-4 pb-10 sm:px-10 lg:px-20">
+        <div className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-8">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">Why Students Choose Exhale</p>
+              <h3 className={`${headingFont} mt-2 text-2xl font-semibold text-charcoal sm:text-3xl`}>
+                TMC prep, CSE prep, and flashcards that work together
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-graysoft sm:text-base">
+                Most respiratory therapy test prep platforms force students to bounce between scattered tools. Exhale
+                keeps everything connected, so you can move from TMC practice questions to CSE clinical simulations to
+                respiratory therapy flashcards without losing momentum.
+              </p>
+            </div>
+            <div className="grid w-full gap-3 sm:grid-cols-2 lg:max-w-[420px]">
+              <Link href="/tmc" className="rounded-xl border border-graysoft/30 bg-background px-4 py-4 text-sm font-semibold text-charcoal transition hover:border-primary hover:bg-primary/5">
+                Explore TMC Prep
+              </Link>
+              <Link href="/cse/master" className="rounded-xl border border-graysoft/30 bg-background px-4 py-4 text-sm font-semibold text-charcoal transition hover:border-primary hover:bg-primary/5">
+                Explore CSE Prep
+              </Link>
+              <Link href="/flashcards" className="rounded-xl border border-graysoft/30 bg-background px-4 py-4 text-sm font-semibold text-charcoal transition hover:border-primary hover:bg-primary/5">
+                Study TMC Flashcards
+              </Link>
+              <Link href="/blog" className="rounded-xl border border-graysoft/30 bg-background px-4 py-4 text-sm font-semibold text-charcoal transition hover:border-primary hover:bg-primary/5">
+                Read Free RT Articles
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -139,7 +197,8 @@ export default async function Home() {
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">Free Education</p>
               <h3 className={`${headingFont} mt-2 text-2xl font-semibold text-charcoal sm:text-3xl`}>Start with the Exhale blog</h3>
               <p className="mt-2 max-w-3xl text-sm leading-relaxed text-graysoft sm:text-base">
-                Read free RT articles on TMC prep, ABGs, ventilator management, and bedside reasoning before you ever subscribe.
+                Read free articles on TMC prep, TMC exam prep, CSE prep, ABGs, ventilator management, and bedside
+                reasoning before you ever subscribe.
               </p>
             </div>
             <Link href="/blog" className="btn-secondary w-full px-6 py-3 text-center md:w-auto">
@@ -153,7 +212,7 @@ export default async function Home() {
         <div className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-8">
           <h3 className={`${headingFont} text-2xl font-semibold text-charcoal sm:text-3xl`}>What students are saying</h3>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-graysoft sm:text-base">
-            Early users are already telling us Exhale feels different from the usual RT prep.
+            Early users are already telling us Exhale feels different from the usual respiratory therapy exam prep.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border border-graysoft/30 bg-background p-4">
@@ -186,7 +245,8 @@ export default async function Home() {
             Built by working respiratory therapists, not a generic test-prep company.
           </p>
           <p className="mt-2 text-sm text-graysoft sm:text-base">
-            Exhale Academy was created by RTs who wanted modern, honest, and affordable prep for the TMC and CSE.
+            Exhale Academy was created by RTs who wanted modern, honest, and affordable respiratory therapy test prep
+            for the TMC and CSE.
           </p>
         </div>
       </section>

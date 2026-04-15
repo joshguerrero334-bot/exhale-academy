@@ -1,0 +1,74 @@
+Exhale Academy CSE Review
+Case 55 -- Adult Neuro Critical (Spinal Injury Airway Stability)
+
+Intro
+Cervical trauma with evolving ventilatory weakness and strict immobilization needs.
+
+Stem
+Trauma patient has possible high cervical injury with progressive respiratory compromise.
+
+Step 1
+A 27-year-old man is brought to the emergency department after a diving accident.
+
+While receiving O2 by nonrebreathing mask with cervical stabilization in place, the following are noted:
+HR 108/min
+RR 24/min with shallow respirations
+BP 122/74 mm Hg
+SpO2 87%
+EtCO2 45 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess motor strength, cough strength, and airway protection (+2)
+B. Assess breathing pattern, chest expansion, and secretion burden (+2)
+C. Obtain an ABG (+2)
+D. Review cervical spine imaging while maintaining immobilization (+2)
+E. Delay stabilization until all imaging is complete (-3)
+F. Remove cervical stabilization for easier assessment (-3)
+
+Revealed findings after indicated selections:
+- Motor strength is markedly reduced in both upper and lower extremities.
+- Diaphragmatic breathing is weak, and secretion clearance is poor.
+- ABG: pH 7.33, PaCO2 50 torr, PaO2 60 torr, HCO3 26 mEq/L.
+- Cervical spine imaging shows unstable high cervical injury.
+
+Step 2
+Findings suggest high cervical spinal injury with evolving ventilatory weakness. Which of the following should be recommended FIRST?
+
+A. Maintain inline stabilization, provide oxygen, and secure a controlled airway because ventilatory weakness is evolving (+3)
+B. Use oxygen only and delay airway planning (-3)
+C. Sedate the patient before securing ventilation strategy (-3)
+D. Transfer to lower-acuity care once saturation improves briefly (-3)
+
+Step 3
+After initial stabilization, the patient remains immobilized and is receiving O2 by face mask.
+
+Current findings are:
+HR 104/min
+RR 26/min
+BP 118/72 mm Hg
+SpO2 90%
+EtCO2 48 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend VC and repeat ABG (+2)
+B. Reassess airway protection and secretion clearance (+2)
+C. Verify that inline stabilization is maintained for any airway escalation (+2)
+D. Determine whether definitive endotracheal intubation is now required (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- VC is reduced, and inspiratory effort is weakening.
+- Repeat ABG: pH 7.30, PaCO2 55 torr, PaO2 62 torr, HCO3 27 mEq/L.
+- Inline stabilization remains mandatory during any airway intervention.
+- Definitive airway support is now indicated because ventilatory weakness is progressing.
+
+Step 4
+Ventilatory weakness continues to worsen. Which of the following should be recommended now?
+
+A. Proceed with controlled endotracheal intubation and ICU-level ventilatory support with spinal precautions (+3)
+B. Continue current therapy unchanged and reassess later (-3)
+C. Transfer to an unmonitored bed (-3)
+D. Discharge after temporary improvement (-3)

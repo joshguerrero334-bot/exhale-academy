@@ -1,0 +1,77 @@
+Exhale Academy CSE Review
+Case 23 -- ARDS Critical (Pancreatitis Pathway + Prone Strategy)
+
+Intro
+Pancreatitis-triggered lung injury requiring oxygenation rescue planning including prone-position consideration.
+
+Stem
+Pancreatitis patient rapidly progresses to severe hypoxemia and rising ventilatory stress.
+
+Step 1
+A 35-year-old woman with pancreatitis develops worsening respiratory distress.
+
+While receiving O2 by high-flow nasal cannula at an FiO2 of 0.70, the following are noted:
+HR 126/min
+RR 33/min
+BP 148/86 mm Hg
+SpO2 83%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 5).
+
+A. Assess work of breathing and mental status (+2)
+B. Review chest radiograph (+2)
+C. Obtain ABG and calculate the P/F ratio (+3)
+D. Review likely trigger/source data, including appropriate labs (+2)
+E. Evaluate whether the pattern is more consistent with noncardiogenic than cardiogenic pulmonary edema (+2)
+F. Delay oxygen escalation until all tests return (-3)
+G. Assume this is not ARDS because wheezes are not prominent (-2)
+
+Revealed findings after indicated selections:
+- Chest radiograph reveals bilateral diffuse infiltrates.
+- ABG: pH 7.34, PaCO2 44 torr, PaO2 56 torr, HCO3 24 mEq/L. P/F ratio is severely reduced.
+- Lipase is markedly elevated, and CBC shows WBC 18,900/mm3.
+- The current findings support noncardiogenic pulmonary edema.
+
+Step 2
+Which of the following should be recommended FIRST?
+
+A. Treat the underlying cause and initiate lung-protective ventilation with appropriate PEEP (+3)
+B. Use larger tidal volumes to force CO2 clearance (-3)
+C. Keep plateau pressure unconstrained if oxygenation is poor (-3)
+D. Treat hypoxemia only and ignore the trigger (-2)
+
+Step 3
+After initial management, the patient is intubated and receiving lung-protective ventilation.
+
+Current settings are:
+AC/VC
+VT 6 mL/kg IBW
+RR 24/min
+FiO2 0.70
+PEEP 10 cmH2O
+Plateau pressure 28 cmH2O
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 5).
+
+A. Repeat ABG and reassess the P/F ratio (+2)
+B. Trend plateau pressure and compliance (+2)
+C. Adjust FiO2 and PEEP based on oxygenation while keeping plateau pressure below 30 cmH2O (+2)
+D. Determine whether prone positioning is indicated if severe hypoxemia persists (+2)
+E. Follow the trigger-specific source data and hemodynamic response (+1)
+F. Stop close monitoring after one slight SpO2 improvement (-3)
+G. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- ABG: pH 7.31, PaCO2 47 torr, PaO2 68 torr, HCO3 24 mEq/L. P/F ratio remains below 150.
+- Plateau pressure remains acceptable, but compliance is poor.
+- FiO2/PEEP still require titration based on oxygenation response.
+- Prone positioning should be considered if severe hypoxemia persists.
+- Pancreatitis management and hemodynamic support still require close follow-up.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue ICU-level ARDS management with lung-protective ventilation and rescue-escalation criteria (+3)
+B. Transfer to a low-acuity floor once oxygenation improves briefly (-3)
+C. Discharge after temporary oxygenation improvement (-3)
+D. Observe without a structured ARDS escalation plan (-2)

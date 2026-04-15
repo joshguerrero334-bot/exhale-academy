@@ -1,0 +1,74 @@
+Exhale Academy CSE Review
+Case 54 -- Adult Neuro Critical (Head Trauma Cheyne-Stokes/ICP)
+
+Intro
+Head trauma with declining consciousness, abnormal breathing pattern, and rising ICP concern.
+
+Stem
+Trauma patient has worsening mental status, abnormal breathing, and signs of intracranial injury.
+
+Step 1
+A 32-year-old woman is brought to the emergency department after a motor vehicle crash.
+
+While receiving O2 by nonrebreathing mask with cervical stabilization in place, the following are noted:
+HR 112/min
+RR 28/min with an irregular waxing and waning pattern
+BP 170/102 mm Hg
+SpO2 86%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess GCS, pupil size, and airway reflexes (+2)
+B. Characterize the breathing pattern and look for signs of ICP-related deterioration (+2)
+C. Obtain an ABG (+2)
+D. Review emergent head imaging after stabilization (+2)
+E. Delay stabilization until all imaging is complete (-3)
+F. Remove cervical stabilization for easier assessment (-3)
+
+Revealed findings after indicated selections:
+- Pupils are unequal, and the GCS is 7.
+- Breathing pattern is consistent with Cheyne-Stokes respirations.
+- ABG: pH 7.29, PaCO2 54 torr, PaO2 58 torr, HCO3 25 mEq/L.
+- Head CT reveals acute intracranial hemorrhage with mass effect.
+
+Step 2
+Findings suggest severe head injury with impaired airway protection and hypercapnia. Which of the following should be recommended FIRST?
+
+A. Preoxygenate, intubate, and provide controlled ventilation while avoiding severe hypercapnia (+3)
+B. Use oxygen only and delay airway planning (-3)
+C. Sedate the patient before securing ventilation strategy (-3)
+D. Transfer to lower-acuity care once saturation improves briefly (-3)
+
+Step 3
+After initial stabilization, the patient is intubated and receiving volume-controlled ventilation.
+
+Current findings are:
+HR 106/min
+RR 20/min
+BP 160/96 mm Hg
+SpO2 92%
+EtCO2 38 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Repeat ABG and trend EtCO2 (+2)
+B. Repeat focused neurologic assessment (+2)
+C. Confirm ventilator targets are avoiding worsening hypercapnia or excessive hypocapnia (+2)
+D. Determine whether ICU-level ICP-focused care remains necessary (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Repeat ABG: pH 7.37, PaCO2 37 torr, PaO2 74 torr, HCO3 23 mEq/L.
+- Pupillary asymmetry persists, and neuro checks remain abnormal.
+- Ventilator settings keep EtCO2 near the desired range without severe hypocapnia.
+- Ongoing ICP-focused ICU management is still required.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue ICU-level neurocritical care with controlled ventilation and serial neurologic reassessment (+3)
+B. Continue current therapy unchanged and reassess later (-3)
+C. Transfer to an unmonitored bed (-3)
+D. Discharge after temporary improvement (-3)

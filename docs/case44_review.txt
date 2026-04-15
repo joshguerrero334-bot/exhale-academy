@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 44 -- Neonatal Critical (IRDS Surfactant Deficiency Ground Glass)
+
+Intro
+Premature infant with surfactant-deficiency respiratory failure requiring CPAP, reassessment, and possible surfactant/intubation escalation.
+
+Stem
+Very preterm infant has grunting, retractions, and worsening oxygenation shortly after birth.
+
+Step 1
+A 30-week premature infant develops worsening respiratory distress shortly after birth.
+
+The following are noted:
+HR 154/min
+RR 58/min
+SpO2 78%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess work of breathing and overall severity of distress (+2)
+B. Review prematurity and surfactant-deficiency context (+2)
+C. Auscultate aeration and assess retractions/grunting (+2)
+D. Obtain chest radiograph and blood gas data (+2)
+E. Delay stabilization until all diagnostics are complete (-3)
+F. Assume every neonatal respiratory problem follows the same pathway (-3)
+
+Revealed findings after indicated selections:
+- Chest radiograph shows diffuse ground-glass opacity with air bronchograms.
+- Prematurity and surfactant-deficiency pattern strongly support IRDS.
+- Breath sounds are diminished bilaterally with poor aeration.
+- ABG: pH 7.24, PaCO2 58 torr, PaO2 44 torr, HCO3 24 mEq/L.
+
+Step 2
+Findings suggest infant respiratory distress syndrome. Which of the following should be recommended FIRST?
+
+A. Begin or continue CPAP with oxygen support and prepare for surfactant/escalation if distress persists (+3)
+B. Use oxygen only and defer definitive disease-specific management (-3)
+C. Delay escalation planning until prolonged deterioration occurs (-3)
+D. Transfer to lower-acuity care after brief early improvement (-3)
+
+Step 3
+After initial support, the infant remains on CPAP with persistent distress.
+
+Current findings are:
+HR 148/min
+RR 54/min
+SpO2 86%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend gas exchange and overall work of breathing on current support (+2)
+B. Reassess whether CPAP remains adequate or failure is developing (+2)
+C. Determine whether surfactant or intubation is now required (+2)
+D. Review repeat blood gas if oxygen need remains high (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Repeat gas exchange is needed to judge CPAP failure.
+- Chest movement and distress level should be trended closely.
+- Surfactant or intubation may be required if support remains inadequate.
+- ABG: pH 7.22, PaCO2 60 torr, PaO2 48 torr, HCO3 24 mEq/L.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue NICU-level respiratory care with surfactant/intubation escalation triggers (+3)
+B. Transfer to lower-acuity nursery care now (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation triggers (-2)

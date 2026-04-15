@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 43 -- Neonatal Critical (Apnea of Prematurity Bradycardia Episodes)
+
+Intro
+Very preterm infant with recurrent apnea, bradycardia, and desaturation episodes requiring monitoring and escalation decisions.
+
+Stem
+Premature infant in the NICU has recurrent apnea spells with bradycardia and hypoxemia.
+
+Step 1
+A 29-week premature infant in the NICU has recurrent apnea alarms.
+
+The following are noted:
+HR 96/min
+RR 22/min between episodes
+SpO2 80%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess apnea event frequency and whether bradycardia/desaturation accompany episodes (+2)
+B. Confirm prematurity-related central apnea pattern (+2)
+C. Assess airway patency and response to gentle stimulation (+2)
+D. Obtain objective gas-exchange data if events are recurrent or severe (+2)
+E. Delay stabilization until all diagnostics are complete (-3)
+F. Assume every neonatal respiratory problem follows the same pathway (-3)
+
+Revealed findings after indicated selections:
+- Apnea episodes are accompanied by bradycardia and desaturation.
+- The infant is very premature and not maintaining stable spontaneous drive.
+- Airway patency and gentle stimulation response should be assessed.
+- ABG: pH 7.31, PaCO2 52 torr, PaO2 46 torr, HCO3 26 mEq/L.
+
+Step 2
+Findings suggest apnea of prematurity with recurrent bradycardia/desaturation. Which of the following should be recommended FIRST?
+
+A. Continue close monitoring, initiate caffeine therapy, and support ventilation/oxygenation as needed based on event burden (+3)
+B. Use oxygen only and defer definitive disease-specific management (-3)
+C. Delay escalation planning until prolonged deterioration occurs (-3)
+D. Transfer to lower-acuity care after brief early improvement (-3)
+
+Step 3
+After initial treatment and close monitoring, the infant still has intermittent events.
+
+Current findings are:
+HR 104/min between episodes
+RR 26/min between episodes
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend apnea frequency and event severity (+2)
+B. Trend heart-rate and oxygenation response during episodes (+2)
+C. Determine whether noninvasive escalation is needed if events continue (+2)
+D. Repeat blood gas if instability persists despite treatment (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Event frequency and severity still determine whether support is adequate.
+- Heart-rate and oxygenation trends must continue to be tracked.
+- Response to caffeine and need for noninvasive support should be reassessed.
+- ABG: pH 7.33, PaCO2 49 torr, PaO2 52 torr, HCO3 25 mEq/L.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue NICU-level monitoring with apnea/bradycardia trend-based escalation triggers (+3)
+B. Transfer to lower-acuity nursery care now (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation triggers (-2)

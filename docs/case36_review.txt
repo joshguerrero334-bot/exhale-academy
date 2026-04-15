@@ -1,0 +1,72 @@
+Exhale Academy CSE Review
+Case 36 -- Pediatric Critical (Croup Gradual Barking Stridor)
+
+Intro
+Gradual viral upper-airway illness with barking cough and stridor at rest.
+
+Stem
+Child has progressive barking cough, inspiratory stridor, and increasing work of breathing.
+
+Step 1
+A 3-year-old boy is brought to the emergency department because of worsening noisy breathing overnight after several days of upper respiratory symptoms.
+
+While receiving room air, the following are noted:
+HR 148/min
+RR 42/min
+BP 104/64 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess stridor at rest and degree of retractions (+2)
+B. Characterize the cough and upper-airway sound pattern (+2)
+C. Auscultate air movement and monitor oxygenation (+2)
+D. Determine whether drooling or inability to swallow is absent (+2)
+E. Delay stabilization while waiting for complete imaging (-3)
+F. Assume all pediatric stridor is managed the same way (-3)
+
+Revealed findings after indicated selections:
+- There is inspiratory stridor at rest with suprasternal retractions.
+- The cough is harsh and barking, and the voice is hoarse.
+- Air movement is decreased but breath sounds remain bilateral.
+- The child can swallow secretions and is not drooling.
+
+Step 2
+Findings suggest moderate-to-severe croup. Which of the following should be recommended FIRST?
+
+A. Administer humidified oxygen, corticosteroid therapy, and racemic epinephrine while observing closely (+3)
+B. Use oxygen only and postpone definitive treatment (-3)
+C. Force a routine throat exam before airway planning (-3)
+D. Transfer to lower-acuity care after a brief improvement (-3)
+
+Step 3
+Twenty minutes after initial treatment, the child remains under close observation.
+
+Current findings are:
+HR 138/min
+RR 36/min
+BP 102/62 mm Hg
+SpO2 91%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess stridor, retractions, and work of breathing (+2)
+B. Trend oxygenation and overall clinical response (+2)
+C. Determine whether monitored admission is still required (+2)
+D. Maintain readiness for airway escalation if stridor at rest worsens again (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Stridor decreases when calm but returns at rest with agitation.
+- Retractions improve but have not resolved completely.
+- SpO2 improves with therapy, but monitored observation is still needed.
+- Further escalation remains necessary if stridor at rest worsens again.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Admit for monitored pediatric high-acuity care until stridor at rest resolves (+3)
+B. Transfer to an unmonitored bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without explicit escalation triggers (-2)

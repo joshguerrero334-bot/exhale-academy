@@ -3,6 +3,8 @@ export type Flashcard = {
   front: string;
   back: string;
   section: string;
+  frontImage?: string;
+  frontImageAlt?: string;
 };
 
 export const pulmonaryFunctionTestingSections = [
@@ -49,6 +51,30 @@ export const pulmonaryFunctionTestingCards: Flashcard[] = [
   { id: "normal-loop", section: "Flow-Volume Loops", front: "What does a normal flow-volume loop look like?", back: "Rounded and symmetrical, with a smooth descending expiratory limb." },
   { id: "obstructive-loop", section: "Flow-Volume Loops", front: "What does an obstructive loop look like?", back: "Scooped or coved on the descending limb, often with reduced peak flow." },
   { id: "restrictive-loop", section: "Flow-Volume Loops", front: "What does a restrictive loop look like?", back: "Tall and narrow, with reduced total volume." },
+  {
+    id: "image-normal-loop",
+    section: "Flow-Volume Loops",
+    front: "What type of loop is this?",
+    back: "Normal flow-volume loop.",
+    frontImage: "/flashcards/pft-loops/normal-loop.svg",
+    frontImageAlt: "Normal flow-volume loop flashcard visual",
+  },
+  {
+    id: "image-obstructive-loop",
+    section: "Flow-Volume Loops",
+    front: "What type of loop is this?",
+    back: "Obstructive flow-volume loop.",
+    frontImage: "/flashcards/pft-loops/obstructive-loop.svg",
+    frontImageAlt: "Obstructive flow-volume loop flashcard visual",
+  },
+  {
+    id: "image-restrictive-loop",
+    section: "Flow-Volume Loops",
+    front: "What type of loop is this?",
+    back: "Restrictive flow-volume loop.",
+    frontImage: "/flashcards/pft-loops/restrictive-loop.svg",
+    frontImageAlt: "Restrictive flow-volume loop flashcard visual",
+  },
   { id: "scooped-loop-clue", section: "Flow-Volume Loops", front: "What board clue should make you think obstructive disease on a loop?", back: "A scooped-out descending limb." },
   { id: "tall-narrow-loop-clue", section: "Flow-Volume Loops", front: "What board clue should make you think restrictive disease on a loop?", back: "A tall, narrow loop with low volume." },
   { id: "restrictive-peak-flow", section: "Flow-Volume Loops", front: "Can peak flow look normal in a restrictive loop?", back: "Yes. The total volume is low, but peak flow may still appear near normal." },

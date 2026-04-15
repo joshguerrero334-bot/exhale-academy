@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 45 -- Neonatal Critical (Congenital Heart Defect Cyanotic Shunt)
+
+Intro
+Neonate with persistent cyanosis and poor oxygen response requiring structural-cardiac recognition and monitored stabilization.
+
+Stem
+Neonate has persistent cyanosis despite supplemental oxygen and shows concern for ductal-dependent cardiac disease.
+
+Step 1
+A 2-day-old neonate remains cyanotic despite supplemental oxygen.
+
+The following are noted:
+HR 166/min
+RR 52/min
+SpO2 76%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess perfusion, murmur, and cyanosis severity (+2)
+B. Compare preductal and postductal oxygenation when available (+2)
+C. Determine whether oxygen response is disproportionately poor for the level of respiratory effort (+2)
+D. Arrange urgent echocardiography and supporting data (+2)
+E. Delay stabilization until all diagnostics are complete (-3)
+F. Assume every neonatal respiratory problem follows the same pathway (-3)
+
+Revealed findings after indicated selections:
+- A murmur is present, and perfusion is borderline.
+- Preductal and postductal oxygenation should be compared.
+- Poor oxygen response raises concern for a cyanotic structural lesion rather than primary lung disease.
+- Echocardiography is needed urgently.
+
+Step 2
+Findings suggest cyanotic congenital heart disease. Which of the following should be recommended FIRST?
+
+A. Stabilize oxygenation and perfusion while arranging urgent cardiology-directed evaluation and ductal-dependent management planning (+3)
+B. Use oxygen only and defer definitive disease-specific management (-3)
+C. Delay escalation planning until prolonged deterioration occurs (-3)
+D. Transfer to lower-acuity care after brief early improvement (-3)
+
+Step 3
+After initial stabilization, cyanosis persists and the infant remains under close monitoring.
+
+Current findings are:
+HR 160/min
+RR 50/min
+SpO2 78%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend oxygenation pattern and perfusion findings (+2)
+B. Continue comparing data that support a structural-cardiac pattern (+2)
+C. Determine whether cardiology-directed ICU care remains necessary (+2)
+D. Use blood-gas and echo-directed data to support the ongoing plan (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Persistent hypoxemia despite oxygen continues to support a cardiac shunt pattern.
+- Preductal and postductal data remain important.
+- Definitive echocardiographic and cardiology-directed planning is still required.
+- ABG may show hypoxemia without a primary ventilatory pattern severe enough to explain the cyanosis.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue ICU/NICU-level monitored care with urgent cardiology/surgical planning (+3)
+B. Transfer to lower-acuity nursery care now (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation triggers (-2)

@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 42 -- Neonatal Critical (Meconium Aspiration Vigor/Intubation Threshold)
+
+Intro
+Meconium-stained term infant with respiratory distress requiring the correct airway decision without delaying ventilation.
+
+Stem
+Newborn delivered through meconium-stained fluid has respiratory distress and uncertain transition stability.
+
+Step 1
+A term infant is brought to the warmer after delivery through thick meconium-stained fluid.
+
+The following are noted:
+HR 108/min
+RR 44/min
+SpO2 82%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess vigor, respiratory effort, and chest movement (+2)
+B. Determine whether meconium is present but ventilation should not be delayed automatically (+2)
+C. Auscultate breath sounds and aeration (+2)
+D. Obtain objective gas-exchange data if distress is significant (+2)
+E. Delay stabilization until all diagnostics are complete (-3)
+F. Assume every neonatal respiratory problem follows the same pathway (-3)
+
+Revealed findings after indicated selections:
+- The infant is not vigorous and has ineffective respirations.
+- Meconium staining is present, but ventilation should not be delayed automatically.
+- Breath sounds are coarse bilaterally with poor aeration.
+- ABG: pH 7.28, PaCO2 50 torr, PaO2 48 torr, HCO3 23 mEq/L.
+
+Step 2
+Findings suggest meconium aspiration with respiratory distress. Which of the following should be recommended FIRST?
+
+A. Provide appropriate respiratory support and proceed with ventilation-focused management rather than delaying for routine suction-only decisions (+3)
+B. Use oxygen only and defer definitive disease-specific management (-3)
+C. Delay escalation planning until prolonged deterioration occurs (-3)
+D. Transfer to lower-acuity care after brief early improvement (-3)
+
+Step 3
+Fifteen minutes after initial support, the infant remains under close observation.
+
+Current findings are:
+HR 118/min
+RR 48/min
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend oxygenation, breath sounds, and work of breathing (+2)
+B. Use ABG and clinical trend to decide whether ventilation is failing (+2)
+C. Determine whether intubation or advanced support is now required (+2)
+D. Review radiographic and gas-exchange data if instability persists (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Repeat oxygenation and air movement should be trended closely.
+- ABG may help determine whether ventilation is failing.
+- Need for intubation or advanced support should be reassessed if distress persists.
+- Chest radiograph may show patchy infiltrates and hyperinflation.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue NICU-level care with explicit respiratory escalation triggers (+3)
+B. Transfer to lower-acuity nursery care now (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation triggers (-2)

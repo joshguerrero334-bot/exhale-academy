@@ -1,0 +1,36 @@
+<svg width="1200" height="780" viewBox="0 0 1200 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="780" rx="36" fill="#F8FBFB"/>
+  <rect x="48" y="48" width="1104" height="684" rx="28" fill="#FFFFFF" stroke="#D8E7E6" stroke-width="2"/>
+
+  <g stroke="#E6EFEE" stroke-width="2">
+    <line x1="120" y1="180" x2="1080" y2="180"/>
+    <line x1="120" y1="300" x2="1080" y2="300"/>
+    <line x1="120" y1="420" x2="1080" y2="420"/>
+    <line x1="120" y1="540" x2="1080" y2="540"/>
+    <line x1="120" y1="660" x2="1080" y2="660"/>
+    <line x1="240" y1="120" x2="240" y2="660"/>
+    <line x1="420" y1="120" x2="420" y2="660"/>
+    <line x1="600" y1="120" x2="600" y2="660"/>
+    <line x1="780" y1="120" x2="780" y2="660"/>
+    <line x1="960" y1="120" x2="960" y2="660"/>
+  </g>
+
+  <g stroke="#263238" stroke-width="4" stroke-linecap="round">
+    <line x1="120" y1="180" x2="1080" y2="180"/>
+    <line x1="120" y1="420" x2="1080" y2="420"/>
+    <line x1="120" y1="660" x2="1080" y2="660"/>
+    <line x1="120" y1="120" x2="120" y2="220"/>
+    <line x1="120" y1="360" x2="120" y2="460"/>
+    <line x1="120" y1="600" x2="120" y2="700"/>
+  </g>
+
+  <g fill="#6A7B7A" font-family="Arial, sans-serif" font-size="28" font-weight="600">
+    <text x="52" y="190">P</text>
+    <text x="52" y="430">F</text>
+    <text x="52" y="670">V</text>
+  </g>
+
+  <path d="M120 220 L260 220 L290 140 L470 140 L500 220 L640 220 L670 140 L850 140 L880 220 L1080 220" stroke="#152A45" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 420 L180 420 L180 340 L330 340 L330 420 L420 420 L420 340 L570 340 L570 420 L660 420 L660 340 L810 340 L810 420 L900 420 L900 340 L1020 340 L1020 420 L1080 420" stroke="#67D0CC" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M120 660 L160 660 L220 585 L300 585 L360 660 L430 660 L490 585 L570 585 L630 660 L700 660 L760 585 L840 585 L900 660 L970 660 L1030 585 L1080 585" stroke="#C9A86A" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

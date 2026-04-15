@@ -1,0 +1,73 @@
+Exhale Academy CSE Review
+Case 37 -- Pediatric Critical (Epiglottitis Sudden Thumb-Sign Emergency)
+
+Intro
+Sudden toxic upper-airway emergency with drooling, tripod positioning, and immediate airway risk.
+
+Stem
+Child has abrupt fever, drooling, muffled voice, and rapidly worsening airway obstruction risk.
+
+Step 1
+A 6-year-old girl is brought to the emergency department because of abrupt fever, drooling, and severe difficulty breathing.
+
+While receiving room air, the following are noted:
+HR 156/min
+RR 44/min
+BP 100/60 mm Hg
+SpO2 82%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess drooling, voice quality, and ability to handle secretions (+2)
+B. Assess stridor severity and overall air entry (+2)
+C. Determine whether the child can tolerate routine examination or lying flat (+2)
+D. Assess fever and toxic appearance (+2)
+E. Delay stabilization while waiting for complete imaging (-3)
+F. Assume all pediatric stridor is managed the same way (-3)
+
+Revealed findings after indicated selections:
+- Drooling is present, and the voice is muffled.
+- Inspiratory stridor is severe, and air entry is limited.
+- The child cannot tolerate lying flat or opening the mouth for routine examination.
+- High fever and toxic appearance are present.
+
+Step 2
+Findings suggest epiglottitis with impending airway obstruction. Which of the following should be recommended FIRST?
+
+A. Keep the child calm, provide blow-by oxygen, and arrange controlled endotracheal intubation with antibiotics after the airway is secured (+3)
+B. Use oxygen only and postpone definitive treatment (-3)
+C. Force a routine throat exam before airway planning (-3)
+D. Transfer to lower-acuity care after a brief improvement (-3)
+
+Step 3
+After controlled airway management, the child is receiving mechanical ventilation in the ICU.
+
+Current findings are:
+HR 132/min
+RR 22/min
+BP 104/64 mm Hg
+SpO2 96%
+EtCO2 36 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess breath sounds and ventilatory stability (+2)
+B. Repeat ABG and review ventilation status (+2)
+C. Determine whether airway edema is improved enough for any extubation planning (+2)
+D. Continue IV antibiotics and ICU airway monitoring (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds are equal bilaterally, and EtCO2 is acceptable.
+- ABG: pH 7.39, PaCO2 38 torr, PaO2 88 torr, HCO3 23 mEq/L.
+- Airway edema still requires ICU monitoring before extubation is considered.
+- IV antibiotic therapy should continue while the airway stabilizes.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue ICU-level airway management, ventilation, and antibiotics until edema improves (+3)
+B. Transfer to an unmonitored bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without explicit escalation triggers (-2)

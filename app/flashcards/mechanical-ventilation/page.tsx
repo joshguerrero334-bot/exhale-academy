@@ -4,18 +4,18 @@ import { redirect } from "next/navigation";
 import FlashcardDeck from "../../../components/flashcards/FlashcardDeck";
 import { headingFont } from "../../../lib/fonts";
 import {
-  pulmonaryFunctionTestingCards,
-  pulmonaryFunctionTestingSections,
-} from "../../../lib/flashcards/pulmonary-function-testing";
+  mechanicalVentilationCards,
+  mechanicalVentilationSections,
+} from "../../../lib/flashcards/mechanical-ventilation";
 import { createClient } from "../../../lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "PFT Flashcards | Exhale Academy",
+  title: "Mechanical Ventilation Flashcards | Exhale Academy",
   description:
-    "Board-focused pulmonary function testing flashcards for Exhale Academy students studying for the TMC and CSE.",
+    "Mechanical ventilation flashcards for Exhale Academy students studying support modes, waveform clues, and board-style ventilator concepts.",
 };
 
-export default async function PulmonaryFunctionTestingFlashcardsPage() {
+export default async function MechanicalVentilationFlashcardsPage() {
   const supabase = await createClient();
   const {
     data: { user },
@@ -23,7 +23,7 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fflashcards%2Fpulmonary-function-testing");
+    redirect("/login?next=%2Fflashcards%2Fmechanical-ventilation");
   }
 
   return (
@@ -34,11 +34,11 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
           <div className="mt-3 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <h1 className={`${headingFont} text-3xl font-semibold text-charcoal sm:text-4xl`}>
-                Pulmonary Function Testing (PFTs)
+                Mechanical Ventilation
               </h1>
               <p className="mt-3 text-sm leading-relaxed text-graysoft sm:text-base">
-                Drill PFT interpretation the way it shows up on boards: ratio first, then volume, then TLC, then DLCO.
-                Use this deck for fast recall on definitions, patterns, DLCO clues, and board-style traps.
+                Review ventilation mode categories, support strategies, and waveform recognition with concise cards built
+                for fast TMC and CSE recall.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -52,8 +52,7 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
           </div>
         </section>
 
-        <FlashcardDeck cards={pulmonaryFunctionTestingCards} sections={pulmonaryFunctionTestingSections} />
-
+        <FlashcardDeck cards={mechanicalVentilationCards} sections={mechanicalVentilationSections} />
       </div>
     </main>
   );

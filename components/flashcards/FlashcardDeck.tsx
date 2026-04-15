@@ -7,6 +7,8 @@ type Flashcard = {
   front: string;
   back: string;
   section: string;
+  frontImage?: string;
+  frontImageAlt?: string;
 };
 
 type Props = {
@@ -109,8 +111,19 @@ export default function FlashcardDeck({ cards, sections }: Props) {
                     {filteredCards.length === 0 ? "0 / 0" : `${currentIndex + 1} / ${filteredCards.length}`}
                   </span>
                 </div>
-                <div className="flex flex-1 items-center justify-center py-6">
-                  <h2 className="max-w-2xl text-center text-3xl font-semibold leading-tight text-charcoal sm:text-4xl">
+                <div className="flex flex-1 flex-col items-center justify-center gap-5 py-6">
+                  {currentCard?.frontImage ? (
+                    <img
+                      src={currentCard.frontImage}
+                      alt={currentCard.frontImageAlt ?? currentCard.front}
+                      className="max-h-[230px] w-full max-w-2xl rounded-2xl border border-graysoft/30 bg-white object-contain shadow-sm"
+                    />
+                  ) : null}
+                  <h2
+                    className={`max-w-2xl text-center font-semibold leading-tight text-charcoal ${
+                      currentCard?.frontImage ? "text-2xl sm:text-3xl" : "text-3xl sm:text-4xl"
+                    }`}
+                  >
                     {currentCard?.front ?? "No cards in this section yet."}
                   </h2>
                 </div>

@@ -3,19 +3,16 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import FlashcardDeck from "../../../components/flashcards/FlashcardDeck";
 import { headingFont } from "../../../lib/fonts";
-import {
-  pulmonaryFunctionTestingCards,
-  pulmonaryFunctionTestingSections,
-} from "../../../lib/flashcards/pulmonary-function-testing";
+import { flowVolumeLoopCards, flowVolumeLoopSections } from "../../../lib/flashcards/flow-volume-loops";
 import { createClient } from "../../../lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "PFT Flashcards | Exhale Academy",
+  title: "Flow-Volume Loops Flashcards | Exhale Academy",
   description:
-    "Board-focused pulmonary function testing flashcards for Exhale Academy students studying for the TMC and CSE.",
+    "Image-based flow-volume loop flashcards for Exhale Academy students studying for the TMC and CSE.",
 };
 
-export default async function PulmonaryFunctionTestingFlashcardsPage() {
+export default async function FlowVolumeLoopsFlashcardsPage() {
   const supabase = await createClient();
   const {
     data: { user },
@@ -23,7 +20,7 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
   } = await supabase.auth.getUser();
 
   if (userError || !user) {
-    redirect("/login?next=%2Fflashcards%2Fpulmonary-function-testing");
+    redirect("/login?next=%2Fflashcards%2Fflow-volume-loops");
   }
 
   return (
@@ -34,11 +31,10 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
           <div className="mt-3 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <h1 className={`${headingFont} text-3xl font-semibold text-charcoal sm:text-4xl`}>
-                Pulmonary Function Testing (PFTs)
+                Flow-Volume Loops
               </h1>
               <p className="mt-3 text-sm leading-relaxed text-graysoft sm:text-base">
-                Drill PFT interpretation the way it shows up on boards: ratio first, then volume, then TLC, then DLCO.
-                Use this deck for fast recall on definitions, patterns, DLCO clues, and board-style traps.
+                Practice pure loop recognition with image-based cards built for fast TMC and CSE pattern review.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -52,8 +48,7 @@ export default async function PulmonaryFunctionTestingFlashcardsPage() {
           </div>
         </section>
 
-        <FlashcardDeck cards={pulmonaryFunctionTestingCards} sections={pulmonaryFunctionTestingSections} />
-
+        <FlashcardDeck cards={flowVolumeLoopCards} sections={flowVolumeLoopSections} />
       </div>
     </main>
   );

@@ -1,0 +1,73 @@
+Exhale Academy CSE Review
+Case 30 -- Neuromuscular Critical (Tetanus Airway Risk)
+
+Intro
+Puncture-wound history with trismus, rigidity, and rising airway-protection risk.
+
+Stem
+Patient develops trismus, rigidity, and worsening respiratory difficulty after a contaminated wound.
+
+Step 1
+A 43-year-old man comes to the emergency department because of progressive difficulty opening his mouth and swallowing 4 days after stepping on a nail.
+
+While breathing room air, the following are noted:
+HR 122/min
+RR 30/min
+BP 154/92 mm Hg
+SpO2 86%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess ability to open the airway and speak clearly (+2)
+B. Assess secretion handling, chest wall rigidity, and work of breathing (+2)
+C. Obtain an ABG (+2)
+D. Review wound history and immunization status (+2)
+E. Delay stabilization until culture results return (-3)
+F. Assume anxiety is the only cause of respiratory distress (-3)
+
+Revealed findings after indicated selections:
+- The jaw is difficult to open, and speech is muffled.
+- Neck and abdominal muscles are rigid, and secretions are difficult to clear.
+- ABG: pH 7.35, PaCO2 50 torr, PaO2 55 torr, HCO3 27 mEq/L.
+- The patient reports no recent tetanus booster after the puncture wound.
+
+Step 2
+Findings suggest tetanus with rising airway-protection risk. Which of the following should be recommended FIRST?
+
+A. Provide high-concentration oxygen, reduce stimulation, and prepare for a controlled airway because secretion control is worsening (+3)
+B. Give reassurance and observe without airway planning (-3)
+C. Delay treatment until spasms stop on their own (-3)
+D. Treat with oxygen only and discharge if SpO2 improves briefly (-3)
+
+Step 3
+Thirty minutes after oxygen, low-stimulation precautions, and tetanus-directed therapy are started, the patient remains rigid and increasingly fatigued.
+
+While receiving O2 by aerosol mask at an FIO2 of 0.50, the following are noted:
+HR 126/min
+RR 34/min
+BP 162/96 mm Hg
+SpO2 88%
+EtCO2 52 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess air movement and chest wall excursion (+2)
+B. Reassess airway protection and secretion clearance (+2)
+C. Repeat ABG and trend EtCO2 (+2)
+D. Determine whether controlled intubation is now required (+2)
+E. Stop close monitoring after a small SpO2 improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Air movement is reduced bilaterally because the chest wall is rigid.
+- The patient is no longer handling secretions effectively.
+- Repeat ABG: pH 7.31, PaCO2 56 torr, PaO2 60 torr, HCO3 28 mEq/L.
+- A controlled airway approach is now indicated before complete respiratory failure occurs.
+
+Step 4
+Airway protection and ventilation continue to worsen. Which of the following should be recommended now?
+
+A. Proceed with controlled endotracheal intubation and ICU-level ventilatory support (+3)
+B. Continue the same treatment unchanged and reassess later (-3)
+C. Use CPAP alone and avoid invasive support (-3)
+D. Transfer to an unmonitored bed once the patient is calmer (-3)

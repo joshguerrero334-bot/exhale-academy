@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 47 -- Neonatal Critical (CDH Surgical Emergency Mediastinal Shift)
+
+Intro
+Neonate with severe respiratory distress and classic congenital diaphragmatic hernia clues requiring immediate airway and decompression decisions.
+
+Stem
+Newborn with severe distress and asymmetric chest findings requires immediate CDH-specific management.
+
+Step 1
+A term newborn develops severe respiratory distress immediately after birth.
+
+The following are noted:
+HR 170/min
+RR 64/min
+SpO2 74%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess unilateral breath sounds and chest movement (+2)
+B. Assess whether the abdomen is scaphoid (+2)
+C. Assess cardiac sound displacement and severity of distress (+2)
+D. Review radiographic evidence if available without delaying stabilization (+2)
+E. Begin routine bag-mask ventilation while sorting out the diagnosis (-3)
+F. Delay stabilization until imaging is complete (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds are markedly reduced on the left.
+- The abdomen appears scaphoid.
+- Cardiac sounds are displaced to the right.
+- Chest radiograph supports bowel in the thorax with mediastinal shift.
+
+Step 2
+Findings suggest congenital diaphragmatic hernia. Which of the following should be recommended FIRST?
+
+A. Proceed with endotracheal intubation, place an OG tube for decompression, and avoid bag-mask ventilation (+3)
+B. Use bag-mask ventilation and observe the response (-3)
+C. Use oxygen only and delay definitive airway management (-3)
+D. Transfer to lower-acuity care after brief stabilization (-3)
+
+Step 3
+After initial CDH-specific stabilization, the infant remains critically ill.
+
+Current findings are:
+HR 156/min
+SpO2 84%
+EtCO2 50 mm Hg
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Confirm endotracheal tube position and adequacy of ventilation (+2)
+B. Reassess OG decompression and abdominal/chest distention (+2)
+C. Repeat blood-gas assessment and trend ventilation/oxygenation (+2)
+D. Determine ongoing NICU and surgical readiness (+2)
+E. Stop close monitoring after slight saturation improvement (-3)
+F. Return to bag-mask ventilation if oxygenation remains low (-3)
+
+Revealed findings after indicated selections:
+- Endotracheal tube position and effective ventilation must be confirmed.
+- OG decompression effectiveness should be reassessed.
+- ABG: pH 7.27, PaCO2 54 torr, PaO2 52 torr, HCO3 24 mEq/L.
+- Ongoing surgical/NICU readiness is still required.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue NICU-level care with ventilatory support, gastric decompression, and urgent surgical planning (+3)
+B. Transfer to routine nursery care (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation or surgical planning (-2)

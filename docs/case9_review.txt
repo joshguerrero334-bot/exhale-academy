@@ -1,0 +1,59 @@
+Exhale Academy CSE Review
+Case 9 -- Mechanically Ventilated Sudden Desaturation
+
+Intro
+Intubated ICU patient develops abrupt hypoxemia, rising airway pressures, and hemodynamic instability requiring immediate ventilator troubleshooting.
+
+Stem
+Abrupt deterioration in a mechanically ventilated adult requiring immediate bedside assessment and intervention.
+
+Step 1
+A 54-year-old woman in the ICU is receiving AC/VC ventilation with VT 460 mL, rate 16/min, FIO2 0.60, and PEEP 5 cm H2O. The high-pressure alarm sounds and SpO2 falls to 86%. Blood pressure is decreasing, and breath sounds are reduced on the right. Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Assess endotracheal tube position, patency, and circuit connections (+2)
+B. Assess bilateral breath sounds and chest movement (+2)
+C. Assess blood pressure, heart rate, and oxygen saturation continuously (+2)
+D. Obtain a CT scan before bedside intervention (-2)
+E. Wait for the next ventilator alarm cycle before reassessing (-2)
+
+Step 2
+CHOOSE ONLY ONE. Which of the following should be done FIRST?
+
+A. Disconnect from the ventilator and ventilate manually with 100% oxygen (+2)
+B. Increase PEEP and observe the response (-1)
+C. Continue the current ventilator settings and wait for repeat ABG results (-2)
+D. Extubate the patient immediately (-2)
+
+Step 3
+Manual ventilation is difficult. Right breath sounds remain markedly decreased, and blood pressure continues to fall. Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Reassess right and left breath sounds (+2)
+B. Reassess tube patency and pass a suction catheter (+2)
+C. Reassess blood pressure, heart rate, and oxygen saturation (+2)
+D. Wait for a portable chest radiograph before further action (-2)
+E. Stop manual ventilation after the saturation rises briefly (-2)
+
+Step 4
+CHOOSE ONLY ONE. Which of the following should be recommended now?
+
+A. Perform immediate pleural decompression (+2)
+B. Obtain a chest radiograph before intervention (-2)
+C. Administer a fluid bolus and continue observation (-1)
+D. Increase sedation and continue mechanical ventilation (-2)
+
+Step 5
+After decompression, ventilator settings are AC/VC, VT 430 mL, rate 18/min, FIO2 0.50, and PEEP 5 cm H2O. ABG analysis reveals pH 7.30, PaCO2 50 torr, PaO2 74 torr, and HCO3 24 mEq/L. Which of the following should be recommended now? SELECT AS MANY AS INDICATED (MAX 3).
+
+A. Insert a thoracostomy tube (+2)
+B. Decrease FIO2 as tolerated to maintain adequate oxygenation (+2)
+C. Continue close hemodynamic and oxygenation monitoring (+1)
+D. Transfer to a low-acuity area once the blood pressure improves (-2)
+E. Stop reassessment after the first improved ABG (-1)
+
+Step 6
+CHOOSE ONLY ONE. Which of the following is the most appropriate disposition?
+
+A. Continue ICU monitoring (+2)
+B. Transfer to an unmonitored floor bed (-2)
+C. Discharge from the ICU after brief stabilization (-2)
+D. Observe without a defined monitoring plan (-1)

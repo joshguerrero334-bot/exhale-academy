@@ -101,6 +101,34 @@ export default async function FlashcardsPage() {
               </Link>
             </div>
           </article>
+
+          <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
+            <h2 className="mt-2 text-2xl font-semibold text-charcoal">Flow-Volume Loops</h2>
+            <p className="mt-3 text-sm leading-relaxed text-graysoft">
+              Practice pure loop recognition with image-based cards that help students identify normal, obstructive, and
+              restrictive loop patterns fast.
+            </p>
+            <div className="mt-5">
+              <Link href="/flashcards/flow-volume-loops" className="btn-primary">
+                Open Loop Deck
+              </Link>
+            </div>
+          </article>
+
+          <article className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Flashcard Category</p>
+            <h2 className="mt-2 text-2xl font-semibold text-charcoal">Mechanical Ventilation</h2>
+            <p className="mt-3 text-sm leading-relaxed text-graysoft">
+              Drill support modes, waveform pattern recognition, and high-yield ventilator concepts with grouped cards
+              built for TMC and CSE review.
+            </p>
+            <div className="mt-5">
+              <Link href="/flashcards/mechanical-ventilation" className="btn-primary">
+                Open Ventilation Deck
+              </Link>
+            </div>
+          </article>
         </section>
       </div>
     </main>

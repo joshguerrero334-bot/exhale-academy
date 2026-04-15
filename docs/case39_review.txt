@@ -1,0 +1,72 @@
+Exhale Academy CSE Review
+Case 39 -- Pediatric Critical (Cystic Fibrosis Secretion Burden)
+
+Intro
+Child with CF has thick secretions, infection burden, and worsening oxygenation/work of breathing.
+
+Stem
+Child with chronic productive cough now has heavier secretions and increasing respiratory distress.
+
+Step 1
+A 12-year-old girl with cystic fibrosis is brought to the emergency department because of increased cough, thick secretions, and worsening shortness of breath.
+
+While receiving room air, the following are noted:
+HR 146/min
+RR 38/min
+BP 106/66 mm Hg
+SpO2 85%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Auscultate breath sounds and assess work of breathing (+2)
+B. Assess sputum burden and chronic disease clues (+2)
+C. Review chest radiograph findings (+2)
+D. Order sputum culture and objective gas-exchange assessment (+2)
+E. Delay stabilization while waiting for full diagnostics (-3)
+F. Assume all wheezing children should receive the same treatment (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds reveal coarse crackles and rhonchi with prolonged exhalation.
+- Thick purulent sputum is present, and clubbing is noted.
+- Chest radiograph shows hyperinflation with patchy infiltrates.
+- Sputum culture is indicated to guide antibiotic therapy.
+
+Step 2
+Findings suggest cystic fibrosis exacerbation with secretion burden. Which of the following should be recommended FIRST?
+
+A. Provide oxygen, initiate airway-clearance therapy, and begin culture-directed antimicrobial support (+3)
+B. Use oxygen only and defer definitive management (-3)
+C. Apply routine bronchodilator and steroid escalation by default (-3)
+D. Transfer to a lower-acuity setting after brief improvement (-3)
+
+Step 3
+Thirty minutes after initial treatment, the child remains on oxygen and airway-clearance therapy.
+
+Current findings are:
+HR 138/min
+RR 34/min
+BP 104/64 mm Hg
+SpO2 90%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess breath sounds, secretion clearance, and oxygenation trend (+2)
+B. Track culture/infection response (+2)
+C. Determine whether airway-clearance and oxygen support remain adequate (+2)
+D. Repeat ABG if gas-exchange concern persists (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds and oxygenation improve but remain abnormal.
+- Sputum culture and infection response should be followed.
+- Airway-clearance effectiveness and secretion burden still require reassessment.
+- ABG: pH 7.35, PaCO2 46 torr, PaO2 63 torr, HCO3 25 mEq/L.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue high-acuity pediatric care with airway-clearance therapy, oxygen, and infection follow-up (+3)
+B. Transfer to an unmonitored bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without explicit escalation triggers (-2)

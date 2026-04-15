@@ -1,0 +1,71 @@
+Exhale Academy CSE Review
+Case 41 -- Neonatal Critical (Delivery Room Apgar Resuscitation)
+
+Intro
+High-risk preterm delivery with poor respiratory effort requiring timed Apgar-based stabilization and reassessment.
+
+Stem
+Newborn has poor effort and cyanosis after delivery and requires rapid resuscitation decisions.
+
+Step 1
+A 30-week preterm infant is brought to the warmer immediately after delivery.
+
+The following are noted:
+HR 92/min
+Weak respiratory effort
+Poor color
+SpO2 74%
+
+Which of the following should be evaluated or performed initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess Apgar components, including respiratory effort and tone (+2)
+B. Assess heart rate immediately (+2)
+C. Provide thermal support and immediate stabilization at the warmer (+2)
+D. Plan timed Apgar reassessment after intervention (+2)
+E. Delay intervention until the full delivery-room history is complete (-3)
+F. Transfer to routine care before stabilization (-3)
+
+Revealed findings after indicated selections:
+- The airway, tone, and respiratory effort should be scored as part of the Apgar assessment.
+- Heart rate remains below 100/min.
+- The infant needs thermal support and immediate respiratory stabilization.
+- Apgar reassessment will need to continue at the appropriate interval after intervention.
+
+Step 2
+Findings suggest significant neonatal depression with ineffective respirations. Which of the following should be recommended FIRST?
+
+A. Provide appropriate assisted ventilation and oxygen support based on the infant’s ineffective respirations (+3)
+B. Observe without respiratory support because the infant is preterm (-3)
+C. Begin chest compressions before correcting ventilation (-3)
+D. Transfer to routine nursery care after the first improvement (-3)
+
+Step 3
+After initial respiratory support, the infant shows improving chest movement but still needs close reassessment.
+
+Current findings are:
+HR 118/min
+SpO2 84%
+Improved but still labored respirations
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Repeat Apgar components at the correct interval (+2)
+B. Trend oxygenation and work of breathing (+2)
+C. Obtain objective gas-exchange data if distress remains significant (+2)
+D. Determine the need for NICU-level post-resuscitation monitoring (+2)
+E. Stop monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Repeat Apgar components should be documented on time.
+- Oxygenation trend and work of breathing still require close monitoring.
+- ABG may help if respiratory distress remains significant.
+- NICU-level post-resuscitation observation is still required.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue monitored NICU-level care with oxygen titration and post-resuscitation reassessment (+3)
+B. Transfer to routine nursery care immediately (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without structured escalation triggers (-2)

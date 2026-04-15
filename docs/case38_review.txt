@@ -1,0 +1,72 @@
+Exhale Academy CSE Review
+Case 38 -- Pediatric Critical (Bronchiolitis RSV Edema/Apnea Risk)
+
+Intro
+Infant with bronchiolitis pattern, feeding difficulty, and escalating distress with apnea risk.
+
+Stem
+Infant has tachypnea, retractions, and worsening lower-airway distress after URI progression.
+
+Step 1
+A 7-month-old boy is brought to the emergency department because of worsening breathing after several days of cough and nasal congestion.
+
+While receiving room air, the following are noted:
+HR 162/min
+RR 48/min
+BP 92/54 mm Hg
+SpO2 84%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Auscultate breath sounds and assess retractions (+2)
+B. Assess feeding tolerance and apnea history (+2)
+C. Assess hydration status (+2)
+D. Obtain an ABG if distress is significant (+2)
+E. Delay stabilization while waiting for full diagnostics (-3)
+F. Assume all wheezing children should receive the same treatment (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds reveal diffuse crackles and wheezes.
+- Feeding has decreased, and brief apnea episodes are reported.
+- Hydration is poor with fewer wet diapers.
+- ABG: pH 7.33, PaCO2 48 torr, PaO2 54 torr, HCO3 25 mEq/L.
+
+Step 2
+Findings suggest bronchiolitis with significant distress. Which of the following should be recommended FIRST?
+
+A. Provide supportive care with oxygen and nasal suctioning, and escalate support only if distress or apnea worsens (+3)
+B. Use oxygen only and defer definitive management (-3)
+C. Apply routine bronchodilator and steroid escalation by default (-2)
+D. Transfer to a lower-acuity setting after brief improvement (-3)
+
+Step 3
+Thirty minutes after initial treatment, the infant remains under close observation.
+
+Current findings are:
+HR 154/min
+RR 44/min
+BP 94/56 mm Hg
+SpO2 90%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess retractions, breath sounds, and oxygenation trend (+2)
+B. Track hydration and apnea frequency (+2)
+C. Determine whether escalation to higher-level respiratory support is needed (+2)
+D. Avoid routine bronchodilator/steroid escalation if the pattern still fits bronchiolitis (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Retractions and breath sounds should be trended closely.
+- Hydration status and apnea frequency still require close monitoring.
+- Repeat oxygenation assessment determines whether higher-level support is needed.
+- Routine bronchodilator or steroid escalation is still not indicated by default.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue monitored pediatric care with supportive therapy and escalation triggers for apnea or fatigue (+3)
+B. Transfer to an unmonitored bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without explicit escalation triggers (-2)

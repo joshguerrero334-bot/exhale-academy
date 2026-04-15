@@ -1,0 +1,25 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="36" fill="#F6F9F9"/>
+  <rect x="52" y="52" width="1096" height="696" rx="28" fill="white" stroke="#D7E3E2" stroke-width="4"/>
+  <text x="88" y="138" fill="#132846" font-size="54" font-family="Arial, Helvetica, sans-serif" font-weight="700">Flow-Volume Loop</text>
+  <text x="88" y="190" fill="#4E6472" font-size="28" font-family="Arial, Helvetica, sans-serif">Identify the pattern shown below.</text>
+  <line x1="180" y1="630" x2="975" y2="630" stroke="#2A3D4A" stroke-width="4"/>
+  <line x1="180" y1="630" x2="180" y2="200" stroke="#2A3D4A" stroke-width="4"/>
+  <g stroke="#DCE5E7" stroke-width="2">
+    <line x1="300" y1="230" x2="300" y2="630"/>
+    <line x1="420" y1="230" x2="420" y2="630"/>
+    <line x1="540" y1="230" x2="540" y2="630"/>
+    <line x1="660" y1="230" x2="660" y2="630"/>
+    <line x1="780" y1="230" x2="780" y2="630"/>
+    <line x1="900" y1="230" x2="900" y2="630"/>
+    <line x1="180" y1="550" x2="975" y2="550"/>
+    <line x1="180" y1="470" x2="975" y2="470"/>
+    <line x1="180" y1="390" x2="975" y2="390"/>
+    <line x1="180" y1="310" x2="975" y2="310"/>
+  </g>
+  <path d="M210 230 C320 228, 470 255, 605 355 C720 440, 845 545, 960 630" stroke="#F3A712" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <circle cx="210" cy="230" r="7" fill="#F3A712"/>
+  <circle cx="960" cy="630" r="7" fill="#F3A712"/>
+  <text x="540" y="708" fill="#4E6472" font-size="24" font-family="Arial, Helvetica, sans-serif">Volume (L)</text>
+  <text x="70" y="430" transform="rotate(-90 70 430)" fill="#4E6472" font-size="24" font-family="Arial, Helvetica, sans-serif">Flow (L/s)</text>
+</svg>

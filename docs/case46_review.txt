@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 46 -- Neonatal Critical (BPD Chronic Oxygen Dependence)
+
+Intro
+Former preterm infant with chronic lung disease has worsening work of breathing and oxygen need requiring careful support adjustment.
+
+Stem
+Former premature infant with chronic oxygen dependence has increased retractions and declining oxygenation.
+
+Step 1
+A former 26-week premature infant with chronic oxygen dependence has worsening breathing difficulty.
+
+The following are noted:
+HR 162/min
+RR 60/min
+SpO2 81%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Assess current work of breathing and compare with prior oxygen baseline (+2)
+B. Assess chronic lung disease pattern rather than assuming an acute transient problem (+2)
+C. Auscultate for crackles, wheezing, and prolonged exhalation (+2)
+D. Obtain objective gas-exchange data if oxygen need continues to rise (+2)
+E. Delay stabilization until all diagnostics are complete (-3)
+F. Assume every neonatal respiratory problem follows the same pathway (-3)
+
+Revealed findings after indicated selections:
+- Oxygen requirement has increased above the prior baseline.
+- Breath sounds reveal crackles and wheezing with prolonged exhalation.
+- A chronic lung disease pattern is present rather than an acute delivery-room problem.
+- ABG: pH 7.32, PaCO2 56 torr, PaO2 50 torr, HCO3 28 mEq/L.
+
+Step 2
+Findings suggest worsening bronchopulmonary dysplasia. Which of the following should be recommended FIRST?
+
+A. Use the lowest effective oxygen/support strategy and continue NICU-level management while reassessing ventilation and secretion burden (+3)
+B. Use oxygen only and defer definitive disease-specific management (-3)
+C. Delay escalation planning until prolonged deterioration occurs (-3)
+D. Transfer to lower-acuity care after brief early improvement (-3)
+
+Step 3
+After initial support adjustment, the infant remains in the NICU.
+
+Current findings are:
+HR 156/min
+RR 56/min
+SpO2 87%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Trend oxygen requirement and work of breathing against chronic baseline (+2)
+B. Reassess secretion burden and ventilation adequacy (+2)
+C. Determine whether current support remains appropriate without over-escalation (+2)
+D. Repeat blood gas if oxygenation or ventilation concern persists (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Oxygen requirement and work of breathing still need trending against baseline.
+- Secretion burden and ventilation adequacy still require reassessment.
+- Overaggressive oxygen or support should be avoided if a lower effective strategy works.
+- ABG: pH 7.34, PaCO2 54 torr, PaO2 56 torr, HCO3 29 mEq/L.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Continue NICU-level care using the lowest effective support with structured reassessment (+3)
+B. Transfer to lower-acuity nursery care now (-3)
+C. Discharge after temporary stabilization (-3)
+D. Observe without explicit escalation triggers (-2)

@@ -1,0 +1,70 @@
+Exhale Academy CSE Review
+Case 2 -- Term Infant Transition Failure (Meconium Context)
+
+Intro
+Term infant delivered through meconium-stained fluid with poor tone and ineffective respirations requiring immediate delivery-room stabilization.
+
+Stem
+Depressed term newborn requires rapid airway, ventilation, and reassessment decisions at the warmer.
+
+Step 1
+A term male infant is brought to the warmer immediately after delivery through thick meconium-stained fluid.
+
+The following are noted:
+HR 84/min
+Weak respiratory effort
+Poor tone
+SpO2 62%
+
+Which of the following should be evaluated or performed initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Position the airway and assess chest movement (+2)
+B. Assess heart rate and breathing effectiveness immediately (+2)
+C. Assess tone and respiratory effort (+2)
+D. Recognize that routine deep tracheal suctioning before ventilation is not automatic (+2)
+E. Delay intervention until a complete physical exam is finished (-3)
+F. Start compressions before correcting ventilation (-3)
+
+Revealed findings after indicated selections:
+- The airway is not well positioned, and chest movement is minimal.
+- Heart rate remains below 100/min after the initial quick assessment.
+- The infant is not crying effectively and has poor tone.
+- Routine deep tracheal suctioning before ventilation is not automatically indicated.
+
+Step 2
+Heart rate remains below 100/min and respirations are ineffective. Which of the following should be recommended FIRST?
+
+A. Begin positive-pressure ventilation and confirm effective chest movement (+3)
+B. Use blow-by oxygen only (-3)
+C. Begin chest compressions immediately without ventilation correction (-3)
+D. Transfer to routine nursery care and reassess later (-3)
+
+Step 3
+Positive-pressure ventilation is started, but chest rise is poor.
+
+Current findings are:
+HR 78/min
+SpO2 66%
+
+Which of the following should be evaluated or corrected now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reposition the head and improve mask seal (+2)
+B. Clear mouth and nose secretions if they are obstructing ventilation (+2)
+C. Increase inspiratory pressure enough to obtain chest rise (+2)
+D. Recognize that effective ventilation should improve heart rate before compressions are started (+2)
+E. Pause ventilation for diagnostic blood sampling (-3)
+F. Continue ineffective breaths unchanged (-3)
+
+Revealed findings after indicated selections:
+- Head position and mask seal need correction.
+- Secretions in the mouth and nose may be limiting airflow.
+- More inspiratory pressure is required to achieve chest rise.
+- Effective ventilation improves heart rate before compressions are considered.
+
+Step 4
+After effective ventilation, heart rate rises above 100/min, but respiratory distress persists. Which of the following should be recommended now?
+
+A. Admit to monitored neonatal care with oxygen titration, glucose/temperature monitoring, and continued respiratory reassessment (+3)
+B. Transfer immediately to routine well-baby care (-3)
+C. Discharge after brief observation (-3)
+D. Observe without structured monitoring (-2)

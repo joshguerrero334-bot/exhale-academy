@@ -1,0 +1,72 @@
+Exhale Academy CSE Review
+Case 40 -- Pediatric Critical (Foreign Body Aspiration Unilateral Wheeze)
+
+Intro
+Toddler with sudden aspiration pattern and unilateral obstruction findings.
+
+Stem
+Toddler develops sudden respiratory distress after a choking episode.
+
+Step 1
+A 2-year-old girl is brought to the emergency department because of sudden coughing and respiratory distress while eating peanuts.
+
+While receiving room air, the following are noted:
+HR 158/min
+RR 46/min
+BP 98/58 mm Hg
+SpO2 81%
+
+Which of the following should be evaluated initially? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Auscultate for unilateral breath-sound reduction (+2)
+B. Assess whether wheezing is unilateral rather than diffuse (+2)
+C. Clarify the choking-event history (+2)
+D. Use imaging only as supportive data, not to rule the diagnosis out (+2)
+E. Delay stabilization while waiting for full diagnostics (-3)
+F. Assume all wheezing children should receive the same treatment (-3)
+
+Revealed findings after indicated selections:
+- Breath sounds are markedly reduced on the right.
+- Wheezing is unilateral rather than diffuse.
+- The choking episode was witnessed immediately before symptoms began.
+- Chest radiograph may be normal if the object is radiolucent.
+
+Step 2
+Findings suggest foreign-body aspiration. Which of the following should be recommended FIRST?
+
+A. Arrange urgent rigid bronchoscopy and maintain airway support while awaiting removal (+3)
+B. Use oxygen only and defer definitive management (-3)
+C. Apply routine bronchodilator and steroid escalation by default (-3)
+D. Transfer to a lower-acuity setting after brief improvement (-3)
+
+Step 3
+After initial stabilization, the child remains on high-concentration oxygen.
+
+Current findings are:
+HR 150/min
+RR 40/min
+BP 96/58 mm Hg
+SpO2 88%
+
+Which of the following should be evaluated now? SELECT AS MANY AS INDICATED (MAX 4).
+
+A. Reassess unilateral breath sounds and overall work of breathing (+2)
+B. Determine whether imaging limitations still leave bronchoscopy necessary (+2)
+C. Confirm that definitive bronchoscopy is still the next step (+2)
+D. Repeat ABG if significant respiratory distress persists (+2)
+E. Stop close monitoring after one modest improvement (-3)
+F. Delay reassessment for several hours (-3)
+
+Revealed findings after indicated selections:
+- Unilateral breath-sound reduction persists.
+- Radiology still cannot safely exclude a radiolucent airway foreign body.
+- Definitive bronchoscopy remains indicated.
+- ABG: pH 7.34, PaCO2 47 torr, PaO2 58 torr, HCO3 25 mEq/L.
+
+Step 4
+Which of the following should be recommended now?
+
+A. Proceed with definitive bronchoscopy and monitored pediatric care after foreign-body removal (+3)
+B. Transfer to an unmonitored bed (-3)
+C. Discharge after temporary improvement (-3)
+D. Observe without explicit escalation triggers (-2)

@@ -53,7 +53,7 @@ export async function signup(formData: FormData) {
       )}`
     );
   }
-  const defaultNext = "/billing";
+  const defaultNext = "/billing?autostart=1";
   const nextPath = usingFreeAccessInvite
     ? `/free-access?token=${encodeURIComponent(freeToken)}`
     : defaultNext;
@@ -126,7 +126,7 @@ export async function signup(formData: FormData) {
       }
     } catch (checkoutError) {
       console.error("[signup] Failed to start Stripe checkout after signup.", checkoutError);
-      redirect("/billing?error=Could%20not%20start%20checkout.%20Please%20try%20again.");
+      redirect("/billing?autostart=1&error=Could%20not%20start%20checkout.%20Please%20try%20again.");
     }
   }
 
@@ -138,5 +138,7 @@ export async function signup(formData: FormData) {
     );
   }
 
-  redirect("/login?message=Account%20created.%20Check%20your%20email%20to%20confirm,%20then%20you%E2%80%99ll%20continue%20to%20billing.&next=%2Fbilling");
+  redirect(
+    "/login?message=Account%20created.%20Check%20your%20email%20to%20confirm,%20then%20you%E2%80%99ll%20continue%20to%20billing.&next=%2Fbilling%3Fautostart%3D1"
+  );
 }

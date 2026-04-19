@@ -42,6 +42,7 @@ function requiresSubscription(pathname: string) {
   if (pathname.startsWith("/master")) return true;
   if (pathname.startsWith("/master-test")) return true;
   if (pathname.startsWith("/cse")) return true;
+  if (pathname.startsWith("/flashcards")) return true;
   return false;
 }
 
@@ -104,7 +105,7 @@ export async function proxy(request: NextRequest) {
   if (requiresSubscription(pathname) && !isSubscribed && !isAllowedWithoutSubscription(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/billing";
-    url.search = `?error=${encodeURIComponent("Subscription required to access this section.")}`;
+    url.search = `?autostart=1&error=${encodeURIComponent("Subscription required to access this section.")}`;
     return NextResponse.redirect(url);
   }
 

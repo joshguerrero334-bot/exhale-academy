@@ -1,20 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type SubscribeButtonProps = {
   className?: string;
   label?: string;
+  autoStart?: boolean;
 };
 
 export default function SubscribeButton({
   className = "btn-primary",
   label = "Subscribe",
+  autoStart = false,
 }: SubscribeButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const didAutoStart = useRef(false);
 
-  async function onSubscribe() {
+  const onSubscribe = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -32,7 +35,13 @@ export default function SubscribeButton({
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    if (!autoStart || didAutoStart.current) return;
+    didAutoStart.current = true;
+    void onSubscribe();
+  }, [autoStart, onSubscribe]);
 
   return (
     <div className="space-y-2">
@@ -43,4 +52,3 @@ export default function SubscribeButton({
     </div>
   );
 }
-

@@ -7,7 +7,7 @@ import { resolveIsSubscribed } from "../../lib/auth/subscription-access";
 import { createClient } from "../../lib/supabase/server";
 
 type BillingPageProps = {
-  searchParams: Promise<{ error?: string; success?: string; canceled?: string; message?: string }>;
+  searchParams: Promise<{ error?: string; success?: string; canceled?: string; message?: string; autostart?: string }>;
 };
 
 export default async function BillingPage({ searchParams }: BillingPageProps) {
@@ -27,6 +27,7 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
   }
 
   const query = await searchParams;
+  const autoStartCheckout = String(query.autostart ?? "") === "1";
 
   return (
     <main className="min-h-screen bg-background text-charcoal">
@@ -84,7 +85,7 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
           </div>
 
           <div className="mt-4">
-            <SubscribeButton label="Subscribe" />
+            <SubscribeButton label="Subscribe" autoStart={autoStartCheckout} />
           </div>
           <div className="mt-3">
             <RefreshAccessButton />

@@ -68,13 +68,18 @@ export default async function CseMasterAttemptResultsPage({ params }: PageProps)
   if (pending) {
     redirect(`/cse/master/${encodeURIComponent(attempt.id)}`);
   }
+  const isMasterExam = Number(attempt.total_cases ?? 0) >= 20;
 
   return (
     <main className="min-h-screen bg-background text-charcoal">
       <div className="mx-auto w-full max-w-5xl space-y-5 px-4 py-8 sm:px-6 lg:px-8">
         <section className="rounded-2xl border border-graysoft/30 bg-white p-6 shadow-sm sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Master CSE Results</p>
-          <h1 className={`${headingFont} mt-2 text-3xl font-semibold text-charcoal`}>20-Case Exam Summary</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            {isMasterExam ? "Master CSE Results" : "Focused CSE Results"}
+          </p>
+          <h1 className={`${headingFont} mt-2 text-3xl font-semibold text-charcoal`}>
+            {isMasterExam ? "20-Case Exam Summary" : "Focused Practice Summary"}
+          </h1>
           <p className="mt-2 text-sm text-graysoft">
             Mode: {attempt.mode === "tutor" ? "Tutor" : "Exam"} · Completed {attempt.completed_cases}/{attempt.total_cases}
           </p>
@@ -96,7 +101,7 @@ export default async function CseMasterAttemptResultsPage({ params }: PageProps)
           </div>
           <div className="mt-5 flex gap-3">
             <Link href="/cse/master" className="btn-primary">
-              Start New Master Attempt
+              Start New CSE Attempt
             </Link>
           </div>
         </section>

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { CheatSheetSlide } from "../../lib/cheat-sheets";
+import type { SlideshowSlide } from "../../lib/slideshows";
 
 type SlideDeckViewerProps = {
-  slides: CheatSheetSlide[];
+  slides: SlideshowSlide[];
 };
 
 export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {

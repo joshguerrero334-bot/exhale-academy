@@ -35,7 +35,7 @@ export default async function AppHeader() {
   const tmcHref = user ? "/tmc" : "/login?next=%2Ftmc";
   const cseHref = user ? "/cse/introduction" : "/login?next=%2Fcse%2Fintroduction";
   const flashcardsHref = user ? "/flashcards" : "/login?next=%2Fflashcards";
-  const cheatSheetsHref = user ? "/cheat-sheets" : "/login?next=%2Fcheat-sheets";
+  const slideshowsHref = user ? "/slideshows" : "/login?next=%2Fslideshows";
   const feedbackHref = user ? "/feedback" : "/login?next=%2Ffeedback";
 
   return (
@@ -62,8 +62,8 @@ export default async function AppHeader() {
                   <Link href={flashcardsHref} className={menuLinkClass}>
                     Flashcards
                   </Link>
-                  <Link href={cheatSheetsHref} className={menuLinkClass}>
-                    Cheat Sheets
+                  <Link href={slideshowsHref} className={menuLinkClass}>
+                    Slideshows
                   </Link>
                   <Link href={cseHref} className={menuLinkClass}>
                     CSE Practice
@@ -113,8 +113,8 @@ export default async function AppHeader() {
                 <Link href={flashcardsHref} className={menuLinkClass}>
                   Flashcards
                 </Link>
-                <Link href={cheatSheetsHref} className={menuLinkClass}>
-                  Cheat Sheets
+                <Link href={slideshowsHref} className={menuLinkClass}>
+                  Slideshows
                 </Link>
                 <Link href={cseHref} className={menuLinkClass}>
                   CSE Practice

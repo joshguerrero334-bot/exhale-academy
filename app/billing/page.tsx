@@ -74,7 +74,7 @@ export default async function BillingPage({ searchParams }: BillingPageProps) {
             <li>• Full TMC category drills + 160-question mixed exams</li>
             <li>• Full CSE branching scenarios with Tutor and Exam modes</li>
             <li>• Master CSE exams that mimic test day flow</li>
-            <li>• Ongoing updates, study guides, and cheat sheets</li>
+            <li>• Ongoing updates, study guides, and slideshows</li>
           </ul>
 
           <div className="mt-6 rounded-xl border border-graysoft/30 bg-background p-4">

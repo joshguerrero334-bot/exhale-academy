@@ -99,13 +99,13 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
         <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Visual Study Guides</p>
           <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
-            Cheat Sheets
+            Slideshows
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-graysoft">
             PowerPoint-style visual study guides for respiratory therapy students who learn best with slides.
           </p>
-          <Link href="/cheat-sheets" className="btn-primary mt-4">
-            Open Cheat Sheets
+          <Link href="/slideshows" className="btn-primary mt-4">
+            Open Slideshows
           </Link>
         </section>
 
@@ -116,7 +116,7 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
             New board-prep tools are on the way
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-graysoft">
-            Study guides, cheat sheets, and additional features built to help you pass your boards on test day.
+            Study guides, slideshows, and additional features built to help you pass your boards on test day.
           </p>
           <Link href="/coming-soon" className="btn-secondary mt-4">
             View Coming Soon

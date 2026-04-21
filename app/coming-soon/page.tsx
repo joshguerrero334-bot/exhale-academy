@@ -33,7 +33,7 @@ export default function ComingSoonPage() {
           </article>
 
           <article className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm">
-            <h2 className={`${headingFont} text-xl font-semibold text-charcoal`}>Cheat Sheets</h2>
+            <h2 className={`${headingFont} text-xl font-semibold text-charcoal`}>Slideshows</h2>
             <p className="mt-2 text-sm text-graysoft">
               Quick-reference one-pagers for ABGs, vent settings, pediatric/neonatal norms, and critical algorithms.
             </p>

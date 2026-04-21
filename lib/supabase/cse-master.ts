@@ -19,6 +19,96 @@ export type CseMasterBlueprintPick = {
   blueprint_subcategory: string | null;
 };
 
+export type FocusedCsePracticeFamily = {
+  slug: string;
+  label: string;
+  eyebrow: string;
+  description: string;
+  caseCount: number;
+  match: {
+    categoryCodes?: string[];
+    includeAny?: string[];
+  };
+};
+
+export const focusedCsePracticeFamilies: FocusedCsePracticeFamily[] = [
+  {
+    slug: "obstructive-airway",
+    label: "Obstructive Airway",
+    eyebrow: "COPD + Asthma",
+    description: "Work through bronchospasm, air trapping, NPPV decisions, and escalation timing.",
+    caseCount: 5,
+    match: {
+      includeAny: ["copd", "asthma", "bronchospasm", "obstructive", "noninvasive", "nppv"],
+    },
+  },
+  {
+    slug: "trauma-chest-emergencies",
+    label: "Trauma + Chest Emergencies",
+    eyebrow: "Air leaks + blood loss",
+    description: "Practice tension pneumothorax, hemothorax, flail chest, and rapid deterioration.",
+    caseCount: 4,
+    match: {
+      categoryCodes: ["B"],
+      includeAny: ["trauma", "pneumothorax", "hemothorax", "flail", "contusion"],
+    },
+  },
+  {
+    slug: "ards-severe-hypoxemia",
+    label: "ARDS + Severe Hypoxemia",
+    eyebrow: "PEEP + oxygenation",
+    description: "Focus on refractory hypoxemia, ARDS patterns, pneumonia, aspiration, and ventilator strategy.",
+    caseCount: 5,
+    match: {
+      includeAny: ["ards", "hypoxemia", "pneumonia", "aspiration", "sepsis", "infectious"],
+    },
+  },
+  {
+    slug: "cardiovascular-shock",
+    label: "Cardiovascular + Shock",
+    eyebrow: "Perfusion + pulmonary edema",
+    description: "Train CHF, pulmonary edema, shock, and hemodynamic clues that change RT priorities.",
+    caseCount: 5,
+    match: {
+      categoryCodes: ["C"],
+      includeAny: ["cardio", "heart", "chf", "shock", "pulmonary-edema", "pulmonary edema", "mi", "embolism"],
+    },
+  },
+  {
+    slug: "neuro-ventilatory-failure",
+    label: "Neuro + Ventilatory Failure",
+    eyebrow: "Airway protection",
+    description: "Practice neuromuscular weakness, airway risk, ventilatory failure, and intubation timing.",
+    caseCount: 5,
+    match: {
+      categoryCodes: ["D"],
+      includeAny: ["neuro", "neuromuscular", "tetanus", "myasthenia", "guillain", "overdose", "head", "spinal"],
+    },
+  },
+  {
+    slug: "pediatric-airway-lower-airway",
+    label: "Pediatric Airway + Lower Airway",
+    eyebrow: "Kids + airway clues",
+    description: "Review croup, epiglottitis, bronchiolitis, CF, foreign body, and pediatric distress patterns.",
+    caseCount: 5,
+    match: {
+      categoryCodes: ["F"],
+      includeAny: ["pediatric", "croup", "epiglottitis", "bronchiolitis", "cystic", "foreign-body", "foreign body"],
+    },
+  },
+  {
+    slug: "neonatal-delivery-room",
+    label: "Neonatal + Delivery Room",
+    eyebrow: "Newborn transition",
+    description: "Practice Apgar logic, delivery room resuscitation, neonatal distress, IRDS, and meconium clues.",
+    caseCount: 5,
+    match: {
+      categoryCodes: ["G"],
+      includeAny: ["neonatal", "delivery", "newborn", "meconium", "prematurity", "irds", "resuscitation", "cdh"],
+    },
+  },
+];
+
 function shuffleArray<T>(rows: T[]) {
   const copy = [...rows];
   for (let i = copy.length - 1; i > 0; i -= 1) {
@@ -30,6 +120,27 @@ function shuffleArray<T>(rows: T[]) {
 
 function normalize(value: string | null | undefined) {
   return String(value ?? "").trim().toLowerCase();
+}
+
+function searchableCaseText(row: CseCasePoolRow) {
+  return [
+    row.slug,
+    row.title,
+    row.disease_slug,
+    row.nbrc_category_code,
+    row.nbrc_subcategory,
+  ]
+    .map((value) => normalize(value))
+    .join(" ");
+}
+
+function rowMatchesFocusedFamily(row: CseCasePoolRow, family: FocusedCsePracticeFamily) {
+  const category = normalize(row.nbrc_category_code);
+  const categoryMatch = (family.match.categoryCodes ?? []).some((code) => normalize(code) === category);
+  const haystack = searchableCaseText(row);
+  const keywordMatch = (family.match.includeAny ?? []).some((keyword) => haystack.includes(normalize(keyword)));
+
+  return categoryMatch || keywordMatch;
 }
 
 function subcategoryMatches(row: CseCasePoolRow, target: string) {
@@ -229,5 +340,57 @@ export async function generateCseMasterCaseBlueprint(
   return {
     rows,
     error: deficits.length > 0 ? `Partial subcategory fallback applied: ${deficits.join(" | ")}` : null,
+  };
+}
+
+export async function generateFocusedCseCaseSet(
+  client: SupabaseServerClient,
+  focusSlug: string
+) {
+  const family = focusedCsePracticeFamilies.find((entry) => entry.slug === focusSlug) ?? null;
+  if (!family) {
+    return {
+      rows: [] as CseMasterBlueprintPick[],
+      error: "Focused CSE practice category not found.",
+      family: null,
+    };
+  }
+
+  const { data, error } = await client
+    .from("cse_cases")
+    .select("id, slug, title, disease_slug, nbrc_category_code, nbrc_subcategory")
+    .eq("is_active", true)
+    .eq("is_published", true);
+
+  if (error) {
+    return {
+      rows: [] as CseMasterBlueprintPick[],
+      error: error.message,
+      family,
+    };
+  }
+
+  const pool = ((data ?? []) as CseCasePoolRow[]).filter((row) => row.id);
+  const matches = shuffleArray(pool.filter((row) => rowMatchesFocusedFamily(row, family)));
+  const rows = matches.slice(0, family.caseCount).map((row) => ({
+    case_id: row.id,
+    slug: String(row.slug ?? row.id),
+    title: String(row.title ?? "Untitled case"),
+    blueprint_category_code: String(row.nbrc_category_code ?? family.slug),
+    blueprint_subcategory: family.label,
+  }));
+
+  if (rows.length < 2) {
+    return {
+      rows,
+      error: `Not enough published cases are available for ${family.label} yet.`,
+      family,
+    };
+  }
+
+  return {
+    rows,
+    error: rows.length < family.caseCount ? `${family.label} currently has ${rows.length} available cases.` : null,
+    family,
   };
 }

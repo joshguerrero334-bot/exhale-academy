@@ -150,6 +150,7 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
       })
       .eq("id", masterAttemptId);
   }
+  const cseAttemptLabel = masterTotalCases && masterTotalCases >= 20 ? "Master CSE" : "Focused CSE";
 
   return (
     <main className="page-shell">
@@ -157,7 +158,7 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
         <section className="rounded-2xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6 shadow-sm sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">
             {masterAttemptId
-              ? `Master CSE · Case ${masterCaseIndex ?? "?"} of ${masterTotalCases ?? "?"}`
+              ? `${cseAttemptLabel} · Case ${masterCaseIndex ?? "?"} of ${masterTotalCases ?? "?"}`
               : (caseData.source ?? "cse")}
           </p>
           <h1 className="mt-2 text-3xl font-bold text-[color:var(--brand-navy)]">Case Complete</h1>
@@ -182,7 +183,7 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
           </div>
           <div className="mt-5 flex gap-3">
             <Link href="/cse/master" className="btn-secondary">
-              Back to Master CSE
+              Back to CSE Practice
             </Link>
             {masterAttemptId ? (
               <Link
@@ -193,11 +194,11 @@ export default async function CseAttemptCompletePage({ params }: PageProps) {
                 }
                 className="rounded-lg border border-[color:var(--brand-navy)] px-4 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)]"
               >
-                {masterIsCompleted ? "View Master Results" : "Next Master Case"}
+                {masterIsCompleted ? "View Results" : "Next Case"}
               </Link>
             ) : (
               <Link href="/cse/master" className="rounded-lg border border-[color:var(--brand-gold)] px-4 py-2.5 text-sm font-semibold text-[color:var(--brand-navy)]">
-                Start New Master Attempt
+                Start New CSE Attempt
               </Link>
             )}
           </div>

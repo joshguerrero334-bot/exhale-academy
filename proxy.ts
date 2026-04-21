@@ -45,7 +45,7 @@ function requiresSubscription(pathname: string) {
   if (pathname.startsWith("/master-test")) return true;
   if (pathname.startsWith("/cse")) return true;
   if (pathname.startsWith("/flashcards")) return true;
-  if (pathname.startsWith("/cheat-sheets")) return true;
+  if (pathname.startsWith("/slideshows")) return true;
   return false;
 }
 

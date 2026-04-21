@@ -122,6 +122,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
   const isMasterCase = Boolean(masterLink && masterMeta);
   const masterCaseIndex = isMasterCase ? Number(masterLink?.order_index ?? 0) + 1 : null;
   const masterTotalCases = isMasterCase ? Number(masterMeta?.total_cases ?? 20) : null;
+  const cseAttemptLabel = masterTotalCases && masterTotalCases >= 20 ? "Master CSE" : "Focused CSE";
   const displayCaseTitle =
     isMasterCase && masterCaseIndex && masterTotalCases
       ? `Case ${masterCaseIndex} of ${masterTotalCases}`
@@ -194,7 +195,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">
                     {isMasterCase
-                      ? `Master CSE · Case ${masterCaseIndex} of ${masterTotalCases} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`
+                      ? `${cseAttemptLabel} · Case ${masterCaseIndex} of ${masterTotalCases} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`
                       : `Scenario · ${caseData.source ?? "cse"} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`}
                   </p>
                   <h1 className="mt-2 text-2xl font-bold text-[color:var(--brand-navy)]">{displayCaseTitle}</h1>
@@ -354,7 +355,7 @@ export default async function CseAttemptPlayerPage({ params, searchParams }: Pag
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-navy)]">
                 {isMasterCase
-                  ? `Master CSE · Case ${masterCaseIndex} of ${masterTotalCases} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`
+                  ? `${cseAttemptLabel} · Case ${masterCaseIndex} of ${masterTotalCases} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`
                   : `Scenario · ${caseData.source ?? "cse"} · ${attempt.mode === "tutor" ? "Tutor" : "Exam"} Mode`}
               </p>
               <h1 className="mt-2 text-2xl font-bold text-[color:var(--brand-navy)]">{displayCaseTitle}</h1>

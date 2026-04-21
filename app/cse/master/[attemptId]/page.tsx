@@ -11,6 +11,7 @@ type MasterAttemptRow = {
   user_id: string;
   mode: "tutor" | "exam";
   status: "in_progress" | "completed";
+  total_cases: number;
 };
 
 type MasterAttemptCaseRow = {
@@ -106,7 +107,7 @@ export default async function CseMasterAttemptOrchestratorPage({ params }: PageP
 
   const { data: attemptData, error: attemptError } = await supabase
     .from("cse_master_attempts")
-    .select("id, user_id, mode, status")
+    .select("id, user_id, mode, status, total_cases")
     .eq("id", attemptId)
     .maybeSingle();
 
@@ -130,7 +131,8 @@ export default async function CseMasterAttemptOrchestratorPage({ params }: PageP
   }
 
   const items = itemData as MasterAttemptCaseRow[];
-  if (items.length < 20) {
+  const expectedTotal = Math.max(Number(attempt.total_cases ?? items.length), 1);
+  if (items.length < expectedTotal) {
     const completedCases = items.filter((row) => row.status === "completed").length;
     const totalScore = items.reduce((sum, row) => sum + Number(row.case_score ?? 0), 0);
     await supabase
@@ -143,7 +145,7 @@ export default async function CseMasterAttemptOrchestratorPage({ params }: PageP
       })
       .eq("id", attempt.id);
     redirect(
-      "/cse/master?error=This%20master%20attempt%20was%20created%20before%20the%2020-case%20update.%20Please%20start%20a%20new%20master%20attempt."
+      "/cse/master?error=This%20CSE%20attempt%20has%20an%20incomplete%20case%20set.%20Please%20start%20a%20new%20attempt."
     );
   }
 

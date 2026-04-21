@@ -96,6 +96,19 @@ export default async function DashboardHubPage({ searchParams }: HubPageProps) {
           </Link>
         </section>
 
+        <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Visual Study Guides</p>
+          <h2 className={`${headingFont} mt-2 text-xl font-semibold text-charcoal sm:text-2xl`}>
+            Cheat Sheets
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-graysoft">
+            PowerPoint-style visual study guides for respiratory therapy students who learn best with slides.
+          </p>
+          <Link href="/cheat-sheets" className="btn-primary mt-4">
+            Open Cheat Sheets
+          </Link>
+        </section>
+
 
         <section className="rounded-2xl border border-graysoft/30 bg-white p-5 shadow-sm sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coming Soon</p>

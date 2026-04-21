@@ -4,6 +4,7 @@ import AppHeader from "../components/AppHeader";
 import SiteFooter from "../components/SiteFooter";
 import { inter, playfair } from "../lib/fonts";
 import { getSiteUrl } from "../lib/site";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
@@ -59,6 +60,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <SiteFooter />
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );

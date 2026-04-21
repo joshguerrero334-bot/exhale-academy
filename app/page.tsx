@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "CSE clinical simulations",
     "TMC flashcards",
     "respiratory therapy flashcards",
+    "free TMC practice questions",
+    "free CSE clinical simulation preview",
+    "free respiratory therapy flashcards",
   ],
   alternates: {
     canonical: "/",
@@ -120,6 +123,60 @@ export default async function Home() {
                   Fresh, structured RT prep aligned with current NBRC content and real bedside practice.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1460px] px-4 py-10 sm:px-10 lg:px-20">
+        <div className="overflow-hidden rounded-[28px] border border-primary/25 bg-[radial-gradient(circle_at_top_left,_rgba(103,208,204,0.24),_transparent_42%),linear-gradient(135deg,#ffffff_0%,#f6fbfb_55%,#eef8f7_100%)] p-5 shadow-sm sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1.05fr,1fr] lg:items-center">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Try Exhale For Free</p>
+              <h3 className={`${headingFont} mt-2 text-3xl font-semibold leading-tight text-charcoal sm:text-4xl`}>
+                Preview the inside before you subscribe
+              </h3>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-graysoft sm:text-base">
+                Try a fixed free sample of Exhale Academy&apos;s respiratory therapy exam prep: 10 free TMC practice
+                questions, 2 real CSE clinical simulation previews, and 10 free respiratory therapy flashcards.
+                The preview stays the same every time, so students can see the product without exposing the full
+                TMC question bank, Master CSE case pool, or flashcard library.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href="/preview/tmc-practice-questions" className="btn-primary px-6 py-3 text-center">
+                  Try 10 Free TMC Questions
+                </Link>
+                <Link href="/preview/cse-scenarios" className="btn-secondary px-6 py-3 text-center">
+                  Preview 2 CSE Cases
+                </Link>
+                <Link href="/preview/flashcards" className="btn-secondary px-6 py-3 text-center">
+                  Try 10 Free Flashcards
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              <article className="rounded-2xl border border-graysoft/25 bg-white/90 p-4 shadow-sm">
+                <p className="text-2xl font-semibold text-charcoal">10</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">Free TMC Questions</p>
+                <p className="mt-2 text-sm leading-relaxed text-graysoft">
+                  Board-style questions with answer reveal and rationale.
+                </p>
+              </article>
+              <article className="rounded-2xl border border-graysoft/25 bg-white/90 p-4 shadow-sm">
+                <p className="text-2xl font-semibold text-charcoal">2</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">Real CSE Cases</p>
+                <p className="mt-2 text-sm leading-relaxed text-graysoft">
+                  Fixed full-case previews using the same branching case content.
+                </p>
+              </article>
+              <article className="rounded-2xl border border-graysoft/25 bg-white/90 p-4 shadow-sm">
+                <p className="text-2xl font-semibold text-charcoal">10</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">Free Flashcards</p>
+                <p className="mt-2 text-sm leading-relaxed text-graysoft">
+                  One-click cards for fast respiratory therapy board review.
+                </p>
+              </article>
             </div>
           </div>
         </div>

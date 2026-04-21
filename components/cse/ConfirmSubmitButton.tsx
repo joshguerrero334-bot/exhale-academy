@@ -15,12 +15,13 @@ export default function ConfirmSubmitButton({
 }: ConfirmSubmitButtonProps) {
   return (
     <button
-      type="button"
+      type="submit"
+      form={formId}
       className={className}
-      onClick={() => {
-        if (!window.confirm(confirmText)) return;
-        const form = document.getElementById(formId) as HTMLFormElement | null;
-        form?.requestSubmit();
+      onClick={(event) => {
+        if (!window.confirm(confirmText)) {
+          event.preventDefault();
+        }
       }}
     >
       {label}

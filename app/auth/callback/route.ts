@@ -33,7 +33,11 @@ export async function GET(request: Request) {
         `${baseUrl}/login?error=${encodeURIComponent("Email verification failed. Please request a new link.")}`
       );
     }
-    return NextResponse.redirect(`${baseUrl}${withQuery(next, "message", "Email verified successfully.")}`);
+    return NextResponse.redirect(
+      `${baseUrl}/auth/confirmed?next=${encodeURIComponent(
+        withQuery(next, "message", "Email verified successfully.")
+      )}`
+    );
   }
 
   return NextResponse.redirect(

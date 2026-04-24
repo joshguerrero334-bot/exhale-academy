@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import { getSiteUrl } from "./site";
 
 const CHECKED_CONTEXTS = new Set<string>();
 
@@ -42,7 +43,7 @@ export function getBaseUrl(request?: Request) {
     return withProtocol.replace(/\/+$/, "");
   }
 
-  if (!request) return "http://localhost:3000";
+  if (!request) return getSiteUrl();
 
   const requestUrl = new URL(request.url);
   return requestUrl.origin.replace(/\/+$/, "");

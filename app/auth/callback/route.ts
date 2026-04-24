@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getSiteUrl } from "../../../lib/site";
 import { createClient } from "../../../lib/supabase/server";
 
 function sanitizeNext(raw: string | null) {
@@ -10,8 +11,17 @@ function sanitizeNext(raw: string | null) {
 function getBaseUrl(request: Request) {
   const explicit = String(process.env.NEXT_PUBLIC_SITE_URL ?? "").trim();
   if (explicit) return explicit.replace(/\/+$/, "");
+  const vercelUrl = String(process.env.VERCEL_URL ?? "").trim();
+  if (vercelUrl) {
+    const withProtocol = /^https?:\/\//.test(vercelUrl) ? vercelUrl : `https://${vercelUrl}`;
+    return withProtocol.replace(/\/+$/, "");
+  }
   const requestUrl = new URL(request.url);
-  return `${requestUrl.protocol}//${requestUrl.host}`;
+  const origin = `${requestUrl.protocol}//${requestUrl.host}`;
+  if (process.env.NODE_ENV === "production" && origin.includes("localhost")) {
+    return getSiteUrl();
+  }
+  return origin;
 }
 
 function withQuery(path: string, key: string, value: string) {

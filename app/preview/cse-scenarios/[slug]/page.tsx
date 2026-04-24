@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { headingFont } from "../../../../lib/fonts";
-import { createClient } from "../../../../lib/supabase/server";
+import { createAdminClient } from "../../../../lib/supabase/admin";
 import {
+  type CseOptionRow,
+  type CseOutcomeRow,
   evaluateOutcomesForStep,
-  fetchStepOptions,
-  fetchStepOutcomes,
   parseVitalsState,
 } from "../../../../lib/supabase/cse";
 import { previewCseCases } from "../../../../lib/preview/free-preview-content";
@@ -149,7 +149,7 @@ export default async function FreeCseScenarioPlayerPage({ params, searchParams }
   const allowed = previewCseCases.some((previewCase) => previewCase.slug === canonicalSlug);
   if (!allowed) notFound();
 
-  const supabase = await createClient();
+  const supabase = createAdminClient();
   const { data: caseData, error: caseError } = await supabase
     .from("cse_cases")
     .select("id, slug, title, stem, intro_text, baseline_vitals")
@@ -180,15 +180,29 @@ export default async function FreeCseScenarioPlayerPage({ params, searchParams }
   const submitted = selectedKeys.length > 0;
   const baselineVitals = parseVitalsState(previewCase.baseline_vitals);
   const currentVitals = parseVitalsFromQuery(query.v, baselineVitals);
-  const optionsResult = await fetchStepOptions(supabase, currentStep.id);
-  const outcomesResult = await fetchStepOutcomes(supabase, currentStep.id);
-  const options = optionsResult.rows;
+  const [{ data: optionsRaw, error: optionsError }, { data: outcomesRaw, error: outcomesError }] = await Promise.all([
+    supabase
+      .from("cse_options")
+      .select("id, step_id, option_key, option_text, score, rationale, created_at")
+      .eq("step_id", currentStep.id)
+      .order("option_key", { ascending: true }),
+    supabase
+      .from("cse_outcomes")
+      .select("id, step_id, label, rule_priority, rule_type, rule_value, next_step_id, outcome_text, vitals_override, created_at")
+      .eq("step_id", currentStep.id)
+      .order("rule_priority", { ascending: true }),
+  ]);
+  const options = (optionsRaw ?? []) as CseOptionRow[];
+  const outcomes = (outcomesRaw ?? []) as CseOutcomeRow[];
+  if (optionsError || outcomesError || options.length === 0) {
+    redirect("/preview/cse-scenarios?error=Case%20preview%20options%20are%20not%20available");
+  }
   const maxSelect = Number(currentStep.max_select ?? (currentStep.step_type === "IG" ? 3 : 1));
   const selectedOptions = options.filter((option) => selectedKeys.includes(option.option_key.toUpperCase()));
   const selectionIsValid = submitted && selectedOptions.length === selectedKeys.length && selectedOptions.length <= maxSelect;
   const stepScore = selectedOptions.reduce((sum, option) => sum + Number(option.score ?? 0), 0);
-  const evaluated = selectionIsValid && outcomesResult.rows.length > 0
-    ? evaluateOutcomesForStep({ outcomes: outcomesResult.rows, selectedKeys, stepScore })
+  const evaluated = selectionIsValid && outcomes.length > 0
+    ? evaluateOutcomesForStep({ outcomes, selectedKeys, stepScore })
     : null;
   const vitalsAfter = evaluated?.vitalsOverride ?? currentVitals;
   const currentVitalsState = serializeVitals(currentVitals);

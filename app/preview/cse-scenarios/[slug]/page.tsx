@@ -54,6 +54,10 @@ type StepRevealMetadata = {
   extra_reveals?: RevealRule[];
 };
 
+const PREVIEW_CASE_ALIASES: Record<string, string> = {
+  "case-16-trauma-critical-tension-pneumothorax": "trauma-critical-tension-pneumothorax",
+};
+
 function parseSelected(raw: string | string[] | undefined) {
   const joined = Array.isArray(raw) ? raw.join(",") : String(raw ?? "");
   return joined
@@ -141,14 +145,15 @@ function buildDynamicFindings(args: {
 
 export default async function FreeCseScenarioPlayerPage({ params, searchParams }: PageProps) {
   const [{ slug }, query] = await Promise.all([params, searchParams]);
-  const allowed = previewCseCases.some((previewCase) => previewCase.slug === slug);
+  const canonicalSlug = PREVIEW_CASE_ALIASES[slug] ?? slug;
+  const allowed = previewCseCases.some((previewCase) => previewCase.slug === canonicalSlug);
   if (!allowed) notFound();
 
   const supabase = await createClient();
   const { data: caseData, error: caseError } = await supabase
     .from("cse_cases")
     .select("id, slug, title, stem, intro_text, baseline_vitals")
-    .eq("slug", slug)
+    .eq("slug", canonicalSlug)
     .eq("is_active", true)
     .eq("is_published", true)
     .maybeSingle();
@@ -306,12 +311,12 @@ export default async function FreeCseScenarioPlayerPage({ params, searchParams }
                 </div>
                 <div className="mt-6 flex flex-wrap gap-3">
                   {nextStep ? (
-                    <Link href={`/preview/cse-scenarios/${slug}?step=${encodeURIComponent(nextStep.id)}&v=${nextVitalsState}`} className="btn-primary">
+                    <Link href={`/preview/cse-scenarios/${canonicalSlug}?step=${encodeURIComponent(nextStep.id)}&v=${nextVitalsState}`} className="btn-primary">
                       Continue to Step {nextStep.step_order}
                     </Link>
                   ) : null}
                   {completed ? <Link href="/signup" className="btn-primary">Unlock the Full CSE Bank</Link> : null}
-                  <Link href={`/preview/cse-scenarios/${slug}?step=${encodeURIComponent(currentStep.id)}&v=${currentVitalsState}`} className="btn-secondary">
+                  <Link href={`/preview/cse-scenarios/${canonicalSlug}?step=${encodeURIComponent(currentStep.id)}&v=${currentVitalsState}`} className="btn-secondary">
                     Retry This Step
                   </Link>
                 </div>

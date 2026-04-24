@@ -10,7 +10,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/preview/cse-scenarios" },
 };
 
-export default function FreeCseScenariosPage() {
+type FreeCseScenariosPageProps = {
+  searchParams: Promise<{ error?: string }>;
+};
+
+export default async function FreeCseScenariosPage({ searchParams }: FreeCseScenariosPageProps) {
+  const query = await searchParams;
+
   return (
     <main className="min-h-screen bg-background text-charcoal">
       <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-8 sm:px-6 lg:px-8">
@@ -26,6 +32,11 @@ export default function FreeCseScenariosPage() {
             <Link href="/signup" className="btn-primary">Unlock Full CSE Prep</Link>
             <Link href="/" className="btn-secondary">Back to Home</Link>
           </div>
+          {query.error ? (
+            <div className="mt-4 rounded-xl border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+              {query.error}
+            </div>
+          ) : null}
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">

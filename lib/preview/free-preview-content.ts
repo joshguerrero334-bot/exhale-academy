@@ -117,7 +117,7 @@ export const previewCseCases = [
     description: "A real branching CSE case focused on worsening bronchospasm, reassessment, and escalation timing.",
   },
   {
-    slug: "case-16-trauma-critical-tension-pneumothorax",
+    slug: "trauma-critical-tension-pneumothorax",
     label: "Trauma Chest Emergency",
     description: "A real branching CSE case focused on trauma assessment, chest findings, and urgent intervention.",
   },

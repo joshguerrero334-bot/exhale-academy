@@ -152,6 +152,9 @@ export default async function Home() {
                 <Link href="/preview/flashcards" className="btn-secondary px-6 py-3 text-center">
                   Try 10 Free Flashcards
                 </Link>
+                <Link href="/free-cse-slideshows" className="btn-secondary px-6 py-3 text-center">
+                  View Free CSE Slides
+                </Link>
               </div>
             </div>
 

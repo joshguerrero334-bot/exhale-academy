@@ -10,6 +10,7 @@ type SlideDeckViewerProps = {
 export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
   const [index, setIndex] = useState(0);
   const [failedImages, setFailedImages] = useState<Set<string>>(() => new Set());
+  const [retryVersions, setRetryVersions] = useState<Record<string, number>>({});
   const current = slides[index];
   const hasSlides = slides.length > 0;
 
@@ -37,6 +38,20 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
   }
 
   const imageFailed = failedImages.has(current.src);
+  const retryVersion = retryVersions[current.src] ?? 0;
+  const imageSrc = retryVersion > 0 ? `${current.src}?retry=${retryVersion}` : current.src;
+
+  function retryCurrentImage() {
+    setFailedImages((previous) => {
+      const next = new Set(previous);
+      next.delete(current.src);
+      return next;
+    });
+    setRetryVersions((previous) => ({
+      ...previous,
+      [current.src]: (previous[current.src] ?? 0) + 1,
+    }));
+  }
 
   return (
     <section className="rounded-2xl border border-graysoft/30 bg-white p-4 shadow-sm sm:p-6">
@@ -94,13 +109,37 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
             <p className="mt-2 max-w-md text-xs leading-relaxed text-graysoft">
               Expected file: <span className="font-mono text-charcoal">{current.src}</span>
             </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={retryCurrentImage}
+                className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
+              >
+                Retry Image
+              </button>
+              <a
+                href={current.src}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-lg border border-primary/40 bg-white px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/5"
+              >
+                Open Image
+              </a>
+            </div>
           </div>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={current.src}
+            src={imageSrc}
             alt={current.alt}
             className="aspect-video w-full bg-white object-contain"
+            onLoad={() => {
+              setFailedImages((previous) => {
+                const next = new Set(previous);
+                next.delete(current.src);
+                return next;
+              });
+            }}
             onError={() => {
               setFailedImages((previous) => new Set(previous).add(current.src));
             }}

@@ -17,6 +17,7 @@ function isPublicPath(pathname: string) {
   if (PUBLIC_PATHS.has(pathname)) return true;
   if (pathname === "/blog" || pathname.startsWith("/blog/")) return true;
   if (pathname === "/preview" || pathname.startsWith("/preview/")) return true;
+  if (pathname.startsWith("/slideshows/cse-cheat-sheets/") && pathname.endsWith(".png")) return true;
   if (pathname.startsWith("/auth")) return true;
   if (pathname === "/robots.txt" || pathname === "/sitemap.xml") return true;
   if (pathname.startsWith("/_next")) return true;

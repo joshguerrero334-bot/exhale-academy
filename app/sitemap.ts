@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "",
     "/about",
     "/blog",
-    "/free-cse-slideshows",
+    "/free-cse-pdf-guides",
     "/login",
     "/signup",
     "/privacy",
@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${base}${pathname || "/"}`,
     lastModified: new Date(),
     changeFrequency: pathname === "/blog" || pathname === "" ? "weekly" : "monthly",
-    priority: pathname === "" ? 1 : pathname === "/blog" || pathname === "/free-cse-slideshows" ? 0.9 : 0.6,
+    priority: pathname === "" ? 1 : pathname === "/blog" || pathname === "/free-cse-pdf-guides" ? 0.9 : 0.6,
   }));
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({

@@ -43,9 +43,31 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{progressLabel}</p>
+          {current.category ? (
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{current.category}</p>
+          ) : null}
           <h2 className="mt-1 text-lg font-semibold text-charcoal">{current.title}</h2>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          {slides.length > 1 ? (
+            <label className="sr-only" htmlFor="slide-jump">
+              Jump to slide
+            </label>
+          ) : null}
+          {slides.length > 1 ? (
+            <select
+              id="slide-jump"
+              value={index}
+              onChange={(event) => setIndex(Number(event.target.value))}
+              className="rounded-lg border border-graysoft/30 bg-white px-3 py-2 text-sm font-semibold text-charcoal shadow-sm outline-none transition focus:border-primary"
+            >
+              {slides.map((slide, slideIndex) => (
+                <option key={slide.src} value={slideIndex}>
+                  {slideIndex + 1}. {slide.title}
+                </option>
+              ))}
+            </select>
+          ) : null}
           <button
             type="button"
             onClick={() => setIndex((value) => Math.max(value - 1, 0))}
@@ -86,7 +108,7 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
         )}
       </div>
 
-      <div className="mt-4 grid grid-cols-7 gap-2" aria-label="Slide navigation">
+      <div className="mt-4 grid grid-cols-8 gap-2 sm:grid-cols-12" aria-label="Slide navigation">
         {slides.map((slide, slideIndex) => (
           <button
             key={slide.src}

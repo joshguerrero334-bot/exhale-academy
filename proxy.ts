@@ -10,6 +10,7 @@ const PUBLIC_PATHS = new Set([
   "/terms",
   "/privacy",
   "/coming-soon",
+  "/free-cse-slideshows",
 ]);
 
 function isPublicPath(pathname: string) {

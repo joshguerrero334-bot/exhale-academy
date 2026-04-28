@@ -7,9 +7,11 @@ type SlideDeckViewerProps = {
   slides: SlideshowSlide[];
 };
 
+const imageCacheVersion = "2026-04-28-cse-slides";
+
 export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
   const [index, setIndex] = useState(0);
-  const [failedImages, setFailedImages] = useState<Set<string>>(() => new Set());
+  const [failedImageSrc, setFailedImageSrc] = useState<string | null>(null);
   const [retryVersions, setRetryVersions] = useState<Record<string, number>>({});
   const current = slides[index];
   const hasSlides = slides.length > 0;
@@ -33,20 +35,20 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [slides.length]);
 
+  useEffect(() => {
+    setFailedImageSrc(null);
+  }, [current?.src]);
+
   if (!hasSlides || !current) {
     return null;
   }
 
-  const imageFailed = failedImages.has(current.src);
+  const imageFailed = failedImageSrc === current.src;
   const retryVersion = retryVersions[current.src] ?? 0;
-  const imageSrc = retryVersion > 0 ? `${current.src}?retry=${retryVersion}` : current.src;
+  const imageSrc = `${current.src}?v=${imageCacheVersion}&retry=${retryVersion}`;
 
   function retryCurrentImage() {
-    setFailedImages((previous) => {
-      const next = new Set(previous);
-      next.delete(current.src);
-      return next;
-    });
+    setFailedImageSrc(null);
     setRetryVersions((previous) => ({
       ...previous,
       [current.src]: (previous[current.src] ?? 0) + 1,
@@ -102,9 +104,22 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
         </div>
       </div>
 
-      <div className="mt-5 overflow-hidden rounded-2xl border border-graysoft/30 bg-slate-50">
+      <div className="relative mt-5 overflow-hidden rounded-2xl border border-graysoft/30 bg-slate-50">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          key={imageSrc}
+          src={imageSrc}
+          alt={current.alt}
+          className="aspect-video w-full bg-white object-contain"
+          onLoad={() => {
+            setFailedImageSrc(null);
+          }}
+          onError={() => {
+            setFailedImageSrc(current.src);
+          }}
+        />
         {imageFailed ? (
-          <div className="flex aspect-video flex-col items-center justify-center p-6 text-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-50/95 p-6 text-center">
             <p className="text-sm font-semibold text-charcoal">Slide image not found yet</p>
             <p className="mt-2 max-w-md text-xs leading-relaxed text-graysoft">
               Expected file: <span className="font-mono text-charcoal">{current.src}</span>
@@ -127,24 +142,7 @@ export default function SlideDeckViewer({ slides }: SlideDeckViewerProps) {
               </a>
             </div>
           </div>
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={imageSrc}
-            alt={current.alt}
-            className="aspect-video w-full bg-white object-contain"
-            onLoad={() => {
-              setFailedImages((previous) => {
-                const next = new Set(previous);
-                next.delete(current.src);
-                return next;
-              });
-            }}
-            onError={() => {
-              setFailedImages((previous) => new Set(previous).add(current.src));
-            }}
-          />
-        )}
+        ) : null}
       </div>
 
       <div className="mt-4 grid grid-cols-8 gap-2 sm:grid-cols-12" aria-label="Slide navigation">
